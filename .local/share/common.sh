@@ -6,7 +6,7 @@ HISTFILESIZE=100000
 alias  lh='ls -alh'
 
 # Exit ranger in current dir
-alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+alias ranger='ranger --choosedir=$HOME/.local/share/rangerdir; LASTDIR=`cat $HOME/.local/share/rangerdir`; cd "$LASTDIR"'
 # Shortcut for quick conda activation
 conda_deactivate () {
 	while [ -n "$CONDA_DEFAULT_ENV" ]; do

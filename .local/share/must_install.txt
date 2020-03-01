@@ -11,3 +11,4 @@ chrome-gnome-shell
 vim-gnome
 fonts-powerline
 alacritty
+feh

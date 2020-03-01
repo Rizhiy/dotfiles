@@ -354,3 +354,6 @@ exec --no-startup-id /usr/bin/regolith-ftue
 
 # Hide the mouse pointer if unused for a duration
 exec --no-startup-id /usr/bin/unclutter -b
+
+# Set custom wallpaper
+exec --no-startup-id feh --bg-fill ~/Pictures/mountains-wallpaper.jpg

@@ -2,7 +2,7 @@
 	path = .local/share/antigen
 	url = https://github.com/zsh-users/antigen.git
 [submodule ".local/share/Vundle.vim"]
-	path = .local/share/Vundle.vim
+	path = .vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule ".local/share/awesome-terminal-fonts"]
 	path = .local/share/awesome-terminal-fonts
