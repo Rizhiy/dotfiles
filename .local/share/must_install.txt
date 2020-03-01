@@ -1,0 +1,13 @@
+zsh
+htop
+vim
+tmux
+cmake
+git
+build-essential
+curl
+wget
+chrome-gnome-shell
+vim-gnome
+fonts-powerline
+alacritty

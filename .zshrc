@@ -2,17 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM='xterm-256color'
 
-# Set config install directory
-SOURCE=${(%):-%N}
-while [ -h "$SOURCE" ]; do
-DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-SOURCE="$(readlink "$SOURCE")"
-  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
-done
-DOTFILES_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 # Set fzf installation directory path
-export FZF_BASE=$DOTFILES_DIR/fzf
+export FZF_BASE=$HOME/.local/share/fzf
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/rizhiy/.oh-my-zsh
@@ -20,7 +12,7 @@ export ZSH=/home/rizhiy/.oh-my-zsh
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 
 # Install plugins
-source "$DOTFILES_DIR"/antigen/antigen.zsh
+source $HOME/.local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle fzf
@@ -152,7 +144,7 @@ source $ZSH/oh-my-zsh.sh
 # Remove shared history
 unsetopt share_history
 
-source $DOTFILES_DIR/common.sh
+source $HOME/.local/share/common.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
