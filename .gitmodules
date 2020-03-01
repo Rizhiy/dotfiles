@@ -1,0 +1,15 @@
+[submodule ".local/share/antigen"]
+	path = .local/share/antigen
+	url = https://github.com/zsh-users/antigen.git
+[submodule ".local/share/Vundle.vim"]
+	path = .local/share/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule ".local/share/awesome-terminal-fonts"]
+	path = .local/share/awesome-terminal-fonts
+	url = https://github.com/gabrielelana/awesome-terminal-fonts.git
+[submodule ".local/share/fzf"]
+	path = .local/share/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule ".local/share/tpm"]
+	path = .local/share/tpm
+	url = https://github.com/tmux-plugins/tpm.git
