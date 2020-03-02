@@ -33,8 +33,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Scheme
 Plugin 'vim-airline/vim-airline'
 " Fzf
-set rtp+=~/config/fzf
-Plugin 'junegunn/fzf.vim'
+set rtp+=~/.local/share/fzf
+Plugin 'junegunn/fzf'
 " Useful file operations
 Plugin 'tpope/vim-eunuch'
 " Comments
@@ -45,6 +45,9 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'tmux-plugins/vim-tmux'
 " Reload after reboot
 Plugin 'tpope/vim-obsession'
+" Undo tree
+Plugin 'mbbill/undotree'
+nnoremap <leader>u :UndotreeToggle<cr>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -93,46 +96,14 @@ set scrolloff=5
 if has('reltime')
   set incsearch
 endif
+" Highlight all matches
+set hlsearch
+" Remove sarch highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Do not recognize octal numbers for Ctrl-A and Ctrl-X, most users find it
 " confusing.
 set nrformats-=octal
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  " Revert with ":filetype off".
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that you can revert them with:
-  " ":augroup vimStartup | au! | augroup END"
-  augroup vimStartup
-    au!
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
-
-  augroup END
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-" Revert with: ":delcommand DiffOrig".
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
 
 " Paste without messing with indentaion
 let &t_SI .= "\<Esc>[?2004h"
@@ -164,3 +135,25 @@ set directory=/tmp
 
 " use system clipboard
 set clipboard=unnamedplus
+
+" Highlight current line
+set cursorline
+
+" Redraw less
+set lazyredraw
+
+" Folding
+set foldenable
+set foldmethod=indent
+set foldlevelstart=10
+set foldnestmax=10
+nnoremap <space> za
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
