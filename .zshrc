@@ -150,3 +150,6 @@ source $HOME/.local/share/common.sh
 
 # dotfiles bare repository
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+# Disable pause
+stty -ixon
