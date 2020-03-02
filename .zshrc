@@ -157,5 +157,5 @@ stty -ixon
 # Function to install required programs
 install_standard() {
 	sudo apt-get update
-	xargs sudo apt-get install < $HOME/.local/share/must_install.txt
+	xargs sudo apt-get install -y < $HOME/.local/share/must_install.txt
 }
