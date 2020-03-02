@@ -44,9 +44,8 @@
 
 ! -- Applications
 ! These files map values defined above into specific app settings.
-#include "/etc/regolith/styles/st-term"
-#include "/home/rizhiy/.config/regolith/i3-wm/config"
-#include "/etc/regolith/styles/i3xrocks"
+#include "/home/rizhiy/.config/regolith/i3-wm/style"
+#include "/home/rizhiy/.config/regolith/i3xrocks/style"
 #include "/etc/regolith/styles/rofi"
 #include "/etc/regolith/styles/gnome"
 
