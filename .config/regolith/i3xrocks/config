@@ -43,6 +43,10 @@ label_color=xresource:i3xrocks.label.color
 #instance=wlp3s0 Replace with your wifi device if you need
 interval=1
 
+# Display network load
+[nettraffic]
+interval=1
+
 # Keyboard layout
 #
 # Displays current keyboard layout.
@@ -58,6 +62,10 @@ interval=1
 min_width=100%
 #separator=false
 
+# Memory
+[memory]
+interval=1
+
 # Battery indicator
 #
 # Displays total percentage charge left across all batteries.
@@ -68,7 +76,7 @@ min_width=100%
 # To display est. time remaining, uncomment "display_time_left".
 #
 # To display the battery icon only, uncomment "icon_only".
-[battery2]
+[battery3]
 interval=10
 display_time_left=true
 percent_color=true
@@ -76,5 +84,5 @@ percent_color=true
 
 # Date Time
 #
-[time]
+[time2]
 interval=1
