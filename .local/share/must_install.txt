@@ -12,3 +12,4 @@ vim-gnome
 fonts-powerline
 alacritty
 feh
+compton

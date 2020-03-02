@@ -139,7 +139,7 @@ bindsym $mod+$alt+9 move container to workspace number $ws9; workspace number $w
 bindsym $mod+$alt+0 move container to workspace number $ws0; workspace number $ws0
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec xrdb -merge ~/.Xresources-regolith && i3 reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -214,8 +214,8 @@ mode "Resize Mode" {
 bindsym $mod+r mode "Resize Mode"
 
 # Disable titlebar
-new_window pixel 1
-new_float pixel 1
+default_border pixel 1
+default_floating_border pixel 1
 
 # Specify the distance between windows in pixels. (i3-gaps)
 gaps inner 5
@@ -323,7 +323,7 @@ exec --no-startup-id /usr/bin/regolith-ftue
 exec --no-startup-id /usr/bin/unclutter -b
 
 # Set custom wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/mountains-wallpaper.jpg
+exec --no-startup-id feh --bg-fill $HOME/.local/share/mountains-wallpaper.jpg
 
 # Assign workspaces to monitors
 set $monitor_left "DP-2"
