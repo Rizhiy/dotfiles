@@ -23,7 +23,7 @@ python ~/.vim/bundle/youcompleteme/install.py --clangd-completer &>/dev/null & d
 grep_end="\[include\]\n\tpath = .gitconfig-general\n"
 insert_end="[include]\n\tpath = .gitconfig-general\n"
 if [[ -z "$( grep -Pzo "$grep_end" "$HOME"/.gitconfig | tr '\0' '\n' )" ]]; then
-    echo "$insert_end" >> "$HOME"/.gitconfig
+	printf "$insert_end" >> "$HOME"/.gitconfig
 fi
 
 cd "$HOME/.local/share/awesome-terminal-fonts"
@@ -36,8 +36,4 @@ cd "$HOME/.local/share/fzf"
 ./install &>/dev/null & disown;
 cd -
 
-# Function to install required programs
-install_standard() {
-	sudo apt-get update
-	xargs sudo apt-get install < $HOME/.local/share/must_install.txt
-}
+
