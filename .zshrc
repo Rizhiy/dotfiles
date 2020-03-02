@@ -153,3 +153,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # Disable pause
 stty -ixon
+
+# Function to install required programs
+install_standard() {
+	sudo apt-get update
+	xargs sudo apt-get install < $HOME/.local/share/must_install.txt
+}
