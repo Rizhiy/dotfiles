@@ -156,8 +156,8 @@ stty -ixon
 
 # Function to install required programs
 install_standard() {
-	sudo add-apt-repository ppa:mmstick76/alacritty
-	sudo add-apt-repository ppa:regolith-linux/release
+	sudo add-apt-repository ppa:mmstick76/alacritty -n -y
+	sudo add-apt-repository ppa:regolith-linux/release -n -y
 	sudo apt-get update
 	xargs sudo apt-get install -y < $HOME/.local/share/must_install.txt
 }
