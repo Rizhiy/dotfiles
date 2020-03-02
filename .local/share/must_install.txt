@@ -13,3 +13,5 @@ fonts-powerline
 alacritty
 feh
 compton
+regolith-desktop
+regolith-look-solarized-dark

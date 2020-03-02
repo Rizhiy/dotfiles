@@ -18,16 +18,16 @@ set $terminal_path /usr/bin/alacritty
 
 # Color values are defined in ~/.Xresources-regolith
 # These are the labels which define each i3 workspace.
-set_from_resource $ws1 i3-wm.workspace.1.name "1"
-set_from_resource $ws2 i3-wm.workspace.2.name "2"
-set_from_resource $ws3 i3-wm.workspace.3.name "3"
-set_from_resource $ws4 i3-wm.workspace.4.name "4"
-set_from_resource $ws5 i3-wm.workspace.5.name "5"
-set_from_resource $ws6 i3-wm.workspace.6.name "6"
-set_from_resource $ws7 i3-wm.workspace.7.name "7"
-set_from_resource $ws8 i3-wm.workspace.8.name "8"
-set_from_resource $ws9 i3-wm.workspace.9.name "9"
-set_from_resource $ws0 i3-wm.workspace.0.name "0"
+set_from_resource $ws1 i3-wm.workspace.1.name 1
+set_from_resource $ws2 i3-wm.workspace.2.name 2
+set_from_resource $ws3 i3-wm.workspace.3.name 3
+set_from_resource $ws4 i3-wm.workspace.4.name 4
+set_from_resource $ws5 i3-wm.workspace.5.name 5
+set_from_resource $ws6 i3-wm.workspace.6.name 6
+set_from_resource $ws7 i3-wm.workspace.7.name 7
+set_from_resource $ws8 i3-wm.workspace.8.name 8
+set_from_resource $ws9 i3-wm.workspace.9.name 9
+set_from_resource $ws0 i3-wm.workspace.0.name 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -326,8 +326,8 @@ exec --no-startup-id /usr/bin/unclutter -b
 exec --no-startup-id feh --bg-fill $HOME/.local/share/mountains-wallpaper.jpg
 
 # Assign workspaces to monitors
-set $monitor_left "DP-2"
-set $monitor_right "DP-0"
+set_from_resource $monitor_left monitor_left DP-2
+set_from_resource $monitor_right monitor_right DP-0
 workspace "$ws1" output $monitor_left
 workspace "$ws2" output $monitor_right
 workspace "$ws3" output $monitor_left
