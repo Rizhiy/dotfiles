@@ -339,6 +339,7 @@ workspace "$ws0" output $monitor_right
 # Assign programs to workspaces
 assign [class="chrome" ] "$ws2"
 assign [class="pycharm"] "$ws3"
+assign [class="Steam"] "$ws7"
 
 # Start containers in tabbed mode
 workspace_layout tabbed
