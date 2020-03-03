@@ -3,7 +3,7 @@
 set_time_wallpaper() {
 	imgs=($(ls -dv $HOME/.local/share/Lakeside_Louis_Coyle/*))
 	hour=$(date +'%H')
-	idx=$(( $hour / 2 ))
+	idx=$(( $hour / 2 + 1 ))
 	feh --bg-fill ${imgs[$idx]}
 }
 set_time_wallpaper
