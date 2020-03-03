@@ -43,3 +43,30 @@ unset __conda_setup
 
 # Add cuda to path
 export PATH=/usr/local/cuda/bin:/usr/local/cuda/NsightCompute-2019.1${PATH:+:${PATH}}
+
+# dotfiles bare repository
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+# Disable pause
+stty -ixon
+
+# Function to install required programs
+install_standard() {
+	sudo add-apt-repository ppa:mmstick76/alacritty -n -y
+	sudo add-apt-repository ppa:regolith-linux/release -n -y
+	sudo apt-get update
+	xargs sudo apt-get install -y < $HOME/.local/share/must_install.txt
+}
+
+# Create config file with monitors
+find_monitors() {
+	IFS=' '; numbers=($(xrandr | grep "DP.* connected" | cut -d ' ' -f1 | tr '\n' ' '))
+	printf "monitor_left: ${numbers[2]}\nmonitor_right: ${numbers[1]}" > .local/share/monitors.yaml
+}
+
+set_time_wallpaper() {
+	imgs=($(ls -dv $HOME/.local/share/Lakeside_Louis_Coyle/*))
+	hour=$(date +'%H')
+	idx=$(( $hour / 2 ))
+	feh --bg-fill ${imgs[$idx]}
+}

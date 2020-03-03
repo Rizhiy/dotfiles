@@ -147,23 +147,3 @@ unsetopt share_history
 source $HOME/.local/share/common.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# dotfiles bare repository
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
-# Disable pause
-stty -ixon
-
-# Function to install required programs
-install_standard() {
-	sudo add-apt-repository ppa:mmstick76/alacritty -n -y
-	sudo add-apt-repository ppa:regolith-linux/release -n -y
-	sudo apt-get update
-	xargs sudo apt-get install -y < $HOME/.local/share/must_install.txt
-}
-
-# Create config file with monitors
-find_monitors() {
-	IFS=' '; numbers=($(xrandr | grep "DP.* connected" | cut -d ' ' -f1 | tr '\n' ' '))
-	printf "monitor_left: ${numbers[2]}\nmonitor_right: ${numbers[1]}" > .local/share/monitors.yaml
-}

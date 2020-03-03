@@ -322,9 +322,6 @@ exec --no-startup-id /usr/bin/regolith-ftue
 # Hide the mouse pointer if unused for a duration
 exec --no-startup-id /usr/bin/unclutter -b
 
-# Set custom wallpaper
-exec --no-startup-id feh --bg-fill $HOME/.local/share/mountains-wallpaper.jpg
-
 # Assign workspaces to monitors
 set_from_resource $monitor_left monitor_left DP-2
 set_from_resource $monitor_right monitor_right DP-0
@@ -345,3 +342,6 @@ assign [class="pycharm"] "$ws3"
 
 # Start containers in tabbed mode
 workspace_layout tabbed
+
+# Setup time-based wallpaper
+exec --no-startup-id (crontab -l; echo "0 */2 * * * set_time_wallpaper") | uniq - | sort - | crontab -
