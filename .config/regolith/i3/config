@@ -344,4 +344,5 @@ assign [class="pycharm"] "$ws3"
 workspace_layout tabbed
 
 # Setup time-based wallpaper
-exec --no-startup-id (crontab -l; echo "1 */2 * * * set_time_wallpaper") | uniq - | sort - | crontab -
+exec --no-startup-id /home/rizhiy/.bin/set_time_wallpaper.sh
+exec --no-startup-id (crontab -l; echo "1 */2 * * * /home/rizhiy/.bin/set_time_wallpaper.sh") | uniq - | sort - | crontab -

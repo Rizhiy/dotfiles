@@ -57,16 +57,3 @@ install_standard() {
 	sudo apt-get update
 	xargs sudo apt-get install -y < $HOME/.local/share/must_install.txt
 }
-
-# Create config file with monitors
-find_monitors() {
-	IFS=' '; numbers=($(xrandr | grep "DP.* connected" | cut -d ' ' -f1 | tr '\n' ' '))
-	printf "monitor_left: ${numbers[2]}\nmonitor_right: ${numbers[1]}" > .local/share/monitors.yaml
-}
-
-set_time_wallpaper() {
-	imgs=($(ls -dv $HOME/.local/share/Lakeside_Louis_Coyle/*))
-	hour=$(date +'%H')
-	idx=$(( $hour / 2 ))
-	feh --bg-fill ${imgs[$idx]}
-}
