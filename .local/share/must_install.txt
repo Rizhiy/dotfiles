@@ -15,3 +15,4 @@ feh
 compton
 regolith-desktop
 regolith-look-solarized-dark
+surfraw
