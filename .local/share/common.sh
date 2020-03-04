@@ -15,6 +15,9 @@ conda_deactivate () {
 }
 alias act='conda_deactivate; conda activate "$(basename "$(pwd)")"'
 
+# Prevent vim from trying to access X, improves vim inside tmux startup time, but disables clipboard
+alias vim='vim -X'
+
 # More consice man pages
 cheat() {
     curl cheat.sh/"$1"

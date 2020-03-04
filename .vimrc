@@ -142,6 +142,9 @@ set cursorline
 " Redraw less
 set lazyredraw
 
+" Assume terminal has fast connection
+set ttyfast
+
 " Folding
 set foldenable
 set foldmethod=indent
