@@ -1,7 +1,11 @@
 #!/bin/bash
 # Set wallpaper based on time
 set_time_wallpaper() {
-	imgs=($(ls -dv $HOME/.local/share/Lakeside_Louis_Coyle/*))
+	declare -a imgs
+	for img in $HOME/.local/share/Lakeside_Louis_Coyle/*; do
+		imgs=("${imgs[@]}" "$img")
+	done
+	imgs=($(printf "%s\n" ${imgs[@]} | sort -V))
 	hour=$(date +'%H')
 	idx=$(( $hour / 2 + 1 ))
 	feh --bg-fill ${imgs[$idx]}
