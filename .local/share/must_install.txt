@@ -16,3 +16,4 @@ compton
 regolith-desktop
 regolith-look-solarized-dark
 surfraw
+fonts-font-awesome
