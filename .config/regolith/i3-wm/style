@@ -52,7 +52,7 @@ i3-wm.client.urgent.color.child_border:
 i3-wm.workspace.1.name: 1  Terminal
 i3-wm.workspace.2.name: 2  Chrome
 i3-wm.workspace.3.name: 3 PyCharm
-i3-wm.workspace.4.name: 4
+i3-wm.workspace.4.name: 4  Code
 i3-wm.workspace.5.name: 5
 i3-wm.workspace.6.name: 6
 i3-wm.workspace.7.name: 7  Steam
