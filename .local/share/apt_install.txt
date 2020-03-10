@@ -17,6 +17,5 @@ regolith-desktop
 regolith-look-solarized-dark
 surfraw
 fonts-font-awesome
-ranger
 w3m
 w3m-img

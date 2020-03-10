@@ -56,5 +56,8 @@ install_standard() {
 	sudo add-apt-repository ppa:mmstick76/alacritty -n -y
 	sudo add-apt-repository ppa:regolith-linux/release -n -y
 	sudo apt-get update
-	xargs sudo apt-get install -y < $HOME/.local/share/must_install.txt
+	xargs sudo apt-get install -y < $HOME/.local/share/apt_install.txt
+	if command -v pip > /dev/null; then
+		pip install -r $HOME/.local/share/pip_install.txt
+	fi
 }
