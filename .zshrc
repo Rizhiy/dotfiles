@@ -108,6 +108,7 @@ POWERLEVEL9K_MODE='awesome-fontconfig'
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   fzf
+  z
 )
 
 source $ZSH/oh-my-zsh.sh
