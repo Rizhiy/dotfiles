@@ -40,6 +40,12 @@ bindsym $mod+Return exec $terminal_path
 # start a web browser
 bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 
+# Start PyCharm
+bindsym $mod+Shift+p exec /usr/local/bin/charm
+
+# Start Steam
+bindsym $mod+Shift+s exec /usr/games/steam
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -150,14 +156,8 @@ bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
 # Reboot computer
 bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
 
-# Power off computer
-bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
-
 # lock the screen
 bindsym $mod+Escape exec gnome-screensaver-command --lock
-
-# put the system to sleep
-bindsym $mod+Shift+s exec systemctl suspend
 
 # shortcuts for common system configuration tasks
 bindsym $mod+c exec gnome-control-center
