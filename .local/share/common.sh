@@ -57,6 +57,15 @@ install_standard() {
 	sudo add-apt-repository ppa:regolith-linux/release -n -y
 	sudo apt-get update
 	xargs sudo apt-get install -y < $HOME/.local/share/apt_install.txt
+
+	if [ ! -d "$HOME/miniconda3" ]; then
+		wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O "$HOME/miniconda3.sh"
+		bash "$HOME/miniconda3.sh" -b -p "$HOME/miniconda3"
+		rm "$HOME/miniconda3.sh"
+	else
+		echo "Miniconda installation found"
+	fi
+
 	if command -v pip > /dev/null; then
 		pip install -r $HOME/.local/share/pip_install.txt
 	fi
