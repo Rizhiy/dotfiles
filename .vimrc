@@ -27,7 +27,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-surround'
 " File Tree
 Plugin 'scrooloose/nerdtree'
-map <C-o> :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeToggle<CR>
 " Git status
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Scheme
@@ -43,11 +43,15 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
 " Tmux config help
 Plugin 'tmux-plugins/vim-tmux'
-" Reload after reboot
-Plugin 'tpope/vim-obsession'
 " Undo tree
 Plugin 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<cr>
+" More languages highlighting
+Plugin 'sheerun/vim-polyglot'
+" Tagbar
+Plugin 'majutsushi/tagbar'
+nnoremap <leader>t :TagbarToggle<CR>
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,6 +68,14 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Increase search
+set path+=**
+
+" Display all possible matches
+set wildmenu
+
+" Create 'tags' file
+command! MakeTags !ctags -R .
 
 " Line hybrid line numbers
 set number relativenumber
@@ -122,9 +134,9 @@ map q: <Nop>
 nnoremap Q <nop>
 
 " Edit vimjc
-nnoremap <Leader>e :tabnew $MYVIMRC<CR>
+nnoremap <leader>e :tabnew $MYVIMRC<CR>
 " Reload vimrc
-nnoremap <Leader>r :source $MYVIMRC<CR>
+nnoremap <leader>r :source $MYVIMRC<CR>
 
 " show tab and eol
 set list
@@ -160,3 +172,9 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" Run current python file
+autocmd FileType python nnoremap <buffer> <leader>r :w<CR> :exec '!python' shellescape(@%, 1)
+
+" Automatically update files
+set autoread
