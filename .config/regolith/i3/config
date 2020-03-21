@@ -32,7 +32,9 @@ set_from_resource $ws0 i3-wm.workspace.0.name 0
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-hide_edge_borders smart
+
+############### Programs Here ###############
+# All programs (except terminal) should be launched with $mod+Shift prefix
 
 # start a terminal
 bindsym $mod+Return exec $terminal_path
@@ -46,15 +48,26 @@ bindsym $mod+Shift+p exec /usr/local/bin/charm
 # Start Steam
 bindsym $mod+Shift+s exec /usr/games/steam
 
-# kill focused window
-bindsym $mod+Shift+q kill
+# Control Center
+bindsym $mod+Shift+c exec gnome-control-center
+bindsym $mod+Shift+w exec gnome-control-center wifi
+bindsym $mod+Shift+b exec gnome-control-center bluetooth
 
-set_from_resource $rofiTheme rofi.theme "regolith-theme"
+# Nautilus
+bindsym $mod+Shift+n exec nautilus
 
 # rofi app and window launchers
-bindsym $mod+space exec rofi -show drun -theme $rofiTheme
-bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
+bindsym $mod+Shift+space exec rofi -show drun -theme $rofiTheme
+bindsym $mod+space exec rofi -show run -theme $rofiTheme
 bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
+
+
+############### Window operations ###############
+# Should generaly have simple $mod prefix
+# Should not have $mod+Shift prefix
+
+# kill focused window
+bindsym $mod+Ctrl+q kill
 
 # change focus
 bindsym $mod+Left focus left
@@ -68,15 +81,15 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move windows in workspaces
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Ctrl+Left move left
+bindsym $mod+Ctrl+Down move down
+bindsym $mod+Ctrl+Up move up
+bindsym $mod+Ctrl+Right move right
 
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Ctrl+h move left
+bindsym $mod+Ctrl+j move down
+bindsym $mod+Ctrl+k move up
+bindsym $mod+Ctrl+l move right
 
 # move workspaces to outputs
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
@@ -84,98 +97,19 @@ bindsym $mod+Ctrl+Shift+Down move workspace to output down
 bindsym $mod+Ctrl+Shift+Up move workspace to output up
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
-# toggle split orientation
-bindsym $mod+BackSpace split toggle
-
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# show/hide keybindings
-bindsym $mod+Shift+question exec --no-startup-id /usr/bin/remontoire-toggle
+bindsym $mod+Ctrl+Shift+f fullscreen toggle
 
 # toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
-bindsym $mod+Ctrl+m move to scratchpad
-bindsym $mod+Ctrl+a scratchpad show
+bindsym $mod+f floating toggle
+bindsym $mod+Ctrl+Shift+m move to scratchpad
+bindsym $mod+Ctrl+Shift+a scratchpad show
 
 # change focus between tiling / floating windows
-bindsym $mod+Shift+t focus mode_toggle
+bindsym $mod+Ctrl+t focus mode_toggle
 
 # toggle tabbed mode
 bindsym $mod+t layout toggle tabbed splith splitv
-
-# switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws0
-
-# cycle across workspaces
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws0
-
-# move focused container to workspace, move to workspace
-bindsym $mod+$alt+1 move container to workspace number $ws1; workspace number $ws1
-bindsym $mod+$alt+2 move container to workspace number $ws2; workspace number $ws2
-bindsym $mod+$alt+3 move container to workspace number $ws3; workspace number $ws3
-bindsym $mod+$alt+4 move container to workspace number $ws4; workspace number $ws4
-bindsym $mod+$alt+5 move container to workspace number $ws5; workspace number $ws5
-bindsym $mod+$alt+6 move container to workspace number $ws6; workspace number $ws6
-bindsym $mod+$alt+7 move container to workspace number $ws7; workspace number $ws7
-bindsym $mod+$alt+8 move container to workspace number $ws8; workspace number $ws8
-bindsym $mod+$alt+9 move container to workspace number $ws9; workspace number $ws9
-bindsym $mod+$alt+0 move container to workspace number $ws0; workspace number $ws0
-
-# reload the configuration file
-bindsym $mod+Shift+c exec xrdb -merge ~/.Xresources-regolith && i3 reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# Logout of session
-bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
-
-# Reboot computer
-bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
-
-# lock the screen
-bindsym $mod+Escape exec gnome-screensaver-command --lock
-
-# shortcuts for common system configuration tasks
-bindsym $mod+c exec gnome-control-center
-bindsym $mod+d exec gnome-control-center display
-bindsym $mod+w exec gnome-control-center wifi
-bindsym $mod+Shift+n exec nautilus
-bindsym $mod+n exec /usr/share/rofication/rofication-gui.py
-
-# i3-snapshot for load/save current layout
-bindsym $mod+comma  exec /usr/bin/i3-snapshot -o > /tmp/i3-snapshot 
-bindsym $mod+period exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
-
-# Toggle bar visibility
-bindsym $mod+i bar mode toggle
-
-# Cause Settings app to float above tiled windows
-floating_maximum_size -1 x -1
-for_window [class="Gnome-control-center"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "Resize Mode" {
@@ -207,11 +141,77 @@ mode "Resize Mode" {
         bindsym Shift+plus gaps inner current plus 12
 
         # back to normal: Enter or Escape
-        bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "Resize Mode"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws0
+
+# cycle across workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Ctrl+Tab workspace prev
+
+# move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace number $ws1
+bindsym $mod+Ctrl+2 move container to workspace number $ws2
+bindsym $mod+Ctrl+3 move container to workspace number $ws3
+bindsym $mod+Ctrl+4 move container to workspace number $ws4
+bindsym $mod+Ctrl+5 move container to workspace number $ws5
+bindsym $mod+Ctrl+6 move container to workspace number $ws6
+bindsym $mod+Ctrl+7 move container to workspace number $ws7
+bindsym $mod+Ctrl+8 move container to workspace number $ws8
+bindsym $mod+Ctrl+9 move container to workspace number $ws9
+bindsym $mod+Ctrl+0 move container to workspace number $ws0
+
+# move focused container to workspace, move to workspace
+bindsym $mod+$alt+1 move container to workspace number $ws1; workspace number $ws1
+bindsym $mod+$alt+2 move container to workspace number $ws2; workspace number $ws2
+bindsym $mod+$alt+3 move container to workspace number $ws3; workspace number $ws3
+bindsym $mod+$alt+4 move container to workspace number $ws4; workspace number $ws4
+bindsym $mod+$alt+5 move container to workspace number $ws5; workspace number $ws5
+bindsym $mod+$alt+6 move container to workspace number $ws6; workspace number $ws6
+bindsym $mod+$alt+7 move container to workspace number $ws7; workspace number $ws7
+bindsym $mod+$alt+8 move container to workspace number $ws8; workspace number $ws8
+bindsym $mod+$alt+9 move container to workspace number $ws9; workspace number $ws9
+bindsym $mod+$alt+0 move container to workspace number $ws0; workspace number $ws0
+
+
+############### Session operations ###############
+# reload the configuration file
+bindsym $mod+Ctrl+c exec xrdb -merge ~/.Xresources-regolith && i3 reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Ctrl+r restart
+
+# Logout of session
+bindsym $mod+Ctrl+e exec /usr/bin/gnome-session-quit --logout
+
+# Reboot computer
+bindsym $mod+Ctrl+b exec /usr/bin/gnome-session-quit --reboot
+
+# lock the screen
+bindsym $mod+Escape exec gnome-screensaver-command --lock
+
+
+############### Appearance settings ################
+
+hide_edge_borders smart
+
+set_from_resource $rofiTheme rofi.theme "regolith-theme"
+
+# Cause Settings app to float above tiled windows
+floating_maximum_size -1 x -1
+for_window [class="Gnome-control-center"] floating enable
 
 # Disable titlebar
 default_border pixel 1
@@ -308,19 +308,11 @@ bar {
   }
 }
 
-# The following exec calls run programs in the background when i3 starts.
-
-# Start the installed regolith-compositor
-exec --no-startup-id /usr/share/regolith-compositor/init
-
-# Start Rofication for notifications
-exec --no-startup-id /usr/share/rofication/rofication-daemon.py
-
-# Launch first time user experience script
-exec --no-startup-id /usr/bin/regolith-ftue
-
 # Hide the mouse pointer if unused for a duration
 exec --no-startup-id /usr/bin/unclutter -b
+
+
+############### Other ################
 
 # Assign workspaces to monitors
 set_from_resource $monitor_left monitor_left DP-2
