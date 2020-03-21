@@ -34,40 +34,40 @@ floating_modifier $mod
 
 
 ############### Programs Here ###############
-# All programs (except terminal) should be launched with $mod+Shift prefix
+# All programs (except terminal) should be launched with $mod+Ctrl prefix
 
 # start a terminal
 bindsym $mod+Return exec $terminal_path
 
 # start a web browser
-bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
+bindsym $mod+Ctrl+Return exec /usr/bin/sensible-browser
 
 # Start PyCharm
-bindsym $mod+Shift+p exec /usr/local/bin/charm
+bindsym $mod+Ctrl+p exec /usr/local/bin/charm
 
 # Start Steam
-bindsym $mod+Shift+s exec /usr/games/steam
+bindsym $mod+Ctrl+s exec /usr/games/steam
 
 # Control Center
-bindsym $mod+Shift+c exec gnome-control-center
-bindsym $mod+Shift+w exec gnome-control-center wifi
-bindsym $mod+Shift+b exec gnome-control-center bluetooth
+bindsym $mod+Ctrl+c exec gnome-control-center
+bindsym $mod+Ctrl+w exec gnome-control-center wifi
+bindsym $mod+Ctrl+b exec gnome-control-center bluetooth
 
 # Nautilus
-bindsym $mod+Shift+n exec nautilus
+bindsym $mod+Ctrl+n exec nautilus
 
 # rofi app and window launchers
-bindsym $mod+Shift+space exec rofi -show drun -theme $rofiTheme
+bindsym $mod+Ctrl+space exec rofi -show drun -theme $rofiTheme
 bindsym $mod+space exec rofi -show run -theme $rofiTheme
-bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
+bindsym $mod+Shift+space exec rofi -show window -theme $rofiTheme
 
 
 ############### Window operations ###############
 # Should generaly have simple $mod prefix
-# Should not have $mod+Shift prefix
+# Should not have $mod+Ctrl prefix
 
 # kill focused window
-bindsym $mod+Ctrl+q kill
+bindsym $mod+Shift+q kill
 
 # change focus
 bindsym $mod+Left focus left
@@ -81,32 +81,32 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move windows in workspaces
-bindsym $mod+Ctrl+Left move left
-bindsym $mod+Ctrl+Down move down
-bindsym $mod+Ctrl+Up move up
-bindsym $mod+Ctrl+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
-bindsym $mod+Ctrl+h move left
-bindsym $mod+Ctrl+j move down
-bindsym $mod+Ctrl+k move up
-bindsym $mod+Ctrl+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # move workspaces to outputs
-bindsym $mod+Ctrl+Shift+Left move workspace to output left
-bindsym $mod+Ctrl+Shift+Down move workspace to output down
-bindsym $mod+Ctrl+Shift+Up move workspace to output up
-bindsym $mod+Ctrl+Shift+Right move workspace to output right
+bindsym $mod+Shift+Ctrl+Left move workspace to output left
+bindsym $mod+Shift+Ctrl+Down move workspace to output down
+bindsym $mod+Shift+Ctrl+Up move workspace to output up
+bindsym $mod+Shift+Ctrl+Right move workspace to output right
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Ctrl+Shift+f fullscreen toggle
+bindsym $mod+Shift+Ctrl+f fullscreen toggle
 
 # toggle tiling / floating
 bindsym $mod+f floating toggle
-bindsym $mod+Ctrl+Shift+m move to scratchpad
-bindsym $mod+Ctrl+Shift+a scratchpad show
+bindsym $mod+Shift+Ctrl+m move to scratchpad
+bindsym $mod+Shift+Ctrl+a scratchpad show
 
 # change focus between tiling / floating windows
-bindsym $mod+Ctrl+t focus mode_toggle
+bindsym $mod+Shift+t focus mode_toggle
 
 # toggle tabbed mode
 bindsym $mod+t layout toggle tabbed splith splitv
@@ -159,19 +159,19 @@ bindsym $mod+0 workspace number $ws0
 
 # cycle across workspaces
 bindsym $mod+Tab workspace next
-bindsym $mod+Ctrl+Tab workspace prev
+bindsym $mod+Shift+Tab workspace prev
 
 # move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace number $ws1
-bindsym $mod+Ctrl+2 move container to workspace number $ws2
-bindsym $mod+Ctrl+3 move container to workspace number $ws3
-bindsym $mod+Ctrl+4 move container to workspace number $ws4
-bindsym $mod+Ctrl+5 move container to workspace number $ws5
-bindsym $mod+Ctrl+6 move container to workspace number $ws6
-bindsym $mod+Ctrl+7 move container to workspace number $ws7
-bindsym $mod+Ctrl+8 move container to workspace number $ws8
-bindsym $mod+Ctrl+9 move container to workspace number $ws9
-bindsym $mod+Ctrl+0 move container to workspace number $ws0
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws0
 
 # move focused container to workspace, move to workspace
 bindsym $mod+$alt+1 move container to workspace number $ws1; workspace number $ws1
@@ -187,20 +187,20 @@ bindsym $mod+$alt+0 move container to workspace number $ws0; workspace number $w
 
 
 ############### Session operations ###############
-# reload the configuration file
-bindsym $mod+Ctrl+c exec xrdb -merge ~/.Xresources-regolith && i3 reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Ctrl+r restart
-
-# Logout of session
-bindsym $mod+Ctrl+e exec /usr/bin/gnome-session-quit --logout
-
-# Reboot computer
-bindsym $mod+Ctrl+b exec /usr/bin/gnome-session-quit --reboot
-
 # lock the screen
 bindsym $mod+Escape exec gnome-screensaver-command --lock
+
+# reload the configuration file
+bindsym $mod+Shift+c exec xrdb -merge ~/.Xresources-regolith && i3 reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Logout of session
+bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
+
+# Reboot computer
+bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
 
 
 ############### Appearance settings ################
