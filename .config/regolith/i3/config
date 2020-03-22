@@ -46,7 +46,7 @@ bindsym $mod+Ctrl+Return exec /usr/bin/sensible-browser
 bindsym $mod+Ctrl+p exec /usr/local/bin/charm
 
 # Start Steam
-bindsym $mod+Ctrl+s exec /usr/games/steam
+bindsym $mod+Ctrl+s exec /usr/bin/steam
 
 # Control Center
 bindsym $mod+Ctrl+c exec gnome-control-center
