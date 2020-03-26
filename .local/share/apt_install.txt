@@ -1,6 +1,5 @@
 zsh
 htop
-vim
 tmux
 cmake
 git

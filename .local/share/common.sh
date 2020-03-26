@@ -13,10 +13,7 @@ conda_deactivate () {
 }
 alias act='conda_deactivate; conda activate "$(basename "$(pwd)")"'
 
-# Prevent vim from trying to access X, improves vim inside tmux startup time, but disables clipboard
-alias vim='vim -X'
-
-# More consice man pages
+# More concise man pages
 cheat() {
     curl cheat.sh/"$1"
 }
@@ -51,22 +48,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 # Disable pause
 stty -ixon
 
-# Function to install required programs
-install_standard() {
-	sudo add-apt-repository ppa:mmstick76/alacritty -n -y
-	sudo add-apt-repository ppa:regolith-linux/release -n -y
-	sudo apt-get update
-	xargs sudo apt-get install -y < $HOME/.local/share/apt_install.txt
+# Alias for nvim
+alias nvim='$HOME/.bin/nvim.appimage'
 
-	if [ ! -d "$HOME/miniconda3" ]; then
-		wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O "$HOME/miniconda3.sh"
-		bash "$HOME/miniconda3.sh" -b -p "$HOME/miniconda3"
-		rm "$HOME/miniconda3.sh"
-	else
-		echo "Miniconda installation found"
-	fi
-
-	if command -v pip > /dev/null; then
-		pip install -r $HOME/.local/share/pip_install.txt
-	fi
-}
+# Alias vim to nvim
+alias vim="nvim"
