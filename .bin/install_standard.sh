@@ -27,9 +27,9 @@ pip install neovim
 sudo npm install -g neovim
 
 # Install Vim plugins
-nvim +PlugInstall
-nvim +CocInstall coc-python
-nvim +CocInstall coc-json
+nvim +PlugInstall +qall
+nvim +CocInstall coc-python +qall
+nvim +CocInstall coc-json +qall
 
 cd "$HOME/.local/share/awesome-terminal-fonts"
 ./install.sh
