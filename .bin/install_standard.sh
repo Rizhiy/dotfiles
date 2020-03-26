@@ -45,8 +45,9 @@ cd -
 config pull
 
 # Install git lfs
-wget "https://github.com/git-lfs/git-lfs/releases/download/v2.10.0/git-lfs-linux-amd64-v2.10.0.tar.gz" -O "/tmp/git-lfs.tar.gz" &&
-	cd /tmp &&
+cd /tmp
+wget "https://github.com/git-lfs/git-lfs/releases/download/v2.10.0/git-lfs-linux-amd64-v2.10.0.tar.gz" -O "git-lfs.tar.gz" &&
 	tar -xzf git-lfs.tar.gz &&
 	sudo ./install.sh &&
 	git lfs install
+cd -
