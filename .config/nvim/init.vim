@@ -26,6 +26,7 @@ Plug 'vim-airline/vim-airline'
 " Fzf
 Plug '$HOME/.local/share/fzf'
 Plug 'junegunn/fzf.vim'
+map <leader>g :Files<CR>
 " Indent guide
 Plug 'Yggdroot/indentLine'
 " Tmux config help
@@ -40,10 +41,16 @@ Plug 'majutsushi/tagbar'
 nnoremap <leader>t :TagbarToggle<CR>
 " Autocompletion and stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Color Schemes
+Plug 'rafi/awesome-vim-colorschemes'
 
 call plug#end()
 
 " ====================== COC ====================
+
+" Color Scheme
+" Need to first enable another so all colors work properly
+colorscheme gruvbox
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -57,7 +64,7 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -257,3 +264,6 @@ autocmd FileType python nnoremap <buffer> <leader>r :w<CR> :exec '!python' shell
 
 " Automatically update files
 set autoread
+
+" Bigger preview window
+let g:fzf_preview_window = 'right:65%'
