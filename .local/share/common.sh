@@ -53,3 +53,5 @@ alias nvim='$HOME/.bin/nvim.appimage'
 
 # Alias vim to nvim
 alias vim="nvim"
+
+conda activate

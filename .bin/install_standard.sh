@@ -22,14 +22,16 @@ curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Install neovim
-wget "https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage" -O "$HOME/.bin/nvim.appimage" && chmod u+x "$HOME/.bin/nvim.appimage"
+if [ ! -f "$HOME/.bin/nvim.appimage" ]; then
+	wget "https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage" -O "$HOME/.bin/nvim.appimage" && chmod u+x "$HOME/.bin/nvim.appimage"
+fi
 pip install neovim
 sudo npm install -g neovim
 
 # Install Vim plugins
-nvim +PlugInstall
-nvim +CocInstall coc-python
-nvim +CocInstall coc-json
+nvim +PlugInstall +qall
+nvim +CocInstall coc-python +qall
+nvim +CocInstall coc-json +qall
 
 cd "$HOME/.local/share/awesome-terminal-fonts"
 ./install.sh
@@ -45,8 +47,9 @@ cd -
 config pull
 
 # Install git lfs
-wget "https://github.com/git-lfs/git-lfs/releases/download/v2.10.0/git-lfs-linux-amd64-v2.10.0.tar.gz" -O "/tmp/git-lfs.tar.gz" &&
-	cd /tmp &&
+cd /tmp
+wget "https://github.com/git-lfs/git-lfs/releases/download/v2.10.0/git-lfs-linux-amd64-v2.10.0.tar.gz" -O "git-lfs.tar.gz" &&
 	tar -xzf git-lfs.tar.gz &&
 	sudo ./install.sh &&
 	git lfs install
+cd -
