@@ -54,4 +54,7 @@ alias nvim='$HOME/.bin/nvim.appimage'
 # Alias vim to nvim
 alias vim="nvim"
 
+# Make docker always execute as root
+alias docker="sudo docker"
+
 conda activate
