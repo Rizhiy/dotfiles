@@ -45,6 +45,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rafi/awesome-vim-colorschemes'
 " Proper focus for vim inside tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
+" Better tab format
+Plug 'gcmt/taboo.vim'
+set sessionoptions+=tabpages,globals
+let g:taboo_tab_format=" %N %f%U%m "
 
 call plug#end()
 
