@@ -43,6 +43,8 @@ nnoremap <leader>t :TagbarToggle<CR>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Color Schemes
 Plug 'rafi/awesome-vim-colorschemes'
+" Proper focus for vim inside tmux
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 call plug#end()
 
@@ -266,3 +268,7 @@ set autoread
 
 " Bigger preview window
 let g:fzf_preview_window = 'right:65%'
+
+" Save and load session
+nmap <leader>ss :mksession! ~/.local/share/vim_session <CR>
+nmap <leader>sr :source ~/.local/share/vim_session <CR>
