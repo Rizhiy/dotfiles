@@ -225,8 +225,10 @@ endfunction
 map q: <Nop>
 nnoremap Q <nop>
 
-" Edit vimjc
+" Edit vimrc
 nnoremap <leader>e :tabnew $MYVIMRC<CR>
+" Reload vimrc
+nnoremap <leader>r :source $MYVIMRC<CR>
 
 " show tab and eol
 set list
@@ -261,7 +263,7 @@ else
 endif
 
 " Run current python file
-autocmd FileType python nnoremap <buffer> <leader>r :w<CR> :exec '!python' shellescape(@%, 1)
+autocmd FileType python nnoremap <buffer> <leader>p :w<CR> :exec '!python' shellescape(@%, 1)
 
 " Automatically update files
 set autoread
