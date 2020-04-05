@@ -272,3 +272,9 @@ let g:fzf_preview_window = 'right:65%'
 " Save and load session
 nmap <leader>ss :mksession! ~/.local/share/vim_session <CR>
 nmap <leader>sr :source ~/.local/share/vim_session <CR>
+
+" Easier Window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
