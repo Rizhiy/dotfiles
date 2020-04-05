@@ -1,6 +1,8 @@
 # Increase history size
-HISTSIZE=10000
-HISTFILESIZE=100000
+export HISTSIZE=10000
+export HISTFILESIZE=100000
+export SAVEHIST=$HISTSIZE
+export KEYTIMEOUT=1
 
 # More info
 alias  lh='ls -alh'
