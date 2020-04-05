@@ -284,3 +284,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Change d to delete without copy and x to cut
+nnoremap d "_d
+nnoremap D "_D
+nnoremap x d
+
+" Disable record for now
+map q <Nop>
