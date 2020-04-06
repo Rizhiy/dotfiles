@@ -54,12 +54,11 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-" ====================== COC ====================
-
 " Color Scheme
 " Need to first enable another so all colors work properly
 colorscheme gruvbox
 
+" ====================== COC ======================
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -167,33 +166,39 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" =================== COC DONE ===========================
+" =================== MOVEMENT ====================
+" Easier Window navigation
+nnoremap H <C-w>h
+nnoremap J <C-w>j
+nnoremap K <C-w>k
+nnoremap L <C-w>l
 
-" Increase search
-set path+=**
+" Change d to delete without copy and x to cut
+nnoremap d "_d
+nnoremap D "_D
+nnoremap x d
 
-" Display all possible matches
-set wildmenu
+" Faster tab navigation
+nnoremap <C-t> :tabnew<CR>:edit
+nnoremap <C-h> :tabprev<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <A-1> 1gt
+nnoremap <A-2> 2gt
+nnoremap <A-3> 3gt
+nnoremap <A-4> 4gt
+nnoremap <A-5> 5gt
+nnoremap <A-6> 6gt
+nnoremap <A-7> 7gt
+nnoremap <A-8> 8gt
+nnoremap <A-9> 9gt
+nnoremap <A-0> 10gt
 
+" ================== APPEARANCE ===================
 " Line hybrid line numbers
 set number relativenumber
 
-" Set tab length to 4 spaces
-set tabstop=4
-set shiftwidth=4
-" Expand tabs to spaces in python files
-autocmd Filetype python setlocal expandtab
-
-" Allow backspacing over everything in insert mode.
-set backspace=indent,eol,start
-
-set history=200		" keep 200 lines of command line history
-set ruler			" show the cursor position all the time
-set showcmd			" display incomplete commands
-set wildmenu		" display completion matches in a status line
-
-set ttimeout		" time out for key codes
-set ttimeoutlen=100	" wait up to 100ms after Esc for special key
+" show the cursor position all the time
+set ruler
 
 " Show @@@ in the last line if it is truncated.
 set display=lastline
@@ -210,6 +215,52 @@ endif
 set hlsearch
 " Remove sarch highlight
 nnoremap <leader><space> :nohlsearch<CR>
+
+" show tab and eol
+set list
+set listchars=tab:▸\ ,trail:·
+
+" Redraw less
+set lazyredraw
+
+" Assume terminal has fast connection
+set ttyfast
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" ==================== OTHER ======================
+" Disable record for now
+map q <Nop>
+
+" Increase search
+set path+=**
+
+" Display all possible matches
+set wildmenu
+
+
+" Set tab length to 4 spaces
+set tabstop=4
+set shiftwidth=4
+" Expand tabs to spaces in python files
+autocmd Filetype python setlocal expandtab
+
+" Allow backspacing over everything in insert mode.
+set backspace=indent,eol,start
+
+set history=200		" keep 200 lines of command line history
+set showcmd			" display incomplete commands
+set wildmenu		" display completion matches in a status line
+
+set ttimeout		" time out for key codes
+set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 
 " Do not recognize octal numbers for Ctrl-A and Ctrl-X, most users find it
 " confusing.
@@ -236,21 +287,8 @@ nnoremap <leader>e :tabnew $MYVIMRC<CR>
 " Reload vimrc
 nnoremap <leader>r :source $MYVIMRC<CR>
 
-" show tab and eol
-set list
-set listchars=tab:▸\ ,trail:·
-
 " use system clipboard
 set clipboard=unnamedplus
-
-" Highlight current line
-set cursorline
-
-" Redraw less
-set lazyredraw
-
-" Assume terminal has fast connection
-set ttyfast
 
 " Folding
 set foldenable
@@ -258,15 +296,6 @@ set foldmethod=indent
 set foldlevelstart=10
 set foldnestmax=10
 nnoremap <space> za
-
-" allows cursor change in tmux mode
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
 
 " Run current python file
 autocmd FileType python nnoremap <buffer> <leader>p :w<CR> :exec '!python' shellescape(@%, 1)
@@ -280,35 +309,6 @@ let g:fzf_preview_window = 'right:65%'
 " Save and load session
 nmap <leader>ss :mksession! ~/.local/share/vim_session <CR>
 nmap <leader>sr :source ~/.local/share/vim_session <CR>
-
-" Easier Window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Change d to delete without copy and x to cut
-nnoremap d "_d
-nnoremap D "_D
-nnoremap x d
-
-" Disable record for now
-map q <Nop>
-
-" Faster tab navigation
-nnoremap <C-t> :tabnew<CR>:edit
-nnoremap H :tabprev<CR>
-nnoremap L :tabnext<CR>
-nnoremap <A-1> 1gt
-nnoremap <A-2> 2gt
-nnoremap <A-3> 3gt
-nnoremap <A-4> 4gt
-nnoremap <A-5> 5gt
-nnoremap <A-6> 6gt
-nnoremap <A-7> 7gt
-nnoremap <A-8> 8gt
-nnoremap <A-9> 9gt
-nnoremap <A-0> 10gt
 
 " Unmap J
 map J <Nop>
