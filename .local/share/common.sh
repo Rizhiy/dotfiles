@@ -3,7 +3,7 @@ HISTSIZE=10000
 HISTFILESIZE=100000
 
 # More info
-alias  lh='ls -alh'
+alias  lh='ls -Alh'
 
 # Shortcut for quick conda activation
 conda_deactivate () {
