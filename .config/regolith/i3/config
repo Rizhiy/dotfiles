@@ -43,10 +43,10 @@ bindsym $mod+Return exec $terminal_path
 bindsym $mod+Ctrl+Return exec /usr/bin/sensible-browser
 
 # Start PyCharm
-bindsym $mod+Ctrl+p exec /usr/local/bin/charm
+bindsym $mod+Ctrl+p exec charm
 
 # Start Steam
-bindsym $mod+Ctrl+s exec /usr/bin/steam
+bindsym $mod+Ctrl+s exec steam
 
 # Control Center
 bindsym $mod+Ctrl+c exec gnome-control-center

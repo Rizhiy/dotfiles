@@ -104,6 +104,7 @@ POWERLEVEL9K_MODE='awesome-fontconfig'
 plugins=(
   fzf
   z
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
