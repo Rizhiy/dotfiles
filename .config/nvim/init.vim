@@ -312,3 +312,8 @@ nmap <leader>sr :source ~/.local/share/vim_session <CR>
 
 " Unmap J
 map J <Nop>
+
+" Spell Checking
+set spell
+set spelllang=en_gb,en_us
+set spellfile=$HOME/.config/nvim/words.add
