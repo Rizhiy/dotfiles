@@ -307,8 +307,8 @@ set autoread
 let g:fzf_preview_window = 'right:65%'
 
 " Save and load session
-nmap <leader>ss :mksession! ~/.local/share/vim_session <CR>
-nmap <leader>sr :source ~/.local/share/vim_session <CR>
+nmap <leader>ss :mksession! .vim/session <CR>
+nmap <leader>sr :source .vim/session <CR>
 
 " Unmap J
 map J <Nop>
