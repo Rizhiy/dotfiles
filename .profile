@@ -16,8 +16,9 @@ export PATH="/home/rizhiy/anaconda3/bin:$PATH"
 export PATH="/home/rizhiy/miniconda3/bin:$PATH"
 
 # Check gitconfig
-grep_end="\[include\]\n\tpath = .gitconfig-general\n"
-insert_end="[include]\n\tpath = .gitconfig-general\n"
+config_path=".config/git/config"
+grep_end="\[include\]\n\tpath = $config_path\n"
+insert_end="[include]\n\tpath = $config_path\n"
 if [[ -z "$( grep -Pzo "$grep_end" "$HOME"/.gitconfig | tr '\0' '\n' )" ]]; then
 	printf "$insert_end" >> "$HOME"/.gitconfig
 fi
