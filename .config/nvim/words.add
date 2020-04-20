@@ -1,6 +1,16 @@
 cfg
 AUC
 ROC
-f
 yaml
 OPTIM
+bert
+softmax
+str
+KWARGS
+TOKENIZER
+NUM_ITERS
+CrossEntropy
+rb
+dict
+idx
+transfomer
