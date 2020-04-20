@@ -10,6 +10,7 @@
 [core]
 	editor = vim
 	autocrlf = input
+	excludesfile = /home/rizhiy/.config/git/ignore
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge --skip -- %f
