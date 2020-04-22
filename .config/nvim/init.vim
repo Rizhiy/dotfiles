@@ -173,11 +173,6 @@ nnoremap J <C-w>j
 nnoremap K <C-w>k
 nnoremap L <C-w>l
 
-" Change d to delete without copy and x to cut
-nnoremap d "_d
-nnoremap D "_D
-nnoremap x d
-
 " Faster tab navigation
 nnoremap <C-t> :tabnew<CR>:edit
 nnoremap <C-h> :tabprev<CR>
@@ -234,6 +229,20 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" ==================== SPLITS ======================
+
+" More intuitive vim splits
+set splitbelow splitright
+
+" Easier split resize
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
+" Remove pipes that act as separators
+set fillchars+=vert:\ 
 
 " ==================== OTHER ======================
 " Disable record for now
@@ -310,10 +319,12 @@ let g:fzf_preview_window = 'right:65%'
 nmap <leader>ss :mksession! .vim/session <CR>
 nmap <leader>sr :source .vim/session <CR>
 
-" Unmap J
-map J <Nop>
-
 " Spell Checking
 set spell
 set spelllang=en_gb,en_us
 set spellfile=$HOME/.config/nvim/words.add
+
+" Change d to delete without copy and x to cut
+nnoremap d "_d
+nnoremap D "_D
+nnoremap x d
