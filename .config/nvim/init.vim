@@ -328,3 +328,14 @@ set spellfile=$HOME/.config/nvim/words.add
 nnoremap d "_d
 nnoremap D "_D
 nnoremap x d
+
+" Show diff
+nnoremap <leader>d :call DiffToggle()<CR>
+
+function! DiffToggle()
+    if &diff
+        diffoff
+    else
+        diffthis
+    endif
+:endfunction
