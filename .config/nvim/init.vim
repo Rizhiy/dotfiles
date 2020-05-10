@@ -1,5 +1,9 @@
 set encoding=utf-8
 
+" Update leader
+let mapleader = " "
+nnoremap <Space> <Nop>
+
 call plug#begin('$HOME/.vim/plugged')
 
 " Make sure you use single quotes
@@ -209,7 +213,7 @@ endif
 " Highlight all matches
 set hlsearch
 " Remove sarch highlight
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader><Space> :nohlsearch<CR>
 
 " show tab and eol
 set list
@@ -304,7 +308,7 @@ set foldenable
 set foldmethod=indent
 set foldlevelstart=10
 set foldnestmax=10
-nnoremap <space> za
+nnoremap <leader>a za
 
 " Run current python file
 autocmd FileType python nnoremap <buffer> <leader>p :w<CR> :exec '!python' shellescape(@%, 1)
