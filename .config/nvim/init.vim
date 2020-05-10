@@ -328,3 +328,7 @@ set spellfile=$HOME/.config/nvim/words.add
 nnoremap d "_d
 nnoremap D "_D
 nnoremap x d
+
+" Allow editing from multiple shells
+set noswapfile
+set autowriteall
