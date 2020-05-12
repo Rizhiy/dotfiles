@@ -20,3 +20,4 @@ w3m
 w3m-img
 exuberant-ctags
 nodejs
+highlight
