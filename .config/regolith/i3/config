@@ -53,8 +53,10 @@ bindsym $mod+Ctrl+c exec gnome-control-center
 bindsym $mod+Ctrl+w exec gnome-control-center wifi
 bindsym $mod+Ctrl+b exec gnome-control-center bluetooth
 
-# Nautilus
-bindsym $mod+Ctrl+n exec nautilus
+# File Managers
+bindsym $mod+Ctrl+t exec thunar
+bindsym $mod+Ctrl+f exec nautilus
+
 
 # rofi app and window launchers
 bindsym $mod+Ctrl+space exec rofi -show drun -theme $rofiTheme
