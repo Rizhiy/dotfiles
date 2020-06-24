@@ -20,3 +20,4 @@ xlnet
 Warmup
 config
 eval
+cls
