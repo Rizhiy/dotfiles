@@ -25,6 +25,7 @@ set spellfile=$HOME/.config/nvim/words.add       " Additional words
 set noswapfile                                   " Dis:wable swap file
 set autowrite                                    " Autowrite
 set autowriteall                                 " Autowrite everywhere
+set conceallevel=0                               " Don't hide links in markdown
 
 au! BufWritePost $MYVIMRC source %               " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
