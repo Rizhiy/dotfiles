@@ -59,4 +59,7 @@ alias vim="nvim"
 # Make docker always execute as root
 alias docker="sudo docker"
 
+# Add user bin to PATH
+export PATH="$HOME/.bin:$PATH"
+
 conda activate

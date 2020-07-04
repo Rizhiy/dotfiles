@@ -62,11 +62,10 @@ let g:which_key_map.r = {
 let g:which_key_map.t = {
 	\ 'name' : '+terminal',
 	\ 'g' : [':FloatermNew lazygit'                           , 'git'],
-	\ 'p' : [':FloatermNew! conda activate base; ipython'     , 'ipython'],
-	\ 'r' : [':FloatermNew! conda activate base; ranger'      , 'ranger'],
-	\ 'y' : [':FloatermNew ytop'                              , 'ytop'],
-	\ 'h' : [':FloatermNew htop'                              , 'htop'],
+	\ 'p' : [':FloatermNew python'      , 'ipython'],
+	\ 'r' : [':FloatermNew! ranger'       , 'ranger'],
 	\ 't' : [':FloatermToggle'                                , 'toggle'],
+	\ 'b' : [':FloatermNew bashtop'                           , 'bashtop'],
 	\ }
 
 call which_key#register(' ', "g:which_key_map")

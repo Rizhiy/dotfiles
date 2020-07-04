@@ -1,8 +1,7 @@
 {
 	"python.jediEnabled": true,
 	"python.jediMemoryLimit": 4096,
-	"python.jediPath": "/home/rizhiy/miniconda3/lib/python3.7/site-packages/jedi",
-	"python.pythonPath": "/home/rizhiy/.bin/coc_python.sh",
+	"python.pythonPath": "/home/rizhiy/.bin/coc_python",
 	"python.condaPath": "conda",
 	"python.formatting.provider": "black",
 	"python.formatting.blackArgs": [
