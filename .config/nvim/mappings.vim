@@ -64,7 +64,7 @@ let g:which_key_map.t = {
 	\ 'g' : [':FloatermNew lazygit'                           , 'git'],
 	\ 'p' : [':FloatermNew! conda activate base; ipython'     , 'ipython'],
 	\ 'r' : [':FloatermNew! conda activate base; ranger'      , 'ranger'],
-	\ 'y' : [':FloatermNew ytop'                              , 'ytop'],
+	\ 'y' : [':FloatermNew! ytop'                              , 'ytop'],
 	\ 'h' : [':FloatermNew htop'                              , 'htop'],
 	\ 't' : [':FloatermToggle'                                , 'toggle'],
 	\ }
