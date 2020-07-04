@@ -2,6 +2,7 @@
 
 sudo add-apt-repository ppa:mmstick76/alacritty -n -y
 sudo add-apt-repository ppa:regolith-linux/release -n -y
+sudo add-apt-repository ppa:lazygit-team/release -n -y
 curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 sudo apt-get update
 xargs sudo apt-get install -y < $HOME/.local/share/apt_install.txt

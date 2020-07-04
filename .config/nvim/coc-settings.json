@@ -5,6 +5,24 @@
 	"python.pythonPath": "/home/rizhiy/.bin/coc_python.sh",
 	"python.condaPath": "conda",
 	"python.formatting.provider": "black",
-	"python.formatting.blackArgs": ["--line-length", "120"],
-	"coc.preferences.formatOnSaveFiletypes": ["python", "markdown"]
+	"python.formatting.blackArgs": [
+		"--line-length",
+		"120"
+	],
+	"coc.preferences.formatOnSaveFiletypes": [
+		"python",
+		"markdown",
+		"json",
+		"jsonc"
+	],
+	"explorer.width": 30,
+	"explorer.previewAction.onHover": false,
+	"explorer.keyMappings": {
+		"<cr>": [
+			"expandable?",
+			"expand",
+			"open"
+		],
+		"v": "open:vsplit"
+	}
 }

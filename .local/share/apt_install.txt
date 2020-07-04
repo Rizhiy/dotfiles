@@ -21,3 +21,5 @@ w3m-img
 exuberant-ctags
 nodejs
 highlight
+xsel
+lazygit

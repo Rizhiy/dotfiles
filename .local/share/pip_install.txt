@@ -1,4 +1,9 @@
 ranger-fm
 gpustat
 neovim
-
+pynvim
+black
+isort[requirements]
+neovim
+rope
+jedi
