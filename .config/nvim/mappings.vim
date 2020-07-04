@@ -19,12 +19,15 @@ nnoremap <C-c> <Esc>
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
+nnoremap <leader><space> :nohlsearch<CR>
+
 
 let g:which_key_map = {}
 let g:which_key_use_floating_win = 0
 
 let g:which_key_map["v"] = [':vsplit', 'Vertical Split']
 let g:which_key_map["h"] = [':split', 'Horizontal Split']
+let g:which_key_map["="] = ['<C-w>=', 'Even out splits']
 let g:which_key_map[" "] = [':nohlsearch', 'Unhighlight search']
 let g:which_key_map["a"] = ['za', 'Add word to dictionary']
 

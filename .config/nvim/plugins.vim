@@ -74,5 +74,7 @@ let g:floaterm_autoclose=1
 Plug 'airblade/vim-rooter'
 " Dev icons, ALWAYS LOAD LAST
 Plug 'ryanoasis/vim-devicons'
+" Project Management
+Plug 'mhinz/vim-startify'
 
 call plug#end()
