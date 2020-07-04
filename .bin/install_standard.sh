@@ -3,7 +3,7 @@
 sudo add-apt-repository ppa:mmstick76/alacritty -n -y
 sudo add-apt-repository ppa:regolith-linux/release -n -y
 sudo add-apt-repository ppa:lazygit-team/release -n -y
-curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get update
 xargs sudo apt-get install -y < $HOME/.local/share/apt_install.txt
 
@@ -27,13 +27,6 @@ sudo npm install -g neovim
 
 # Install Vim plugins
 nvim +PlugInstall +qall
-nvim +CocInstall coc-python +qall
-nvim +CocInstall coc-json +qall
-
-cd "$HOME/.local/share/awesome-terminal-fonts"
-./install.sh
-cd -
-sed 's/<family>PragmataPro<\/family>/<family>FontAwesome<\/family>/g' ~/.config/fontconfig/conf.d/10-symbols.conf
 
 # Install fzf
 cd "$HOME/.local/share/fzf"
@@ -49,6 +42,22 @@ if ! git lfs &>/dev/null; then
 		git lfs install
 	cd -
 fi
+
+# Install nerdfont
+font_dir="$HOME/.local/share/fonts/NerdFonts"
+mkdir -p "$font_dir"
+cd "$font_dir"
+font_links=(
+	"https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf"
+	"https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Bold/complete/Sauce%20Code%20Pro%20Bold%20Nerd%20Font%20Complete.ttf"
+	"https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Italic/complete/Sauce%20Code%20Pro%20Italic%20Nerd%20Font%20Complete.ttf"
+	"https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Bold-Italic/complete/Sauce%20Code%20Pro%20Bold%20Italic%20Nerd%20Font%20Complete.ttf"
+)
+for link in ${font_links[@]}; do
+	wget -c "$link"
+done
+fc-cache -fv
+cd ~
 
 # Update config
 config pull
