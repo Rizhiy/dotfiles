@@ -27,6 +27,7 @@ sudo npm install -g neovim
 
 # Install Vim plugins
 nvim +PlugInstall +qall
+nvim +CocInstall +qall
 
 # Install fzf
 cd "$HOME/.local/share/fzf"
