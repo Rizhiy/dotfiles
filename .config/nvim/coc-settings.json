@@ -1,7 +1,7 @@
 {
 	"python.jediEnabled": true,
 	"python.jediMemoryLimit": 4096,
-	"python.pythonPath": "/home/rizhiy/.bin/coc_python",
+	"python.pythonPath": "/home/rizhiy/.bin/coc_python.sh",
 	"python.condaPath": "conda",
 	"python.formatting.provider": "black",
 	"python.formatting.blackArgs": [
