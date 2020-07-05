@@ -1,4 +1,3 @@
-ranger-fm
 gpustat
 neovim
 pynvim

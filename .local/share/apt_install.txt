@@ -21,3 +21,4 @@ nodejs
 highlight
 xsel
 lazygit
+ranger

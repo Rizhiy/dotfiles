@@ -62,9 +62,9 @@ let g:which_key_map.r = {
 let g:which_key_map.t = {
 	\ 'name' : '+terminal',
 	\ 'g' : [':FloatermNew lazygit'                           , 'git'],
-	\ 'p' : [':FloatermNew! conda activate base; ipython'     , 'ipython'],
-	\ 'r' : [':FloatermNew! conda activate base; ranger'      , 'ranger'],
-	\ 'y' : [':FloatermNew! ytop'                              , 'ytop'],
+	\ 'p' : [':FloatermNew ipython3'                          , 'ipython'],
+	\ 'r' : [':FloatermNew ranger'                            , 'ranger'],
+	\ 'y' : [':FloatermNew! ytop'                             , 'ytop'],
 	\ 'h' : [':FloatermNew htop'                              , 'htop'],
 	\ 't' : [':FloatermToggle'                                , 'toggle'],
 	\ }

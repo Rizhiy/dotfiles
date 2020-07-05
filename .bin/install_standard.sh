@@ -65,6 +65,3 @@ tmp_path="/tmp/ytop.tar.gz"
 wget https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz -O "$tmp_path"
 tar xzf -C "$HOME/.bin" "$tmp_path"
 rm -fr "$tmp_path"
-
-# Update config
-config pull
