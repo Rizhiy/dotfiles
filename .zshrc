@@ -141,6 +141,9 @@ source $ZSH/oh-my-zsh.sh
 # Remove shared history
 unsetopt share_history
 
+# Remove duplicates from history
+setopt HIST_FIND_NO_DUPS
+
 source $HOME/.local/share/common.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
