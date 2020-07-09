@@ -11,7 +11,7 @@ Plug 'tpope/vim-eunuch'
 " Git status in file tree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Comments
-Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-commentary'
 " Git line status
 Plug 'airblade/vim-gitgutter'
 " Indent guide

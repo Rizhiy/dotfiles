@@ -21,6 +21,9 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Commenting
+nmap <C-_> gcc
+vmap <C-_> gc
 
 let g:which_key_map = {}
 let g:which_key_use_floating_win = 0
@@ -47,14 +50,14 @@ let g:which_key_map.b = {
 	\ }
 let g:which_key_map.n = {
 	\ 'name': 'navigate',
-	\ 'r': [':RangerNewTab', 'Ranger'],
+	\ 'r': [':Ranger', 'Ranger'],
 	\ 'e': [':CocCommand explorer', 'explorer'],
 	\ 'f': [':Files', 'Files'],
 	\ }
 let g:which_key_map.r = {
 	\ 'name': 'run',
 	\ 'p': [":w<CR>:exec '!python' shellescape(@%, 1)<CR>", 'python'],
-	\ 'f': [":CocAction('format')", 'Format'],
+	\ 'f': [":call CocAction('format')", 'Format'],
 	\ 's': [":call CocAction('runCommand', 'editor.action.organizeImport')", 'Sort imports'],
 	\ 'c': [':source $MYVIMRC', 'Reload VIMRC'],
 	\ 'e': [':tabnew $MYVIMRC', 'Edit VIMRC'],
@@ -67,6 +70,12 @@ let g:which_key_map.t = {
 	\ 'y' : [':FloatermNew! ytop'                             , 'ytop'],
 	\ 'h' : [':FloatermNew htop'                              , 'htop'],
 	\ 't' : [':FloatermToggle'                                , 'toggle'],
+	\ }
+let g:which_key_map.d = {
+	\ 'name': 'diagnostics',
+	\ 'n' : [ ''                                              , 'next'],
+	\ 'p' : [ ''                                              , 'prev'],
+	\ 'l' : [':CocList diagnostics'                           , 'list'],
 	\ }
 
 call which_key#register(' ', "g:which_key_map")
