@@ -146,4 +146,9 @@ setopt HIST_FIND_NO_DUPS
 
 source $HOME/.local/share/common.sh
 
+# calculator
+calc() {
+    python -c 'from math import *; import sys; print(eval(" ".join(sys.argv[1:])))' "$@"
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
