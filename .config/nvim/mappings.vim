@@ -22,8 +22,8 @@ vnoremap > >gv
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Commenting
-nmap <C-_> gcc
-vmap <C-_> gc
+nmap <C-_> gccj
+vmap <C-_> gcj
 
 let g:which_key_map = {}
 let g:which_key_use_floating_win = 0

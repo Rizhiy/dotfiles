@@ -39,3 +39,6 @@ cmap w!! w !sudo tee %
 " Disable ex mode for now
 map q: <Nop>
 nnoremap Q <nop>
+
+" Disable built in help
+:nmap <F1> <nop>
