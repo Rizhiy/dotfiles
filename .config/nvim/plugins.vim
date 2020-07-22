@@ -66,6 +66,7 @@ let g:floaterm_keymap_toggle = '<F1>'
 let g:floaterm_keymap_next   = '<F2>'
 let g:floaterm_keymap_prev   = '<F3>'
 let g:floaterm_keymap_new    = '<F4>'
+imap <F1> <ESC>:FloatermToggle<CR>
 
 " Floaterm
 let g:floaterm_gitcommit='floaterm'
@@ -80,5 +81,17 @@ Plug 'airblade/vim-rooter'
 Plug 'ryanoasis/vim-devicons'
 " Project Management
 Plug 'mhinz/vim-startify'
+let g:startify_lists = [
+	\ { 'header': ['    MRU ' . getcwd()], 'type': 'dir' },
+	\ { 'header': ['    Global MRU'],      'type': 'files' },
+	\ { 'header': ['    Sessions'],        'type': 'sessions' },
+	\ { 'header': ['    Bookmarks'],       'type': 'bookmarks' },
+	\ { 'header': ['    Commands'],        'type': 'commands' },
+	\ ]
+let g:startify_bookmarks = [
+	\ { 'C': '~/.config/nvim/init.vim' },
+	\ { 'Z': '~/.zshrc' },
+	\]
+autocmd User StartifyReady CocCommand explorer
 
 call plug#end()

@@ -41,4 +41,7 @@ map q: <Nop>
 nnoremap Q <nop>
 
 " Disable built in help
-:nmap <F1> <nop>
+nmap <F1> <nop>
+imap <F1> <nop>
+vmap <F1> <nop>
+
