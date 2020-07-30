@@ -29,6 +29,7 @@ set conceallevel=0                               " Don't hide links in markdown
 set showtabline=2                                " Always show tabline
 
 au! BufWritePost $MYVIMRC source %               " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+au FocusGained,BufEnter * :checktime             " Update on focus switch
 
 " Disable record
 map q <Nop>

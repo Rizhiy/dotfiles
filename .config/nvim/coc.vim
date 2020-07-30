@@ -117,6 +117,7 @@ let g:coc_global_extensions = [
 			\ ]
 
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+autocmd FileType coc-explorer setlocal nonumber norelativenumber
 
 " Diagnostics
 nmap <leader>dn <Plug>(coc-diagnostic-next)
