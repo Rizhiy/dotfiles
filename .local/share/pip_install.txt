@@ -6,3 +6,4 @@ isort[requirements]
 neovim
 rope
 jedi
+neovim-remote
