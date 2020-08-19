@@ -4,11 +4,11 @@ nnoremap D "_D
 nnoremap x d
 
 function! DiffToggle()
-    if &diff
-        diffoff
-    else
-        diffthis
-    endif
+	if &diff
+		diffoff
+	else
+		diffthis
+	endif
 :endfunction
 
 " Easier save, quit and esc
@@ -33,6 +33,7 @@ let g:which_key_map["h"] = [':split', 'Horizontal Split']
 let g:which_key_map["="] = ['<C-w>=', 'Even out splits']
 let g:which_key_map[" "] = [':nohlsearch', 'Unhighlight search']
 let g:which_key_map["a"] = ['za', 'Add word to dictionary']
+let g:which_key_map["f"] = [':Ag', 'Project-wide search']
 
 let g:which_key_map.s = {
 	\ 'name': 'session',
@@ -54,6 +55,7 @@ let g:which_key_map.n = {
 	\ 'r': [':Ranger'                                                       , 'Ranger'],
 	\ 'e': [':CocCommand explorer'                                          , 'explorer'],
 	\ 'f': [':Files'                                                        , 'Files'],
+	\ 'b': [':Buffers'                                                      , 'Buffers'],
 	\ }
 let g:which_key_map.r = {
 	\ 'name': 'run',
