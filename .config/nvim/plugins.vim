@@ -27,6 +27,7 @@ Plug '$HOME/.local/share/fzf'
 Plug 'junegunn/fzf.vim'
 " Indent guide
 Plug 'Yggdroot/indentLine'
+let g:indentLine_fileTypeExclude = ['markdown']
 " Tmux config help
 Plug 'tmux-plugins/vim-tmux'
 " Undo tree
