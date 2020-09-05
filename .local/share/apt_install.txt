@@ -23,3 +23,5 @@ xsel
 lazygit
 ranger
 silversearcher-ag
+ripgrep
+bat

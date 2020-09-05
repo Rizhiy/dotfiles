@@ -92,6 +92,7 @@ let g:startify_bookmarks = [
 	\ { 'C': '~/.config/nvim/init.vim' },
 	\ { 'Z': '~/.zshrc' },
 	\]
+
 autocmd User StartifyReady CocCommand explorer
 
 call plug#end()

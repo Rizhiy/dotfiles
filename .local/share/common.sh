@@ -63,3 +63,6 @@ alias docker="sudo docker"
 export PATH="$HOME/.bin:$PATH"
 
 conda activate
+
+# Fix term for now
+export TERM=xterm-256color

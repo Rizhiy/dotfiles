@@ -13,7 +13,6 @@ set showtabline=4                       " Always show tabs
 set formatoptions-=cro                  " Stop newline continuation of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set display=lastline                    " Show @@@ in the last line if it is truncated.
-set scrolloff=5                         " Show a few lines of context around the cursor
 set list                                " Show empty characted tab/eol
 set listchars=tab:▸\ ,trail:·           " Specify empty charactes
 set lazyredraw                          " Redraw less
