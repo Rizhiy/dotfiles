@@ -48,4 +48,3 @@ if !exists('*VCenterCursor')
 endif
 
 nnoremap <leader>zz :call VCenterCursor()<CR>
-autocmd BufReadPost * :call VCenterCursor()
