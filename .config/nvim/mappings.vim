@@ -19,7 +19,6 @@ nnoremap <C-c> <Esc>
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
-nnoremap <leader><space> :nohlsearch<CR>
 
 " Commenting
 nmap <C-_> gccj
@@ -34,6 +33,7 @@ let g:which_key_map["="] = ['<C-w>=', 'Even out splits']
 let g:which_key_map[" "] = [':nohlsearch', 'Unhighlight search']
 let g:which_key_map["a"] = ['za', 'Add word to dictionary']
 let g:which_key_map["f"] = [':Ag', 'Project-wide search']
+let g:which_key_map["z"] = [':call VCenterCursor()<CR>', "Toggle Vertical Align"]
 
 let g:which_key_map.s = {
 	\ 'name': 'session',
@@ -66,7 +66,7 @@ let g:which_key_map.r = {
 	\ 'e': [':tabnew $MYVIMRC'                                              , 'Edit VIMRC'],
 	\ }
 let g:which_key_map.t = {
-	\ 'name' : '+terminal',
+	\ 'name' : 'terminal',
 	\ 'g' : [':FloatermNew lazygit'                                         , 'git'],
 	\ 'p' : [':FloatermNew ipython3'                                        , 'ipython'],
 	\ 'r' : [':FloatermNew ranger'                                          , 'ranger'],

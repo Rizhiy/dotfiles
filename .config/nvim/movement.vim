@@ -46,5 +46,3 @@ if !exists('*VCenterCursor')
     endif
   endfunction
 endif
-
-nnoremap <leader>zz :call VCenterCursor()<CR>
