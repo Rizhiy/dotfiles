@@ -24,16 +24,20 @@ vnoremap > >gv
 nmap <C-_> gccj
 vmap <C-_> gcj
 
+" Toggle search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
 let g:which_key_map = {}
 let g:which_key_use_floating_win = 0
 
 let g:which_key_map["v"] = [':vsplit', 'Vertical Split']
 let g:which_key_map["h"] = [':split', 'Horizontal Split']
 let g:which_key_map["="] = ['<C-w>=', 'Even out splits']
-let g:which_key_map[" "] = [':nohlsearch', 'Unhighlight search']
-let g:which_key_map["a"] = ['za', 'Add word to dictionary']
+let g:which_key_map[" "] = ['', 'Unhighlight search']
+let g:which_key_map["a"] = ['za', 'Toggle Fold']
 let g:which_key_map["f"] = [':Ag', 'Project-wide search']
-let g:which_key_map["z"] = [':call VCenterCursor()<CR>', "Toggle Vertical Align"]
+let g:which_key_map["z"] = [':call VCenterCursor()', 'Toggle Vertical Align']
+let g:which_key_map["g"] = ['zg', 'Add word to the dictionary']
 
 let g:which_key_map.s = {
 	\ 'name': 'session',
