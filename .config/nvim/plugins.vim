@@ -64,8 +64,8 @@ let g:sneak#s_next = 1                           " Automatically just to first i
 " Floats
 Plug 'voldikss/vim-floaterm'
 let g:floaterm_keymap_toggle = '<F1>'
-let g:floaterm_keymap_next   = '<F2>'
-let g:floaterm_keymap_prev   = '<F3>'
+let g:floaterm_keymap_prev   = '<F2>'
+let g:floaterm_keymap_next   = '<F3>'
 let g:floaterm_keymap_new    = '<F4>'
 imap <F1> <ESC>:FloatermToggle<CR>
 
