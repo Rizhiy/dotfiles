@@ -11,8 +11,6 @@ vim-gnome
 alacritty
 feh
 compton
-regolith-desktop
-regolith-look-solarized-dark
 surfraw
 w3m
 w3m-img
@@ -25,3 +23,4 @@ ranger
 silversearcher-ag
 ripgrep
 bat
+i3-gaps-wm
