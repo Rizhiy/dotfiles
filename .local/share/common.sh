@@ -4,8 +4,9 @@ export HISTFILESIZE=100000
 export SAVEHIST=$HISTSIZE
 export KEYTIMEOUT=1
 
-# More info
-alias  lh='ls -Alh'
+# lsd
+alias ls='lsd'
+alias lh='lsd -Al'
 
 # Shortcut for quick conda activation
 conda_deactivate () {

@@ -61,7 +61,13 @@ fc-cache -fv
 cd ~
 
 # Ytop
-tmp_path="/tmp/ytop.tar.gz"
-wget https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz -O "$tmp_path"
-tar xzf -C "$HOME/.bin" "$tmp_path"
-rm -fr "$tmp_path"
+ytop_path="/tmp/ytop.tar.gz"
+wget https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz -O "$ytop_path"
+tar xzf -C "$HOME/.bin" "$ytop_path"
+rm -fr "$ytop_path"
+
+# lsd
+lsd_path="/tmp/lsd_18.deb"
+wget https://github.com/Peltoche/lsd/releases/download/0.18.0/lsd_0.18.0_amd64.deb -O "$lsd_path"
+sudo dpkg -i "$lsd_path"
+rm -fr "$lsd_path"
