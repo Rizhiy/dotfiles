@@ -19,11 +19,13 @@ nnoremap <C-c> <Esc>
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
-nnoremap <leader><space> :nohlsearch<CR>
 
 " Commenting
 nmap <C-_> gccj
 vmap <C-_> gcj
+
+" Toggle search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
 let g:which_key_map = {}
 let g:which_key_use_floating_win = 0
@@ -31,9 +33,11 @@ let g:which_key_use_floating_win = 0
 let g:which_key_map["v"] = [':vsplit', 'Vertical Split']
 let g:which_key_map["h"] = [':split', 'Horizontal Split']
 let g:which_key_map["="] = ['<C-w>=', 'Even out splits']
-let g:which_key_map[" "] = [':nohlsearch', 'Unhighlight search']
-let g:which_key_map["a"] = ['za', 'Add word to dictionary']
+let g:which_key_map[" "] = ['', 'Unhighlight search']
+let g:which_key_map["a"] = ['za', 'Toggle Fold']
 let g:which_key_map["f"] = [':Ag', 'Project-wide search']
+let g:which_key_map["z"] = [':call VCenterCursor()', 'Toggle Vertical Align']
+let g:which_key_map["g"] = ['zg', 'Add word to the dictionary']
 
 let g:which_key_map.s = {
 	\ 'name': 'session',
@@ -66,7 +70,7 @@ let g:which_key_map.r = {
 	\ 'e': [':tabnew $MYVIMRC'                                              , 'Edit VIMRC'],
 	\ }
 let g:which_key_map.t = {
-	\ 'name' : '+terminal',
+	\ 'name' : 'terminal',
 	\ 'g' : [':FloatermNew lazygit'                                         , 'git'],
 	\ 'p' : [':FloatermNew ipython3'                                        , 'ipython'],
 	\ 'r' : [':FloatermNew ranger'                                          , 'ranger'],
