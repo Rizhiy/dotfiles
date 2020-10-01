@@ -79,3 +79,10 @@ theme_path="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
 if [[ ! -f "$theme_path" ]]; then
 	git clone https://github.com/bhilburn/powerlevel9k.git "$theme_path"
 fi
+
+# Add i3 option
+source_path="$HOME/.local/share/i3.desktop"
+target_path="/usr/share/xsessions/i3.desktop"
+if [[ ! -f "$target_path" ]]; then
+	sudo cp "$source_path" "$target_path"
+fi
