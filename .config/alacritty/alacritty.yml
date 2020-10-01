@@ -11,7 +11,7 @@ font:
   bold_italic:
     family: SauceCodePro Nerd Font
     style: Bold Italic
-  size: 11
+  size: 8
 
 # Afterglow colors
 colors:

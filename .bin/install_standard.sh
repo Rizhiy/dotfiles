@@ -86,3 +86,18 @@ target_path="/usr/share/xsessions/i3.desktop"
 if [[ ! -f "$target_path" ]]; then
 	sudo cp "$source_path" "$target_path"
 fi
+
+# Build i3lock-color
+if ! command -v "i3lock" > /dev/null; then
+	old_dir="$(pwd)"
+	cd $HOME/.local/share/i3lock-color
+	chmod u+x build.sh
+	./build.sh
+	cd build
+	sudo make install
+	cd "$old_dir"
+fi
+
+# Update lockscreenwallpaper
+betterlockscreen -u "$HOME/.local/share/lock_screen.jpg"
+
