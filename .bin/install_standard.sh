@@ -73,3 +73,9 @@ if ! command -v "lsd" > /dev/null; then
 	sudo dpkg -i "$lsd_path"
 	rm -fr "$lsd_path"
 fi
+
+# Setup powerlevel9k
+theme_path="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
+if [[ ! -f "$theme_path" ]]; then
+	git clone https://github.com/bhilburn/powerlevel9k.git "$theme_path"
+fi
