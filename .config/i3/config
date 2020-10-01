@@ -10,9 +10,6 @@ exec compton --config $HOME/.config/compton.conf -b
 set $mod Mod4
 set $alt Mod1
 
-# i3xrocks config file. Override this for custom status indicators on the bar.
-set $i3xrocks_config $HOME/.config/regolith/i3xrocks/config
-
 # path to terminal. Override this to specify a custom terminal.
 set $terminal_path /usr/bin/alacritty
 
