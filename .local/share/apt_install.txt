@@ -7,7 +7,6 @@ build-essential
 curl
 wget
 chrome-gnome-shell
-vim-gnome
 alacritty
 feh
 compton
@@ -21,6 +20,5 @@ xsel
 lazygit
 ranger
 silversearcher-ag
-ripgrep
 bat
 i3-gaps-wm
