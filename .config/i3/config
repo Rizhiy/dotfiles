@@ -32,11 +32,11 @@ floating_modifier $mod
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1 Terminal"
 set $ws2 "2 Chrome"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
+set $ws3 "3 PyCharm"
+set $ws4 "4 Code"
+set $ws5 "5 Remote"
 set $ws6 "6"
-set $ws7 "7"
+set $ws7 "7 Steam"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -197,7 +197,9 @@ bindsym $mod+$alt+0 move container to workspace number $ws0; workspace number $w
 
 ############### Session operations ###############
 # lock the screen
-bindsym $mod+Escape exec $HOME/.bin/betterlockscreen --lock
+bindsym $mod+Escape exec $HOME/.bin/lock.sh
+# Also lock on lid close
+exec --no-startup-id "xss-lock -- $HOME/.bin/lock.sh"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

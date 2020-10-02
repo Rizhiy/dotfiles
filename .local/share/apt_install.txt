@@ -41,3 +41,4 @@ libxcb-xrm-dev
 libxkbcommon-dev
 libxkbcommon-x11-dev
 libjpeg-dev
+xss-lock
