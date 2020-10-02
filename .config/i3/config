@@ -269,3 +269,7 @@ exec --no-startup-id (crontab -l; echo "0 */2 * * * DISPLAY=:1 /home/rizhiy/.bin
 
 # Search clipboard
 bindsym $mod+s exec /home/rizhiy/.bin/search_highlighed.sh
+
+# Input switching
+exec "setxkbmap -layout gb,ru"
+exec "setxkbmap -option 'grp:caps_toggle'"
