@@ -76,7 +76,7 @@ fi
 
 # Setup powerlevel9k
 theme_path="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
-if [[ ! -f "$theme_path" ]]; then
+if [[ ! -d "$theme_path" ]]; then
 	git clone https://github.com/bhilburn/powerlevel9k.git "$theme_path"
 fi
 
