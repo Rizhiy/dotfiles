@@ -1,10 +1,16 @@
 #!/bin/bash
 
+echo "Adding ppas"
 sudo add-apt-repository ppa:mmstick76/alacritty -n -y
+# i3-gaps & friends
 sudo add-apt-repository ppa:kgilmer/speed-ricer -n -y
 sudo add-apt-repository ppa:lazygit-team/release -n -y
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+# Add google chrome repo
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 sudo apt-get update
+
 xargs sudo apt-get install -y < $HOME/.local/share/apt_install.txt
 
 if [ ! -d "$HOME/miniconda3" ]; then

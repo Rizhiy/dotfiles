@@ -42,3 +42,4 @@ libxkbcommon-x11-dev
 libjpeg-dev
 xss-lock
 rofi
+google-chrome-stable
