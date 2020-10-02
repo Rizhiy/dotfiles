@@ -22,7 +22,6 @@ ranger
 silversearcher-ag
 bat
 i3-gaps-wm
-dmenu
 i3status
 unclutter
 imagemagick
@@ -42,3 +41,4 @@ libxkbcommon-dev
 libxkbcommon-x11-dev
 libjpeg-dev
 xss-lock
+rofi
