@@ -1,6 +1,6 @@
 [bar/top]
 width = 100%
-height = 28
+height = 36
 
 background = #1f1f1f
 foreground = #eee
@@ -14,20 +14,12 @@ module-margin-right = 2
 
 separator = |
 
-font-0 = SauceCodePro\ Nerd\ Font:size=10;0
+font-0 = SauceCodePro\ Nerd\ Font:size=12;0
 
 modules-left = title
 modules-right = temperature volume wireless-network consumation battery date
 
 wm-restack = i3
-
-tray-position = right 
-tray-scale = 1.0
-;tray-transparent = true
-tray-background = ${self.background}
-tray-maxsize = 64
-
-tray-offset-y = 0
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -70,9 +62,7 @@ bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
 bar-capacity-fill = █
 bar-capacity-fill-foreground = #ddffffff
-bar-capacity-fill-font = 3
 bar-capacity-empty = █
-bar-capacity-empty-font = 3
 bar-capacity-empty-foreground = #44ffffff
 
 animation-charging-0 = 
@@ -88,28 +78,20 @@ interval = 0.5
 format = <label> <ramp-coreload>
 label = CPU
 ramp-coreload-0 = ▁
-ramp-coreload-0-font = 2
 ramp-coreload-0-foreground = #aaff77
 ramp-coreload-1 = ▂
-ramp-coreload-1-font = 2
 ramp-coreload-1-foreground = #aaff77
 ramp-coreload-2 = ▃
-ramp-coreload-2-font = 2
 ramp-coreload-2-foreground = #aaff77
 ramp-coreload-3 = ▄
-ramp-coreload-3-font = 2
 ramp-coreload-3-foreground = #aaff77
 ramp-coreload-4 = ▅
-ramp-coreload-4-font = 2
 ramp-coreload-4-foreground = #fba922
 ramp-coreload-5 = ▆
-ramp-coreload-5-font = 2
 ramp-coreload-5-foreground = #fba922
 ramp-coreload-6 = ▇
-ramp-coreload-6-font = 2
 ramp-coreload-6-foreground = #ff5555
 ramp-coreload-7 = █
-ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = #ff5555
 
 [module/date]
@@ -127,12 +109,9 @@ bar-used-foreground-1 = #aaff77
 bar-used-foreground-2 = #fba922
 bar-used-foreground-3 = #ff5555
 bar-used-indicator = |
-bar-used-indicator-font = 6
 bar-used-indicator-foreground = #ff
 bar-used-fill = ─
-bar-used-fill-font = 6
 bar-used-empty = ─
-bar-used-empty-font = 6
 bar-used-empty-foreground = #444444
 
 
