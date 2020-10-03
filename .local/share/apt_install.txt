@@ -43,3 +43,4 @@ libjpeg-dev
 xss-lock
 rofi
 google-chrome-stable
+polybar

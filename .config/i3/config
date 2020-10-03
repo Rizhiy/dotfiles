@@ -67,9 +67,9 @@ bindsym $mod+Ctrl+f exec nautilus
 
 
 # rofi app and window launchers
-bindsym $mod+Ctrl+space exec rofi -show drun -theme $rofiTheme
-bindsym $mod+space exec rofi -show run -theme $rofiTheme
-bindsym $mod+Shift+space exec rofi -show window -theme $rofiTheme
+bindsym $mod+Ctrl+space exec rofi -show drun
+bindsym $mod+space exec rofi -show run
+bindsym $mod+Shift+space exec rofi -show window
 
 ############### Window operations ###############
 # Should generaly have simple $mod prefix
@@ -230,16 +230,6 @@ gaps outer 0
 # Only enable gaps on a workspace when there is at least one container
 smart_gaps on
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	font pango:SauceCodePro Nerd Font
-	status_command i3status
-	strip_workspace_numbers yes
-	separator_symbol " "
-}
-
-
 # Hide the mouse pointer if unused for a duration
 exec --no-startup-id /usr/bin/unclutter -b
 
@@ -276,4 +266,7 @@ exec --no-startup-id (crontab -l; echo "0 */2 * * * DISPLAY=:1 /home/rizhiy/.bin
 bindsym $mod+s exec /home/rizhiy/.bin/search_highlighed.sh
 
 # Input switching
-exec "setxkbmap -layout gb,ru -option 'grp:caps_toggle'"
+exec_always "setxkbmap -layout gb,ru -option 'grp:caps_toggle'"
+
+# Polybar
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
