@@ -17,7 +17,7 @@ separator = |
 font-0 = SauceCodePro\ Nerd\ Font:size=12;0
 
 modules-left = title
-modules-right = temperature volume wired-network wireless-network consumation battery date
+modules-right = volume backlight wired-network wireless-network temperature battery date
 
 wm-restack = i3
 
@@ -150,6 +150,27 @@ ramp-volume-1 = 蓼
 ramp-volume-2 = 蓼
 ramp-volume-3 = ﰝ
 
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <ramp> <label>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 
 [module/temperature]
 type = internal/temperature
