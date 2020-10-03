@@ -208,7 +208,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Logout of session
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e exec "rofi -show power -modi power:$HOME/.config/rofi/power.sh"
 
 ############### Appearance settings ################
 
