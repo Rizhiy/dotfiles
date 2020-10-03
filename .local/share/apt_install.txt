@@ -44,3 +44,4 @@ xss-lock
 rofi
 google-chrome-stable
 polybar
+brightnessctl

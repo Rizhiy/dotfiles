@@ -107,3 +107,5 @@ fi
 # Update lockscreenwallpaper
 betterlockscreen -u "$HOME/.local/share/lock_screen.jpg"
 
+# Add user to video group for brightness
+sudo usermod -a -G video "$(whoami)"
