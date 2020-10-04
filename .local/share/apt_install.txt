@@ -45,3 +45,4 @@ rofi
 google-chrome-stable
 polybar
 brightnessctl
+nordvpn
