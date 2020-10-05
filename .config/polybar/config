@@ -17,7 +17,7 @@ separator = |
 font-0 = SauceCodePro\ Nerd\ Font:size=12;0
 
 modules-left = title
-modules-right = volume backlight wired-network wireless-network temperature battery date
+modules-right = volume backlight wired-network wireless-network bluetooth temperature battery date
 
 wm-restack = i3
 
@@ -39,6 +39,17 @@ modules-right = xkeyboard cpu memory
 
 [module/title]
 type = internal/xwindow
+
+; Available tags:
+;   <label> (default)
+format = <label>
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
 
 [module/battery]
 type = internal/battery
@@ -253,4 +264,9 @@ type = internal/xkeyboard
 ; List of indicators to ignore
 blacklist-0 = num lock
 blacklist-1 = scroll lock
+
+[module/bluetooth]
+type = custom/script
+exec = bash $HOME/.bin/bluetooth.sh
+click-left = bash $HOME/.bin/bluetooth.sh --toggle &
 ; vim:ft=dosini

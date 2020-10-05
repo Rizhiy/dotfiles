@@ -19,3 +19,6 @@
 [submodule ".local/share/i3lock-color"]
 	path = .local/share/i3lock-color
 	url = https://github.com/Raymo111/i3lock-color.git
+[submodule ".local/share/polybar-scripts"]
+	path = .local/share/polybar-scripts
+	url = https://github.com/polybar/polybar-scripts.git
