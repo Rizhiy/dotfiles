@@ -17,7 +17,7 @@ separator = |
 font-0 = SauceCodePro\ Nerd\ Font:size=12;0
 
 modules-left = title
-modules-right = volume backlight wired-network wireless-network bluetooth temperature battery date
+modules-right = volume backlight wired-network wireless-network bluetooth
 
 wm-restack = i3
 
@@ -34,7 +34,7 @@ inherit = bar/top
 bottom = true
 
 modules-left = i3
-modules-right = xkeyboard cpu memory
+modules-right = xkeyboard temperature cpu memory battery date
 
 
 [module/title]
