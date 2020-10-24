@@ -186,7 +186,7 @@ ramp-2 = 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 5
-warn-temperature = 65
+warn-temperature = 80
 
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
