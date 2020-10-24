@@ -46,3 +46,4 @@ google-chrome-stable
 polybar
 brightnessctl
 nordvpn
+i3lock
