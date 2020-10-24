@@ -13,9 +13,6 @@
 [submodule ".local/share/bashtop"]
 	path = .local/share/bashtop
 	url = https://github.com/aristocratos/bashtop.git
-[submodule ".local/share/betterlockscreen"]
-	path = .local/share/betterlockscreen
-	url = https://github.com/pavanjadhaw/betterlockscreen
 [submodule ".local/share/i3lock-color"]
 	path = .local/share/i3lock-color
 	url = https://github.com/Raymo111/i3lock-color.git
