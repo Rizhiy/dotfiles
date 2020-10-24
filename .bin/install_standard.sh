@@ -87,6 +87,9 @@ if ! command -v "lsd" > /dev/null; then
 	rm -fr "$lsd_path"
 fi
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Setup powerlevel9k
 theme_path="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
 if [[ ! -d "$theme_path" ]]; then

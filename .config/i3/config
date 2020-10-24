@@ -41,6 +41,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# Intialise gnome keyring
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
 ############### Programs Here ###############
 # All programs (except terminal) should be launched with $mod+Ctrl prefix
 
@@ -48,7 +51,7 @@ set $ws10 "10"
 bindsym $mod+Return exec $terminal_path
 
 # start a web browser
-bindsym $mod+Ctrl+Return exec /usr/bin/sensible-browser
+bindsym $mod+Ctrl+Return exec /usr/bin/google-chrome --password-store=gnome
 
 # Start PyCharm
 bindsym $mod+Ctrl+p exec charm
