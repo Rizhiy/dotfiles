@@ -21,3 +21,5 @@
 	new = cyan
 [submodule]
 	recurse = true
+[user]
+	name = Artem Vasenin
