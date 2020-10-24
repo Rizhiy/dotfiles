@@ -1,3 +1,3 @@
 #!/bin/bash
 
-. "$HOME/.local/share/betterlockscreen/betterlockscreen" --lock
+. "$HOME/.local/share/multilockscreen/multilockscreen" --lock

@@ -22,3 +22,6 @@
 [submodule ".local/share/polybar-scripts"]
 	path = .local/share/polybar-scripts
 	url = https://github.com/polybar/polybar-scripts.git
+[submodule ".local/share/multilockscreen"]
+	path = .local/share/multilockscreen
+	url = https://github.com/jeffmhubbard/multilockscreen

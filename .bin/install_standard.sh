@@ -1,4 +1,7 @@
 #!/bin/bash
+set -e
+# Download all submodules
+/usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" submodule update --init --recursive
 
 echo "Adding ppas"
 sudo add-apt-repository ppa:mmstick76/alacritty -n -y
@@ -39,8 +42,8 @@ fi
 sudo npm install -g neovim
 
 # Install Vim plugins
-nvim +PlugInstall +qall
-nvim +CocInstall +qall
+"$HOME/.bin/nvim.appimage" +PlugInstall +qall
+"$HOME/.bin/nvim.appimage" +CocInstall +qall
 
 # Install fzf
 cd "$HOME/.local/share/fzf"
@@ -88,7 +91,9 @@ if ! command -v "lsd" > /dev/null; then
 fi
 
 # Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Setup powerlevel9k
 theme_path="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
@@ -115,7 +120,7 @@ if ! command -v "i3lock" > /dev/null; then
 fi
 
 # Update lockscreenwallpaper
-$HOME/.local/share/betterlockscreen/betterlockscreen -u "$HOME/.local/share/lock_screen.jpg"
+"$HOME/.local/share/multilockscreen/multilockscreen" -u "$HOME/.local/share/lock_screen.jpg"
 
 # Add user to video group for brightness
 sudo usermod -a -G video "$(whoami)"
