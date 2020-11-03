@@ -21,7 +21,7 @@ if ! command -v "nordvpn" > /dev/null; then
 fi
 sudo apt-get update
 
-xargs sudo apt-get install -y < $HOME/.local/share/apt_install.txt
+xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install.txt
 
 if [ ! -d "$HOME/miniconda3" ]; then
 	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O "$HOME/miniconda3.sh"
@@ -100,6 +100,12 @@ theme_path="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
 if [[ ! -d "$theme_path" ]]; then
 	git clone https://github.com/bhilburn/powerlevel9k.git "$theme_path"
 fi
+
+# Install unclutter
+cd "$HOME/.local/share/unclutter-xfixes"
+make
+sudo make install
+cd -
 
 # Add i3 option
 source_path="$HOME/.local/share/i3.desktop"

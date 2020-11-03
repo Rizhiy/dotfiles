@@ -22,3 +22,6 @@
 [submodule ".local/share/multilockscreen"]
 	path = .local/share/multilockscreen
 	url = https://github.com/jeffmhubbard/multilockscreen
+[submodule ".local/share/unclutter-xfixes"]
+	path = .local/share/unclutter-xfixes
+	url = https://github.com/Airblader/unclutter-xfixes.git

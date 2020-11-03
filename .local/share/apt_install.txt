@@ -23,7 +23,6 @@ silversearcher-ag
 bat
 i3-gaps-wm
 i3status
-unclutter
 imagemagick
 autoconf
 libpam0g-dev
@@ -46,3 +45,5 @@ google-chrome-stable
 polybar
 brightnessctl
 nordvpn
+libxi-dev
+asciidoc
