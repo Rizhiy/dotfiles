@@ -7,6 +7,7 @@ export KEYTIMEOUT=1
 # lsd
 alias ls='lsd'
 alias lh='lsd -Al'
+alias tree='lsd --tree'
 
 # Shortcut for quick conda activation
 conda_deactivate () {
