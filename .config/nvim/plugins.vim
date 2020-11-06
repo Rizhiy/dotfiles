@@ -22,6 +22,29 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme = 'gruvbox'
+let g:airline_detect_spell=0
+let g:airline_powerline_fonts = 1
+let g:airline_mode_map = {
+	\ '__'     : '-',
+	\ 'c'      : 'C',
+	\ 'i'      : 'I',
+	\ 'ic'     : 'I',
+	\ 'ix'     : 'I',
+	\ 'n'      : 'N',
+	\ 'multi'  : 'M',
+	\ 'ni'     : 'N',
+	\ 'no'     : 'N',
+	\ 'R'      : 'R',
+	\ 'Rv'     : 'R',
+	\ 's'      : 'S',
+	\ 'S'      : 'S',
+	\ ''     : 'S',
+	\ 't'      : 'T',
+	\ 'v'      : 'V',
+	\ 'V'      : 'V',
+	\ ''     : 'V',
+	\ }
+let g:airline_skip_empty_sections = 1
 " Fzf
 Plug '$HOME/.local/share/fzf'
 Plug 'junegunn/fzf.vim'
@@ -95,5 +118,6 @@ let g:startify_bookmarks = [
 	\]
 
 autocmd User StartifyReady CocCommand explorer
+autocmd User StartifyAllBuffersOpened echomsg 'foo'
 
 call plug#end()
