@@ -117,7 +117,7 @@ let g:startify_bookmarks = [
 	\ { 'Z': '~/.zshrc' },
 	\]
 
-autocmd User StartifyReady CocCommand explorer
-autocmd User StartifyAllBuffersOpened echomsg 'foo'
+autocmd User StartifyBufferOpened CocCommand explorer
+autocmd User SessionLoadPost CocCommand explorer
 
 call plug#end()
