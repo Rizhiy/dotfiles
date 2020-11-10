@@ -23,7 +23,7 @@ set $terminal_path /usr/bin/alacritty
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango:SauceCodePro Nerd Font 13
+font pango:SauceCodePro Nerd Font 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -235,22 +235,22 @@ smart_gaps on
 # Hide the mouse pointer if unused for a duration
 exec --no-startup-id /usr/bin/unclutter -b
 
-
 ############### Other ################
 
-# Assign workspaces to monitors
-# set $monitor_left DP-2
-# set $monitor_right DP-0
-# workspace "$ws1" output $monitor_left
-# workspace "$ws2" output $monitor_right
-# workspace "$ws3" output $monitor_left
-# workspace "$ws4" output $monitor_right
-# workspace "$ws5" output $monitor_left
-# workspace "$ws6" output $monitor_right
-# workspace "$ws7" output $monitor_left
-# workspace "$ws8" output $monitor_right
-# workspace "$ws9" output $monitor_left
-# workspace "$ws0" output $monitor_right
+exec_always --no-startup-id "$HOME/.bin/find_monitors.py"
+set_from_resource $monitor_left monitor_left
+set_from_resource $monitor_right monitor_right
+
+workspace $ws1 output "$monitor_left"
+workspace $ws2 output "$monitor_right"
+workspace $ws3 output "$monitor_left"
+workspace $ws4 output "$monitor_right"
+workspace $ws5 output "$monitor_left"
+workspace $ws6 output "$monitor_right"
+workspace $ws7 output "$monitor_left"
+workspace $ws8 output "$monitor_right"
+workspace $ws9 output "$monitor_left"
+workspace $ws0 output "$monitor_right"
 
 # Assign programs to workspaces
 assign [class="chrome" ] $ws2
@@ -261,7 +261,7 @@ assign [class="Steam"] $ws7
 workspace_layout tabbed
 
 # Setup time-based wallpaper
-exec --no-startup-id /home/rizhiy/.bin/set_time_wallpaper.sh
+exec_always --no-startup-id /home/rizhiy/.bin/set_time_wallpaper.sh
 exec --no-startup-id (crontab -l; echo "0 */2 * * * DISPLAY=:1 /home/rizhiy/.bin/set_time_wallpaper.sh") | uniq - | sort - | crontab -
 
 # Search clipboard
