@@ -7,3 +7,4 @@ neovim
 rope
 jedi
 neovim-remote
+python-xlib
