@@ -47,3 +47,4 @@ brightnessctl
 nordvpn
 libxi-dev
 asciidoc
+libtool
