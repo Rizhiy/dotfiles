@@ -102,10 +102,12 @@ if [[ ! -d "$theme_path" ]]; then
 fi
 
 # Install unclutter
-cd "$HOME/.local/share/unclutter-xfixes"
-make
-sudo make install
-cd -
+if ! command -v "unclutter" > /dev/null; then
+	cd "$HOME/.local/share/unclutter-xfixes"
+	make
+	sudo make install
+	cd -
+fi
 
 # Add i3 option
 source_path="$HOME/.local/share/i3.desktop"
