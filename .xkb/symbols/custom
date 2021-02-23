@@ -7,12 +7,20 @@ xkb_symbols "remote" {
 	key <CAPS> { [ Shift_L ] };
 	key <AB01> { [ Control_L ] };
 	modifier_map Control { <AB01> };
-	key <AE04> {
+	key <AE01> {
 		type= "ALPHABETIC",
-		symbols[Group1] = [ l, L ]
+		symbols[Group1]= [ j, J ]
+	};
+	key <AE02> {
+		type= "ALPHABETIC",
+		symbols[Group1]= [ k, K ]
 	};
 	key <AE03> {
 		type= "ALPHABETIC",
 		symbols[Group1]= [ n, N ]
+	};
+	key <AE04> {
+		type= "ALPHABETIC",
+		symbols[Group1] = [ l, L ]
 	};
 };
