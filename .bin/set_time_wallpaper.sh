@@ -7,7 +7,7 @@ set_time_wallpaper() {
 	done
 	imgs=($(printf "%s\n" ${imgs[@]} | sort -V))
 	hour=$(date +'%H')
-	idx=$(( $hour / 2 ))
+	idx=$(( "10#$hour" / 2 ))
 	feh --bg-fill ${imgs[$idx]}
 }
 set_time_wallpaper
