@@ -11,7 +11,7 @@
 [pull]
 	rebase = true
 [core]
-	editor = vim
+	editor = /home/rizhiy/.bin/nvim.appimage
 	autocrlf = input
 	excludesfile = /home/rizhiy/.config/git/ignore
 [filter "lfs"]
