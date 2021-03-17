@@ -20,7 +20,6 @@ xsel
 lazygit
 ranger
 silversearcher-ag
-bat
 i3-gaps-wm
 i3status
 imagemagick

@@ -127,7 +127,7 @@ bar-load-empty-foreground = #99586e75
 
 [module/date]
 type = internal/date
-date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
+date = %%{F#ccc}%a%%{F-} %%{F#999}%Y-%m-%d%%{F-} %%{F#fff}%H:%M:%S%%{F-}
 
 [module/memory]
 type = internal/memory
@@ -241,8 +241,9 @@ fuzzy-match = true
 ; Neither <label> nor <icon> can contain a semicolon (;)
 ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 5;
-ws-icon-3 = 7;
+ws-icon-2 = 3;
+ws-icon-3 = 5;
+ws-icon-4 = 7;
 ws-icon-default = 
 
 format = <label-state> <label-mode>

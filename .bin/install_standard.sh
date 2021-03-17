@@ -4,9 +4,13 @@ set -e
 /usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" submodule update --init --recursive
 
 echo "Adding ppas"
+# Always have latest git version
+sudo add-apt-repository ppa:git-core/ppa -n -y
+# Nice terminal
 sudo add-apt-repository ppa:mmstick76/alacritty -n -y
 # i3-gaps & friends
 sudo add-apt-repository ppa:kgilmer/speed-ricer -n -y
+# Interactive git interface
 sudo add-apt-repository ppa:lazygit-team/release -n -y
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 if ! command -v "google-chrome-stable"; then
@@ -22,6 +26,7 @@ fi
 sudo apt-get update
 
 xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install.txt
+sudo apt-get upgrade
 
 if [ ! -d "$HOME/miniconda3" ]; then
 	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O "$HOME/miniconda3.sh"
@@ -132,3 +137,10 @@ fi
 
 # Add user to video group for brightness
 sudo usermod -a -G video "$(whoami)"
+
+if ! command -b "bat" > /dev/null; then
+	bat_path="/tmp/bat.deb"
+	wget https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb -O "$bat_path" &&
+	sudo dpkg -i "$bat_path"
+	rm -fr "$bat_path"
+fi
