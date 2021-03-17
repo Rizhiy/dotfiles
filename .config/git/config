@@ -1,5 +1,5 @@
 [alias]
-	lg = log --all --graph --oneline --abbrev-commit
+	lg = log --pretty='%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto)%d %Creset%s' --date=relative --date-order --graph
 	s = status
 	c = commit
 	d = diff
