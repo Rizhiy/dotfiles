@@ -116,6 +116,13 @@ let g:startify_bookmarks = [
 	\ { 'C': '~/.config/nvim/init.vim' },
 	\ { 'Z': '~/.zshrc' },
 	\]
+" Blame for the line
+Plug 'APZelos/blamer.nvim'
+let g:blamer_enabled = 1
+let g:blamer_delay = 100
+let g:blamer_date_format = '%y-%m-%d'
+let g:blamer_relative_time = 1
+
 
 autocmd User StartifyBufferOpened CocCommand explorer
 autocmd User SessionLoadPost CocCommand explorer
