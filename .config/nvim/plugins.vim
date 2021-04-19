@@ -84,21 +84,15 @@ Plug 'justinmk/vim-sneak'
 let g:sneak#label = 1                            " More choices
 let g:sneak#use_ic_scs = 1                       " Ignore capitalisation
 let g:sneak#s_next = 1                           " Automatically just to first instance
-" Floats
-Plug 'voldikss/vim-floaterm'
-let g:floaterm_keymap_toggle = '<F1>'
-let g:floaterm_keymap_prev   = '<F2>'
-let g:floaterm_keymap_next   = '<F3>'
-let g:floaterm_keymap_new    = '<F4>'
-imap <F1> <ESC>:FloatermToggle<CR>
-
 " Floaterm
+Plug 'voldikss/vim-floaterm'
 let g:floaterm_gitcommit='floaterm'
 let g:floaterm_autoinsert=1
 let g:floaterm_width=0.8
 let g:floaterm_height=0.8
 let g:floaterm_wintitle=0
 let g:floaterm_autoclose=1
+
 " Change working directory
 Plug 'airblade/vim-rooter'
 " Dev icons, ALWAYS LOAD LAST

@@ -27,3 +27,6 @@ set foldnestmax=10
 
 " Color Scheme
 colorscheme gruvbox
+
+" Floaterm
+hi FloatermBorder guibg=black
