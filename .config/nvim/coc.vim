@@ -105,13 +105,13 @@ set statusline+=%{coc#status()}
 
 " Required extenstions
 let g:coc_global_extensions = [
-			\ 'coc-python',
 			\ 'coc-json',
 			\ 'coc-explorer',
 			\ 'coc-vimlsp',
 			\ 'coc-html',
 			\ 'coc-css',
 			\ 'coc-yaml',
+			\ 'coc-pyright',
 			\ ]
 
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
