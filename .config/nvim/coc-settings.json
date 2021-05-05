@@ -1,5 +1,6 @@
 {
 	"python.pythonPath": "/home/rizhiy/.bin/coc_python.sh",
+	"python.analysis.typeCheckingMode": "off",
 	"python.formatting.provider": "black",
 	"python.formatting.blackArgs": [
 		"--line-length",
