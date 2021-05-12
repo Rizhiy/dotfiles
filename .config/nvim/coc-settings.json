@@ -27,7 +27,8 @@
 			],
 			"open"
 		],
-		"v": "open:vsplit"
+		"v": "open:vsplit",
+		".": "toggleHidden"
 	},
 	"explorer.file.hiddenRules": {
 		"extensions": [
