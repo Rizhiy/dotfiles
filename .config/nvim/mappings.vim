@@ -92,4 +92,7 @@ let g:floaterm_keymap_toggle = '<F1>'
 let g:floaterm_keymap_prev   = '<F2>'
 let g:floaterm_keymap_next   = '<F3>'
 let g:floaterm_keymap_new    = '<F4>'
-map <F1> <ESC>:FloatermToggle<CR>
+let g:floaterm_keymap_kill   = '<F9>'
+nmap <F1> <ESC>:FloatermToggle<CR>
+imap <F1> <ESC>:FloatermToggle<CR>
+vmap <F1> <ESC>:FloatermToggle<CR>
