@@ -45,3 +45,7 @@ nordvpn
 libxi-dev
 asciidoc
 libtool
+libxslt1-dev
+docbook-xsl
+xsltproc
+automake
