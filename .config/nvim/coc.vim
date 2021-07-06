@@ -112,6 +112,7 @@ let g:coc_global_extensions = [
 			\ 'coc-css',
 			\ 'coc-yaml',
 			\ 'coc-pyright',
+			\ 'coc-tabnine',
 			\ ]
 
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
