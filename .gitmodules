@@ -25,3 +25,6 @@
 [submodule ".local/share/unclutter-xfixes"]
 	path = .local/share/unclutter-xfixes
 	url = https://github.com/Airblader/unclutter-xfixes.git
+[submodule ".local/share/weather-icons"]
+	path = .local/share/weather-icons
+	url = https://github.com/erikflowers/weather-icons.git

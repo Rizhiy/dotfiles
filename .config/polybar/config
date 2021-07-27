@@ -15,6 +15,7 @@ module-margin-right = 2
 separator = |
 
 font-0 = SauceCodePro\ Nerd\ Font:size=12;0
+font-1 = Weather Icons:size=12;0
 
 modules-left = title
 modules-right = volume backlight wired-network wireless-network bluetooth
@@ -34,7 +35,7 @@ inherit = bar/top
 bottom = true
 
 modules-left = i3
-modules-right = xkeyboard temperature cpu memory battery date
+modules-right = xkeyboard temperature cpu memory battery weather date
 
 
 [module/title]
@@ -295,3 +296,10 @@ type = custom/script
 exec = bash $HOME/.bin/bluetooth.sh
 click-left = bash $HOME/.bin/bluetooth.sh --toggle &
 ; vim:ft=dosini
+
+[module/weather]
+type = custom/script
+exec = $HOME/.bin/polybar-forecast
+exec-if = ping openweathermap.org -c 1
+interval = 600
+format-font = 2

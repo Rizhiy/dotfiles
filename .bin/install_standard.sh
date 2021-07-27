@@ -65,7 +65,8 @@ if ! git lfs &>/dev/null; then
 	cd -
 fi
 
-# Install nerdfont
+# Install fonts
+# NerdFonts
 font_dir="$HOME/.local/share/fonts/NerdFonts"
 mkdir -p "$font_dir"
 cd "$font_dir"
@@ -78,6 +79,11 @@ font_links=(
 for link in ${font_links[@]}; do
 	wget -c "$link"
 done
+#WeatherIcons
+font_dir="$HOME/.local/share/fonts/WeatherIcons"
+mkdir -p "$font_dir"
+cd "$font_dir"
+ln -s -f ../../weather-icons/font/weathericons-regular-webfont.ttf .
 fc-cache -fv
 cd ~
 
@@ -144,3 +150,8 @@ if ! command -b "bat" > /dev/null; then
 	sudo dpkg -i "$bat_path"
 	rm -fr "$bat_path"
 fi
+
+# Weather for polybar
+forecast_path="$HOME/.bin/polybar-forecast"
+wget https://github.com/kamek-pf/polybar-forecast/releases/download/v1.1.0/polybar-forecast-linux-x86_64 -O "$forecast_path"
+chmod +x "$forecast_path"
