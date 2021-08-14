@@ -68,3 +68,6 @@ conda activate
 
 # Fix term for now
 export TERM=xterm-256color
+
+# easier tmux attach
+alias a="tmux a"
