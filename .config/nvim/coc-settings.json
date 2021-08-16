@@ -15,7 +15,7 @@
 	"explorer.width": 30,
 	"explorer.contentWidth": 90,
 	"explorer.icon.enableNerdfont": true,
-	"explorer.previewAction.onHover": false,
+	"explorer.previewAction.onHover": "labeling",
 	"explorer.file.child.template": " [indent][icon | 1] [git & 1][selection & 1 | clip & 1][diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
 	"explorer.keyMappings.global": {
 		"<cr>": [
@@ -38,5 +38,5 @@
 		"filenames": [
 			"__pycache__"
 		]
-	}
+	},
 }
