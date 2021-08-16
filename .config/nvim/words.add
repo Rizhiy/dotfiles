@@ -26,3 +26,5 @@ param
 pred_infos
 datetime
 runner
+unsavable
+desync
