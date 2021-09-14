@@ -49,9 +49,6 @@ export PATH=/usr/local/cuda/bin:/usr/local/cuda/NsightCompute-2019.1${PATH:+:${P
 # dotfiles bare repository
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
-# Disable pause
-stty -ixon
-
 # Alias for nvim
 alias nvim='$HOME/.bin/nvim.appimage'
 
@@ -61,6 +58,9 @@ alias vim="nvim"
 # Make docker always execute as root
 alias docker="sudo docker"
 
+# easier tmux attach
+alias a="tmux a"
+
 # Add user bin to PATH
 export PATH="$HOME/.bin:$PATH"
 
@@ -68,6 +68,3 @@ conda activate
 
 # Fix term for now
 export TERM=xterm-256color
-
-# easier tmux attach
-alias a="tmux a"
