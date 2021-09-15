@@ -28,6 +28,8 @@ plugins=(
   fzf
   z
   vi-mode
+  zsh_reload
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
