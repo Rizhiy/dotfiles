@@ -296,11 +296,11 @@
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND="blue"
 
   # Branch icon. Set this parameter to '\uF126 ' for the popular Powerline branch icon.
-  typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=
+  # typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=
 
   # Untracked files icon. It's really a question mark, your font isn't broken.
   # Change the value of this parameter to show a different icon.
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
+  # typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
   # Formatter for Git status.
   #
@@ -399,7 +399,7 @@
 
     typeset -g my_git_format=$res
   }
-  functions -M my_git_formatter 2>/dev/null
+  # functions -M my_git_formatter 2>/dev/null
 
   # Don't count the number of unstaged, untracked and conflicted files in Git repositories with
   # more than this many files in the index. Negative value means infinity.
@@ -416,14 +416,14 @@
   typeset -g POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN='~'
 
   # Disable the default Git status formatting.
-  typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
+  typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=false
   # Install our own Git status formatter.
-  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter()))+${my_git_format}}'
+  # typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter()))+${my_git_format}}'
   # Enable counters for staged, unstaged, etc.
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
   # Custom icon.
-  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION=
+  # typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION=
   # Custom prefix.
   # typeset -g POWERLEVEL9K_VCS_PREFIX='on '
 
