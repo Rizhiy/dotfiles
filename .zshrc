@@ -42,7 +42,7 @@ unsetopt share_history
 setopt HIST_FIND_NO_DUPS
 
 # Disable pause
-[[ -o login ]] && stty -ixon
+stty -ixon 2>/dev/null
 
 source $HOME/.local/share/common.sh
 
