@@ -28,7 +28,6 @@ plugins=(
   fzf
   z
   vi-mode
-  zsh_reload
   web-search
 )
 
