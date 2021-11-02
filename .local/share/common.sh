@@ -68,3 +68,6 @@ conda activate
 
 # Fix term for now
 export TERM=xterm-256color
+
+# set python debugger
+export PYTHONBREAKPOINT=pudb.set_trace
