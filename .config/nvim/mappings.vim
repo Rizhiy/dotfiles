@@ -68,6 +68,7 @@ let g:which_key_map.r = {
 	\ 's': [":call CocAction('runCommand', 'editor.action.organizeImport')" , 'Sort imports'],
 	\ 'c': [':source $MYVIMRC'                                              , 'Reload VIMRC'],
 	\ 'e': [':tabnew $MYVIMRC'                                              , 'Edit VIMRC'],
+	\ 'r': [':CocCommand pyright.restartserver'                             , 'Restart Python Language Server']
 	\ }
 let g:which_key_map.t = {
 	\ 'name' : 'terminal',

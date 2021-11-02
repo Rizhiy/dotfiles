@@ -9,6 +9,7 @@ set mouse=a                                      " Enable your mouse
 set tabstop=4                                    " Insert 4 spaces for a tab
 set shiftwidth=4
 autocmd Filetype python setlocal expandtab       " Expand tabs to spaces in python files
+autocmd Filetype javascript setlocal expandtab
 set smarttab                                     " Makes tabbing smarter will realize you have 2 vs 4
 set smartindent                                  " Makes indenting smart
 set autoindent                                   " Good auto indent
