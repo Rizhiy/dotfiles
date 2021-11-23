@@ -55,7 +55,7 @@ calc() {
 # Edit command in editor
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line Edit command in line
+bindkey '\C-x\C-e' edit-command-line
 
 # To customize prompt, run `p10k configure`
 p10k_config_path="$HOME/.config/p10k/config.zsh"
