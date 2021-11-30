@@ -71,3 +71,6 @@ export TERM=xterm-256color
 
 # set python debugger
 export PYTHONBREAKPOINT=pudb.set_trace
+
+# Set editor
+export EDITOR="$HOME/.bin/nvim.appimage"
