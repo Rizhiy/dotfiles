@@ -1,27 +1,19 @@
 " Easier Window navigation
-nnoremap H <C-w>h
-nnoremap J <C-w>j
-nnoremap K <C-w>k
-nnoremap L <C-w>l
-
-" Faster tab navigation
-nnoremap <C-t> :tabnew<CR>:edit
-nnoremap <C-h> :tabprev<CR>
-nnoremap <C-l> :tabnext<CR>
-nnoremap <A-1> 1gt
-nnoremap <A-2> 2gt
-nnoremap <A-3> 3gt
-nnoremap <A-4> 4gt
-nnoremap <A-5> 5gt
-nnoremap <A-6> 6gt
-nnoremap <A-7> 7gt
-nnoremap <A-8> 8gt
-nnoremap <A-9> 9gt
-nnoremap <A-0> 10gt
+nnoremap <S-h> <C-w>h
+nnoremap <S-l> <C-w>l
 
 " Scrolling
 nnoremap <S-j> <C-e>
 nnoremap <S-k> <C-y>
+
+" Buffers
+nnoremap <silent> <C-j> :BufferGoto 1<CR>
+nnoremap <silent> <C-h> :BufferPrevious<CR>
+nnoremap <silent> <C-l> :BufferNext<CR>
+nnoremap <silent> <C-k> :BufferLast<CR>
+
+nnoremap <silent> <C-p> :BufferPin<CR>
+nnoremap <silent> <C-c> :BufferClose<CR>
 
 " Keep cursor vertically centered
 set scrolloff=5

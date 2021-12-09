@@ -54,3 +54,6 @@ endfunction
 
 " Python for services
 let g:python3_host_prog = expand("~/miniconda3/bin/python")
+
+" Enable colorizer
+lua require('colorizer').setup()

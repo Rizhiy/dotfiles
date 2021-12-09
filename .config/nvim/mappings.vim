@@ -12,9 +12,8 @@ function! DiffToggle()
 :endfunction
 
 " Easier save, quit and esc
-nnoremap <C-s> :w<CR>
-nnoremap <C-d> :q<CR>
-nnoremap <C-c> <Esc>
+nnoremap <silent> <C-s> :w<CR>
+nnoremap <silent> <C-d> :q<CR>
 
 " Better tabbing
 vnoremap < <gv
