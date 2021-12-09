@@ -18,6 +18,7 @@ set listchars=tab:▸\ ,trail:·           " Specify empty charactes
 set lazyredraw                          " Redraw less
 set showcmd                             " display incomplete commands
 let g:fzf_preview_window = 'right:65%'  " Bigger preview window
+set termguicolors                       " c
 
 " Folding
 set foldenable

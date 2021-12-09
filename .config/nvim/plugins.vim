@@ -14,13 +14,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-commentary'
 " Git line status
 Plug 'airblade/vim-gitgutter'
-" Indent guide
-Plug 'nathanaelkane/vim-indent-guides'
 " Scheme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_theme = 'gruvbox'
 let g:airline_detect_spell=0
 let g:airline_powerline_fonts = 1
@@ -53,24 +50,14 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_fileTypeExclude = ['markdown']
 " Tmux config help
 Plug 'tmux-plugins/vim-tmux'
-" Undo tree
-Plug 'mbbill/undotree'
 " More languages highlighting
 Plug 'sheerun/vim-polyglot'
-" Tagbar
-Plug 'majutsushi/tagbar'
 " Autocompletion and stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Color Schemes
 Plug 'rafi/awesome-vim-colorschemes'
 " Proper focus for vim inside tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
-" Better tab format
-Plug 'gcmt/taboo.vim'
-set sessionoptions+=tabpages,globals
-let g:taboo_tab_format=" %N %f%U%m "
-" Add matching parenthesis
-Plug 'jiangmiao/auto-pairs'
 " Shortcut help
 Plug 'liuchengxu/vim-which-key'
 nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
@@ -95,8 +82,6 @@ let g:floaterm_autoclose=1
 
 " Change working directory
 Plug 'airblade/vim-rooter'
-" Dev icons, ALWAYS LOAD LAST
-Plug 'ryanoasis/vim-devicons'
 " Project Management
 Plug 'mhinz/vim-startify'
 let g:startify_lists = [
@@ -116,7 +101,12 @@ let g:blamer_enabled = 1
 let g:blamer_delay = 100
 let g:blamer_date_format = '%y-%m-%d'
 let g:blamer_relative_time = 1
+" Buffer line
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 
+" Dev icons, ALWAYS LOAD LAST
+Plug 'ryanoasis/vim-devicons'
 
 autocmd User StartifyBufferOpened CocCommand explorer
 autocmd User SessionLoadPost CocCommand explorer
