@@ -55,7 +55,7 @@ calc() {
 # Edit command in editor
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line
+bindkey '^X^E' edit-command-line
 
 # Jump to start of the line, ^A is used as tmux prefix, also ^B makes more sense, since 'beginning'
 bindkey "^B" beginning-of-line
