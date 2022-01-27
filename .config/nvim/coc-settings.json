@@ -13,10 +13,21 @@
 		"jsonc"
 	],
 	"explorer.width": 30,
-	"explorer.contentWidth": 90,
+	"explorer.contentWidth": 30,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.previewAction.onHover": "labeling",
-	"explorer.file.child.template": " [indent][icon | 1] [git & 1][selection & 1 | clip & 1][diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
+	"explorer.sources": [
+		{
+			"name": "bookmark",
+			"expand": false
+		},
+		{
+			"name": "file",
+			"expand": true
+		}
+	],
+	"explorer.file.root.template": "[icon] [git & 1][hidden & 1][root] [fullpath]",
+	"explorer.file.child.template": " [indent][icon | 1] [git & 1][selection & 1 | clip & 1][diagnosticError & 1][filename][modified][readonly] [linkIcon & 1]",
 	"explorer.keyMappings.global": {
 		"<cr>": [
 			"expandable?",
