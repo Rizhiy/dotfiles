@@ -60,6 +60,9 @@ bindkey '^X^E' edit-command-line
 # Jump to start of the line, ^A is used as tmux prefix, also ^B makes more sense, since 'beginning'
 bindkey "^B" beginning-of-line
 
+# Only complete on tab, without expanding
+bindkey '^I' complete-word
+
 # To customize prompt, run `p10k configure`
 p10k_config_path="$HOME/.config/p10k/config.zsh"
 [[ ! -f "$p10k_config_path" ]] || source "$p10k_config_path"
