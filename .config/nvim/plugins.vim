@@ -18,7 +18,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'murmur'
 let g:airline_detect_spell=0
 let g:airline_powerline_fonts = 1
 let g:airline_mode_map = {
@@ -42,6 +42,10 @@ let g:airline_mode_map = {
 	\ ''     : 'V',
 	\ }
 let g:airline_skip_empty_sections = 1
+let g:airline#extensions#default#layout = [
+  \ [ 'a', 'b', 'warning', 'error', 'c' ],
+  \ [ 'x', 'y', 'z' ]
+  \ ]
 " Fzf
 Plug '$HOME/.local/share/fzf'
 Plug 'junegunn/fzf.vim'

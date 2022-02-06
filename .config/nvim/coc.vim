@@ -53,7 +53,7 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> gb <C-O>
 nnoremap <silent> gf <C-I>
 
-" Use K to show documentation in preview window.
+" Use Alt-K to show documentation in preview window.
 nnoremap <silent> <M-d> :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -107,15 +107,14 @@ set statusline+=%{coc#status()}
 
 " Required extenstions
 let g:coc_global_extensions = [
-			\ 'coc-json',
-			\ 'coc-explorer',
-			\ 'coc-vimlsp',
-			\ 'coc-html',
-			\ 'coc-css',
-			\ 'coc-yaml',
-			\ 'coc-pyright',
-			\ 'coc-tabnine',
-			\ ]
+  \ 'coc-explorer',
+  \ 'coc-floaterm',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-yaml',
+  \ 'coc-pyright',
+  \ ]
 
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 autocmd FileType coc-explorer setlocal nonumber norelativenumber
