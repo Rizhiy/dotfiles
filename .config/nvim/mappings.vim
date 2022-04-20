@@ -36,7 +36,6 @@ let g:which_key_map[" "] = ['', 'Unhighlight search']
 let g:which_key_map["a"] = ['za', 'Toggle Fold']
 let g:which_key_map["f"] = [':Ag', 'Project-wide search']
 let g:which_key_map["z"] = [':call VCenterCursor()', 'Toggle Vertical Align']
-let g:which_key_map["g"] = ['zg', 'Add word to the dictionary']
 
 let g:which_key_map.s = {
 	\ 'name': 'session',
@@ -60,6 +59,13 @@ let g:which_key_map.n = {
 	\ 'f': [':Files'                                                        , 'Files'],
 	\ 'b': [':Buffers'                                                      , 'Buffers'],
 	\ }
+let g:which_key_map.g = {
+	\ 'name': 'git',
+	\ 'v': [':GitGutterPreviewHunk'                                         , 'Preview'],
+	\ 's': [':GitGutterStageHunk'                                           , 'Stage'],
+	\ 'n': [':GitGutterNextHunk'                                            , 'Next'],
+	\ 'p': [':GitGutterPrevHunk'                                            , 'Previous']
+	\ }
 let g:which_key_map.r = {
 	\ 'name': 'run',
 	\ 'p': [":w<CR>:exec '!python' shellescape(@%, 1)<CR>"                  , 'python'],
@@ -71,18 +77,22 @@ let g:which_key_map.r = {
 	\ }
 let g:which_key_map.t = {
 	\ 'name' : 'terminal',
-	\ 'g' : [':FloatermNew lazygit'                                         , 'git'],
-	\ 'p' : [':FloatermNew . ~/.bin/coc_python.sh -m IPython'               , 'ipython'],
-	\ 'r' : [':FloatermNew ranger'                                          , 'ranger'],
-	\ 'y' : [':FloatermNew! ytop'                                           , 'ytop'],
-	\ 'h' : [':FloatermNew htop'                                            , 'htop'],
-	\ 't' : [':FloatermToggle'                                              , 'toggle'],
+	\ 'g': [':FloatermNew lazygit'                                          , 'git'],
+	\ 'p': [':FloatermNew . ~/.bin/coc_python.sh -m IPython'                , 'ipython'],
+	\ 'r': [':FloatermNew ranger'                                           , 'ranger'],
+	\ 'y': [':FloatermNew! ytop'                                            , 'ytop'],
+	\ 'h': [':FloatermNew htop'                                             , 'htop'],
+	\ 't': [':FloatermToggle'                                               , 'toggle'],
 	\ }
 let g:which_key_map.d = {
 	\ 'name': 'diagnostics',
-	\ 'n' : [ ''                                                            , 'next'],
-	\ 'p' : [ ''                                                            , 'prev'],
-	\ 'l' : [':CocList diagnostics'                                         , 'list'],
+	\ 'n': [":call CocAction('diagnosticNext')"                             , 'next'],
+	\ 'p': [":call CocAction('diagnosticPrevious')"                         , 'prev'],
+	\ 'l': [':CocList diagnostics'                                          , 'list'],
+	\ }
+let g:which_key_map.o = {
+	\ 'name': 'other',
+	\ 'd': ['zg'                                                            , 'Add word to the dictionary']
 	\ }
 
 call which_key#register(' ', "g:which_key_map")

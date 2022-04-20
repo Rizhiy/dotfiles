@@ -8,8 +8,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 " Useful file operations
 Plug 'tpope/vim-eunuch'
-" Git status in file tree
-Plug 'Xuyuanp/nerdtree-git-plugin'
 " Comments
 Plug 'tpope/vim-commentary'
 " Git line status
