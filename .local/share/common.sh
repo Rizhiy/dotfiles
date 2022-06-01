@@ -16,6 +16,7 @@ conda_deactivate () {
 	done
 }
 alias act='conda_deactivate; conda activate "$(basename "$(pwd)")"'
+alias new_env='conda create -n "$(basename "$(pwd)")" python=3'
 
 # More concise man pages
 cheat() {
@@ -71,3 +72,6 @@ export PYTHONBREAKPOINT=pudb.set_trace
 
 # Set editor
 export EDITOR="$HOME/.bin/nvim.appimage"
+
+# Add Go to path
+export PATH="$PATH:/usr/local/go/bin"
