@@ -30,3 +30,4 @@ unsavable
 desync
 config
 migrations
+serializer
