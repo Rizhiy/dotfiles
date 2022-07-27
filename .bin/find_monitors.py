@@ -1,10 +1,10 @@
 #!/home/rizhiy/miniconda3/bin/python
 
-from Xlib import X, display
-from Xlib.ext import randr
-
 import os
 from pathlib import Path
+
+from Xlib import display
+from Xlib.ext import randr
 
 d = display.Display()
 res = randr.get_screen_resources(d.screen().root)
@@ -16,10 +16,8 @@ for output in res.outputs:
         continue
     results.append(params.name)
 results = sorted(results)
-if len(results) > 2:
-    print("More than two monitors found, quiting")
-if len(results) == 2:
-    left, right = results
+if len(results) >= 2:
+    left, right, *other_monitors = results
 else:
     left, right = results[0], results[0]
 
@@ -30,4 +28,6 @@ with monitors_path.open("w") as f:
     f.write(f"monitor_right: {right}\n")
 
 os.system(f"xrdb -merge {monitors_path}")
+if len(other_monitors) == 1:
+    os.system(f"xrandr --output {left} --right-of {other_monitors[0]}")
 os.system(f"xrandr --output {right} --right-of {left}")
