@@ -47,6 +47,7 @@ let g:airline#extensions#default#layout = [
 " Fzf
 Plug '$HOME/.local/share/fzf'
 Plug 'junegunn/fzf.vim'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 " Indent guide
 Plug 'Yggdroot/indentLine'
 let g:indentLine_fileTypeExclude = ['markdown']
@@ -97,6 +98,9 @@ let g:startify_bookmarks = [
 	\ { 'C': '~/.config/nvim/init.vim' },
 	\ { 'Z': '~/.zshrc' },
 	\]
+let g:startify_commands = [
+	\ {'M': ['Messages', 'messages']},
+	\]
 " Blame for the line
 Plug 'APZelos/blamer.nvim'
 let g:blamer_enabled = 1
@@ -112,6 +116,9 @@ let bufferline.icon_pinned = '車'
 let bufferline.maximum_padding = 1
 autocmd User CocExplorerOpenPre lua require'bufferline.state'.set_offset(31, 'Coc-Explorer')
 autocmd User CocExplorerQuitPre lua require'bufferline.state'.set_offset(0)
+" Global search and replace
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-pack/nvim-spectre'
 
 
 autocmd User StartifyBufferOpened CocCommand explorer

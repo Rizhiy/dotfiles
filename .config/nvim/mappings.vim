@@ -26,6 +26,9 @@ vmap <C-_> gcj
 " Toggle search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Global search
+nnoremap <leader>os <cmd>lua require('spectre').open()<CR>
+
 let g:which_key_map = {}
 let g:which_key_use_floating_win = 0
 
@@ -92,7 +95,8 @@ let g:which_key_map.d = {
 	\ }
 let g:which_key_map.o = {
 	\ 'name': 'other',
-	\ 'd': ['zg'                                                            , 'Add word to the dictionary']
+	\ 'd': ['zg'                                                            , 'Add word to the dictionary'],
+	\ 's': [''                                                              , 'Global search'],
 	\ }
 
 call which_key#register(' ', "g:which_key_map")

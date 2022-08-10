@@ -49,3 +49,4 @@ libxslt1-dev
 docbook-xsl
 xsltproc
 automake
+ripgrep
