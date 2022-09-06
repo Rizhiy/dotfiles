@@ -4,7 +4,8 @@
 	"python.formatting.provider": "black",
 	"python.formatting.blackArgs": [
 		"--line-length",
-		"120"
+		"110",
+		"--skip-magic-trailing-comma"
 	],
 	"coc.preferences.formatOnSaveFiletypes": [
 		"python",
