@@ -82,7 +82,6 @@ let g:floaterm_width=0.9
 let g:floaterm_height=0.9
 let g:floaterm_wintitle=0
 let g:floaterm_autoclose=1
-
 " Change working directory
 Plug 'airblade/vim-rooter'
 " Project Management
@@ -107,8 +106,6 @@ let g:blamer_enabled = 1
 let g:blamer_delay = 100
 let g:blamer_date_format = '%y-%m-%d'
 let g:blamer_relative_time = 1
-" Nice icons
-Plug 'kyazdani42/nvim-web-devicons'
 " Buffer line
 Plug 'romgrk/barbar.nvim'
 let bufferline = get(g:, 'bufferline', {})
@@ -119,6 +116,10 @@ autocmd User CocExplorerQuitPre lua require'bufferline.state'.set_offset(0)
 " Global search and replace
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-pack/nvim-spectre'
+" Github Copilot
+Plug 'github/copilot.vim'
+" Icons for coc-explorer and barbar
+Plug 'kyazdani42/nvim-web-devicons'
 
 
 autocmd User StartifyBufferOpened CocCommand explorer

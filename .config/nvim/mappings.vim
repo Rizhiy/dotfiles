@@ -2,6 +2,7 @@
 nnoremap d "_d
 nnoremap D "_D
 nnoremap x d
+nnoremap X D
 
 function! DiffToggle()
 	if &diff
@@ -9,7 +10,7 @@ function! DiffToggle()
 	else
 		diffthis
 	endif
-:endfunction
+endfunction
 
 " Easier save, quit and esc
 nnoremap <silent> <C-s> :w<CR>
@@ -19,16 +20,11 @@ nnoremap <silent> <C-d> :q<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" Commenting
-nmap <C-_> gccj
-vmap <C-_> gcj
-
 " Toggle search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Global search
-nnoremap <leader>os <cmd>lua require('spectre').open()<CR>
-
+nnoremap <leader>os :lua require('spectre').open()<CR>
 let g:which_key_map = {}
 let g:which_key_use_floating_win = 0
 
@@ -110,3 +106,15 @@ let g:floaterm_keymap_kill   = '<F9>'
 nmap <F1> <ESC>:FloatermToggle<CR>
 imap <F1> <ESC>:FloatermToggle<CR>
 vmap <F1> <ESC>:FloatermToggle<CR>
+
+" Suggestions
+inoremap <silent><expr> <C-j>
+			\ coc#pum#visible() ? coc#pum#next(1) :
+			\ CheckBackspace() ? "" :
+			\ coc#refresh()
+inoremap <silent><expr> <C-k>
+			\ coc#pum#visible() ? coc#pum#prev(1) : ""
+
+" Commenting
+nmap <C-_> gccj
+vmap <C-_> gcj

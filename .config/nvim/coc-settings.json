@@ -1,6 +1,13 @@
 {
 	"python.pythonPath": "/home/rizhiy/.bin/coc_python.sh",
-	"python.analysis.typeCheckingMode": "off",
+	"python.analysis.typeCheckingMode": "basic",
+	"pyright.organizeimports.provider": "isort",
+	"python.sortImports.args": [
+		"--profile",
+		"black",
+		"--line-length",
+		"110"
+	],
 	"python.formatting.provider": "black",
 	"python.formatting.blackArgs": [
 		"--line-length",
@@ -10,8 +17,7 @@
 	"coc.preferences.formatOnSaveFiletypes": [
 		"python",
 		"markdown",
-		"json",
-		"jsonc"
+		"json"
 	],
 	"explorer.width": 30,
 	"explorer.contentWidth": 30,

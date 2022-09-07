@@ -30,8 +30,11 @@ set foldmethod=indent
 set foldlevelstart=10
 set foldnestmax=10
 
+" Done through autocmd to update with ColorScheme, colorscheme is set right after.
+" Floaterm
+autocmd ColorScheme * hi FloatermBorder guibg=None
+" PopUp selected iterm
+autocmd ColorScheme * hi CocMenuSel gui=bold guibg=gray20
+
 " Color Scheme
 colorscheme gruvbox
-
-" Floaterm
-hi FloatermBorder guibg=gray16
