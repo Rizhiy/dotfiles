@@ -1,7 +1,9 @@
 {
 	"python.pythonPath": "/home/rizhiy/.bin/coc_python.sh",
-	"python.analysis.typeCheckingMode": "basic",
+	"python.analysis.typeCheckingMode": "off",
+	"python.analysis.diagnosticMode": "workspace",
 	"pyright.organizeimports.provider": "isort",
+	"pyright.disableProgressNotifications": true,
 	"python.sortImports.args": [
 		"--profile",
 		"black",
@@ -19,6 +21,7 @@
 		"markdown",
 		"json"
 	],
+	"explorer.position": "right",
 	"explorer.width": 30,
 	"explorer.contentWidth": 30,
 	"explorer.icon.enableNerdfont": true,

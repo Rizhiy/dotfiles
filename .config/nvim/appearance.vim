@@ -35,6 +35,8 @@ set foldnestmax=10
 autocmd ColorScheme * hi FloatermBorder guibg=None
 " PopUp selected iterm
 autocmd ColorScheme * hi CocMenuSel gui=bold guibg=gray20
+" Split bar color
+autocmd ColorScheme * hi VertSplit cterm=reverse ctermfg=237 ctermbg=246 gui=reverse guifg=#3c3836 guibg=#a89984
 
 " Color Scheme
 colorscheme gruvbox
