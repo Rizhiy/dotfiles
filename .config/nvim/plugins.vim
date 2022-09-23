@@ -111,8 +111,6 @@ Plug 'romgrk/barbar.nvim'
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.icon_pinned = '車'
 let bufferline.maximum_padding = 1
-autocmd User CocExplorerOpenPre lua require'bufferline.state'.set_offset(31, 'Coc-Explorer')
-autocmd User CocExplorerQuitPre lua require'bufferline.state'.set_offset(0)
 " Global search and replace
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-pack/nvim-spectre'
