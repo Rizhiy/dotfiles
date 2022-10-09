@@ -3,7 +3,5 @@ neovim
 pynvim
 black
 isort[requirements]
-neovim
 rope
 neovim-remote
-python-xlib
