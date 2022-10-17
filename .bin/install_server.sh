@@ -62,6 +62,7 @@ font_links=(
 for link in ${font_links[@]}; do
 	wget -c "$link"
 done
+cd -
 
 if ! command -v ytop > /dev/null; then
 	ytop_path="/tmp/ytop.tar.gz"
@@ -82,7 +83,7 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 fi
 # Change default shell to zsh
-chsh -s $(which zsh)
+sudo usermod -s $(which zsh) $(whoami)
 
 # Setup powerlevel9k
 theme_path="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
@@ -90,7 +91,7 @@ if [[ ! -d "$theme_path" ]]; then
 	git clone https://github.com/bhilburn/powerlevel9k.git "$theme_path"
 fi
 
-if ! command -b "bat" > /dev/null; then
+if ! command -v "bat" > /dev/null; then
 	bat_path="/tmp/bat.deb"
 	wget https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb -O "$bat_path" &&
 	sudo dpkg -i "$bat_path"
