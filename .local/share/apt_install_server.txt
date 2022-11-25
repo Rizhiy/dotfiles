@@ -29,3 +29,4 @@ docbook-xsl
 xsltproc
 automake
 ripgrep
+libfuse2
