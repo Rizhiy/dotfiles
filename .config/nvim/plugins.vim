@@ -1,3 +1,6 @@
+" Specify python for dependant plugins to work properly
+let g:python3_host_prog = expand("~/miniconda3/bin/python")
+
 call plug#begin('$HOME/.vim/plugged')
 
 " Git
