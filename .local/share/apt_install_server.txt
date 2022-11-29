@@ -10,7 +10,6 @@ wget
 exuberant-ctags
 highlight
 xsel
-ranger
 silversearcher-ag
 autoconf
 libpam0g-dev

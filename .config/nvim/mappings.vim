@@ -53,7 +53,7 @@ let g:which_key_map.b = {
 	\ }
 let g:which_key_map.n = {
 	\ 'name': 'navigate',
-	\ 'r': [':Ranger'                                                       , 'Ranger'],
+	\ 'r': [':RnvimrToggle'                                                 , 'Ranger'],
 	\ 'f': [':Files'                                                        , 'Files'],
 	\ 'b': [':Buffers'                                                      , 'Buffers'],
 	\ }

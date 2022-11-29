@@ -5,3 +5,5 @@ black
 isort[requirements]
 rope
 neovim-remote
+ranger-fm
+pynvim

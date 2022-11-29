@@ -65,6 +65,9 @@ alias docker="sudo docker"
 # easier tmux attach
 alias a="tmux a"
 
+# Always use conda ranger
+alias ranger=$HOME/miniconda3/bin/ranger
+
 # Add user bin to PATH
 export PATH="$HOME/.bin:$PATH"
 

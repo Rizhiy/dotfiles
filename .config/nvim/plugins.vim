@@ -63,8 +63,19 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'liuchengxu/vim-which-key'
 nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 " Ranger file navigation
-Plug 'francoiscabrol/ranger.vim'
-let g:ranger_map_keys = 0
+Plug 'kevinhwang91/rnvimr'
+let g:rnvimr_enable_ex = 1
+let g:rnvimr_enable_picker = 1
+let g:rnvimr_enable_bw = 1
+let g:rnvimr_layout = {
+	\ 'relative': 'editor',
+	\ 'width': float2nr(round(0.8 * &columns)),
+	\ 'height': float2nr(round(0.8 * &lines)),
+	\ 'col': float2nr(round(0.1 * &columns)),
+	\ 'row': float2nr(round(0.1 * &lines)),
+	\ 'style': 'minimal'
+\ }
+let g:rnvimr_ranger_cmd = [expand("~/miniconda3/bin/ranger")]
 " Colors
 Plug 'norcalli/nvim-colorizer.lua'
 " Faster navigation
