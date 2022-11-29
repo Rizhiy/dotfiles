@@ -1,7 +1,5 @@
 call plug#begin('$HOME/.vim/plugged')
 
-" Make sure you use single quotes
-
 " Git
 Plug 'tpope/vim-fugitive'
 " Parens
@@ -128,9 +126,5 @@ Plug 'nvim-pack/nvim-spectre'
 Plug 'github/copilot.vim'
 " Icons for coc-explorer and barbar
 Plug 'kyazdani42/nvim-web-devicons'
-
-
-autocmd User StartifyBufferOpened CocCommand explorer
-autocmd User SessionLoadPost CocCommand explorer
 
 call plug#end()

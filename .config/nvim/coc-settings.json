@@ -21,9 +21,11 @@
 		"markdown",
 		"json"
 	],
-	"explorer.position": "right",
-	"explorer.width": 30,
-	"explorer.contentWidth": 30,
+	"explorer.position": "floating",
+	"explorer.floating.position": "right-center",
+	"explorer.floating.width": 80,
+	"explorer.floating.height": -2,
+	"explorer.floating.border.title": "Explorer",
 	"explorer.icon.enableNerdfont": true,
 	"explorer.previewAction.onHover": "labeling",
 	"explorer.sources": [

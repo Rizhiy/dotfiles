@@ -35,6 +35,7 @@ let g:which_key_map[" "] = ['', 'Unhighlight search']
 let g:which_key_map["a"] = ['za', 'Toggle Fold']
 let g:which_key_map["f"] = [':Ag', 'Project-wide search']
 let g:which_key_map["z"] = [':call VCenterCursor()', 'Toggle Vertical Align']
+let g:which_key_map["e"] = [':CocCommand explorer', 'File Explorer']
 
 let g:which_key_map.s = {
 	\ 'name': 'session',
@@ -49,12 +50,10 @@ let g:which_key_map.b = {
 	\ 'd': [':call DiffToggle()'                                            , 'Diffs'],
 	\ 'b': [':Git blame'                                                    , 'Blame'],
 	\ 'u': [':UndotreeToggle'                                               , 'Undo Tree'],
-	\ 'f': [':CocCommand explorer'                                          , 'explorer'],
 	\ }
 let g:which_key_map.n = {
 	\ 'name': 'navigate',
 	\ 'r': [':Ranger'                                                       , 'Ranger'],
-	\ 'e': [':CocCommand explorer'                                          , 'explorer'],
 	\ 'f': [':Files'                                                        , 'Files'],
 	\ 'b': [':Buffers'                                                      , 'Buffers'],
 	\ }
@@ -70,7 +69,7 @@ let g:which_key_map.r = {
 	\ 'p': [":w<CR>:exec '!python' shellescape(@%, 1)<CR>"                  , 'python'],
 	\ 'f': [":call CocAction('format')"                                     , 'Format'],
 	\ 's': [":call CocAction('runCommand', 'editor.action.organizeImport')" , 'Sort imports'],
-	\ 'c': [':source $MYVIMRC'                                              , 'Reload VIMRC'],
+	\ 'c': [':source $MYVIMRC | CocRestart'                                 , 'Reload VIMRC'],
 	\ 'e': [':tabnew $MYVIMRC'                                              , 'Edit VIMRC'],
 	\ 'r': [':CocCommand pyright.restartserver'                             , 'Restart Python Language Server']
 	\ }
