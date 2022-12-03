@@ -8,12 +8,12 @@
 		"--profile",
 		"black",
 		"--line-length",
-		"110"
+		"120"
 	],
 	"python.formatting.provider": "black",
 	"python.formatting.blackArgs": [
 		"--line-length",
-		"110",
+		"120",
 		"--skip-magic-trailing-comma"
 	],
 	"coc.preferences.formatOnSaveFiletypes": [
