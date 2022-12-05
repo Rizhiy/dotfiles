@@ -14,7 +14,9 @@
 	"python.formatting.blackArgs": [
 		"--line-length",
 		"120",
-		"--skip-magic-trailing-comma"
+		"--skip-magic-trailing-comma",
+		"--target-version",
+		"py311"
 	],
 	"coc.preferences.formatOnSaveFiletypes": [
 		"python",
