@@ -3,6 +3,9 @@ let g:python3_host_prog = expand("~/miniconda3/bin/python")
 
 call plug#begin('$HOME/.vim/plugged')
 
+" Common requirements
+Plug 'nvim-lua/plenary.nvim'
+
 " Git
 Plug 'tpope/vim-fugitive'
 " Parens
@@ -134,7 +137,6 @@ let bufferline = get(g:, 'bufferline', {})
 let bufferline.icon_pinned = '車'
 let bufferline.maximum_padding = 1
 " Global search and replace
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-pack/nvim-spectre'
 " Github Copilot
 Plug 'github/copilot.vim'
