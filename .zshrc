@@ -8,8 +8,9 @@ fi
 # Set fzf installation directory path
 export FZF_BASE=$HOME/.local/share/fzf
 
+# Check if this is actually required or if antigen installs it fine
 # Path to your oh-my-zsh installation.
-export ZSH=/home/rizhiy/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 
 # Install plugins
