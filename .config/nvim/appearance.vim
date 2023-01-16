@@ -40,3 +40,5 @@ autocmd ColorScheme * hi VertSplit cterm=reverse ctermfg=237 ctermbg=246 gui=rev
 
 " Color Scheme
 colorscheme gruvbox
+" Transparency
+hi Normal guibg=NONE ctermbg=NONE
