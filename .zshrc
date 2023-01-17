@@ -5,41 +5,25 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Set fzf installation directory path
-export FZF_BASE=$HOME/.local/share/fzf
-
-# Check if this is actually required or if antigen installs it fine
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-
 # Install plugins
 source $HOME/.local/share/antigen/antigen.zsh
-antigen use oh-my-zsh
 antigen bundle git
-antigen bundle fzf
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
-
 antigen theme romkatv/powerlevel10k
 antigen apply
 
-plugins=(
-  fzf
-  z
-  vi-mode
-  web-search
-)
-
-source $ZSH/oh-my-zsh.sh
-
-
-# Remove shared history
-unsetopt share_history
-
-# Remove duplicates from history
-setopt HIST_FIND_NO_DUPS
+# Enable history
+export HISTFILE=~/.local/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt EXTENDED_HISTORY # Record timestamp in history
+setopt HIST_FIND_NO_DUPS # Remove duplicates from history search
+setopt HIST_IGNORE_DUPS # Don't record an entry that was just recorded again.
+setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate entry before the original entry.
+setopt HIST_VERIFY # Don't execute immediately upon history expansion.
+setopt SHARE_HISTORY # Share history between all sessions.
 
 # Disable pause
 stty -ixon 2>/dev/null
@@ -51,6 +35,7 @@ calc() {
     python -c 'from math import *; import sys; print(eval(" ".join(sys.argv[1:])))' "$@"
 }
 
+# Nice history search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Search files with fzf
 bindkey '^F' fzf-file-widget
