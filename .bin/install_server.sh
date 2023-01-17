@@ -78,18 +78,8 @@ if ! command -v "lsd" > /dev/null; then
 	rm -fr "$lsd_path"
 fi
 
-# Install oh-my-zsh
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-fi
 # Change default shell to zsh
 sudo usermod -s $(which zsh) $(whoami)
-
-# Setup powerlevel9k
-theme_path="$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
-if [[ ! -d "$theme_path" ]]; then
-	git clone https://github.com/bhilburn/powerlevel9k.git "$theme_path"
-fi
 
 if ! command -v "bat" > /dev/null; then
 	bat_path="/tmp/bat.deb"
