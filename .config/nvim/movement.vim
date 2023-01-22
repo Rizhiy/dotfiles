@@ -14,3 +14,7 @@ nnoremap <silent> <C-k> :BufferLast<CR>
 
 nnoremap <silent> <C-p> :BufferPin<CR>
 nnoremap <silent> <C-c> :BufferClose<CR>
+
+" Move visual selection around
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
