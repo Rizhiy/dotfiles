@@ -57,8 +57,6 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_fileTypeExclude = ['markdown']
 " Tmux config help
 Plug 'tmux-plugins/vim-tmux'
-" More languages highlighting
-Plug 'sheerun/vim-polyglot'
 " Autocompletion and stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Color Schemes
