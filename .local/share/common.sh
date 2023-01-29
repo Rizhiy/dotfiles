@@ -15,11 +15,16 @@ conda_deactivate () {
 		conda deactivate
 	done
 }
+alias get-env-name='echo "$(basename "$(pwd)")"'
 alias de-act='conda_deactivate'
-alias new-env='conda create -n "$(basename "$(pwd)")" python=3 -y'
-alias act='de-act; conda activate "$(basename "$(pwd)")"'
+alias new-env='conda create -n "$(get-env-name)" python=3 -y'
+act () {
+	de-act
+	env_name="$(get-env-name)"
+	conda activate "$env_name" || new-env && conda activate "$env_name"
+}
 alias act-base='de-act; conda activate base'
-alias rm-env='de-act; conda uninstall -n "$(basename "$(pwd)")" --all; act-base'
+alias rm-env='de-act; conda uninstall -n "$(get-env-name)" --all; act-base'
 
 # More concise man pages
 cheat() {
