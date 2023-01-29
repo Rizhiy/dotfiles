@@ -140,5 +140,8 @@ Plug 'nvim-pack/nvim-spectre'
 Plug 'github/copilot.vim'
 " Icons for coc-explorer and barbar
 Plug 'kyazdani42/nvim-web-devicons'
+" Better language support
+Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['csv']
 
 call plug#end()
