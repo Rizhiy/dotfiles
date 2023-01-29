@@ -27,3 +27,5 @@
 	recurse = true
 [user]
 	name = Artem Vasenin
+[init]
+	defaultBranch = master
