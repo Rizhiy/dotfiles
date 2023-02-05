@@ -5,6 +5,7 @@ call plug#begin('$HOME/.vim/plugged')
 
 " Common requirements
 Plug 'nvim-lua/plenary.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -143,5 +144,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Better language support
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['csv']
+" Show code context
+" TODO: Need to actually make this work
+Plug 'SmiteshP/nvim-navic'
 
 call plug#end()
