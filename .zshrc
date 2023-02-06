@@ -23,7 +23,7 @@ setopt HIST_FIND_NO_DUPS # Remove duplicates from history search
 setopt HIST_IGNORE_DUPS # Don't record an entry that was just recorded again.
 setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate entry before the original entry.
 setopt HIST_VERIFY # Don't execute immediately upon history expansion.
-setopt SHARE_HISTORY # Share history between all sessions.
+setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
 
 # Disable pause
 stty -ixon 2>/dev/null
