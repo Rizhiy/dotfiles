@@ -288,3 +288,6 @@ bindsym XF86AudioMicMute exec amixer set Capture toggle # toggle microphone
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+ # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- # decrease screen brightness
+
+# Screen hue adjustment
+exec --no-startup-id redshift
