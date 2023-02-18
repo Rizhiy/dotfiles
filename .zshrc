@@ -64,3 +64,9 @@ p10k_config_path="$HOME/.config/p10k/config.zsh"
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 complete -C '/usr/local/bin/aws_completer' aws
+
+# Extra paths
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
