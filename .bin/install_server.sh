@@ -25,7 +25,7 @@ sudo apt-get upgrade
 
 # Install neovim
 if [ ! -f "$HOME/.bin/nvim.appimage" ]; then
-	wget "https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage" -O "$HOME/.bin/nvim.appimage" && chmod u+x "$HOME/.bin/nvim.appimage"
+	wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$HOME/.bin/nvim.appimage" && chmod u+x "$HOME/.bin/nvim.appimage"
 fi
 sudo npm install -g neovim
 
