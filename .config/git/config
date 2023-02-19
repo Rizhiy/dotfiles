@@ -14,18 +14,28 @@
 	editor = /home/rizhiy/.bin/nvim.appimage
 	autocrlf = input
 	excludesfile = /home/rizhiy/.config/git/ignore
-	pager = less -x1,5
+	pager = delta
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge --skip -- %f
 	process = git-lfs filter-process --skip
 	required = true
-[color "diff"]
-	meta = bold
-	new = cyan
+; [color "diff"]
+; 	meta = bold
+; 	new = cyan
 [submodule]
 	recurse = true
 [user]
 	name = Artem Vasenin
 [init]
 	defaultBranch = master
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	width = 120
+	navigate = true    # use n and N to move between diff sections
+	line-numbers = true
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default

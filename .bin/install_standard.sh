@@ -73,3 +73,10 @@ sudo usermod -a -G video "$(whoami)"
 forecast_path="$HOME/.bin/polybar-forecast"
 wget https://github.com/kamek-pf/polybar-forecast/releases/download/v1.1.0/polybar-forecast-linux-x86_64 -O "$forecast_path"
 chmod +x "$forecast_path"
+
+# Install git-delta
+if ! command -v "delta" > /dev/null; then
+	wget https://github.com/dandavison/delta/releases/download/0.15.1/delta-0.15.1-x86_64-unknown-linux-musl.tar.gz -O /tmp/delta.tar.gz
+	tar -xvf /tmp/delta.tar.gz -C /tmp
+	mv /tmp/delta-0.15.1-x86_64-unknown-linux-musl/delta ~/.bin
+fi
