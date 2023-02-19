@@ -3,7 +3,7 @@
 	"python.analysis.typeCheckingMode": "off",
 	"python.analysis.diagnosticMode": "workspace",
 	"pyright.organizeimports.provider": "isort",
-	"pyright.disableProgressNotifications": true,
+	"pyright.strictParameterNoneValue": false,
 	"python.sortImports.args": [
 		"--profile",
 		"black",
