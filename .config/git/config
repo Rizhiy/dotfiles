@@ -20,9 +20,6 @@
 	smudge = git-lfs smudge --skip -- %f
 	process = git-lfs filter-process --skip
 	required = true
-; [color "diff"]
-; 	meta = bold
-; 	new = cyan
 [submodule]
 	recurse = true
 [user]
@@ -35,7 +32,9 @@
 	width = 120
 	navigate = true    # use n and N to move between diff sections
 	line-numbers = true
+	hunk-header-style = syntax
 [merge]
 	conflictstyle = diff3
 [diff]
 	colorMoved = default
+	context = 1
