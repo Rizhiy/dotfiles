@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Based on ThePrimeagen's tmux-sessionizer, but using windows instead of sessions
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
