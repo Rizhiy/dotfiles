@@ -29,3 +29,7 @@ xsltproc
 automake
 ripgrep
 libfuse2
+libevent-dev
+ncurses-dev
+bison
+pkg-config

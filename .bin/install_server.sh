@@ -35,7 +35,7 @@ sudo npm install -g neovim
 
 # Install fzf
 cd "$HOME/.local/share/fzf"
-yes | ./install
+	yes | ./install
 cd -
 
 # Install git lfs
@@ -93,3 +93,13 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 rm lazygit.tar.gz
+
+# Install latest version of tmux
+wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz -O /tmp/tmux.tar.gz
+current_dir=$(pwd)
+cd /tmp
+	tar -xzf tmux.tar.gz
+	cd tmux-3.3a
+		./configure && make
+		make && sudo make install
+cd "$current_dir"
