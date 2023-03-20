@@ -16,7 +16,7 @@ selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 new_window_cmd() {
-    tmux send-keys -t main:$selected_name "cd $selected; act; clear" C-m
+    tmux send-keys -t main:$selected_name "cd $selected; act; vim; clear" C-m
 }
 
 if [[ -z $tmux_running ]] || ! tmux has-session -t main:$selected_name 2>/dev/null; then

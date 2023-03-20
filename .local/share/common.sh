@@ -27,7 +27,7 @@ alias act-base='de-act; conda activate base'
 alias rm-env='de-act; conda uninstall -n "$(get-env-name)" --all; act-base'
 
 # Open project in tmux window
-alias open-project='$HOME/.bin/open_project.sh'
+alias op='$HOME/.bin/open_project.sh'
 
 # More concise man pages
 cheat() {
