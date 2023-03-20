@@ -52,5 +52,8 @@ function! XTermPasteBegin()
   return ""
 endfunction
 
-" Enable colorizer
-lua require('colorizer').setup()
+lua << EOF
+require('colorizer').setup({
+	python = { names = false; }
+})
+EOF
