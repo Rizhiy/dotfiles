@@ -175,7 +175,7 @@ ramp-signal-0 = 直
 
 [module/volume]
 type = internal/volume
-:headphone-id = 9
+# :headphone-id = 9
 
 format-volume = <ramp-volume> <label-volume>
 label-muted = 遼 muted
