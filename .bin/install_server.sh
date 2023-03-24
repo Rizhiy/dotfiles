@@ -5,8 +5,7 @@ set -e
 
 # Always have latest git version
 sudo add-apt-repository ppa:git-core/ppa -n -y
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get update
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 
 if [ ! -d "$HOME/miniconda3" ]; then
 	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O "$HOME/miniconda3.sh"
@@ -21,7 +20,7 @@ if command -v pip > /dev/null; then
 fi
 
 xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_server.txt
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 
 # Install neovim
 if [ ! -f "$HOME/.bin/nvim.appimage" ]; then
@@ -81,25 +80,43 @@ fi
 # Change default shell to zsh
 sudo usermod -s $(which zsh) $(whoami)
 
-if ! command -v "bat" > /dev/null; then
-	bat_path="/tmp/bat.deb"
-	wget https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb -O "$bat_path" &&
-	sudo dpkg -i "$bat_path"
-	rm -fr "$bat_path"
-fi
-
 # Lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep '"tag_name":' |  sed -E 's/.*"v*([^"]+)".*/\1/')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 rm lazygit.tar.gz
 
-# Install latest version of tmux
-wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz -O /tmp/tmux.tar.gz
-current_dir=$(pwd)
-cd /tmp
-	tar -xzf tmux.tar.gz
-	cd tmux-3.3a
-		./configure && make
-		make && sudo make install
-cd "$current_dir"
+# Install newer version of tmux
+if ! command -v "tmux" > /dev/null; then
+	wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz -O /tmp/tmux.tar.gz
+	current_dir=$(pwd)
+	cd /tmp
+		tar -xzf tmux.tar.gz
+		cd tmux-3.3a
+			./configure && make
+			make && sudo make install
+	cd "$current_dir"
+fi
+
+# Install newer version of htop
+if ! command -v "htop" > /dev/null; then
+	wget https://github.com/htop-dev/htop/releases/download/3.2.2/htop-3.2.2.tar.xz -O /tmp/htop.tar.xz
+	current_dir=$(pwd)
+	cd /tmp
+		tar -xf htop.tar.xz
+		cd htop-3.2.2
+			./autogen.sh && ./configure && make
+			sudo make install
+	cd "$current_dir"
+fi
+
+# Install lazygit
+if ! command -v "lazygit" > /dev/null; then
+	LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+	wget "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" -O /tmp/lazygit.tar.gz
+	current_dir=$(pwd)
+	cd /tmp
+		tar -xf lazygit.tar.gz lazygit
+		sudo install lazygit /usr/local/bin
+	cd "$current_dir"
+fi

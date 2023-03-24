@@ -3,8 +3,7 @@ alacritty
 feh
 compton
 surfraw
-lazygit
-i3-gaps-wm
+i3
 i3status
 imagemagick
 rofi
