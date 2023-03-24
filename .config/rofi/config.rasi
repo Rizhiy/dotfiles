@@ -1,8 +1,9 @@
 configuration {
 	modi: "window,drun,ssh,combi";
-	theme: "gruvbox-dark";
 	font: "SauceCode Pro Nerd Font 13";
 	combi-modi: "window,drun,ssh";
 	show-icons: true;
 	matching: "fuzzy";
 }
+
+@theme "gruvbox-dark"
