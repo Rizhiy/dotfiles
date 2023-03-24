@@ -10,7 +10,7 @@
 #
 
 # Start compton (transparency)
-exec_always --no-startup-id killall compton && compton --config $HOME/.config/compton.conf -b
+exec_always --no-startup-id killall compton; compton --config $HOME/.config/compton.conf -b
 
 # This defines which key super maps to on your keyboard.
 # Alt key is Mod1, and Windows key is Mod4
