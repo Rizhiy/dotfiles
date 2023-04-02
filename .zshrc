@@ -38,20 +38,20 @@ calc() {
 # Nice history search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Search files with fzf
-bindkey '^F' fzf-file-widget
+bindkey '^f' fzf-file-widget
 # Search hidden dirs as well
 export FZF_CTRL_T_COMMAND='ag --hidden --silent --ignore .git -l -g ""'
 
 # Edit command in editor
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '^X^E' edit-command-line
+bindkey '^e' edit-command-line
 
 # Jump to start of the line, ^A is used as tmux prefix, also ^B makes more sense, since 'beginning'
-bindkey '^B' beginning-of-line
+bindkey '^b' beginning-of-line
 
 # Only complete on tab, without expanding
-bindkey '^I' complete-word
+bindkey '^i' complete-word
 
 # Complete one word with end
 bindkey '^[[4~' forward-word
