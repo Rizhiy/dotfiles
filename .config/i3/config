@@ -7,7 +7,9 @@
 #
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
-#
+
+# Try to find monitors as soon as possible, so that they are ready at the end of the script
+exec_always --no-startup-id "$HOME/.bin/find_monitors.py"
 
 # Start compton (transparency)
 exec_always --no-startup-id killall compton; compton --config $HOME/.config/compton.conf -b
@@ -43,6 +45,21 @@ set $ws10 "10"
 
 # Intialise gnome keyring
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
+############### Session operations ###############
+# lock the screen
+bindsym $mod+Escape exec $HOME/.bin/lock.sh
+# Also lock on lid close
+exec --no-startup-id "xss-lock -- $HOME/.bin/lock.sh"
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Logout of session
+bindsym $mod+Shift+e exec "rofi -show power -modi power:$HOME/.config/rofi/power.sh"
 
 ############### Programs Here ###############
 # All programs (except terminal) should be launched with $mod+Ctrl prefix
@@ -200,20 +217,6 @@ bindsym $mod+$alt+0 move container to workspace number $ws0; workspace number $w
 # Rotate display
 bindsym $mod+Ctrl+r exec xrandr --output $(xrandr | grep " connected" | cut -d " " -f1 | rofi -dmenu -p Display) --rotate $(echo "normal\nleft\nright\ninverted" | rofi -dmenu -p Orientation)
 
-############### Session operations ###############
-# lock the screen
-bindsym $mod+Escape exec $HOME/.bin/lock.sh
-# Also lock on lid close
-exec --no-startup-id "xss-lock -- $HOME/.bin/lock.sh"
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# Logout of session
-bindsym $mod+Shift+e exec "rofi -show power -modi power:$HOME/.config/rofi/power.sh"
 
 ############### Appearance settings ################
 
@@ -240,7 +243,6 @@ exec --no-startup-id /usr/bin/unclutter -b
 
 ############### Other ################
 
-exec_always --no-startup-id "$HOME/.bin/find_monitors.py"
 set_from_resource $monitor_left monitor_left
 set_from_resource $monitor_right monitor_right
 

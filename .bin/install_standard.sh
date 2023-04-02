@@ -67,7 +67,7 @@ fi
 
 # Update lockscreenwallpaper
 if ! command -v "betterlockscreen" > /dev/null; then
-	wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | bash -s user
+	wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system
 	betterlockscreen -u "$HOME/.local/share/lock_screen.jpg"
 fi
 
