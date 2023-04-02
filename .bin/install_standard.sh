@@ -66,7 +66,10 @@ if ! command -v "i3lock" > /dev/null; then
 fi
 
 # Update lockscreenwallpaper
-"$HOME/.local/share/multilockscreen/multilockscreen" -u "$HOME/.local/share/lock_screen.jpg"
+if ! command -v "betterlockscreen" > /dev/null; then
+	wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | bash -s user
+	betterlockscreen -u "$HOME/.local/share/lock_screen.jpg"
+fi
 
 # Add user to video group for brightness
 sudo usermod -a -G video "$(whoami)"
