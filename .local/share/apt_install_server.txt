@@ -33,3 +33,4 @@ bison
 pkg-config
 nodejs
 bat
+parallel
