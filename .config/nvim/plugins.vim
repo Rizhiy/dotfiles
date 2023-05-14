@@ -139,6 +139,7 @@ let bufferline.maximum_padding = 1
 Plug 'nvim-pack/nvim-spectre'
 " Github Copilot
 Plug 'github/copilot.vim'
+
 " Icons for coc-explorer and barbar
 Plug 'kyazdani42/nvim-web-devicons'
 " Better language support

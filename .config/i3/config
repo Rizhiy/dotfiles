@@ -215,8 +215,8 @@ bindsym $mod+$alt+9 move container to workspace number $ws9; workspace number $w
 bindsym $mod+$alt+0 move container to workspace number $ws0; workspace number $ws0
 
 # Rotate display
-bindsym $mod+Ctrl+r exec xrandr --output $(xrandr | grep " connected" | cut -d " " -f1 | rofi -dmenu -p Display) --rotate $(echo "normal\nleft\nright\ninverted" | rofi -dmenu -p Orientation)
-
+bindsym $mod+Ctrl+$alt+r exec xrandr --output $(xrandr | grep " connected" | cut -d " " -f1 | rofi -dmenu -p Display) --rotate $(echo "normal\nleft\nright\ninverted" | rofi -dmenu -p Orientation)
+bindsym $mod+Ctrl+r exec autorandr $(autorandr | cut -d " " -f1 | rofi -dmenu -p Display) # Need to save configurations first
 
 ############### Appearance settings ################
 

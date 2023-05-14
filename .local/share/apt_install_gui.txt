@@ -19,3 +19,4 @@ libxkbcommon-dev
 libxkbcommon-x11-dev
 brightnessctl
 redshift
+autorandr
