@@ -216,7 +216,7 @@ bindsym $mod+$alt+0 move container to workspace number $ws0; workspace number $w
 
 # Rotate display
 bindsym $mod+Ctrl+$alt+r exec xrandr --output $(xrandr | grep " connected" | cut -d " " -f1 | rofi -dmenu -p Display) --rotate $(echo "normal\nleft\nright\ninverted" | rofi -dmenu -p Orientation)
-bindsym $mod+Ctrl+r exec autorandr $(autorandr | cut -d " " -f1 | rofi -dmenu -p Display) # Need to save configurations first
+bindsym $mod+Ctrl+r exec autorandr $(autorandr | cut -d " " -f1 | rofi -dmenu -p Display) && source $HOME/.bin/set_time_wallpaper.sh # Need to save configurations first
 
 ############### Appearance settings ################
 
