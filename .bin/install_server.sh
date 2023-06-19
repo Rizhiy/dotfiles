@@ -52,16 +52,12 @@ fi
 font_dir="$HOME/.local/share/fonts/NerdFonts"
 mkdir -p "$font_dir"
 cd "$font_dir"
-font_links=(
-	"https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf"
-	"https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Bold/complete/Sauce%20Code%20Pro%20Bold%20Nerd%20Font%20Complete.ttf"
-	"https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Italic/complete/Sauce%20Code%20Pro%20Italic%20Nerd%20Font%20Complete.ttf"
-	"https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Bold-Italic/complete/Sauce%20Code%20Pro%20Bold%20Italic%20Nerd%20Font%20Complete.ttf"
-)
-for link in ${font_links[@]}; do
-	wget -c "$link"
-done
+wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/SourceCodePro.zip"
+unzip SourceCodePro.zip
+rm SourceCodePro.zip
+fc-cache -fv
 cd -
+
 
 if ! command -v ytop > /dev/null; then
 	ytop_path="/tmp/ytop.tar.gz"
