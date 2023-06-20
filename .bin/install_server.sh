@@ -52,9 +52,11 @@ fi
 font_dir="$HOME/.local/share/fonts/NerdFonts"
 mkdir -p "$font_dir"
 cd "$font_dir"
-wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/SourceCodePro.zip"
-unzip SourceCodePro.zip
-rm SourceCodePro.zip
+if [ ! -f "SauceCodeProNerdFont-Regular.ttf" ]; then
+	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/SourceCodePro.zip"
+	unzip -n SourceCodePro.zip
+	rm SourceCodePro.zip
+fi
 fc-cache -fv
 cd -
 
