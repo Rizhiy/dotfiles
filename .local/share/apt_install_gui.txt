@@ -20,3 +20,4 @@ libxkbcommon-x11-dev
 brightnessctl
 redshift
 autorandr
+ueberzugpp
