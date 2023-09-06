@@ -7,9 +7,9 @@ set -e
 sudo add-apt-repository ppa:git-core/ppa -n -y
 # Add node ppa
 mkdir -p /etc/apt/keyrings
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor | sudo tee /etc/apt/keyrings/nodesource.gpg > /dev/null
 NODE_MAJOR=20
-echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list > /dev/null
 
 if [ ! -d "$HOME/miniconda3" ]; then
 	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O "$HOME/miniconda3.sh"
@@ -31,6 +31,11 @@ if [ ! -f "$HOME/.bin/nvim.appimage" ]; then
 	wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$HOME/.bin/nvim.appimage" && chmod u+x "$HOME/.bin/nvim.appimage"
 fi
 sudo npm install -g neovim
+
+# Install insect (terminal calculator)
+if ! command -v "insect" > /dev/null; then
+	sudo npm install -g insect
+fi
 
 # Install Vim plugins
 "$HOME/.bin/nvim.appimage" +PlugInstall +qall
@@ -124,4 +129,6 @@ if ! command -v "lazygit" > /dev/null; then
 fi
 
 # Symlink bat to batcat
-sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+if [ ! -f "/usr/local/bin/bat" ]; then
+	sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+fi
