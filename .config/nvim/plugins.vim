@@ -132,8 +132,6 @@ let g:blamer_date_format = '%y-%m-%d'
 let g:blamer_relative_time = 1
 " Global search and replace
 Plug 'nvim-pack/nvim-spectre'
-" Github Copilot
-Plug 'github/copilot.vim'
 
 " Icons for coc-explorer and barbar
 Plug 'kyazdani42/nvim-web-devicons'
