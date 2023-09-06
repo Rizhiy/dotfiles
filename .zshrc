@@ -41,6 +41,15 @@ calc() {
 bindkey '^f' fzf-file-widget
 # Search hidden dirs as well
 export FZF_CTRL_T_COMMAND='ag --hidden --silent --ignore .git -l -g ""'
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}'"
+# Preview commands to see multiple properly
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3
+  --bind 'ctrl-/:toggle-preview'
+  --color header:italic"
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="--preview 'lsd --tree {}'"
 
 # Edit command in editor
 autoload -U edit-command-line

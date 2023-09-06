@@ -122,3 +122,6 @@ if ! command -v "lazygit" > /dev/null; then
 		sudo install lazygit /usr/local/bin
 	cd "$current_dir"
 fi
+
+# Symlink bat to batcat
+sudo ln -s /usr/bin/batcat /usr/local/bin/bat
