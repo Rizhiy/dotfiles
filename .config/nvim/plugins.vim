@@ -130,11 +130,6 @@ let g:blamer_enabled = 1
 let g:blamer_delay = 100
 let g:blamer_date_format = '%y-%m-%d'
 let g:blamer_relative_time = 1
-" Buffer line
-Plug 'romgrk/barbar.nvim'
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.icon_pinned = '車'
-let bufferline.maximum_padding = 1
 " Global search and replace
 Plug 'nvim-pack/nvim-spectre'
 " Github Copilot

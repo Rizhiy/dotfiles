@@ -26,7 +26,7 @@
 	"explorer.position": "floating",
 	"explorer.floating.position": "right-center",
 	"explorer.floating.width": 80,
-	"explorer.floating.height": -2,
+	"explorer.floating.height": -1,
 	"explorer.floating.border.title": "Explorer",
 	"explorer.icon.enableNerdfont": true,
 	"explorer.previewAction.onHover": "labeling",
