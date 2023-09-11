@@ -10,7 +10,6 @@ set relativenumber                      " Relative line numbers
 set background=dark                     " tell vim what the background color looks like
 set showtabline=0                       " Never show tabs
 set formatoptions-=cro                  " Stop newline continuation of comments
-set clipboard=unnamedplus               " Copy paste between vim and everything else
 set display=lastline                    " Show @@@ in the last line if it is truncated.
 set list                                " Show empty characted tab/eol
 set listchars=tab:▸\ ,trail:·           " Specify empty charactes

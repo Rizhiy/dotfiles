@@ -27,6 +27,7 @@ set noswapfile                                   " Dis:wable swap file
 set autowrite                                    " Autowrite
 set autowriteall                                 " Autowrite everywhere
 set showtabline=2                                " Always show tabline
+" set clipboard=unnamedplus               " Copy paste between vim and everything else
 
 au! BufWritePost $MYVIMRC source %               " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 au FocusGained,BufEnter * :checktime             " Update on focus switch
