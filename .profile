@@ -26,3 +26,6 @@ fi
 # Set network interface names
 export WIRELESS_NETWORK_INTERFACE=`ip a | grep wlp | awk '{print $2}' | head -n1 | sed 's/.$//'`
 export WIRED_NETWORK_INTERFACE=`ip a | grep enp | awk '{print $2}' | head -n1 | sed 's/.$//'`
+
+# Add flatpak dirs
+XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/rizhiy/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"

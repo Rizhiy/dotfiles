@@ -89,6 +89,8 @@ export EDITOR="$HOME/.bin/nvim.appimage"
 
 # Add Go to path
 export PATH="$PATH:/usr/local/go/bin"
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Add cargo to path
 export PATH="$PATH:/root/.cargo/bin"
