@@ -142,4 +142,8 @@ let g:polyglot_disabled = ['csv']
 " TODO: Need to actually make this work
 Plug 'SmiteshP/nvim-navic'
 
+" Markdown tables
+Plug 'dhruvasagar/vim-table-mode'
+let g:table_mode_corner = '|'
+
 call plug#end()
