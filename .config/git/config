@@ -11,9 +11,9 @@
 [pull]
 	rebase = true
 [core]
-	editor = /home/rizhiy/.bin/nvim.appimage
+	editor = $HOME/.bin/nvim.appimage
 	autocrlf = input
-	excludesfile = /home/rizhiy/.config/git/ignore
+	excludesfile = $HOME/.config/git/ignore
 	pager = delta
 [filter "lfs"]
 	clean = git-lfs clean -- %f
