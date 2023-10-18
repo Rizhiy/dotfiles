@@ -79,3 +79,6 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
+
+# disable autocd
+unsetopt autocd

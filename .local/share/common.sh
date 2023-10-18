@@ -17,7 +17,7 @@ conda_deactivate () {
 }
 alias get-env-name='echo "$(basename "$(pwd)")"'
 alias de-act='conda_deactivate'
-alias new-env='conda create -n "$(get-env-name)" python=3 -y'
+alias new-env='conda create -n "$(get-env-name)" python=3.11 -y'
 act () {
 	de-act
 	env_name="$(get-env-name)"
