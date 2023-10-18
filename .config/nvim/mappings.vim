@@ -33,7 +33,6 @@ let g:which_key_map["h"] = [':split', 'Horizontal Split']
 let g:which_key_map["="] = ['<C-w>=', 'Even out splits']
 let g:which_key_map[" "] = ['', 'Unhighlight search']
 let g:which_key_map["a"] = ['za', 'Toggle Fold']
-let g:which_key_map["f"] = [':Ag', 'Project-wide search']
 let g:which_key_map["z"] = [':call VCenterCursor()', 'Toggle Vertical Align']
 let g:which_key_map["e"] = [':CocCommand explorer', 'File Explorer']
 let g:which_key_map["m"] = [':TableModeToggle', 'Markdown tables']
@@ -41,6 +40,12 @@ let g:which_key_map["m"] = [':TableModeToggle', 'Markdown tables']
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 let g:which_key_map["y"] = ['', 'Copy into system clipboard']
+
+" Make SilverSearcher only search file contents
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>,
+			\ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
+			\ <bang>0)
+let g:which_key_map["f"] = [':Ag', 'Project-wide search']
 
 let g:which_key_map.s = {
 	\ 'name': 'session',
