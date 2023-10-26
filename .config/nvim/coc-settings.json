@@ -4,20 +4,7 @@
 	"python.analysis.diagnosticMode": "workspace",
 	"pyright.organizeimports.provider": "isort",
 	"pyright.strictParameterNoneValue": false,
-	"python.sortImports.args": [
-		"--profile",
-		"black",
-		"--line-length",
-		"120"
-	],
 	"python.formatting.provider": "black",
-	"python.formatting.blackArgs": [
-		"--line-length",
-		"120",
-		"--skip-magic-trailing-comma",
-		"--target-version",
-		"py311"
-	],
 	"coc.preferences.formatOnSaveFiletypes": [
 		"python",
 		"markdown",
