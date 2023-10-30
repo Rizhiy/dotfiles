@@ -34,3 +34,4 @@ pkg-config
 nodejs
 bat
 parallel
+onefetch

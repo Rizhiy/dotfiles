@@ -5,6 +5,8 @@ set -e
 
 # Always have latest git version
 sudo add-apt-repository ppa:git-core/ppa -n -y
+# Add onefetch
+sudo add-apt-repository ppa:o2sh/onefetch -n -y
 # Add node ppa
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor | sudo tee /etc/apt/keyrings/nodesource.gpg > /dev/null
