@@ -22,12 +22,23 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.g.mapleader = ' '
 
-vim.api.nvim_create_autocmd(
+local autocmd = vim.api.nvim_create_autocmd
+autocmd(
     {"BufEnter"},
     {
         pattern = "*",
-        callback = function(event)
+        callback = function(_)
             vim.opt.formatoptions:remove({"c", "r", "o"})
+        end
+    }
+)
+-- Is this required with autoread?
+autocmd(
+    {"BufEnter", "FocusGained"},
+    {
+        pattern = "*",
+        callback = function(_)
+            vim.cmd("checktime")
         end
     }
 )

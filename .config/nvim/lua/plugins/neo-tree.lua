@@ -9,7 +9,12 @@ return {
         's1n7ax/nvim-window-picker',
     },
     keys = {
-        {"<leader>e", ":Neotree<cr>", desc = "File Explorer"},
+        {
+            "<leader>e", 
+            function()
+                require("neo-tree.command").execute({toggle=true,dir=vim.loop.cwd()})
+            end,
+            desc = "File Explorer"},
     },
     opts = {
         window = {
@@ -18,6 +23,7 @@ return {
                 ["<cr>"] = "open_with_window_picker",
                 ["v"] = "open_vsplit",
                 ["h"] = "open_split",
+                ["."] = "toggle_hidden",
             }
         }
     }

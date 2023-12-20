@@ -18,3 +18,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 require('lazy.view.config').keys.close = '<Esc>'
+
+require("autorooter")
