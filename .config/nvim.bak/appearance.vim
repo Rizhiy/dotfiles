@@ -4,7 +4,7 @@ set cursorline
 set cmdheight=2                         " More space for displaying messages
 set iskeyword+=-                        " treat dash separated words as a word text object
 set conceallevel=0                      " So that I can see `` in markdown files
-set laststatus=2                        " Always display the status line
+set laststatus=1                        " Always display the status line
 set number                              " Line numbers
 set relativenumber                      " Relative line numbers
 set background=dark                     " tell vim what the background color looks like

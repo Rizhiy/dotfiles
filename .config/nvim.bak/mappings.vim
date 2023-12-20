@@ -25,7 +25,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 " Global search
 nnoremap <leader>os :lua require('spectre').open()<CR>
-let g:which_key_map = {}
+    let g:which_key_map = {}
 let g:which_key_use_floating_win = 0
 
 let g:which_key_map["v"] = [':vsplit', 'Vertical Split']
