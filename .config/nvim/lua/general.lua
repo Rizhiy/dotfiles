@@ -17,14 +17,15 @@ vim.opt.autowrite = true
 vim.opt.autowriteall = true
 
 vim.opt.foldmethod = "indent"
-vim.opt.foldlevelstart = 1
+
 vim.opt.clipboard = "unnamedplus"
 
-vim.g.mapleader = ' '
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 
 local autocmd = vim.api.nvim_create_autocmd
-autocmd(
-    {"BufEnter"},
+autocmd({"BufEnter"},
     {
         pattern = "*",
         callback = function(_)
@@ -33,12 +34,23 @@ autocmd(
     }
 )
 -- Is this required with autoread?
-autocmd(
-    {"BufEnter", "FocusGained"},
+autocmd({"BufEnter", "FocusGained"},
     {
         pattern = "*",
         callback = function(_)
             vim.cmd("checktime")
+        end
+    }
+)
+autocmd({"BufReadPost"},
+    {
+        pattern = "*",
+        callback = function(_)
+            if vim.api.nvim_buf_line_count(0) > 120 then
+                vim.opt.foldlevel = 1
+            else
+                vim.opt.foldlevel = 10
+            end
         end
     }
 )
