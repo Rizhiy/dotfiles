@@ -4,36 +4,6 @@ export HISTFILESIZE=100000
 export SAVEHIST=$HISTSIZE
 export KEYTIMEOUT=1
 
-# lsd
-alias ls='lsd'
-alias lh='lsd -Al'
-alias tree='lsd --tree'
-
-# Shortcut for quick conda activation
-conda_deactivate () {
-	while [ -n "$CONDA_DEFAULT_ENV" ]; do
-		conda deactivate
-	done
-}
-alias get-env-name='echo "$(basename "$(pwd)")"'
-alias de-act='conda_deactivate'
-alias new-env='conda create -n "$(get-env-name)" python=3.11 -y'
-act () {
-	de-act
-	env_name="$(get-env-name)"
-	conda activate "$env_name" || new-env && conda activate "$env_name"
-}
-alias act-base='de-act; conda activate base'
-alias rm-env='de-act; conda uninstall -n "$(get-env-name)" --all; act-base'
-
-# Open project in tmux window
-alias op='$HOME/.bin/open_project.sh'
-
-# More concise man pages
-cheat() {
-    curl cheat.sh/"$1"
-}
-
 if [ -d "$HOME/miniconda3" ]; then
     condadir="$HOME/miniconda3"
 elif [ -d "$HOME/anaconda3" ]; then
@@ -58,28 +28,10 @@ unset __conda_setup
 # Add cuda to path
 export PATH=/usr/local/cuda/bin:/usr/local/cuda/NsightCompute-2019.1${PATH:+:${PATH}}
 
-# dotfiles bare repository
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
-# Alias for nvim
-alias nvim='$HOME/.bin/nvim.appimage'
-
-# Alias vim to nvim
-alias vim="nvim"
-
-# Make docker always execute as root
-alias docker="sudo docker"
-
-# easier tmux attach
-alias a="tmux a"
-
-# Always use conda ranger
-alias ranger=$HOME/miniconda3/bin/ranger
+conda activate
 
 # Add user bin to PATH
 export PATH="$HOME/.bin:$PATH"
-
-conda activate
 
 # set python debugger
 export PYTHONBREAKPOINT=pudb.set_trace
@@ -94,3 +46,5 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Add cargo to path
 export PATH="$PATH:/root/.cargo/bin"
+
+source $HOME/.local/share/aliases.sh
