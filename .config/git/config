@@ -12,7 +12,7 @@
 [pull]
 	rebase = true
 [core]
-	editor = $HOME/.bin/nvim.appimage
+	editor = nvim
 	autocrlf = input
 	excludesfile = $HOME/.config/git/ignore
 	pager = delta
