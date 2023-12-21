@@ -1,8 +1,8 @@
-return { 
+return {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
-    config = function() 
+    config = function()
         -- Why are opts not working?
         require("gruvbox").setup({italic = {strings = false}})
         vim.o.background = "dark"

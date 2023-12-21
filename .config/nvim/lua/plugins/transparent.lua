@@ -4,9 +4,9 @@ return {
         require("transparent").setup(   {
             extra_groups = {
                 "WinSeparator",
+                "Folded"
             },
             exclude_groups = {
-                "Cursor",
                 "CursorLine"
             }
         })

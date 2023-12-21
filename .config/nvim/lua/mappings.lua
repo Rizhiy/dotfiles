@@ -27,6 +27,6 @@ vim.keymap.set('n', 'd', '"_d', {desc="Delete"})
 vim.keymap.set('n', 'x', 'd', {desc="Cut"})
 
 vim.keymap.set('n', '<C-s>', ':w<CR>', {desc="Save buffer"})
-vim.keymap.set('n', '<C-d>', ':q<CR>', {desc="Close pane"})
+vim.keymap.set('n', '<C-d>', ':q<CR>', {desc="Close pane", silent = true})
 
 vim.keymap.set("", '<leader>y', '"+y', {desc="Copy to system clipboard"})
