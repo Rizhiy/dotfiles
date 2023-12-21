@@ -22,8 +22,9 @@ vim.keymap.set('n', '<C-Up>', ':resize +3<CR>', {desc="Increase split size"})
 vim.keymap.set('n', '<C-Down>', ':resize -3<CR>', {desc="Decrease split size"})
 vim.keymap.set('n', '<leader>=', '<C-w>=', {desc="Even out the splits"})
 
--- Don't overwrite yanked content on delete
+-- Don't overwrite yanked content on delete and change
 vim.keymap.set('n', 'd', '"_d', {desc="Delete"})
+vim.keymap.set('n', 'c', '"_c', {desc="Change"})
 vim.keymap.set('n', 'x', 'd', {desc="Cut"})
 
 vim.keymap.set('n', '<C-s>', ':w<CR>', {desc="Save buffer"})

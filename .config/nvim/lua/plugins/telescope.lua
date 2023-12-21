@@ -9,7 +9,8 @@ return {
     },
     keys = {
         {"<leader>f",  "<cmd>lua FuzzyFindFiles{}<CR>", desc="Fuzzy search"},
-        {'<leader>ff', ":Telescope find_files<CR>", desc="Search files"},
+        -- TODO: Fix this to search hidden files AND respect .gitignore
+        {'<leader>ff', ":Telescope find_files hidden=true<CR>", desc="Search files"},
         {'<leader>fe', ":Telescope live_grep<CR>", desc="Exact search"},
         {'<leader>fb', ":Telescope buffers<CR>", desc="Search buffers"},
         {'<leader>fh', ":Telescope help_tags<CR>", desc="Search tags"},
@@ -21,11 +22,14 @@ return {
         require("telescope").load_extension("ui-select")
         local builtin = require('telescope.builtin')
         function FuzzyFindFiles()
+            -- TODO: .gitignore here as well
+            -- https://github.com/nvim-telescope/telescope.nvim/issues/2780
             builtin.grep_string({
                 path_display = { 'smart' },
                 only_sort_text = true,
                 word_match = "-w",
                 search = '',
+                additional_args = { "--hidden" },
             })
         end
 
