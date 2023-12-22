@@ -105,9 +105,9 @@ return   {
             automatic_installation = true,
         })
 
-        local border = require("custom.border").Border
+        local border = require("rizhiy.border").Border
         vim.diagnostic.config({
-            float = {border = border("CmpDocBorder")},
+            float = {border = border()},
             virtual_text = {
                 prefix = '●'
             }
@@ -121,10 +121,10 @@ return   {
                     filetypes = (servers[server_name] or {}).filetypes,
                     handlers =  {
                         ["textDocument/hover"] =  vim.lsp.with(
-                            vim.lsp.handlers.hover, {border = border("CmpDocBorder")}
+                            vim.lsp.handlers.hover, {border = border()}
                         ),
                         ["textDocument/signatureHelp"] =  vim.lsp.with(
-                            vim.lsp.handlers.signature_help, {border = border("CmpDocBorder")}
+                            vim.lsp.handlers.signature_help, {border = border()}
                         ),
                     }
                 })

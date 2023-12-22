@@ -23,7 +23,7 @@ return  { -- Autocompletion
 
         local lspkind = require("lspkind")
 
-        local border = require("custom.border").Border
+        local border = require("rizhiy.border").Border
         cmp.setup({
             snippet = {
                 expand = function(args)
@@ -80,10 +80,10 @@ return  { -- Autocompletion
             },
             window = {
                 completion = cmp.config.window.bordered({
-                    border = border("CmpDocBorder")
+                    border = border()
                 }),
                 documentation = cmp.config.window.bordered({
-                    border = border("CmpDocBorder")
+                    border = border()
                 })
             }
         })

@@ -3,6 +3,6 @@ require("appearance")
 require("mappings")
 require("movement")
 
-require("custom.lazy")
-require("custom.autorooter")
+require("rizhiy.lazy")
+require("rizhiy.autorooter")
 

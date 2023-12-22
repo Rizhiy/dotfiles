@@ -17,7 +17,7 @@ return {
             desc = "File Explorer"},
     },
     opts = {
-        popup_border_style = require("custom.border").Border("CmpDocBorder"),
+        popup_border_style = require("rizhiy.border").Border(),
         window = {
             position = "float",
             mappings = {
