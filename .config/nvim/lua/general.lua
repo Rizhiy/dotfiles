@@ -24,6 +24,10 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- Searching
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 
 local autocmd = vim.api.nvim_create_autocmd
 autocmd({"BufEnter"},

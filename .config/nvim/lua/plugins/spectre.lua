@@ -4,6 +4,6 @@ return {
         'nvim-lua/plenary.nvim',
     },
     keys = {
-        {"<leader>s", '<cmd>lua require("spectre").toggle()<CR>', desc="Global search and replace"},
+        {"<leader>fs", '<cmd>lua require("spectre").toggle()<CR>', desc="Global search and replace"},
     }
 }

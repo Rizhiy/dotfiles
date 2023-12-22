@@ -1,11 +1,10 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
-        {"nvim-treesitter/nvim-treesitter-context", opts={
-            max_lines = 5,min_window_height = 30,
-            mode = "topline"
-        }},
+        "nvim-treesitter/nvim-treesitter-context",
+        'nvim-treesitter/nvim-treesitter-textobjects',
     },
+    event = {"BufReadPre", "BufNewFile"},
     build = ':TSUpdate',
     config = function()
         require("nvim-treesitter.configs").setup({
@@ -14,10 +13,29 @@ return {
                 keymaps = {
                     init_selection = "<C-Space>",
                     node_incremental = "<C-Space>",
-                    node_decremental = "<C-H>",
+                    node_decremental = "<BS>",
+                    scope_incremental = false,
                 },
             },
-            ensure_installed = {"lua", "python", "rust", "yaml", "toml", "markdown", "markdown_inline", "regex", "bash"},
+            ensure_installed = {
+                "vim",
+                -- languages
+                "lua",
+                "python",
+                "rust",
+                "bash",
+                -- data
+                "markdown",
+                "markdown_inline",
+                "json",
+                "yaml",
+                "toml",
+                -- other
+                "regex",
+                "sql",
+                "dockerfile",
+                "gitignore",
+            },
             highlight = { enable = true },
             indent = { enable = true },
         })

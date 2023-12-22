@@ -26,6 +26,7 @@ autocmd(
         callback = function(_)
             vim.cmd("hi FloatermBorder guibg=None")
             vim.cmd("hi WinSeparator guifg=bg guibg=bg")
+            vim.api.nvim_set_hl(0, 'TreesitterContextSeparator', { link = 'CmpDocBorder', default = true })
         end
     }
 )

@@ -89,8 +89,13 @@ return   {
             rust_analyzer = {},
             html = {},
             lua_ls = {
-                workspace = { checkThirdParty = false },
-                telemetry = { enable = false },
+                Lua = {
+                    workspace = { checkThirdParty = false },
+                    telemetry = { enable = false },
+                    diagnostics = {
+                        disable = {"missing-fields"}
+                    }
+                }
             },
             taplo = {},
             yamlls = {}

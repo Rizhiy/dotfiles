@@ -7,6 +7,6 @@ return {
                 delay = 100,
             },
         })
-        vim.cmd("hi def link GitSignsCurrentLineBlame Comment")
+        vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", {link="Comment", default = true})
     end
 }

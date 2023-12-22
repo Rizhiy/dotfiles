@@ -3,8 +3,8 @@ vim.g.mapleader = ' '
 vim.keymap.set("", "q:", "<nop>")
 
 vim.keymap.set("", "  ", ":noh<CR>", {desc = "Deselect search highlight"})
-vim.keymap.set("", "<leader>a", "zA", {desc = "Toggle fold"})
-vim.keymap.set("", "<leader>A", "zR", {desc = "Open all folds"})
+vim.keymap.set("", "<leader>a", "za", {desc = "Toggle fold"})
+vim.keymap.set("", "<leader>A", "zA", {desc = "Open all folds"})
 
 -- Move selection
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "Move selection down"})
@@ -20,7 +20,6 @@ vim.keymap.set('n', '<C-Left>', ':vertical resize +3<CR>', {desc="Increase verti
 vim.keymap.set('n', '<C-Right>', ':vertical resize -3<CR>', {desc="Decrease vertical split size"})
 vim.keymap.set('n', '<C-Up>', ':resize +3<CR>', {desc="Increase split size"})
 vim.keymap.set('n', '<C-Down>', ':resize -3<CR>', {desc="Decrease split size"})
-vim.keymap.set('n', '<leader>=', '<C-w>=', {desc="Even out the splits"})
 
 -- Don't overwrite yanked content on delete and change
 vim.keymap.set('n', 'd', '"_d', {desc="Delete"})
