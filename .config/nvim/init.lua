@@ -5,4 +5,3 @@ require("movement")
 
 require("rizhiy.lazy")
 require("rizhiy.autorooter")
-

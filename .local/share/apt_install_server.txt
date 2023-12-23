@@ -36,3 +36,4 @@ bat
 parallel
 onefetch
 fd-find
+luarocks

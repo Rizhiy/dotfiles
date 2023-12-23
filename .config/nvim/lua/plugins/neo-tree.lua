@@ -6,15 +6,16 @@ return {
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
         "3rd/image.nvim",
-        's1n7ax/nvim-window-picker',
+        "s1n7ax/nvim-window-picker",
     },
     keys = {
         {
             "<leader>e",
             function()
-                require("neo-tree.command").execute({toggle=true,dir=vim.loop.cwd()})
+                require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
             end,
-            desc = "File Explorer"},
+            desc = "File Explorer",
+        },
     },
     opts = {
         popup_border_style = require("rizhiy.border").Border(),
@@ -31,7 +32,7 @@ return {
                     end
                     require("neo-tree.sources.filesystem").toggle_directory(state, node)
                 end,
-            }
-        }
-    }
+            },
+        },
+    },
 }

@@ -7,6 +7,6 @@ return {
                 delay = 100,
             },
         })
-        vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", {link="Comment", default = true})
-    end
+        vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { link = "Comment", default = true })
+    end,
 }

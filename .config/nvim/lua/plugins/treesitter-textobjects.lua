@@ -27,8 +27,14 @@ return {
                         ["af"] = { query = "@call.outer", desc = "Select outer part of a function call" },
                         ["if"] = { query = "@call.inner", desc = "Select inner part of a function call" },
 
-                        ["am"] = { query = "@function.outer", desc = "Select outer part of a method/function definition" },
-                        ["im"] = { query = "@function.inner", desc = "Select inner part of a method/function definition" },
+                        ["am"] = {
+                            query = "@function.outer",
+                            desc = "Select outer part of a method/function definition",
+                        },
+                        ["im"] = {
+                            query = "@function.inner",
+                            desc = "Select inner part of a method/function definition",
+                        },
 
                         ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
                         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
@@ -49,8 +55,8 @@ return {
                     enable = true,
                     set_jumps = true, -- whether to set jumps in the jumplist
                     goto_next_start = {
-                        ["]="] = { query = "@assignment.outer", desc = "Next assignment"},
-                        ["]a"] = { query = "@parameter.outer", desc= "Next parameter/argument"},
+                        ["]="] = { query = "@assignment.outer", desc = "Next assignment" },
+                        ["]a"] = { query = "@parameter.outer", desc = "Next parameter/argument" },
                         ["]i"] = { query = "@conditional.outer", desc = "Next conditional" },
                         ["]l"] = { query = "@loop.outer", desc = "Next loop" },
                         ["]f"] = { query = "@call.outer", desc = "Next function call" },
@@ -58,8 +64,8 @@ return {
                         ["]c"] = { query = "@class.outer", desc = "Next class" },
                     },
                     goto_previous_start = {
-                        ["[="] = { query = "@assignment.outer", desc = "Prev assignment"},
-                        ["[a"] = { query = "@parameter.outer", desc= "Prev parameter/argument"},
+                        ["[="] = { query = "@assignment.outer", desc = "Prev assignment" },
+                        ["[a"] = { query = "@parameter.outer", desc = "Prev parameter/argument" },
                         ["[i"] = { query = "@conditional.outer", desc = "Prev conditional" },
                         ["[l"] = { query = "@loop.outer", desc = "Prev loop" },
                         ["[f"] = { query = "@call.outer", desc = "Prev function call" },

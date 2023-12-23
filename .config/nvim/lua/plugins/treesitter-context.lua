@@ -4,7 +4,7 @@ return {
         require("treesitter-context").setup({
             max_lines = 5,
             min_window_height = 30,
-            separator = "-"
+            separator = "-",
         })
-    end
+    end,
 }

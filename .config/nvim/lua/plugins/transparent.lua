@@ -1,15 +1,15 @@
 return {
     "xiyaowong/transparent.nvim",
-    config = function ()
-        require("transparent").setup(   {
+    config = function()
+        require("transparent").setup({
             extra_groups = {
                 "WinSeparator",
-                "Folded"
+                "Folded",
             },
             exclude_groups = {
-                "CursorLine"
-            }
+                "CursorLine",
+            },
         })
         vim.cmd(":TransparentEnable")
-    end
+    end,
 }

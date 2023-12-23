@@ -1,7 +1,7 @@
 return {
-    'goolord/alpha-nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
+    "goolord/alpha-nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
         local startify = require("alpha.themes.startify")
 
         startify.section.bottom_buttons.val = {
@@ -14,5 +14,5 @@ return {
         local logo_width = 54 -- roughly
         startify.config.opts.margin = math.floor((win_width - logo_width) / 2)
         require("alpha").setup(startify.config)
-    end
+    end,
 }
