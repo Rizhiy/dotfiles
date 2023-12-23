@@ -21,6 +21,35 @@ return {
         messages = {
             view = "mini",
         },
+        routes = {
+            {
+                filter = {
+                    any = {
+                        {
+                            event = "msg_show",
+                            kind = "",
+                            find = "written",
+                        },
+                        {
+                            event = "msg_show",
+                            kind = "",
+                            find = "fewer lines",
+                        },
+                        {
+                            event = "msg_show",
+                            kind = "",
+                            find = "more lines",
+                        },
+                        {
+                            event = "msg_show",
+                            kind = "",
+                            find = "lines yanked",
+                        },
+                    },
+                },
+                opts = { skip = true },
+            },
+        },
     },
     dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -35,4 +64,17 @@ return {
             },
         },
     },
+    init = function()
+        require("lualine").setup({
+            sections = {
+                lualine_x = {
+                    {
+                        require("noice").api.statusline.mode.get,
+                        cond = require("noice").api.statusline.mode.has,
+                        color = { fg = "#ff9e64" },
+                    },
+                },
+            },
+        })
+    end,
 }

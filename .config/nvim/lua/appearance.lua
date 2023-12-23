@@ -1,4 +1,7 @@
+vim.opt.termguicolors = true
+
 vim.opt.cursorline = true
+vim.opt.laststatus = 2
 
 vim.opt.showtabline = 0 -- Never show tabline
 vim.opt.conceallevel = 0 -- Don't hide links and stuff in Markdown

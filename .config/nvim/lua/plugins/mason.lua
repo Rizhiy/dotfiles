@@ -4,8 +4,8 @@ local on_attach = function(_, bufnr)
         if desc then
             desc = "LSP: " .. desc
         end
-
-        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+        -- NOTE: Do we need to pass buffer in here?
+        require("rizhiy.keys").nmap(keys, func, { desc = desc, buffer = bufnr })
     end
 
     nmap("rn", vim.lsp.buf.rename, "[R]e[n]ame")

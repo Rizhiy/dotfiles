@@ -1,32 +1,34 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("", "q:", "<nop>")
+local map = require("rizhiy.keys").map
+local nmap = require("rizhiy.keys").nmap
 
-vim.keymap.set("", "  ", ":noh<CR>", { desc = "Deselect search highlight" })
-vim.keymap.set("", "<leader>a", "za", { desc = "Toggle fold" })
-vim.keymap.set("", "<leader>A", "zA", { desc = "Open all folds" })
+map("q:", "<nop>", { desc = "Disable command history" })
+
+map("  ", ":noh<CR>", { desc = "Deselect search highlight" })
+map("<leader>a", "za", { desc = "Toggle fold" })
+map("<leader>A", "zA", { desc = "Open all folds" })
+map("<leader>y", '"+y', { desc = "Copy to system clipboard", mode = "v" })
 
 -- Move selection
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
-vim.keymap.set("v", "H", "<gv", { desc = "Un-indent selection" })
-vim.keymap.set("v", "L", ">gv", { desc = "Indent selection" })
+map("J", ":m '>+1<CR>gv=gv", { desc = "Move selection down", mode = "v" })
+map("K", ":m '<-2<CR>gv=gv", { desc = "Move selection up", mode = "v" })
+map("H", "<gv", { desc = "Un-indent selection", mode = "v" })
+map("L", ">gv", { desc = "Indent selection", mode = "v" })
 
-vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Vertical Split" })
-vim.keymap.set("n", "<leader>h", ":split<CR>", { desc = "Horisontal Split" })
+nmap("<leader>v", ":vsplit<CR>", { desc = "Vertical Split", silent = true })
+nmap("<leader>h", ":split<CR>", { desc = "Horisontal Split", silent = true })
 
 -- Split resize
-vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>", { desc = "Increase vertical split size" })
-vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>", { desc = "Decrease vertical split size" })
-vim.keymap.set("n", "<C-Up>", ":resize +3<CR>", { desc = "Increase split size" })
-vim.keymap.set("n", "<C-Down>", ":resize -3<CR>", { desc = "Decrease split size" })
+nmap("<C-Left>", ":vertical resize +3<CR>", { desc = "Increase vertical split size" })
+nmap("<C-Right>", ":vertical resize -3<CR>", { desc = "Decrease vertical split size" })
+nmap("<C-Up>", ":resize +3<CR>", { desc = "Increase split size" })
+nmap("<C-Down>", ":resize -3<CR>", { desc = "Decrease split size" })
 
 -- Don't overwrite yanked content on delete and change
-vim.keymap.set("n", "d", '"_d', { desc = "Delete" })
-vim.keymap.set("n", "c", '"_c', { desc = "Change" })
-vim.keymap.set("n", "x", "d", { desc = "Cut" })
+nmap("d", '"_d', { desc = "Delete" })
+nmap("c", '"_c', { desc = "Change" })
+nmap("x", "d", { desc = "Cut" })
 
-vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save buffer" })
-vim.keymap.set("n", "<C-d>", ":q<CR>", { desc = "Close pane", silent = true })
-
-vim.keymap.set("", "<leader>y", '"+y', { desc = "Copy to system clipboard" })
+nmap("<C-s>", ":w<CR>", { desc = "Save buffer" })
+nmap("<C-d>", ":q<CR>", { desc = "Close pane", silent = true })
