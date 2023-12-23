@@ -78,14 +78,15 @@ return {
 
         local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
+        local map = require("rizhiy.keys").map
         -- vim way: ; goes to the direction you were moving.
-        vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-        vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+        map(";", ts_repeat_move.repeat_last_move, { mode = { "n", "x", "o" } })
+        map(",", ts_repeat_move.repeat_last_move_opposite, { mode = { "n", "x", "o" } })
 
         -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
-        vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
-        vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
-        vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
-        vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
+        map("f", ts_repeat_move.builtin_f, { mode = { "n", "x", "o" } })
+        map("F", ts_repeat_move.builtin_F, { mode = { "n", "x", "o" } })
+        map("t", ts_repeat_move.builtin_t, { mode = { "n", "x", "o" } })
+        map("T", ts_repeat_move.builtin_T, { mode = { "n", "x", "o" } })
     end,
 }
