@@ -36,10 +36,6 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd({ "BufEnter" }, {
     callback = function(_) vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
 })
--- Is this required with autoread?
-autocmd({ "BufEnter", "FocusGained" }, {
-    callback = function(_) vim.cmd("checktime") end,
-})
 autocmd({ "BufReadPost" }, {
     callback = function(_)
         if vim.api.nvim_buf_line_count(0) > 120 then

@@ -21,21 +21,12 @@ local on_attach = function(_, bufnr)
     -- See `:help K` for why this keymap
     nmap("K", vim.lsp.buf.hover, "Show Documentation")
 
-    -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(
-        bufnr,
-        "Format",
-        function(_) vim.lsp.buf.format() end,
-        { desc = "Format current buffer with LSP" }
-    )
-
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
         -- Use VirtualText for transparency
         vim.fn.sign_define("DiagnosticSign" .. type, { text = icon, texthl = "DiagnosticVirtualText" .. type })
     end
-    -- vim.cmd("hi NormalFloat guibg=None")
 end
 
 return {
