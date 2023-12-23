@@ -17,7 +17,7 @@ map("H", "<gv", { desc = "Un-indent selection", mode = "v" })
 map("L", ">gv", { desc = "Indent selection", mode = "v" })
 
 nmap("<leader>v", ":vsplit<CR>", { desc = "Vertical Split", silent = true })
-nmap("<leader>h", ":split<CR>", { desc = "Horisontal Split", silent = true })
+nmap("<leader>-", ":split<CR>", { desc = "Horisontal Split", silent = true })
 
 -- Split resize
 nmap("<C-Left>", ":vertical resize +3<CR>", { desc = "Increase vertical split size" })
@@ -32,3 +32,5 @@ nmap("x", "d", { desc = "Cut" })
 
 nmap("<C-s>", ":w<CR>", { desc = "Save buffer" })
 nmap("<C-d>", ":q<CR>", { desc = "Close pane", silent = true })
+
+nmap("J", "mzJ`z", { desc = "Append line below to current line" })

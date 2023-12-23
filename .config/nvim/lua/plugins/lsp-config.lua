@@ -5,7 +5,7 @@ return {
         -- Automatically install LSPs to stdpath for neovim
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        { "folke/neodev.nvim", opts = {} }, -- neovim completion
+        { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true } } }, -- neovim completion
         { "antosha417/nvim-lsp-file-operations", opts = {} }, -- Neo-tree integration
     },
     keys = {

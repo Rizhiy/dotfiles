@@ -17,18 +17,14 @@ local root_cache = {}
 local set_root = function()
     -- Get directory path to start search from
     local path = vim.api.nvim_buf_get_name(0)
-    if path == "" then
-        return
-    end
+    if path == "" then return end
     path = vim.fs.dirname(path)
 
     -- Try cache and resort to searching upward for root directory
     local root = root_cache[path]
     if root == nil then
         local root_file = vim.fs.find(root_names, { path = path, upward = true })[1]
-        if root_file ~= nil then
-            root = vim.fs.dirname(root_file)
-        end
+        if root_file ~= nil then root = vim.fs.dirname(root_file) end
     end
 
     -- Try to find work_dir based on parent dir
@@ -44,9 +40,7 @@ local set_root = function()
     end
 
     -- TODO: Handle this better, probably don't run this if entering terminal
-    if root == nil or root:find("^term") then
-        return
-    end
+    if root == nil or root:find("^term") then return end
     -- Set current directory
     if root ~= nil then
         root_cache[path] = root

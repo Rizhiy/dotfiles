@@ -40,11 +40,6 @@ return {
                             kind = "",
                             find = "more lines",
                         },
-                        {
-                            event = "msg_show",
-                            kind = "",
-                            find = "lines yanked",
-                        },
                     },
                 },
                 opts = { skip = true },
@@ -59,7 +54,7 @@ return {
         --   If not available, we use `mini` as the fallback
         {
             "rcarriga/nvim-notify",
-            config = {
+            opts = {
                 background_colour = "#000000",
             },
         },

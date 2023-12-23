@@ -3,7 +3,7 @@ return {
     keys = {
         { "<leader>cd", ":lua require('neogen').generate()<CR>", desc = "Create Docstring" },
     },
-    config = {
+    opts = {
         languages = {
             python = {
                 template = {

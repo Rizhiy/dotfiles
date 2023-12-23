@@ -5,9 +5,7 @@ function M.map(keys, func, opts)
     opts.desc = opts.desc or ""
     local mode = opts.mode or ""
     opts.mode = nil
-    if opts.silent == nil then
-        opts.silent = true
-    end
+    if opts.silent == nil then opts.silent = true end
 
     vim.keymap.set(mode, keys, func, opts)
 end

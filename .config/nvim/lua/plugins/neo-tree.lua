@@ -11,9 +11,7 @@ return {
     keys = {
         {
             "<leader>e",
-            function()
-                require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-            end,
+            function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
             desc = "File Explorer",
         },
     },
@@ -27,9 +25,7 @@ return {
                 ["."] = "toggle_hidden",
                 ["h"] = function(state)
                     local node = state.tree:get_node()
-                    if node.type == "file" then
-                        node = state.tree:get_node(node:get_parent_id())
-                    end
+                    if node.type == "file" then node = state.tree:get_node(node:get_parent_id()) end
                     require("neo-tree.sources.filesystem").toggle_directory(state, node)
                 end,
             },

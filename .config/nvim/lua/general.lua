@@ -13,9 +13,9 @@ vim.opt.spell = true
 vim.opt.spelllang = "en_gb,en_us"
 vim.opt.spellfile = vim.fn.stdpath("data") .. "/spell/words.add"
 
-vim.opt.swapfile = false
 vim.opt.autowrite = true
 vim.opt.autowriteall = true
+vim.opt.updatetime = 100
 
 vim.opt.foldmethod = "indent"
 
@@ -28,17 +28,17 @@ vim.opt.splitright = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Keep undo across sessions
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
 local autocmd = vim.api.nvim_create_autocmd
 autocmd({ "BufEnter" }, {
-    callback = function(_)
-        vim.opt.formatoptions:remove({ "c", "r", "o" })
-    end,
+    callback = function(_) vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
 })
 -- Is this required with autoread?
 autocmd({ "BufEnter", "FocusGained" }, {
-    callback = function(_)
-        vim.cmd("checktime")
-    end,
+    callback = function(_) vim.cmd("checktime") end,
 })
 autocmd({ "BufReadPost" }, {
     callback = function(_)

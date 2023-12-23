@@ -1,9 +1,7 @@
 local on_attach = function(_, bufnr)
     --  This function gets run when an LSP connects to a particular buffer.
     local nmap = function(keys, func, desc)
-        if desc then
-            desc = "LSP: " .. desc
-        end
+        if desc then desc = "LSP: " .. desc end
         -- NOTE: Do we need to pass buffer in here?
         require("rizhiy.keys").nmap(keys, func, { desc = desc, buffer = bufnr })
     end
@@ -24,9 +22,12 @@ local on_attach = function(_, bufnr)
     nmap("K", vim.lsp.buf.hover, "Show Documentation")
 
     -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-        vim.lsp.buf.format()
-    end, { desc = "Format current buffer with LSP" })
+    vim.api.nvim_buf_create_user_command(
+        bufnr,
+        "Format",
+        function(_) vim.lsp.buf.format() end,
+        { desc = "Format current buffer with LSP" }
+    )
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -34,7 +35,7 @@ local on_attach = function(_, bufnr)
         -- Use VirtualText for transparency
         vim.fn.sign_define("DiagnosticSign" .. type, { text = icon, texthl = "DiagnosticVirtualText" .. type })
     end
-    vim.cmd("hi NormalFloat guibg=None")
+    -- vim.cmd("hi NormalFloat guibg=None")
 end
 
 return {

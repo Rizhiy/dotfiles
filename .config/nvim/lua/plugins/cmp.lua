@@ -26,9 +26,7 @@ return { -- Autocompletion
         local border = require("rizhiy.border").Border
         cmp.setup({
             snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end,
+                expand = function(args) luasnip.lsp_expand(args.body) end,
             },
             completion = {
                 completeopt = "menu,menuone,noinsert,preview",
@@ -69,9 +67,7 @@ return { -- Autocompletion
                 {
                     name = "path",
                     option = {
-                        get_cwd = function()
-                            return vim.fn.getcwd()
-                        end,
+                        get_cwd = function() return vim.fn.getcwd() end,
                     },
                 },
             },
