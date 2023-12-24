@@ -39,6 +39,11 @@ if ! command -v "insect" > /dev/null; then
 	sudo npm install -g insect
 fi
 
+# Install deno - JS runtime
+if ! command -v "deno" > /dev/null; then
+    curl -fsSL deno.land/x/install/install.sh | sudo DENO_INSTALL=/usr/local sh
+fi
+
 # Install Vim plugins
 "$HOME/.bin/nvim.appimage" +PlugInstall +qall
 "$HOME/.bin/nvim.appimage" +CocInstall +qall
