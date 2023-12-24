@@ -3,6 +3,9 @@ set -e
 # Download all submodules
 /usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" submodule update --init --recursive
 
+# Install basic stuff first
+xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_first.txt
+
 # Always have latest git version
 sudo add-apt-repository ppa:git-core/ppa -n -y
 # Add onefetch

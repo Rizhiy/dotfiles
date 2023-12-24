@@ -88,3 +88,12 @@ if ! command -v "delta" > /dev/null; then
 	tar -xvf /tmp/delta.tar.gz -C /tmp
 	mv /tmp/delta-0.15.1-x86_64-unknown-linux-musl/delta ~/.bin
 fi
+
+# Install anki
+if ! command -v "anki" > /dev/null; then
+    wget https://github.com/ankitects/anki/releases/download/23.10.1/anki-23.10.1-linux-qt6.tar.zst -O /tmp/anki.tar.zst
+    tar --use-compress-program=unzstd -xvf /opt/anki.tar.zst -C /tmp/anki
+    cd /tmp/anki
+    sudo ./install.sh
+    cd -
+fi

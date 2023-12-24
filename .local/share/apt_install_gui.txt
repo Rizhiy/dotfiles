@@ -21,3 +21,8 @@ brightnessctl
 redshift
 autorandr
 ueberzugpp
+qt6-base-dev
+mpv
+vlc
+ffmpeg
+neofetch

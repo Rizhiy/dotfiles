@@ -1,11 +1,8 @@
-zsh
 cmake
 build-essential
 autotools-dev
 autoconf
 automake
-curl
-wget
 exuberant-ctags
 highlight
 xsel
@@ -37,3 +34,5 @@ parallel
 onefetch
 fd-find
 luarocks
+htop
+cargo
