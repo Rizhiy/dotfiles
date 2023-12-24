@@ -16,4 +16,3 @@ require("lazy").setup("plugins", {
         border = require("rizhiy.border").Border(),
     },
 })
-require("lazy.view.config").keys.close = "<Esc>"

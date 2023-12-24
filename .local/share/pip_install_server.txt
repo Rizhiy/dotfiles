@@ -1,12 +1,11 @@
 gpustat
-neovim
 pynvim
 black
 isort[requirements]
 rope
-neovim-remote
 ranger-fm
-pynvim
 pwgen
 git-fame
+pynvim
+neovim-remote
 debugpy

@@ -45,3 +45,6 @@ autocmd({ "BufReadPost" }, {
         end
     end,
 })
+
+-- Python for general functions
+vim.cmd("let g:python3_host_prog = '" .. os.getenv("HOME") .. "/miniconda3/bin/python'")
