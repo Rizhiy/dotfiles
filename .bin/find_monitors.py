@@ -1,6 +1,6 @@
 #!/home/rizhiy/miniconda3/bin/python
-
 import os
+import sys
 from pathlib import Path
 
 from Xlib import display
@@ -20,6 +20,7 @@ if len(results) >= 2:
     left, right, *other_monitors = results
 else:
     left, right = results[0], results[0]
+    other_monitors = []
 
 
 monitors_path = Path(__file__).absolute().parents[1] / ".local" / "share" / "monitors"
@@ -28,6 +29,8 @@ with monitors_path.open("w") as f:
     f.write(f"monitor_right: {right}\n")
 
 os.system(f"xrdb -merge {monitors_path}")
+if left == right:
+    sys.exit(0)
+os.system(f"xrandr --output {right} --right-of {left}")
 if len(other_monitors) == 1:
     os.system(f"xrandr --output {left} --right-of {other_monitors[0]}")
-os.system(f"xrandr --output {right} --right-of {left}")
