@@ -26,3 +26,4 @@ vlc
 ffmpeg
 neofetch
 picom
+ncurses-term
