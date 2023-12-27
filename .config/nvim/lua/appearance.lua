@@ -26,15 +26,21 @@ local mild_color = "DimGray"
 autocmd({ "ColorScheme" }, {
     callback = function(_)
         vim.cmd("hi NormalFloat guibg=None")
-        vim.cmd("hi FloatBorder guifg=" .. mild_color)
-        vim.cmd("hi CmpDocBorder guifg=" .. mild_color)
-        vim.cmd("hi FloatermBorder guibg=None")
+        vim.cmd("hi FloatBorder guibg=None guifg=" .. mild_color)
+        for _, name in ipairs({
+            "FloatermBorder",
+            "CmpDocBorder",
+            "TelescopePromptBorder",
+            "TelescopePreviewBorder",
+            "TelescopeResultsBorder",
+            "TreesitterContextSeparator",
+        }) do
+            vim.api.nvim_set_hl(0, name, { link = "FloatBorder" })
+        end
 
         vim.cmd("hi WinSeparator guifg=bg guibg=bg")
-        vim.api.nvim_set_hl(0, "TreesitterContextSeparator", { link = "CmpDocBorder", default = true })
         vim.cmd("hi DapBreakpointSymbol guibg=None")
         vim.cmd("hi DapStoppedSymbol guibg=None")
         vim.cmd("hi Cursorline gui=underline guibg=None guisp=" .. mild_color)
-        vim.cmd("hi FloatermBorder guifg=" .. mild_color)
     end,
 })

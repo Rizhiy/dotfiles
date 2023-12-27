@@ -36,7 +36,9 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
-        require("mason").setup()
+        require("mason").setup({ ui = {
+            border = require("rizhiy.border").Border(),
+        } })
         require("mason-tool-installer").setup({
             ensure_installed = {
                 "stylua",
