@@ -45,4 +45,4 @@ colors:
     white: '#ebdbb2'
 # Both are required because of potentially different versions
 window:
-  opacity: 0.9
+  opacity: 0.8
