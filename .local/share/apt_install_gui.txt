@@ -1,7 +1,6 @@
 chrome-gnome-shell
 alacritty
 feh
-compton
 surfraw
 i3
 i3status
@@ -26,3 +25,4 @@ mpv
 vlc
 ffmpeg
 neofetch
+picom
