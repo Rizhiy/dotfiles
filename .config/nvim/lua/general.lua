@@ -19,8 +19,6 @@ vim.opt.updatetime = 100
 
 vim.opt.foldmethod = "indent"
 
-vim.opt.clipboard = "unnamedplus"
-
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
