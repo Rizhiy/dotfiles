@@ -36,6 +36,7 @@ return {
                 "dockerfile",
                 "gitignore",
             },
+            auto_install = true,
             highlight = { enable = true },
             indent = { enable = true },
         })
