@@ -33,3 +33,5 @@ migrations
 serializer
 datetime
 prev
+noice
+nvim

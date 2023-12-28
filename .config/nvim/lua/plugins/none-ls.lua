@@ -24,7 +24,9 @@ return {
                 -- markdown
                 null_ls.builtins.diagnostics.markdownlint,
                 -- general
-                null_ls.builtins.diagnostics.codespell,
+                null_ls.builtins.diagnostics.codespell.with({
+                    extra_args = { "--ignore-words", vim.fn.stdpath("data") .. "/spell/words.add" },
+                }),
                 null_ls.builtins.formatting.prettier,
                 null_ls.builtins.formatting.trim_whitespace,
                 null_ls.builtins.formatting.trim_newlines,
