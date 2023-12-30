@@ -11,7 +11,7 @@ return {
         "mfussenegger/nvim-dap",
         dependencies = {
             { "Weissle/persistent-breakpoints.nvim", opts = { load_breakpoints_event = { "BufReadPost" } } },
-            { "rcarriga/nvim-dap-ui", opts = {} },
+            { "rcarriga/nvim-dap-ui",                opts = {} },
         },
         config = function()
             local dap = require("dap")
@@ -21,18 +21,19 @@ return {
             dap_map("<F12>", dap.step_out, "Step Out")
 
             local pb = require("persistent-breakpoints.api")
-            dap_map("<leader>db", pb.toggle_breakpoint, "Toggle breakpoint")
-            dap_map(
-                "<leader>dg",
-                function() pb.set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
-                "Set conditional breakpoint"
-            )
-            dap_map(
-                "<leader>di",
-                function() dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end,
-                "Set log point"
-            )
-            dap_map("<leader>dB", pb.clear_all_breakpoints, "Toggle breakpoint")
+            dap_map("<leader>db", function()
+                dap.toggle_breakpoint()
+                pb.breakpoints_changed_in_current_buffer()
+            end, "Toggle breakpoint")
+            dap_map("<leader>dc", function()
+                dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+                pb.breakpoints_changed_in_current_buffer()
+            end, "Set conditional breakpoint")
+            dap_map("<leader>di", function()
+                dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+                pb.breakpoints_changed_in_current_buffer()
+            end, "Set log point")
+            dap_map("<leader>dB", pb.clear_all_breakpoints, "Clear all breakpoints")
             dap_map("<leader>dr", dap.repl.open, "Open REPL")
 
             local dapui = require("dapui")
@@ -47,8 +48,8 @@ return {
                 dapui.close()
             end, "Exit")
 
-            vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpointSymbol" })
-            vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpointSymbol" })
+            vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpointSymbol" })
+            vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "GruvboxYellow" })
             vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpointSymbol" })
             vim.fn.sign_define("DapLogPoint", { text = "", texthl = "GruvboxBlue" })
             vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStoppedSymbol" })
@@ -64,7 +65,7 @@ return {
             dap_python.test_runner = "pytest"
 
             dap_map("<leader>dm", dap_python.test_method, "Test method")
-            dap_map("<leader>dc", dap_python.test_class, "Test class")
+            dap_map("<leader>dC", dap_python.test_class, "Test class")
         end,
     },
 }
