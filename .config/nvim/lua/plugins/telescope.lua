@@ -8,16 +8,33 @@ return {
         { "nvim-telescope/telescope-ui-select.nvim" },
     },
     keys = {
-        { "<leader>f",  "<cmd>lua FuzzyFindFiles{}<CR>",         desc = "Fuzzy search" },
-        -- TODO: Fix this to search hidden files AND respect .gitignore
-        { "<leader>ff", ":Telescope find_files hidden=true<CR>", desc = "Search files" },
-        { "<leader>fe", ":Telescope live_grep<CR>",              desc = "Exact search" },
-        { "<leader>fb", ":Telescope buffers<CR>",                desc = "Search buffers" },
-        { "<leader>fh", ":Telescope help_tags<CR>",              desc = "Search tags" },
-        { "<leader>fk", ":Telescope keymaps<CR>",                desc = "Search keys" },
-        { "<leader>fd", ":Telescope diagnostics<CR>",            desc = "Search diagnostics" },
-        { "<leader>gc", ":Telescope git_bcommits<CR>",           desc = "Show commit history for this buffer" },
-        { "<leader>gb", ":Telescope git_branches<CR>",           desc = "Show all available branches" },
+        { "<leader>f",  "<cmd>lua FuzzyFindFiles{}<CR>", desc = "Fuzzy search" },
+        {
+            "<leader>ff",
+            function()
+                require("telescope.builtin").find_files({
+                    hidden = true,
+                    find_command = { "fdfind", "-t", "f" },
+                    follow = true,
+                })
+            end,
+            desc = "Search files",
+        },
+        { "<leader>fe", ":Telescope live_grep<CR>",      desc = "Exact search" },
+        { "<leader>fb", ":Telescope buffers<CR>",        desc = "Search buffers" },
+        { "<leader>fh", ":Telescope help_tags<CR>",      desc = "Search tags" },
+        { "<leader>fk", ":Telescope keymaps<CR>",        desc = "Search keys" },
+        { "<leader>fd", ":Telescope diagnostics<CR>",    desc = "Search diagnostics" },
+        {
+            "<leader>gc",
+            ":Telescope git_bcommits<CR>",
+            desc = "Show commit history for this buffer",
+        },
+        {
+            "<leader>gb",
+            ":Telescope git_branches<CR>",
+            desc = "Show all available branches",
+        },
     },
     config = function()
         require("telescope").load_extension("fzf")
