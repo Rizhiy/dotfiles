@@ -15,6 +15,7 @@ return {
             m = { name = "Markdown" },
             r = { name = "Run" },
             o = { name = "Other" },
+            s = { name = "ScratchPad" },
         }, { prefix = "<leader>" })
     end,
 }
