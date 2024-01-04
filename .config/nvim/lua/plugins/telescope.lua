@@ -8,7 +8,7 @@ return {
         { "nvim-telescope/telescope-ui-select.nvim" },
     },
     keys = {
-        { "<leader>f",  "<cmd>lua FuzzyFindFiles{}<CR>", desc = "Fuzzy search" },
+        { "<leader>f", function() FuzzyFindFiles() end, desc = "Fuzzy search" },
         {
             "<leader>ff",
             function()
@@ -20,11 +20,11 @@ return {
             end,
             desc = "Search files",
         },
-        { "<leader>fe", ":Telescope live_grep<CR>",      desc = "Exact search" },
-        { "<leader>fb", ":Telescope buffers<CR>",        desc = "Search buffers" },
-        { "<leader>fh", ":Telescope help_tags<CR>",      desc = "Search tags" },
-        { "<leader>fk", ":Telescope keymaps<CR>",        desc = "Search keys" },
-        { "<leader>fd", ":Telescope diagnostics<CR>",    desc = "Search diagnostics" },
+        { "<leader>fe", ":Telescope live_grep<CR>", desc = "Exact search" },
+        { "<leader>fb", ":Telescope buffers<CR>", desc = "Search buffers" },
+        { "<leader>fh", ":Telescope help_tags<CR>", desc = "Search tags" },
+        { "<leader>fk", ":Telescope keymaps<CR>", desc = "Search keys" },
+        { "<leader>fd", ":Telescope diagnostics<CR>", desc = "Search diagnostics" },
         {
             "<leader>gc",
             ":Telescope git_bcommits<CR>",
@@ -41,8 +41,6 @@ return {
         require("telescope").load_extension("ui-select")
         local builtin = require("telescope.builtin")
         function FuzzyFindFiles()
-            -- TODO: .gitignore here as well
-            -- https://github.com/nvim-telescope/telescope.nvim/issues/2780
             builtin.grep_string({
                 path_display = { "smart" },
                 only_sort_text = true,

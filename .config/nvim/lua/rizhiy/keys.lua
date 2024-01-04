@@ -16,4 +16,9 @@ function M.nmap(keys, func, opts)
     M.map(keys, func, opts)
 end
 
+-- Simulate key press
+--- @param keys string
+--- @param mode string
+function M.press(keys, mode) vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, true, true), mode, false) end
+
 return M

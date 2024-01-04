@@ -1,7 +1,7 @@
 return {
     "danymat/neogen",
     keys = {
-        { "<leader>cd", ":lua require('neogen').generate()<CR>", desc = "Create Docstring" },
+        { "<leader>cd", function() require("neogen").generate() end, desc = "Create Docstring" },
     },
     opts = {
         languages = {

@@ -14,6 +14,7 @@ return {
             h = { name = "Harpoon" },
             m = { name = "Markdown" },
             r = { name = "Run" },
+            o = { name = "Other" },
         }, { prefix = "<leader>" })
     end,
 }
