@@ -35,3 +35,6 @@ nmap("<C-s>", ":w<CR>", { desc = "Save buffer" })
 nmap("<C-d>", ":q<CR>", { desc = "Close pane", silent = true })
 
 nmap("J", "mzJ`z", { desc = "Append line below to current line" })
+
+-- Replace in selection
+map(":s", ":s/\\%V\\%V/<Left><Left><Left><Left>", { desc = "Replace in selection", mode = "v" })
