@@ -30,7 +30,6 @@ return {
                 null_ls.builtins.formatting.prettier,
                 null_ls.builtins.formatting.trim_whitespace,
                 null_ls.builtins.formatting.trim_newlines,
-                null_ls.builtins.completion.spell,
             },
         })
         local nmap = require("rizhiy.keys").nmap

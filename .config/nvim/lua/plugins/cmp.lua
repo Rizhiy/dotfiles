@@ -7,7 +7,10 @@ return { -- Autocompletion
 
         -- Adds LSP completion capabilities
         "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-path",
+        -- Other sources
+        "hrsh7th/cmp-path",        -- Paths
+        "SergioRibera/cmp-dotenv", -- environment variables
+        "hrsh7th/cmp-buffer",      -- text in buffer
 
         -- Adds a number of user-friendly snippets
         "rafamadriz/friendly-snippets",
@@ -59,13 +62,14 @@ return { -- Autocompletion
             sources = {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
-                { name = "buffer" },
                 {
                     name = "path",
                     option = {
                         get_cwd = function() return vim.fn.getcwd() end,
                     },
                 },
+                { name = "dotenv" },
+                { name = "buffer" },
             },
             formatting = {
                 format = lspkind.cmp_format(),
