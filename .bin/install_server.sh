@@ -31,6 +31,11 @@ fi
 xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_server.txt
 sudo apt-get upgrade -y
 
+# Link fd
+if ! command -v "fd" > /dev/null; then
+    ln -s $(which fdfind) ~/.bin/fd
+fi
+
 # Install neovim
 if [ ! -f "$HOME/.bin/nvim.appimage" ]; then
 	wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$HOME/.bin/nvim.appimage" && chmod u+x "$HOME/.bin/nvim.appimage"

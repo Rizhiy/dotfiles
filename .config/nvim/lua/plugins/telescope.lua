@@ -15,7 +15,7 @@ return {
             function()
                 require("telescope.builtin").find_files({
                     hidden = true,
-                    find_command = { "fdfind", "-t", "f" },
+                    find_command = { "fd", "-t", "f" },
                     follow = true,
                 })
             end,
