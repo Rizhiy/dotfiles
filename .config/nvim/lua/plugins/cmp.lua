@@ -4,6 +4,13 @@ return { -- Autocompletion
         -- Snippet Engine & its associated nvim-cmp source
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+        -- Adds a number of user-friendly snippets
+        "rafamadriz/friendly-snippets",
+        -- Snippet editing
+        {
+            "chrisgrieser/nvim-scissors",
+            opts = { snippetDir = vim.fn.stdpath("data") .. "/lazy/friendly-snippets" },
+        },
 
         -- Adds LSP completion capabilities
         "hrsh7th/cmp-nvim-lsp",
@@ -12,11 +19,17 @@ return { -- Autocompletion
         "SergioRibera/cmp-dotenv", -- environment variables
         "hrsh7th/cmp-buffer",      -- text in buffer
 
-        -- Adds a number of user-friendly snippets
-        "rafamadriz/friendly-snippets",
-
         -- Icons
         "onsails/lspkind.nvim",
+    },
+    keys = {
+        {
+            "<leader>xa",
+            function() require("scissors").addNewSnippet() end,
+            desc = "Add new snippet",
+            mode = { "v" },
+        },
+        { "<leader>xe", function() require("scissors").editSnippet() end, desc = "Edit existing snippet" },
     },
     config = function(_)
         local cmp = require("cmp")

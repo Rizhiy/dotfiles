@@ -5,10 +5,11 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-        { "nvim-telescope/telescope-ui-select.nvim" },
+        "nvim-telescope/telescope-ui-select.nvim",
+        { "stevearc/aerial.nvim",                     opts = {} },
     },
     keys = {
-        { "<leader>f", function() FuzzyFindFiles() end, desc = "Fuzzy search" },
+        { "<leader>f",  function() FuzzyFindFiles() end, desc = "Fuzzy search" },
         {
             "<leader>ff",
             function()
@@ -20,11 +21,12 @@ return {
             end,
             desc = "Search files",
         },
-        { "<leader>fe", ":Telescope live_grep<CR>", desc = "Exact search" },
-        { "<leader>fb", ":Telescope buffers<CR>", desc = "Search buffers" },
-        { "<leader>fh", ":Telescope help_tags<CR>", desc = "Search tags" },
-        { "<leader>fk", ":Telescope keymaps<CR>", desc = "Search keys" },
-        { "<leader>fd", ":Telescope diagnostics<CR>", desc = "Search diagnostics" },
+        { "<leader>fe", ":Telescope live_grep<CR>",      desc = "Exact search" },
+        { "<leader>fb", ":Telescope buffers<CR>",        desc = "Search buffers" },
+        { "<leader>fh", ":Telescope help_tags<CR>",      desc = "Search tags" },
+        { "<leader>fk", ":Telescope keymaps<CR>",        desc = "Search keys" },
+        { "<leader>fd", ":Telescope diagnostics<CR>",    desc = "Search diagnostics" },
+        { "<leader>fc", ":Telescope aerial<CR>",         desc = "Search code parts" },
         {
             "<leader>gc",
             ":Telescope git_bcommits<CR>",
@@ -39,6 +41,7 @@ return {
     config = function()
         require("telescope").load_extension("fzf")
         require("telescope").load_extension("ui-select")
+        require("telescope").load_extension("aerial")
         local builtin = require("telescope.builtin")
         function FuzzyFindFiles()
             builtin.grep_string({
