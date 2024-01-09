@@ -1,11 +1,12 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    version = false,
+    build = ":TSUpdate",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-context",
         "nvim-treesitter/nvim-treesitter-textobjects",
     },
     event = { "BufReadPre", "BufNewFile" },
-    build = ":TSUpdate",
     config = function()
         require("nvim-treesitter.configs").setup({
             incremental_selection = {
