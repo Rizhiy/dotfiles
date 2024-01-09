@@ -6,7 +6,7 @@ local nmap = require("rizhiy.keys").nmap
 map("q:", "<nop>", { desc = "Disable command history" })
 map("<C-c>", "<ESC>", { desc = "Escape" })
 
-map("  ", ":noh<CR>", { desc = "Deselect search highlight" })
+map("<leader><space>", ":noh<CR>", { desc = "Deselect search highlight" })
 map("<leader>a", "za", { desc = "Toggle fold" })
 map("<leader>A", "zA", { desc = "Open all folds" })
 map("<leader>y", '"+y', { desc = "Copy to system clipboard", mode = "v" })

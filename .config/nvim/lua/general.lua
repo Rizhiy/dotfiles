@@ -7,7 +7,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 
-vim.opt.timeoutlen = 200
+vim.opt.timeoutlen = 300
 
 vim.opt.spell = true
 vim.opt.spelllang = "en_gb,en_us"
