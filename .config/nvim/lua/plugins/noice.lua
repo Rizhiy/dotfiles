@@ -60,14 +60,30 @@ return {
         },
     },
     init = function()
+        local noice = require("noice")
         require("lualine").setup({
             sections = {
-                lualine_x = {
-                    {
-                        require("noice").api.statusline.mode.get,
-                        cond = require("noice").api.statusline.mode.has,
+                lualine_c = {
+                    { -- filename relative to cwd
+                        "filename",
+                        path = 1,
+                    },
+                    { -- search count
+                        noice.api.status.search.get,
+                        cond = require("noice").api.status.search.has,
                         color = { fg = "#ff9e64" },
                     },
+                },
+                lualine_x = {
+                    { -- Show when macro is being recorded
+                        noice.api.statusline.mode.get,
+                        cond = noice.api.statusline.mode.has,
+                        color = { fg = "#ff9e64" },
+                    },
+                    -- Original sections
+                    "encoding",
+                    "fileformat",
+                    "filetype",
                 },
             },
         })
