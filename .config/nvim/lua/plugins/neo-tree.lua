@@ -22,6 +22,7 @@ return {
             mappings = {
                 ["<cr>"] = "open_with_window_picker",
                 ["v"] = "open_vsplit",
+                ["-"] = "open_split",
                 ["."] = "toggle_hidden",
                 ["h"] = function(state)
                     local node = state.tree:get_node()
