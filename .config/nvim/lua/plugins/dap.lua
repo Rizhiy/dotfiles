@@ -11,7 +11,7 @@ return {
         "mfussenegger/nvim-dap",
         dependencies = {
             { "Weissle/persistent-breakpoints.nvim", opts = { load_breakpoints_event = { "BufReadPost" } } },
-            { "rcarriga/nvim-dap-ui",                opts = {} },
+            { "rcarriga/nvim-dap-ui", opts = {} },
         },
         config = function()
             local dap = require("dap")
@@ -37,10 +37,10 @@ return {
             dap_map("<leader>dr", dap.repl.open, "Open REPL")
 
             local dapui = require("dapui")
-            dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
-            dap.listeners.before.event_exited["dapui_config"] = function(_, event)
+            dap.listeners.before.event_initialized.dapui_config = function() dapui.open() end
+            dap.listeners.before.event_exited.dapui_config = function(_, event)
                 if event.exitCode == 0 then
-                    vim.notify("Tests passed")
+                    vim.notify("DAP exited successfully")
                     dapui.close()
                 end
             end
