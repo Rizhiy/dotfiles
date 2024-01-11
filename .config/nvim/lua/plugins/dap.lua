@@ -38,8 +38,12 @@ return {
 
             local dapui = require("dapui")
             dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
-            dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
-            dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
+            dap.listeners.before.event_exited["dapui_config"] = function(_, event)
+                if event.exitCode == 0 then
+                    vim.notify("Tests passed")
+                    dapui.close()
+                end
+            end
 
             dap_map("<leader>dx", function()
                 dap.disconnect()
