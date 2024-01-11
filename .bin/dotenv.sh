@@ -1,4 +1,4 @@
-local filename="${1:-.env}"
+filename="${1:-.env}"
 
 if [ ! -f "$filename" ]; then
     echo "Missing ${filename} file!"
