@@ -1,24 +1,10 @@
 return {
-    "numToStr/Comment.nvim",
+    "terrortylor/nvim-comment",
+    name = "nvim_comment",
     keys = {
-        {
-            "<C-_>",
-            function()
-                require("Comment.api").toggle.linewise.current()
-                require("rizhiy.keys").press("j", "n")
-            end,
-            desc = "Comment line",
-        },
-        {
-            "<C-_>",
-            function() require("Comment.api").toggle.linewise(vim.fn.visualmode()) end,
-            mode = "v",
-            desc = "Comment selection",
-        },
+        { "<C-_>", ":CommentToggle<CR>j", desc = "Toggle comment", mode = { "n", "v" } },
     },
     opts = {
-        mappings = {
-            basic = false,
-        },
+        create_mappings = false,
     },
 }
