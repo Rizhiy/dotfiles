@@ -3,6 +3,7 @@ return {
     config = function()
         require("gitsigns").setup({
             current_line_blame = true,
+            _signs_staged_enable = true,
             current_line_blame_opts = {
                 delay = 100,
             },
@@ -22,7 +23,7 @@ return {
                 map(
                     "<leader>gs",
                     function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
-                    { mode = "v", desc = "Stage selected" }
+                    { mode = "v", desc = "Toggle hunk staging" }
                 )
                 map(
                     "<leader>gr",
@@ -30,7 +31,7 @@ return {
                     { mode = "v", desc = "Reset selected" }
                 )
                 nmap("<leader>gS", gs.stage_buffer, { desc = "Stage buffer" })
-                nmap("<leader>gu", gs.undo_stage_hunk, { desc = "Un-stage hunk" })
+                nmap("<leader>gu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
                 nmap("<leader>gR", gs.reset_buffer, { desc = "Rest buffer" })
                 nmap("<leader>gp", gs.preview_hunk, { desc = "Preview hunk" })
                 nmap("<leader>gd", gs.diffthis, { desc = "Diff this current" })

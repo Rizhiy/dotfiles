@@ -6,11 +6,29 @@ return {
         local harpoon = require("harpoon")
 
         local work_dir = vim.loop.cwd()
-        opts = {
+        local opts = {
             settings = { save_on_toggle = true, sync_on_ui_close = true, key = function() return work_dir end },
         }
         opts[require("harpoon.config").DEFAULT_LIST] = {
-            add = function() return { value = vim.api.nvim_buf_get_name(0) } end,
+            create_list_item = function(_, item)
+                if item == nil then item = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()) end
+
+                if type(item) == "string" then
+                    local name = require("plenary.path"):new(item):make_relative(work_dir)
+                    local bufnr = vim.fn.bufnr(name, false)
+
+                    local pos = { 1, 0 }
+                    if bufnr ~= -1 then pos = vim.api.nvim_win_get_cursor(0) end
+                    item = {
+                        value = name,
+                        context = {
+                            row = pos[1],
+                            col = pos[2],
+                        },
+                    }
+                end
+                return item
+            end,
         }
         harpoon:setup(opts)
 

@@ -8,7 +8,8 @@ map("<C-c>", "<ESC>", { desc = "Escape" })
 
 map("<leader><space>", ":noh<CR>", { desc = "Deselect search highlight" })
 map("<leader>a", "za", { desc = "Toggle fold" })
-map("<leader>A", "zA", { desc = "Open all folds" })
+map("<leader>A", "zA", { desc = "Open all folds under cursor" })
+map("<leader>R", "zR", { desc = "Open all folds" })
 map("<leader>y", '"+y', { desc = "Copy to system clipboard", mode = "v" })
 
 -- Move selection
