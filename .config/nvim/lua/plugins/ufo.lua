@@ -1,6 +1,6 @@
 return {
     "kevinhwang91/nvim-ufo",
-    dependencies = { "kevinhwang91/promise-async", "nvim-treesitter/nvim-treesitter" },
+    dependencies = { "kevinhwang91/promise-async", "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
     keys = {
         {
             -- See `:help K` for why this keymap
