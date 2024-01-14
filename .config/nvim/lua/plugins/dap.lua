@@ -11,7 +11,7 @@ return {
         "mfussenegger/nvim-dap",
         dependencies = {
             { "Weissle/persistent-breakpoints.nvim", opts = { load_breakpoints_event = { "BufReadPost" } } },
-            { "rcarriga/nvim-dap-ui", opts = {} },
+            { "rcarriga/nvim-dap-ui",                opts = {} },
         },
         config = function()
             local dap = require("dap")
@@ -33,7 +33,16 @@ return {
                 dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
                 pb.breakpoints_changed_in_current_buffer()
             end, "Set log point")
-            dap_map("<leader>dB", pb.clear_all_breakpoints, "Clear all breakpoints")
+            dap_map("<leader>dB", function()
+                dap.clear_breakpoints()
+                local utils = require("persistent-breakpoints.utils")
+                local inmemory_bps = require("persistent-breakpoints.inmemory")
+
+                inmemory_bps.bps = {}
+                inmemory_bps.changed = true
+                local write_ok = utils.write_bps(utils.get_bps_path(), inmemory_bps.bps)
+                inmemory_bps.changed = not write_ok
+            end, "Clear all breakpoints")
             dap_map("<leader>dr", dap.repl.open, "Open REPL")
 
             local dapui = require("dapui")
