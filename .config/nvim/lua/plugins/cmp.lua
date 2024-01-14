@@ -15,12 +15,15 @@ return { -- Autocompletion
         -- Adds LSP completion capabilities
         "hrsh7th/cmp-nvim-lsp",
         -- Other sources
-        "hrsh7th/cmp-path",        -- Paths
+        "hrsh7th/cmp-path", -- Paths
         "SergioRibera/cmp-dotenv", -- environment variables
-        "hrsh7th/cmp-buffer",      -- text in buffer
+        "hrsh7th/cmp-buffer", -- text in buffer
 
         -- Icons
         "onsails/lspkind.nvim",
+
+        -- VIM cmd auto-complete
+        "hrsh7th/cmp-cmdline",
     },
     keys = {
         {

@@ -20,11 +20,11 @@ return {
 
         local handler = function(
             virtual_text_chunks, -- The start_line's text.
-            start_line,          -- Start lines of fold.
-            end_line,            -- End lines of fold.
-            text_width,          -- Total text width.
-            truncate,            -- fun(str: string, width: number): string Truncation function.
-            ctx                  -- Context for the fold.
+            start_line, -- Start lines of fold.
+            end_line, -- End lines of fold.
+            text_width, -- Total text width.
+            truncate, -- fun(str: string, width: number): string Truncation function.
+            ctx -- Context for the fold.
         )
             -- new_virtual_text_chunks = virtual_text_chunks
             local line_delta = (" 󰁂 %d "):format(end_line - start_line)

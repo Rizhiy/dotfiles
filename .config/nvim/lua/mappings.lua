@@ -34,6 +34,7 @@ nmap("x", "d", { desc = "Cut" })
 
 nmap("<C-s>", ":w<CR>", { desc = "Save buffer" })
 nmap("<C-d>", ":q<CR>", { desc = "Close pane", silent = true })
+nmap("<C-q>", ":qall<CR>", { desc = "Exit" })
 
 nmap("J", "mzJ`z", { desc = "Append line below to current line" })
 

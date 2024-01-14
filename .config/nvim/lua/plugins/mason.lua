@@ -18,9 +18,6 @@ local on_attach = function(_, bufnr)
     nmap("<leader>dp", vim.diagnostic.goto_prev, "Next diagnostic")
     nmap("<leader>dn", vim.diagnostic.goto_next, "Prev diagnostic")
 
-    -- See `:help K` for why this keymap
-    nmap("K", vim.lsp.buf.hover, "Show Documentation")
-
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do

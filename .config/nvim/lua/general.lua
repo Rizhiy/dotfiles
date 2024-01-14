@@ -20,6 +20,8 @@ vim.opt.updatetime = 100
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.opt.foldmethod = "indent"
+
 -- Searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
