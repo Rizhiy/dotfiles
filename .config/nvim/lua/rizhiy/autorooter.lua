@@ -15,6 +15,7 @@ local parent_names = List({
 local root_cache = {}
 
 local set_root = function()
+    if vim.g.SessionLoad == 1 then return end
     -- Get directory path to start search from
     local path = vim.api.nvim_buf_get_name(0)
     if path == "" then return end
@@ -48,5 +49,7 @@ local set_root = function()
     end
 end
 
-local root_augroup = vim.api.nvim_create_augroup("MyAutoRoot", {})
-vim.api.nvim_create_autocmd("BufEnter", { group = root_augroup, callback = set_root })
+vim.api.nvim_create_autocmd({ "BufEnter", "SessionLoadPost" }, {
+    group = vim.api.nvim_create_augroup("MyAutoRoot", {}),
+    callback = set_root,
+})
