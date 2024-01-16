@@ -3,7 +3,7 @@ local function session2project(session) return session:match("[^%%]*$"):sub(1, -
 
 return {
     "goolord/alpha-nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", "folke/persistence.nvim" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "folke/persistence.nvim", "nvim-lua/plenary.nvim" },
     config = function()
         local startify = require("alpha.themes.startify")
 
@@ -13,8 +13,9 @@ return {
             startify.button("e", "New file", "<cmd>ene <CR>"), -- preserver original file edit
             { type = "padding", val = 1 },
         }
+        local sessions = require("plenary.collections.py_list")(persistence.list())
         local current_session = persistence.get_current()
-        if current_session then
+        if sessions:contains(current_session) then
             table.insert(
                 top_buttons,
                 startify.button(
@@ -25,7 +26,7 @@ return {
             )
         end
         local last_session = persistence.get_last()
-        if last_session and last_session ~= current_session then
+        if sessions:contains(last_session) and last_session ~= current_session then
             table.insert(
                 top_buttons,
                 startify.button(
