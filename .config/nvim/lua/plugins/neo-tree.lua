@@ -29,6 +29,7 @@ return {
                     if node.type == "file" then node = state.tree:get_node(node:get_parent_id()) end
                     require("neo-tree.sources.filesystem").toggle_directory(state, node)
                 end,
+                ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
             },
         },
     },
