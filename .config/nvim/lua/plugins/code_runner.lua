@@ -9,7 +9,7 @@ return {
         {
             "<leader>ra",
             function() require("code_runner.commands").run_code(vim.bo.filetype, "args") end,
-            desc = "Run file",
+            desc = "Run file with arguments",
         },
     },
 

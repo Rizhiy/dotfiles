@@ -14,9 +14,9 @@ return {
     },
     lazy = false,
     config = function()
-        vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-        vim.o.foldlevelstart = 99
-        vim.o.foldenable = true
+        vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+        vim.opt.foldlevelstart = 99
+        vim.opt.foldenable = true
 
         local handler = function(
             virtual_text_chunks, -- The start_line's text.
