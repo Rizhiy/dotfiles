@@ -24,7 +24,7 @@ vim.opt.scrolloff = 5
 local autocmd = vim.api.nvim_create_autocmd
 local mild_color = "DimGray"
 autocmd({ "ColorScheme" }, {
-    callback = function(_)
+    callback = function()
         vim.cmd("hi NormalFloat guibg=None")
         vim.cmd("hi FloatBorder guibg=None guifg=" .. mild_color)
         for _, name in ipairs({

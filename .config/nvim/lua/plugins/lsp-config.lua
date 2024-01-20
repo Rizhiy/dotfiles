@@ -9,7 +9,7 @@ return {
         { "antosha417/nvim-lsp-file-operations", opts = {} }, -- Neo-tree integration
     },
     keys = {
-        { "<leader>rs", ":LspRestart<CR>", desc = "Restart Server" },
+        { "<leader>rs", ":LspRestart<CR>", desc = "Restart Server", silent = true },
     },
     config = function(_)
         vim.diagnostic.config({
