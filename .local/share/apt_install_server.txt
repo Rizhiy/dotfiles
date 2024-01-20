@@ -36,3 +36,4 @@ fd-find
 luarocks
 htop
 cargo
+gh
