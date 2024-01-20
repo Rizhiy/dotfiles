@@ -30,12 +30,13 @@ return {
             table.insert(
                 top_buttons,
                 startify.button(
-                    "L",
+                    "G",
                     string.format("Last Global Session (%s)", session2project(last_session)),
                     ":lua require('persistence').load({last = true})<CR>"
                 )
             )
         end
+        table.insert(top_buttons, startify.button("P", "List all projects", ":Telescope whaler<CR>"))
         startify.section.top_buttons.val = top_buttons
 
         startify.section.bottom_buttons.val = {

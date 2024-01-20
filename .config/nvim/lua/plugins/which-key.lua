@@ -16,6 +16,8 @@ return {
             r = { name = "Run" },
             o = { name = "Other" },
             s = { name = "ScratchPad" },
+            g = { name = "Git", h = { name = "GitHub" } },
+            x = { name = "Snippets" },
         }, { prefix = "<leader>" })
     end,
 }

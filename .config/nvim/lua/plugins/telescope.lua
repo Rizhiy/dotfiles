@@ -7,6 +7,10 @@ return {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-telescope/telescope-ui-select.nvim",
         { "stevearc/aerial.nvim", opts = {} },
+        "nvim-telescope/telescope-github.nvim",
+        "SalOrak/whaler",
+        "nvim-telescope/telescope-file-browser.nvim",
+        "piersolenski/telescope-import.nvim",
     },
     keys = {
         { "<leader>f", function() FuzzyFindFiles() end, desc = "Fuzzy search" },
@@ -27,21 +31,23 @@ return {
         { "<leader>fk", ":Telescope keymaps<CR>", desc = "Search keys", silent = true },
         { "<leader>fd", ":Telescope diagnostics<CR>", desc = "Search diagnostics", silent = true },
         { "<leader>fc", ":Telescope aerial<CR>", desc = "Search code parts", silent = true },
-        {
-            "<leader>gc",
-            ":Telescope git_bcommits<CR>",
-            desc = "Show commit history for this buffer",
-        },
-        {
-            "<leader>gb",
-            ":Telescope git_branches<CR>",
-            desc = "Show all available branches",
-        },
+        { "<leader>fp", ":Telescope whaler<CR>", desc = "Search projects", silent = true },
+        { "<leader>fi", ":Telescope import<CR>", desc = "Search for import", silent = true },
+
+        { "<leader>gc", ":Telescope git_bcommits<CR>", desc = "Show commit history (buffer)", silent = true },
+        { "<leader>gb", ":Telescope git_branches<CR>", desc = "Show all available branches", silent = true },
+        { "<leader>ghi", ":Telescope gh issues<CR>", desc = "Show GitHub issues", silent = true },
+        { "<leader>ghp", ":Telescope gh pull_request<CR>", desc = "Show GitHub pull requests", silent = true },
+        { "<leader>ghr", ":Telescope gh run<CR>", desc = "Show GitHub workflow runs", silent = true },
     },
     config = function()
-        require("telescope").load_extension("fzf")
-        require("telescope").load_extension("ui-select")
-        require("telescope").load_extension("aerial")
+        local telescope = require("telescope")
+        telescope.load_extension("fzf")
+        telescope.load_extension("ui-select")
+        telescope.load_extension("aerial")
+        telescope.load_extension("gh")
+        telescope.load_extension("import")
+
         local builtin = require("telescope.builtin")
         function FuzzyFindFiles()
             builtin.grep_string({
@@ -54,7 +60,7 @@ return {
         end
 
         local actions = require("telescope.actions")
-        require("telescope").setup({
+        telescope.setup({
             defaults = {
                 mappings = {
                     i = {
@@ -64,6 +70,17 @@ return {
                     },
                 },
             },
+            extensions = {
+                whaler = {
+                    directories = { "~/projects" },
+                    auto_cwd = false,
+                    file_explorer = "telescope_file_browser",
+                    theme = {
+                        previwer = true,
+                    },
+                },
+            },
         })
+        telescope.load_extension("whaler")
     end,
 }
