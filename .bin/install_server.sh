@@ -61,8 +61,7 @@ if ! command -v "deno" > /dev/null; then
 fi
 
 # Install Vim plugins
-"$HOME/.bin/nvim.appimage" +PlugInstall +qall
-"$HOME/.bin/nvim.appimage" +CocInstall +qall
+"$HOME/.bin/nvim.appimage" --headless "+Lazy! sync" +qa
 
 # Install fzf
 cd "$HOME/.local/share/fzf"
