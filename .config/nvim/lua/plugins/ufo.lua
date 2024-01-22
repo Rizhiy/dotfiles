@@ -1,6 +1,7 @@
 return {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async", "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+    event = "BufRead",
     keys = {
         {
             -- See `:help K` for why this keymap
@@ -12,7 +13,6 @@ return {
             desc = "Show Fold/Documentation",
         },
     },
-    lazy = false,
     config = function()
         vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
         vim.opt.foldlevelstart = 99
@@ -49,7 +49,7 @@ return {
         end
 
         require("ufo").setup({
-            provider_selector = function(bufnr, filetype, buftype) return { "treesitter", "indent" } end,
+            provider_selector = function() return { "treesitter", "indent" } end,
             open_fold_hl_timeout = 250,
             fold_virt_text_handler = handler,
             preview = {
@@ -67,6 +67,7 @@ return {
 
         -- start folded
         local function applyFoldsAndThenCloseAllFolds(bufnr, providerName)
+            if vim.bo.filetype == "oil" then return end
             require("async")(function()
                 bufnr = bufnr or vim.api.nvim_get_current_buf()
                 local ufo = require("ufo")

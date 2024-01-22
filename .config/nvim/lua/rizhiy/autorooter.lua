@@ -16,6 +16,7 @@ local root_cache = {}
 
 local set_root = function()
     if vim.g.SessionLoad == 1 then return end
+    if vim.bo.filetype == "oil" then return end
     -- Get directory path to start search from
     local path = vim.api.nvim_buf_get_name(0)
     if path == "" then return end
