@@ -18,6 +18,11 @@ return {
             ["g\\"] = "actions.toggle_trash",
         },
         use_default_keymaps = true,
+        columns = {
+            "mtime",
+            "size",
+            "icon",
+        },
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
