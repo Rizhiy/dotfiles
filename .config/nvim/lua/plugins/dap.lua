@@ -11,7 +11,7 @@ return {
         "mfussenegger/nvim-dap",
         dependencies = {
             { "Weissle/persistent-breakpoints.nvim", opts = { load_breakpoints_event = { "BufReadPost" } } },
-            { "rcarriga/nvim-dap-ui", opts = {} },
+            { "rcarriga/nvim-dap-ui",                opts = {} },
         },
         config = function()
             local dap = require("dap")
@@ -35,9 +35,10 @@ return {
             end, "Set log point")
             dap_map("<leader>dB", function() pb.clear_all_breakpoints() end, "Clear all breakpoints")
             dap_map("<leader>dr", dap.repl.open, "Open REPL")
+            dap_map("<leader>dl", dap.run_last, "Run last configuration")
 
             local dapui = require("dapui")
-            dap.listeners.before.event_initialized.dapui_config = function() dapui.open() end
+            dap.listeners.before.event_initialized.dapui_config = function() dapui.open({ reset = true }) end
             dap.listeners.before.event_exited.dapui_config = function(_, event)
                 if event.exitCode == 0 then
                     vim.notify("DAP exited successfully")
@@ -45,6 +46,7 @@ return {
                 end
             end
 
+            dap_map("<leader>du", dapui.toggle, "Toggle DAP UI")
             dap_map("<leader>dx", function()
                 dap.disconnect()
                 dap.terminate()
@@ -64,12 +66,51 @@ return {
         dependencies = { "mfussenegger/nvim-dap" },
         ft = { "python" },
         config = function()
+            local dap = require("dap")
             local dap_python = require("dap-python")
             dap_python.setup("~/miniconda3/bin/python")
             dap_python.test_runner = "pytest"
 
             dap_map("<leader>dm", dap_python.test_method, "Test method")
             dap_map("<leader>dC", dap_python.test_class, "Test class")
+            dap_map(
+                "<leader>df",
+                function()
+                    dap.run({
+                        type = "python",
+                        request = "launch",
+                        name = "Test file",
+                        module = "pytest",
+                        args = { "${file}" },
+                    })
+                end,
+                "Test file"
+            )
+            dap_map(
+                "<leader>dd",
+                function()
+                    dap.run({
+                        type = "python",
+                        request = "launch",
+                        name = "Test file",
+                        module = "pytest",
+                        args = { "${fileDirname}" },
+                    })
+                end,
+                "Test dir"
+            )
+            dap_map(
+                "<leader>da",
+                function()
+                    dap.run({
+                        type = "python",
+                        request = "launch",
+                        name = "Test file",
+                        module = "pytest",
+                    })
+                end,
+                "Test all"
+            )
         end,
     },
 }
