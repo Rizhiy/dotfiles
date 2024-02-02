@@ -10,7 +10,23 @@ map("<leader><space>", ":noh<CR>", { desc = "Deselect search highlight" })
 map("<leader>a", "za", { desc = "Toggle fold" })
 map("<leader>A", "zA", { desc = "Open all folds under cursor" })
 map("<leader>R", "zR", { desc = "Open all folds" })
-map("<leader>y", '"+y', { desc = "Copy to system clipboard", mode = "v" })
+map("<leader>y", function()
+    -- This is *start* and *end* of selection, will be first or last line depending on whether you selected up or down
+    local v_start = vim.fn.getpos("v")[2]
+    local v_end = vim.fn.getpos(".")[2]
+
+    local selected = vim.api.nvim_buf_get_lines(0, math.min(v_start, v_end) - 1, math.max(v_start, v_end), true)
+
+    local indent = require("rizhiy.utils").get_indent(selected)
+    for i, line in ipairs(selected) do
+        selected[i] = line:sub(indent)
+    end
+
+    local text = table.concat(selected, "\n")
+    vim.fn.setreg("+", text)
+    -- launch <esc> to return to normal mode
+    require("rizhiy.keys").press("<ESC>", "n")
+end, { desc = "Copy to system clipboard", mode = "v" })
 
 -- Move selection
 map("J", ":m '>+1<CR>gv=gv", { desc = "Move selection down", mode = "v" })
