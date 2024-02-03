@@ -24,7 +24,6 @@ map("<leader>y", function()
 
     local text = table.concat(selected, "\n")
     vim.fn.setreg("+", text)
-    -- launch <esc> to return to normal mode
     require("rizhiy.keys").press("<ESC>", "n")
 end, { desc = "Copy to system clipboard", mode = "v" })
 
