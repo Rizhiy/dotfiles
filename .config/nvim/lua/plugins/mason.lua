@@ -63,9 +63,7 @@ return {
             ruff_lsp = {
                 init_options = {
                     settings = {
-                        args = {
-                            "--config=" .. vim.fn.getcwd() .. "/pyproject.toml",
-                        },
+                        args = { "--config", vim.fn.getcwd() .. "/pyproject.toml" },
                     },
                 },
             },

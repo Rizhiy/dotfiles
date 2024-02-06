@@ -12,7 +12,9 @@ return {
                 }),
                 null_ls.builtins.formatting.stylua,
                 -- python
-                null_ls.builtins.formatting.ruff,
+                null_ls.builtins.formatting.ruff.with({
+                    extra_args = { "--ignore", "F401" },
+                }),
                 -- yaml
                 null_ls.builtins.diagnostics.yamllint,
                 null_ls.builtins.diagnostics.actionlint, -- github actions
