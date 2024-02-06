@@ -1,11 +1,10 @@
 return {
     "toppair/peek.nvim",
-    event = { "VeryLazy" },
     build = "deno task --quiet build:fast",
-    config = function()
-        require("peek").setup()
-        local nmap = require("rizhiy.keys").nmap
-        nmap("<leader>mp", require("peek").open, { desc = "Open Markdown Preview" })
-        nmap("<leader>mP", require("peek").close, { desc = "Close Markdown Preview" })
-    end,
+    ft = { "markdown" },
+    keys = {
+        { "<leader>mp", function() require("peek").open() end, desc = "Open Preview",  ft = "markdown" },
+        { "<leader>mP", function() require("peek").open() end, desc = "Close Preview", ft = "markdown" },
+    },
+    opts = {},
 }
