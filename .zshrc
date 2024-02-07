@@ -8,9 +8,14 @@ fi
 # Install plugins
 source $HOME/.local/share/antigen/antigen.zsh
 antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle tom-doerr/zsh_codex@main
+antigen bundle conda-incubator/conda-zsh-completion
+antigen bundle marlonrichert/zsh-autocomplete@main
 antigen theme romkatv/powerlevel10k
 antigen apply
 
@@ -76,3 +81,12 @@ complete -C '/usr/local/bin/aws_completer' aws
 
 # disable autocd
 unsetopt autocd
+
+# AI Autocomplete
+export ZSH_CUSTOM="$HOME/.local/share/zsh_custom"
+source "$ZSH_CUSTOM/plugins/zsh_codex/zsh_codex.plugin.zsh"
+bindkey ^X create_completion
+# Allow comments in interactive shell
+setopt interactivecomments
+# Make comments visible
+ZSH_HIGHLIGHT_STYLES[comment]='none'
