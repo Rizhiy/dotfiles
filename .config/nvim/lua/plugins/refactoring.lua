@@ -8,7 +8,7 @@ return {
     keys = {
         -- Extract function supports only visual mode
         {
-            "<leader>re",
+            "<leader>rf",
             function() require("refactoring").refactor("Extract Function") end,
             desc = "Extract Function",
             mode = "x",
