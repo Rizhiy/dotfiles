@@ -30,9 +30,6 @@ cheat() {
 # dotfiles bare repository
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
-# Alias for nvim
-alias nvim='$HOME/.bin/nvim.appimage'
-
 # Alias vim to nvim
 alias vim="nvim"
 

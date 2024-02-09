@@ -45,8 +45,11 @@ if ! command -v "fd" > /dev/null; then
 fi
 
 # Install neovim
-if [ ! -f "$HOME/.bin/nvim.appimage" ]; then
-	wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$HOME/.bin/nvim.appimage" && chmod u+x "$HOME/.bin/nvim.appimage"
+if ! command -v "nvim" > /dev/null; then
+    nvim_path="/opt/neovim/nvim.appimage"
+    sudo mkdir -p $(dirname $nvim_path)
+	sudo wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$nvim_path" && sudo chmod +x "$nvim_path"
+    sudo ln -s /opt/neovim/nvim.appimage /usr/local/bin/nvim
 fi
 sudo npm install -g neovim
 
@@ -61,7 +64,7 @@ if ! command -v "deno" > /dev/null; then
 fi
 
 # Install Vim plugins
-"$HOME/.bin/nvim.appimage" --headless "+Lazy! sync" +qa
+nvim --headless "+Lazy! sync" +qa
 
 # Install fzf
 cd "$HOME/.local/share/fzf"
