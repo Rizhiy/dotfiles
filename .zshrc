@@ -64,9 +64,6 @@ bindkey '^e' edit-command-line
 # Jump to start of the line, ^A is used as tmux prefix, also ^B makes more sense, since 'beginning'
 bindkey '^b' beginning-of-line
 
-# Only complete on tab, without expanding
-bindkey '^i' complete-word
-
 # Complete one word with end
 bindkey '^[[4~' forward-word
 
@@ -84,6 +81,7 @@ unsetopt autocd
 
 # AI Autocomplete
 export ZSH_CUSTOM="$HOME/.local/share/zsh_custom"
+export ZSH_CODEX_PYTHON="$HOME/miniconda3/bin/python"
 source "$ZSH_CUSTOM/plugins/zsh_codex/zsh_codex.plugin.zsh"
 bindkey ^X create_completion
 # Allow comments in interactive shell
