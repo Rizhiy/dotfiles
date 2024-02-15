@@ -38,6 +38,7 @@ alias docker="sudo docker"
 
 # easier tmux attach
 alias a="tmux a"
+alias new="tmux new -s main"
 
 # Always use conda ranger
 alias ranger=$HOME/miniconda3/bin/ranger

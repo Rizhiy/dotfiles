@@ -12,13 +12,13 @@ sudo add-apt-repository ppa:git-core/ppa -n -y
 sudo add-apt-repository ppa:o2sh/onefetch -n -y
 # Add node ppa
 mkdir -p /etc/apt/keyrings
-if ! command -v "node" > /dev/null; then
+if ! command -v node > /dev/null; then
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor | sudo tee /etc/apt/keyrings/nodesource.gpg > /dev/null \
     && NODE_MAJOR=20 \
     && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list > /dev/null
 fi
 # Add GitHub CLI ppa
-if ! command -v "gh" > /dev/null; then
+if ! command -v gh > /dev/null; then
     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
     && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
@@ -40,12 +40,11 @@ xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_i
 sudo apt-get upgrade -y
 
 # Link fd
-if ! command -v "fd" > /dev/null; then
+if ! command -v fd > /dev/null; then
     ln -s $(which fdfind) ~/.bin/fd
 fi
 
-# Install neovim
-if ! command -v "nvim" > /dev/null; then
+if ! command -v nvim > /dev/null; then
     nvim_path="/opt/neovim/nvim.appimage"
     sudo mkdir -p $(dirname $nvim_path)
 	sudo wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$nvim_path" && sudo chmod +x "$nvim_path"
@@ -54,12 +53,12 @@ fi
 sudo npm install -g neovim
 
 # Install insect (terminal calculator)
-if ! command -v "insect" > /dev/null; then
+if ! command -v insect > /dev/null; then
 	sudo npm install -g insect
 fi
 
 # Install deno - JS runtime
-if ! command -v "deno" > /dev/null; then
+if ! command -v deno > /dev/null; then
     curl -fsSL deno.land/x/install/install.sh | sudo DENO_INSTALL=/usr/local sh
 fi
 
@@ -71,7 +70,6 @@ cd "$HOME/.local/share/fzf"
 	yes | ./install
 cd -
 
-# Install git lfs
 if ! git lfs &>/dev/null; then
 	cd /tmp
 	wget "https://github.com/git-lfs/git-lfs/releases/download/v2.10.0/git-lfs-linux-amd64-v2.10.0.tar.gz" -O "git-lfs.tar.gz" &&
@@ -81,7 +79,6 @@ if ! git lfs &>/dev/null; then
 	cd -
 fi
 
-# Install fonts
 # NerdFonts
 font_dir="$HOME/.local/share/fonts/NerdFonts"
 mkdir -p "$font_dir"
@@ -102,7 +99,7 @@ if ! command -v ytop > /dev/null; then
 	rm -fr "$ytop_path"
 fi
 
-if ! command -v "lsd" > /dev/null; then
+if ! command -v lsd > /dev/null; then
 	lsd_path="/tmp/lsd_18.deb"
 	wget "https://github.com/Peltoche/lsd/releases/download/0.18.0/lsd_0.18.0_amd64.deb" -O "$lsd_path" &&
 	sudo dpkg -i "$lsd_path"
@@ -118,8 +115,7 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 rm lazygit.tar.gz
 
-# Install newer version of tmux
-if ! command -v "tmux" > /dev/null; then
+if ! command -v tmux > /dev/null; then
 	wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz -O /tmp/tmux.tar.gz
 	current_dir=$(pwd)
 	cd /tmp
@@ -130,8 +126,7 @@ if ! command -v "tmux" > /dev/null; then
 	cd "$current_dir"
 fi
 
-# Install newer version of htop
-if ! command -v "htop" > /dev/null; then
+if ! command -v htop > /dev/null; then
 	wget https://github.com/htop-dev/htop/releases/download/3.2.2/htop-3.2.2.tar.xz -O /tmp/htop.tar.xz
 	current_dir=$(pwd)
 	cd /tmp
@@ -142,8 +137,7 @@ if ! command -v "htop" > /dev/null; then
 	cd "$current_dir"
 fi
 
-# Install lazygit
-if ! command -v "lazygit" > /dev/null; then
+if ! command -v lazygit > /dev/null; then
 	LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 	wget "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" -O /tmp/lazygit.tar.gz
 	current_dir=$(pwd)
@@ -156,4 +150,8 @@ fi
 # Symlink bat to batcat
 if [ ! -f "/usr/local/bin/bat" ]; then
 	sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+fi
+
+if ! command -v z > /dev/null; then
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 fi

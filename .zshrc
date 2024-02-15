@@ -87,3 +87,6 @@ bindkey ^X create_completion
 setopt interactivecomments
 # Make comments visible
 ZSH_HIGHLIGHT_STYLES[comment]='none'
+
+# Active zoxide
+eval "$(zoxide init --cmd cd zsh)"
