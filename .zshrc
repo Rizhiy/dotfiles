@@ -15,7 +15,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle tom-doerr/zsh_codex@main
 antigen bundle conda-incubator/conda-zsh-completion
-antigen bundle marlonrichert/zsh-autocomplete@main
 antigen theme romkatv/powerlevel10k
 antigen apply
 
