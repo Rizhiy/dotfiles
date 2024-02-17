@@ -33,6 +33,9 @@ conda activate
 # Add user bin to PATH
 export PATH="$HOME/.bin:$PATH"
 
+# Add .local/bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # set python debugger
 export PYTHONBREAKPOINT=pudb.set_trace
 
