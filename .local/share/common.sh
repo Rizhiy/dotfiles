@@ -40,7 +40,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PYTHONBREAKPOINT=pudb.set_trace
 
 # Set editor
-export EDITOR="$HOME/.bin/nvim.appimage"
+export EDITOR=nvim
 
 # Add Go to path
 export PATH="$PATH:/usr/local/go/bin"
