@@ -5,6 +5,9 @@
 	d = diff
 	a = add
 	cm = commit -m
+    b = blame -w -C -C -C
+    pushf = push --force-with-lease --force-if-includes
+    ms = maintenance start
 [push]
 	default = simple
 	followTags = true
@@ -39,3 +42,5 @@
 [diff]
 	colorMoved = default
 	context = 1
+[rerere]
+	enabled = true
