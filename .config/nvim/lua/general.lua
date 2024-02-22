@@ -30,6 +30,9 @@ vim.opt.smartcase = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+-- Edit past the end of the line
+vim.opt.virtualedit = "all"
+
 local autocmd = vim.api.nvim_create_autocmd
 autocmd({ "BufEnter" }, {
     callback = function(_) vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
