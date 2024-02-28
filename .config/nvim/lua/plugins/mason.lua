@@ -17,6 +17,7 @@ local on_attach = function(_, bufnr)
     nmap("<leader>do", vim.diagnostic.open_float, "Open diagnostic")
     nmap("<leader>dp", vim.diagnostic.goto_prev, "Next diagnostic")
     nmap("<leader>dn", vim.diagnostic.goto_next, "Prev diagnostic")
+    nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }

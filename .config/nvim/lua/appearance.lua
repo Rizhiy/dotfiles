@@ -14,16 +14,16 @@ vim.opt.relativenumber = true
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 
 vim.opt.list = true
-vim.opt.listchars:append({ tab = "▸ ", trail = "·" }) -- show empty characters tab/eol
+vim.opt.listchars:append({ tab = "▸ ", trail = "·", nbsp = "␣" }) -- show empty characters tab/eol
 vim.opt.fillchars:append({ vert = " " })
 
 vim.opt.signcolumn = "auto:1-2"
 
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 10
 
 local autocmd = vim.api.nvim_create_autocmd
 local mild_color = "DimGray"
-autocmd({ "ColorScheme" }, {
+autocmd("ColorScheme", {
     callback = function()
         vim.cmd("hi NormalFloat guibg=None")
         vim.cmd("hi FloatBorder guibg=None guifg=" .. mild_color)
@@ -43,4 +43,13 @@ autocmd({ "ColorScheme" }, {
         vim.cmd("hi DapStoppedSymbol guibg=None")
         vim.cmd("hi CursorLine gui=underline guibg=None guisp=" .. mild_color)
     end,
+})
+
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+autocmd("TextYankPost", {
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("rizhiy-highlight-yank", { clear = true }),
+    callback = function() vim.highlight.on_yank() end,
 })

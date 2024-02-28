@@ -65,6 +65,6 @@ return {
                 :find()
         end
 
-        nmap("<leader>fh", function() toggle_telescope(harpoon:list()) end, { desc = "Search harpoon" })
+        nmap("<leader>hs", function() toggle_telescope(harpoon:list()) end, { desc = "Search harpoon" })
     end,
 }
