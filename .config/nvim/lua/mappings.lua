@@ -55,3 +55,13 @@ nmap("J", "mzJ`z", { desc = "Append line below to current line" })
 
 -- Replace in selection
 map(":s", ":s/\\%V\\%V/<Left><Left><Left><Left>", { desc = "Replace in selection", mode = "v" })
+
+-- Toggle virtualedit
+map("<leader>ov", function()
+    local current_value = vim.opt.virtualedit
+    if current_value == "all" then
+        vim.opt.virtualedit = ""
+    else
+        vim.opt.virtualedit = "all"
+    end
+end, { desc = "Toggle virtualedit" })

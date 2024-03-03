@@ -29,9 +29,6 @@ vim.opt.smartcase = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
--- Edit past the end of the line
-vim.opt.virtualedit = "all"
-
 -- Better wrapping
 vim.opt.breakindent = true
 
