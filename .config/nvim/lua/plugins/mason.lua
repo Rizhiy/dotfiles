@@ -44,16 +44,13 @@ return {
             ensure_installed = {
                 "stylua",
                 "luacheck",
-                "ruff",
                 "yamllint",
                 "actionlint",
                 "yamlfix",
-                "taplo",
                 "jsonlint",
                 "markdownlint",
                 "codespell",
                 "prettier",
-                "yamllint",
             },
         })
 
@@ -79,6 +76,7 @@ return {
             },
             taplo = {},
             yamlls = {},
+            jsonls = {},
         }
 
         local mason_lsp_config = require("mason-lspconfig")

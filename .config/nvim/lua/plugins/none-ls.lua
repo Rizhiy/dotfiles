@@ -13,10 +13,6 @@ return {
                 null_ls.builtins.diagnostics.yamllint,
                 null_ls.builtins.diagnostics.actionlint, -- github actions
                 null_ls.builtins.formatting.yamlfix,
-                -- toml
-                null_ls.builtins.formatting.taplo,
-                -- json
-                null_ls.builtins.diagnostics.jsonlint,
                 -- markdown
                 null_ls.builtins.diagnostics.markdownlint,
                 -- general
@@ -24,8 +20,6 @@ return {
                     extra_args = { "--ignore-words", vim.fn.stdpath("data") .. "/spell/words.add" },
                 }),
                 null_ls.builtins.formatting.prettier,
-                null_ls.builtins.formatting.trim_whitespace,
-                null_ls.builtins.formatting.trim_newlines,
             },
         })
         local nmap = require("rizhiy.keys").nmap
