@@ -7,14 +7,8 @@ return {
         null_ls.setup({
             sources = {
                 -- lua
-                null_ls.builtins.diagnostics.luacheck.with({
-                    extra_args = { "--globals", "vim" },
-                }),
+                null_ls.builtins.diagnostics.selene,
                 null_ls.builtins.formatting.stylua,
-                -- python
-                null_ls.builtins.formatting.ruff.with({
-                    extra_args = { "--ignore", "F401" },
-                }),
                 -- yaml
                 null_ls.builtins.diagnostics.yamllint,
                 null_ls.builtins.diagnostics.actionlint, -- github actions

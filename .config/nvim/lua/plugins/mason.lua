@@ -53,7 +53,6 @@ return {
                 "markdownlint",
                 "codespell",
                 "prettier",
-                "luacheck",
                 "yamllint",
             },
         })
