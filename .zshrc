@@ -20,8 +20,8 @@ antigen apply
 
 # Enable history
 export HISTFILE=~/.local/.zsh_history
-export HISTSIZE=100000
 export SAVEHIST=100000
+export KEYTIMEOUT=1 # Don't wait for multibound sequences
 setopt EXTENDED_HISTORY # Record timestamp in history
 setopt HIST_FIND_NO_DUPS # Remove duplicates from history search
 setopt HIST_IGNORE_DUPS # Don't record an entry that was just recorded again.

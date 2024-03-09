@@ -37,7 +37,14 @@ alias vim="nvim"
 alias docker="sudo docker"
 
 # easier tmux attach
-alias a="tmux a"
+attach_to_session() {
+	if [ -z "$TMUX" ]; then
+		tmux a
+	else
+		echo "ALREADY INSIDE TMUX! unset \$TMUX to force"
+	fi
+}
+alias a="attach_to_session"
 alias new="tmux new -s main"
 
 # Always use conda ranger

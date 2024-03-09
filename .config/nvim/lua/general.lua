@@ -13,7 +13,7 @@ vim.opt.spellfile = vim.fn.stdpath("data") .. "/spell/words.add"
 
 vim.opt.autowrite = true
 vim.opt.autowriteall = true
-vim.opt.updatetime = 100
+vim.opt.updatetime = 1000
 vim.opt.timeoutlen = 300
 
 vim.opt.splitbelow = true
