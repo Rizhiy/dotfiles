@@ -53,6 +53,8 @@ nmap("<C-q>", ":qall<CR>", { desc = "Exit" })
 
 nmap("J", "mzJ`z", { desc = "Append line below to current line" })
 
+map("p", '"_dP', { desc = "Paste over without yanking", mode = "x" })
+
 -- Replace in selection
 map(":s", ":s/\\%V\\%V/<Left><Left><Left><Left>", { desc = "Replace in selection", mode = "v" })
 
