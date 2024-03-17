@@ -20,6 +20,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.foldmethod = "indent"
+vim.opt.foldopen:append("jump")
 
 -- Searching
 vim.opt.ignorecase = true
