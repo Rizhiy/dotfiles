@@ -37,5 +37,15 @@ autocmd({ "BufEnter" }, {
     callback = function(_) vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
 })
 
+autocmd({ "BufReadPost" }, {
+    callback = function(_)
+        if vim.api.nvim_buf_line_count(0) > 120 then
+            vim.opt.foldlevel = 1
+        else
+            vim.opt.foldlevel = 10
+        end
+    end,
+})
+
 -- Python for general functions
 vim.cmd("let g:python3_host_prog = '" .. os.getenv("HOME") .. "/miniconda3/bin/python'")
