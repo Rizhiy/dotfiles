@@ -33,7 +33,7 @@ return {
         { "<leader>fc",  ":Telescope aerial<CR>",          desc = "Search code parts",            silent = true },
         { "<leader>fp",  ":Telescope whaler<CR>",          desc = "Search projects",              silent = true },
         { "<leader>fi",  ":Telescope import<CR>",          desc = "Search for import",            silent = true },
-        { "<leader>fr",  ":Telescope resume<CR>",          desc = "Resume last search",           silent = true },
+        { "<leader>fl",  ":Telescope resume<CR>",          desc = "Resume last search",           silent = true },
 
         { "<leader>gc",  ":Telescope git_bcommits<CR>",    desc = "Show commit history (buffer)", silent = true },
         { "<leader>gb",  ":Telescope git_branches<CR>",    desc = "Show all available branches",  silent = true },
