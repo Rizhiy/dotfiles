@@ -40,7 +40,7 @@ autocmd({ "BufEnter" }, {
 
 autocmd({ "BufReadPost" }, {
     callback = function(_)
-        if vim.api.nvim_buf_line_count(0) > 120 then
+        if vim.api.nvim_buf_line_count(0) > 80 then
             vim.opt.foldlevel = 1
         else
             vim.opt.foldlevel = 10
