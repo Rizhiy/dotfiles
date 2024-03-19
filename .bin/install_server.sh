@@ -152,6 +152,10 @@ if [ ! -f "/usr/local/bin/bat" ]; then
 	sudo ln -s /usr/bin/batcat /usr/local/bin/bat
 fi
 
-if ! command -v z > /dev/null; then
+if ! command -v zoxide > /dev/null; then
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+fi
+
+if ! command -v selene > /dev/null; then
+    cargo install selene
 fi
