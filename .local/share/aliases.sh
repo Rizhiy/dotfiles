@@ -53,12 +53,6 @@ alias ranger=$HOME/miniconda3/bin/ranger
 # Load dotenv
 alias load_dotenv=". dotenv.sh"
 
-# Extra paths
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g ......='../../../../..'
-
 # Git stuff
 alias gs="git status"
 alias gd="git diff"
