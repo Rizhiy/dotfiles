@@ -34,7 +34,7 @@ floating_modifier $mod
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1  Terminal"
 set $ws2 "2  Chrome"
-set $ws3 "3 PyCharm"
+set $ws3 "3  Anki"
 set $ws4 "4  Code"
 set $ws5 "5  Remote"
 set $ws6 "6"
