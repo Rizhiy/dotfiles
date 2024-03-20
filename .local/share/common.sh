@@ -55,7 +55,7 @@ if [ -z $PATHSSET ]; then
 
 	# Add cargo to path
 	export PATH="/root/.cargo/bin:$PATH"
-    export PATH="$HOME/.cargo/bin:$PATH"
+	export PATH="$HOME/.cargo/bin:$PATH"
 
 	# Variable to track if this was executed, keep at the bottom
 	export PATHSSET=true
