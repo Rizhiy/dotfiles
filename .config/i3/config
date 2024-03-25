@@ -282,14 +282,14 @@ exec_always "setxkbmap -layout gb,ru -option 'grp:caps_toggle'"
 exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
 
 ## Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%- #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 9%+ #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 9%- #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle # mute sound Pulse Audio controls
 bindsym XF86AudioMicMute exec amixer set Capture toggle # toggle microphone
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+ # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- # decrease screen brightness
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 9%+ # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 9%- # decrease screen brightness
 
 # Screen hue adjustment
 exec --no-startup-id redshift

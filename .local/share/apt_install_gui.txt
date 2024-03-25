@@ -17,6 +17,7 @@ libxcb-composite0-dev
 libxkbcommon-dev
 libxkbcommon-x11-dev
 brightnessctl
+brightness-udev
 redshift
 autorandr
 ueberzugpp
