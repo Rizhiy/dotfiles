@@ -28,3 +28,4 @@ ffmpeg
 neofetch
 picom
 ncurses-term
+thunar
