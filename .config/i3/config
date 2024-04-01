@@ -261,9 +261,10 @@ workspace $ws9 output "$monitor_left"
 workspace $ws0 output "$monitor_right"
 
 # Assign programs to workspaces
-assign [class="chrome" ] $ws2
+assign [class="chrome"] $ws2
+assign [class="Anki"] $ws3
 assign [class="pycharm"] $ws3
-assign [class="Steam"] $ws7
+assign [class="steam"] $ws7
 
 # Set up applications to float by default
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable, move position center
