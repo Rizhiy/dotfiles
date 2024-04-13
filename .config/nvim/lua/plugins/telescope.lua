@@ -11,6 +11,7 @@ return {
         "SalOrak/whaler",
         "nvim-telescope/telescope-file-browser.nvim",
         "piersolenski/telescope-import.nvim",
+        "Myzel394/jsonfly.nvim",
     },
     keys = {
         { "<leader>f",   function() FuzzyFindFiles() end,  desc = "Fuzzy search" },
@@ -33,6 +34,7 @@ return {
         { "<leader>fc",  ":Telescope aerial<CR>",          desc = "Search code parts",            silent = true },
         { "<leader>fp",  ":Telescope whaler<CR>",          desc = "Search projects",              silent = true },
         { "<leader>fi",  ":Telescope import<CR>",          desc = "Search for import",            silent = true },
+        { "<leader>fj",  ":Telescope jsonfly<CR>",         desc = "Search json keys",             silent = true },
         { "<leader>fl",  ":Telescope resume<CR>",          desc = "Resume last search",           silent = true },
 
         { "<leader>gc",  ":Telescope git_bcommits<CR>",    desc = "Show commit history (buffer)", silent = true },
@@ -53,6 +55,7 @@ return {
         telescope.load_extension("aerial")
         telescope.load_extension("gh")
         telescope.load_extension("import")
+        telescope.load_extension("jsonfly")
 
         local builtin = require("telescope.builtin")
         function FuzzyFindFiles()
