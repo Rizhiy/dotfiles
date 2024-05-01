@@ -21,6 +21,7 @@ vim.opt.splitright = true
 
 vim.opt.foldmethod = "indent"
 vim.opt.foldopen:append("jump")
+vim.opt.foldlevel = 10
 
 -- Searching
 vim.opt.ignorecase = true
@@ -36,16 +37,6 @@ vim.opt.breakindent = true
 local autocmd = vim.api.nvim_create_autocmd
 autocmd({ "BufEnter" }, {
     callback = function(_) vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
-})
-
-autocmd({ "BufReadPost" }, {
-    callback = function(_)
-        if vim.api.nvim_buf_line_count(0) > 80 then
-            vim.opt.foldlevel = 1
-        else
-            vim.opt.foldlevel = 10
-        end
-    end,
 })
 
 -- Python for general functions

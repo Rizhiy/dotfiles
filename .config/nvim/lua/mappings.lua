@@ -30,8 +30,8 @@ end, { desc = "Copy to system clipboard", mode = "v" })
 -- Move selection
 map("J", ":m '>+1<CR>gv=gv", { desc = "Move selection down", mode = "v" })
 map("K", ":m '<-2<CR>gv=gv", { desc = "Move selection up", mode = "v" })
-map("H", "<gv", { desc = "Un-indent selection", mode = "v" })
-map("L", ">gv", { desc = "Indent selection", mode = "v" })
+map("<", "<gv", { desc = "Un-indent selection", mode = "v" })
+map(">", ">gv", { desc = "Indent selection", mode = "v" })
 
 nmap("<leader>v", ":vsplit<CR>", { desc = "Vertical Split", silent = true })
 nmap("<leader>-", ":split<CR>", { desc = "Horisontal Split", silent = true })
