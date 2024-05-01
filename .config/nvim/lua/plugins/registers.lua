@@ -15,6 +15,9 @@ return {
             bind_keys = {
                 registers = registers.apply_register({ keep_open_until_keypress = true }),
             },
+            sign_highlights = {
+                named = "GruvboxYellow",
+            },
         })
     end,
 }
