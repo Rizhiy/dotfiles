@@ -84,7 +84,7 @@ font_dir="$HOME/.local/share/fonts/NerdFonts"
 mkdir -p "$font_dir"
 cd "$font_dir"
 if [ ! -f "SauceCodeProNerdFont-Regular.ttf" ]; then
-	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/SourceCodePro.zip"
+    wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip"
 	unzip -n SourceCodePro.zip
 	rm SourceCodePro.zip
 fi
