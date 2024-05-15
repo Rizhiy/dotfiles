@@ -9,6 +9,7 @@ end
 return {
     {
         "mfussenegger/nvim-dap",
+        event = "VeryLazy",
         dependencies = {
             { "Weissle/persistent-breakpoints.nvim", opts = { load_breakpoints_event = { "BufReadPost" } } },
             { "rcarriga/nvim-dap-ui",                opts = {} },

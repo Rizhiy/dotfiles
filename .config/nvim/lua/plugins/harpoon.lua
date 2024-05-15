@@ -1,7 +1,20 @@
 return {
     "ThePrimeagen/harpoon",
+    event = "VeryLazy",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+        {
+            "<leader>hl",
+            function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
+            desc = "Open harpoon list",
+        },
+        { "<leader>ha", function() require("harpoon"):list():append() end,         desc = "Add to harpoon" },
+        { "<leader>hr", function() require("harpoon"):list():remove() end,         desc = "Remove from harpoon" },
+        { "<leader>hp", function() require("harpoon"):list():prev() end,           desc = "Go to prev harpoon" },
+        { "<leader>hn", function() require("harpoon"):list():next() end,           desc = "Go to next harpoon" },
+        { "<leader>hs", function() ToggleTelescope(require("harpoon"):list()) end, desc = "Search harpoon" },
+    },
     config = function()
         local harpoon = require("harpoon")
 
@@ -32,22 +45,17 @@ return {
         }
         harpoon:setup(opts)
 
-        local nmap = require("rizhiy.keys").nmap
-
-        nmap("<leader>hl", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open harpoon list" })
-        nmap("<leader>ha", function() harpoon:list():append() end, { desc = "Add to harpoon" })
-        nmap("<leader>hr", function() harpoon:list():remove() end, { desc = "Remove from harpoon" })
-
         for idx = 1, 9 do
-            nmap("<leader>h" .. idx, function() harpoon:list():select(idx) end, { desc = "Go to harpoon " .. idx })
+            require("rizhiy.keys").nmap(
+                "<leader>h" .. idx,
+                function() harpoon:list():select(idx) end,
+                { desc = "Go to harpoon " .. idx }
+            )
         end
-
-        nmap("<leader>hp", function() harpoon:list():prev() end, { desc = "Go to prev harpoon" })
-        nmap("<leader>hn", function() harpoon:list():next() end, { desc = "Go to next harpoon" })
 
         -- basic telescope configuration
         local conf = require("telescope.config").values
-        local function toggle_telescope(harpoon_files)
+        function ToggleTelescope(harpoon_files)
             local file_paths = {}
             for _, item in ipairs(harpoon_files.items) do
                 table.insert(file_paths, item.value)
@@ -64,7 +72,5 @@ return {
                 })
                 :find()
         end
-
-        nmap("<leader>hs", function() toggle_telescope(harpoon:list()) end, { desc = "Search harpoon" })
     end,
 }

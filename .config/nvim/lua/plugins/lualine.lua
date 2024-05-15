@@ -2,6 +2,7 @@ local function window() return vim.api.nvim_win_get_number(0) end
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { { "nvim-tree/nvim-web-devicons", opt = true }, "folke/noice.nvim" },
+    event = "BufEnter",
     config = function()
         local noice = require("noice")
         require("lualine").setup({

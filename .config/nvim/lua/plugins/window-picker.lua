@@ -1,5 +1,6 @@
 return {
     "s1n7ax/nvim-window-picker",
+    lazy = true,
     opts = {
         hint = "floating-big-letter",
         filter_rules = {
