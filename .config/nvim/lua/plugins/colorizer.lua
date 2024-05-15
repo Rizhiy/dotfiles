@@ -1,1 +1,1 @@
-return { "NvChad/nvim-colorizer.lua", opts = {} }
+return { "NvChad/nvim-colorizer.lua", event = "VeryLazy", opts = {} }
