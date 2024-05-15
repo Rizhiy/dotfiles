@@ -35,6 +35,12 @@ return {
             },
             options = {
                 theme = "gruvbox-material",
+                disabled_filetypes = {
+                    statusline = {
+                        "alpha",
+                        "help",
+                    },
+                },
             },
             tabline = { lualine_a = { { "tabs", mode = 2, path = 1 } } },
             extensions = {
