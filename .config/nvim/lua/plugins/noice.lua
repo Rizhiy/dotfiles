@@ -1,6 +1,7 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
+    tag = "v2.0.2",
     opts = {
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treestureitter**

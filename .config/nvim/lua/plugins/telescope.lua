@@ -11,6 +11,7 @@ return {
         "nvim-telescope/telescope-file-browser.nvim",
         "piersolenski/telescope-import.nvim",
         "Myzel394/jsonfly.nvim",
+        "LintaoAmons/scratch.nvim",
     },
     keys = {
         { "<leader>f",   function() FuzzyFindFiles() end,  desc = "Fuzzy search" },
@@ -35,6 +36,7 @@ return {
         { "<leader>fi",  ":Telescope import<CR>",          desc = "Search for import",            silent = true },
         { "<leader>fj",  ":Telescope jsonfly<CR>",         desc = "Search json keys",             silent = true },
         { "<leader>fl",  ":Telescope resume<CR>",          desc = "Resume last search",           silent = true },
+        { "<leader>fs",  ":ScratchOpen<CR>",               desc = "Find existing scratchpad",     silent = true },
 
         { "<leader>gc",  ":Telescope git_bcommits<CR>",    desc = "Show commit history (buffer)", silent = true },
         { "<leader>gb",  ":Telescope git_branches<CR>",    desc = "Show all available branches",  silent = true },

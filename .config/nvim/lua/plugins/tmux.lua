@@ -14,5 +14,5 @@ return {
             vim.g.tmux_navigator_no_mappings = 1
         end,
     },
-    { "tmux-plugins/vim-tmux" },
+    { "tmux-plugins/vim-tmux", event = "VeryLazy" },
 }
