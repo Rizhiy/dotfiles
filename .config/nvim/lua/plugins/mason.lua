@@ -28,6 +28,7 @@ end
 
 return {
     "williamboman/mason.nvim",
+    version = "v1.10.0",
     event = "VeryLazy",
     dependencies = {
         "williamboman/mason-lspconfig.nvim",

@@ -159,3 +159,5 @@ fi
 if ! command -v selene > /dev/null; then
     cargo install selene
 fi
+
+luarocks install jsregexp
