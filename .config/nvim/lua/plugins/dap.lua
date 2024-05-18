@@ -56,6 +56,7 @@ return {
                 dap.close()
                 dapui.close()
             end, "Exit")
+            dap_map("<leader>de", function() dapui.eval(nil, { enter = true }) end, "Evaluate value under cursor")
 
             vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpointSymbol" })
             vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "GruvboxYellow" })
