@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-	PATH="$HOME/bin:$PATH"
-fi
-if [ -d "$HOME/.local/bin" ] ; then
-	PATH="$HOME/.local/bin:$PATH"
-fi
-if [ -d "$HOME/.bin" ] ; then
-	PATH="$HOME/.bin:$PATH"
-fi
-
 # Check gitconfig
 config_path=".config/git/config"
 grep_end="\[include\]\n\tpath = $config_path\n"
@@ -22,6 +11,3 @@ fi
 # Set network interface names
 export WIRELESS_NETWORK_INTERFACE=`ip a | grep wlp | awk '{print $2}' | head -n1 | sed 's/.$//'`
 export WIRED_NETWORK_INTERFACE=`ip a | grep enp | awk '{print $2}' | head -n1 | sed 's/.$//'`
-
-# Add flatpak dirs
-XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/rizhiy/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
