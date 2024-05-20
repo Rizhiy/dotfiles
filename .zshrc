@@ -1,3 +1,11 @@
+source $HOME/.local/share/common.sh
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -31,13 +39,6 @@ setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the 
 
 # Disable pause
 stty -ixon 2>/dev/null
-
-source $HOME/.local/share/common.sh
-
-# calculator
-calc() {
-    python -c 'from math import *; import sys; print(eval(" ".join(sys.argv[1:])))' "$@"
-}
 
 # Nice history search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
