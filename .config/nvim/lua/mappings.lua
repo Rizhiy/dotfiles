@@ -67,3 +67,9 @@ map("<leader>ov", function()
         vim.opt.virtualedit = "all"
     end
 end, { desc = "Toggle virtualedit" })
+
+nmap(
+    "th",
+    function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
+    { desc = "Toggle inlay hints" }
+)
