@@ -14,8 +14,16 @@ map("<leader>y", function()
     -- This is *start* and *end* of selection, will be first or last line depending on whether you selected up or down
     local v_start = vim.fn.getpos("v")[2]
     local v_end = vim.fn.getpos(".")[2]
+    local first_line = math.min(v_start, v_end)
+    local last_line = math.max(v_start, v_end)
 
-    local selected = vim.api.nvim_buf_get_lines(0, math.min(v_start, v_end) - 1, math.max(v_start, v_end), true)
+    -- if text is on one line, just get the selection
+    if first_line == last_line then
+        require("rizhiy.keys").press('"+y', "n")
+        return
+    end
+
+    local selected = vim.api.nvim_buf_get_lines(0, first_line - 1, last_line, true)
 
     local indent = require("rizhiy.utils").get_indent(selected)
     for i, line in ipairs(selected) do

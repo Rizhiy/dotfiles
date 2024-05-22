@@ -14,6 +14,7 @@ function M.get_indent(lines)
         end
         indent = indent + 1
     end
+    return indent
 end
 
 return M
