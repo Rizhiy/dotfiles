@@ -57,12 +57,8 @@ return {
 
         local servers = {
             pyright = {},
-            ruff_lsp = {
-                init_options = {
-                    settings = {
-                        args = { "--config", vim.fn.getcwd() .. "/pyproject.toml" },
-                    },
-                },
+            ruff = {
+                cmd = { "ruff", "server", "--preview", "--config", vim.fn.getcwd() .. "/pyproject.toml" },
             },
             rust_analyzer = {},
             html = {},
