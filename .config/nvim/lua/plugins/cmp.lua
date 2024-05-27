@@ -2,7 +2,7 @@ return { -- Autocompletion
     "hrsh7th/nvim-cmp",
     dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
-        { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+        { "L3MON4D3/LuaSnip",   build = "make install_jsregexp" },
         "saadparwaiz1/cmp_luasnip",
         -- Adds a number of user-friendly snippets
         "rafamadriz/friendly-snippets",
@@ -15,9 +15,10 @@ return { -- Autocompletion
         -- Adds LSP completion capabilities
         "hrsh7th/cmp-nvim-lsp",
         -- Other sources
-        "hrsh7th/cmp-path",        -- Paths
-        "SergioRibera/cmp-dotenv", -- environment variables
-        "hrsh7th/cmp-buffer",      -- text in buffer
+        "hrsh7th/cmp-path",                                                             -- Paths
+        "SergioRibera/cmp-dotenv",                                                      -- environment variables
+        "hrsh7th/cmp-buffer",                                                           -- text in buffer
+        { "petertriho/cmp-git", dependencies = { "petertriho/cmp-git" }, opts = true }, -- git completion
 
         -- Icons
         "onsails/lspkind.nvim",
@@ -103,6 +104,13 @@ return { -- Autocompletion
         cmp.setup.filetype({ "sql", "mysql", "pgsql" }, {
             sources = {
                 { name = "vim-dadbod-completion" },
+                { name = "buffer" },
+            },
+        })
+
+        cmp.setup.filetype({ "gitcommit" }, {
+            sources = {
+                { name = "git" },
                 { name = "buffer" },
             },
         })
