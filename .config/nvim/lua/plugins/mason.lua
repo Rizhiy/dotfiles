@@ -16,7 +16,6 @@ local on_attach = function(_, bufnr)
     nmap("<leader>dt", ":TroubleToggle<CR>", "Show trouble")
     nmap("]d", vim.diagnostic.goto_next, "Next diagnostic")
     nmap("[d", vim.diagnostic.goto_prev, "Prev diagnostic")
-    nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -56,7 +55,10 @@ return {
         })
 
         local servers = {
-            pyright = {},
+            pyright = {
+                -- Using Ruff's import organizer
+                disableOrganizeImports = true,
+            },
             ruff = {
                 cmd = { "ruff", "server", "--preview", "--config", vim.fn.getcwd() .. "/pyproject.toml" },
             },
