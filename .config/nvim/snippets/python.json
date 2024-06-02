@@ -1,10 +1,1 @@
-{
-    "@property": {
-        "body": [
-            "@property",
-            "def ${1}(self) -> ${2}:",
-            "    return self._${1}"
-        ],
-        "prefix": "@property"
-    }
-}
+{"@property":{"prefix":"@property","body":["@property","def ${1}(self) -> ${2}:","    return self._${1}"]},"@pytest.fixture":{"prefix":"@pytest.fixture","body":["@pytest.fixture()","def ${1}() -> ${2}:","    ${3}","    return ${4}"]}}

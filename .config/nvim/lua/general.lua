@@ -34,6 +34,9 @@ vim.opt.undofile = true
 -- Better wrapping
 vim.opt.breakindent = true
 
+-- Allow selecting past the end of the line in visual mode
+vim.opt.virtualedit = "block"
+
 local autocmd = vim.api.nvim_create_autocmd
 autocmd({ "BufEnter" }, {
     callback = function(_) vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
