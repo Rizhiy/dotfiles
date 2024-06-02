@@ -1,0 +1,10 @@
+{
+    "@property": {
+        "body": [
+            "@property",
+            "def ${1}(self) -> ${2}:",
+            "    return self._${1}"
+        ],
+        "prefix": "@property"
+    }
+}

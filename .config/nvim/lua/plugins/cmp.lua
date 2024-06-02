@@ -1,3 +1,4 @@
+local my_snippets_dir = vim.fn.stdpath("config") .. "/snippets"
 return { -- Autocompletion
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -9,7 +10,7 @@ return { -- Autocompletion
         -- Snippet editing
         {
             "chrisgrieser/nvim-scissors",
-            opts = { snippetDir = vim.fn.stdpath("data") .. "/lazy/friendly-snippets" },
+            opts = { snippetDir = my_snippets_dir },
         },
 
         -- Adds LSP completion capabilities
@@ -39,6 +40,7 @@ return { -- Autocompletion
         local cmp = require("cmp")
         local luasnip = require("luasnip")
         require("luasnip.loaders.from_vscode").lazy_load()
+        require("luasnip.loaders.from_vscode").lazy_load({ paths = { my_snippets_dir } })
         luasnip.config.setup({})
 
         local lspkind = require("lspkind")
