@@ -38,7 +38,6 @@ return {
                 disabled_filetypes = {
                     statusline = {
                         "alpha",
-                        "help",
                     },
                 },
             },
