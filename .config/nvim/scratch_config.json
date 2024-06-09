@@ -1,8 +1,0 @@
-{
-  "filetype_details": {},
-  "use_telescope": true,
-  "filetypes": ["xml", "go", "lua", "js", "py", "sh"],
-  "localKeys": [],
-  "scratch_file_dir": "~/.cache/nvim/scratch.nvim",
-  "window_cmd": "edit"
-}
