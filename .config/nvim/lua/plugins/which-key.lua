@@ -8,6 +8,7 @@ return {
             z = { name = "Folds" },
         })
         wk.register({
+            b = { name = "Buffer" },
             c = { name = "Code" },
             d = { name = "Debugging" },
             f = { name = "Find" },

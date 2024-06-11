@@ -78,3 +78,5 @@ nmap(
     function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
     { desc = "Toggle inlay hints" }
 )
+
+nmap("<leader>bd", function() vim.wo.diff = not vim.wo.diff end, { desc = "Toggle diff mode for buffer" })
