@@ -17,6 +17,10 @@ if ! command -v node > /dev/null; then
     && NODE_MAJOR=20 \
     && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list > /dev/null
 fi
+# Install rust
+if ! command -v rustup > /dev/null; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+fi
 # Add GitHub CLI ppa
 if ! command -v gh > /dev/null; then
     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
@@ -159,5 +163,3 @@ fi
 if ! command -v selene > /dev/null; then
     cargo install selene
 fi
-
-luarocks install jsregexp
