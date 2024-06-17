@@ -11,6 +11,11 @@ return {
             function() require("code_runner.commands").run_code(vim.bo.filetype, "args") end,
             desc = "Run file with arguments",
         },
+        {
+            "<leader>rc",
+            ":RunClose<CR>",
+            desc = "Stop auto-running of file",
+        },
     },
 
     opts = {
