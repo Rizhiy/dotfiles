@@ -81,5 +81,7 @@ nmap(
 
 nmap("<leader>bd", function()
     local win_id = vim.api.nvim_get_current_win()
-    vim.wo[win_id][0].diff = not vim.wo[win_id][0].diff
+    local toggled = vim.wo[win_id][0].diff
+    vim.wo[win_id][0].diff = not toggled
+    vim.wo[win_id][0].scrollbind = not toggled
 end, { desc = "Toggle diff mode for window" })
