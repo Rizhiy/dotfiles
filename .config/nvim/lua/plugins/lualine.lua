@@ -33,8 +33,20 @@ return {
                         cond = noice.api.statusline.mode.has,
                         color = { fg = "#ff9e64" },
                     },
-                    "encoding",
-                    "fileformat",
+                    {
+                        "encoding",
+                        cond = function()
+                            local ret, _ = vim.bo.fenc:gsub("^utf%-8$", "")
+                            return ret
+                        end,
+                    },
+                    {
+                        "fileformat",
+                        cond = function()
+                            local ret, _ = vim.bo.fileformat:gsub("^unix$", "")
+                            return ret
+                        end,
+                    },
                     "filetype",
                 },
             },
