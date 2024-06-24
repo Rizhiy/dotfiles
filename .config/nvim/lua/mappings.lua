@@ -84,4 +84,6 @@ nmap("<leader>bd", function()
     local toggled = vim.wo[win_id][0].diff
     vim.wo[win_id][0].diff = not toggled
     vim.wo[win_id][0].scrollbind = not toggled
+    vim.wo[win_id][0].foldlevel = toggled and 10 or 0
+    vim.wo[win_id][0].foldmethod = toggled and "indent" or "diff"
 end, { desc = "Toggle diff mode for window" })
