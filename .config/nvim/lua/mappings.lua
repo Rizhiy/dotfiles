@@ -79,4 +79,7 @@ nmap(
     { desc = "Toggle inlay hints" }
 )
 
-nmap("<leader>bd", function() vim.wo.diff = not vim.wo.diff end, { desc = "Toggle diff mode for buffer" })
+nmap("<leader>bd", function()
+    local win_id = vim.api.nvim_get_current_win()
+    vim.wo[win_id][0].diff = not vim.wo[win_id][0].diff
+end, { desc = "Toggle diff mode for window" })

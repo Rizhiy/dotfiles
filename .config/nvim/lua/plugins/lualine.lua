@@ -1,4 +1,9 @@
 local function window() return vim.api.nvim_win_get_number(0) end
+local diff_component = {
+    function() return "DIFF" end,
+    cond = function() return vim.wo.diff end,
+    color = { bg = "red" },
+}
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { { "nvim-tree/nvim-web-devicons", opt = true }, "folke/noice.nvim" },
@@ -7,6 +12,10 @@ return {
         local noice = require("noice")
         require("lualine").setup({
             sections = {
+                lualine_a = {
+                    "mode",
+                    diff_component,
+                },
                 lualine_c = {
                     { -- filename relative to cwd
                         "filename",
@@ -24,13 +33,15 @@ return {
                         cond = noice.api.statusline.mode.has,
                         color = { fg = "#ff9e64" },
                     },
-                    -- Original sections
                     "encoding",
                     "fileformat",
                     "filetype",
                 },
             },
             inactive_sections = {
+                lualine_a = {
+                    diff_component,
+                },
                 lualine_y = { window },
             },
             options = {
