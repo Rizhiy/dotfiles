@@ -3,8 +3,8 @@ vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.laststatus = 2
 
-vim.opt.showtabline = 0 -- Never show tabline
-vim.opt.conceallevel = 0 -- Don't hide links and stuff in Markdown
+vim.opt.showtabline = 0                     -- Never show tabline
+vim.opt.conceallevel = 0                    -- Don't hide links and stuff in Markdown
 
 vim.opt.iskeyword = vim.opt.iskeyword + "-" -- treat dash-separated words as whole word objects
 
@@ -42,6 +42,7 @@ autocmd("ColorScheme", {
         vim.cmd("hi DapBreakpointSymbol guibg=None")
         vim.cmd("hi DapStoppedSymbol guibg=None")
         vim.cmd("hi CursorLine gui=underline guibg=None guisp=" .. mild_color)
+        vim.cmd("hi DiffText guifg=None guibg=#407030")
     end,
 })
 
