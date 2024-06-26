@@ -42,7 +42,7 @@ map("<", "<gv", { desc = "Un-indent selection", mode = "v" })
 map(">", ">gv", { desc = "Indent selection", mode = "v" })
 
 nmap("<leader>v", ":vsplit<CR>", { desc = "Vertical Split", silent = true })
-nmap("<leader>-", ":split<CR>", { desc = "Horisontal Split", silent = true })
+nmap("<leader>-", ":split<CR>", { desc = "Horizontal Split", silent = true })
 
 -- Split resize
 nmap("<C-Left>", ":vertical resize +3<CR>", { desc = "Increase vertical split size" })
@@ -57,7 +57,10 @@ nmap("x", "d", { desc = "Cut" })
 
 nmap("<C-s>", ":w<CR>", { desc = "Save buffer" })
 nmap("<C-d>", ":q<CR>", { desc = "Close pane", silent = true })
-nmap("<C-q>", ":qall<CR>", { desc = "Exit" })
+nmap("<C-q>", function()
+    pcall(vim.cmd.DiffviewClose)
+    vim.cmd.qall()
+end, { desc = "Exit" })
 
 nmap("J", "mzJ`z", { desc = "Append line below to current line" })
 
