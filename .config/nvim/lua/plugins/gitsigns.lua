@@ -4,7 +4,7 @@ return {
     config = function()
         require("gitsigns").setup({
             current_line_blame = true,
-            _signs_staged_enable = true,
+            signs_staged_enable = true,
             current_line_blame_opts = {
                 delay = 100,
             },
