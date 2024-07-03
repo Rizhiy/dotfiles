@@ -6,7 +6,6 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true } } }, -- neovim completion
-        { "antosha417/nvim-lsp-file-operations", opts = {} }, -- Neo-tree integration
     },
     keys = {
         { "<leader>rs", ":LspRestart<CR>", desc = "Restart Server", silent = true },
