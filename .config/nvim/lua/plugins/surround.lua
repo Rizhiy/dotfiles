@@ -1,1 +1,5 @@
-return { "tpope/vim-surround", event = "VeryLazy" }
+return {
+    "echasnovski/mini.surround",
+    event = "VeryLazy",
+    opts = true,
+}
