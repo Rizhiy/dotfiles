@@ -90,3 +90,7 @@ nmap("<leader>bd", function()
     vim.wo[win_id][0].foldlevel = toggled and 10 or 0
     vim.wo[win_id][0].foldmethod = toggled and "indent" or "diff"
 end, { desc = "Toggle diff mode for window" })
+
+-- Lazy
+nmap("<leader>lu", function() require("lazy").update({ show = false }) end, { desc = "Update plugins" })
+nmap("<leader>lc", function() require("lazy").clean({ show = false }) end, { desc = "Clean plugins" })

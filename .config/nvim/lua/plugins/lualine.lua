@@ -34,6 +34,11 @@ return {
                         color = { fg = "#ff9e64" },
                     },
                     {
+                        function() return require("lazy.status").updates() .. " updates available" end,
+                        cond = require("lazy.status").has_updates,
+                        color = { fg = "#ff9e64" },
+                    },
+                    {
                         "encoding",
                         cond = function()
                             local ret, _ = vim.bo.fenc:gsub("^utf%-8$", "")

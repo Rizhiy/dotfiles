@@ -15,4 +15,8 @@ require("lazy").setup("plugins", {
     ui = {
         border = require("rizhiy.border").Border(),
     },
+    checker = {
+        enabled = true,
+        notify = false,
+    },
 })

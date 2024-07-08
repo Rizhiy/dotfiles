@@ -8,7 +8,6 @@ return {
         local startify = require("alpha.themes.startify")
 
         local persistence = require("persistence")
-        vim.print(persistence)
 
         local top_buttons = {
             startify.button("e", "New file", "<cmd>ene <CR>"), -- preserver original file edit
