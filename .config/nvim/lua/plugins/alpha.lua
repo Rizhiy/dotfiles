@@ -8,13 +8,14 @@ return {
         local startify = require("alpha.themes.startify")
 
         local persistence = require("persistence")
+        vim.print(persistence)
 
         local top_buttons = {
             startify.button("e", "New file", "<cmd>ene <CR>"), -- preserver original file edit
             { type = "padding", val = 1 },
         }
         local sessions = require("plenary.collections.py_list")(persistence.list())
-        local current_session = persistence.get_current()
+        local current_session = persistence.current()
         if sessions:contains(current_session) then
             table.insert(
                 top_buttons,
@@ -25,7 +26,7 @@ return {
                 )
             )
         end
-        local last_session = persistence.get_last()
+        local last_session = persistence.last()
         if sessions:contains(last_session) and last_session ~= current_session then
             table.insert(
                 top_buttons,
