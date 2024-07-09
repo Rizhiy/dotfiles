@@ -58,6 +58,7 @@ nmap("x", "d", { desc = "Cut" })
 nmap("<C-s>", ":w<CR>", { desc = "Save buffer" })
 nmap("<C-d>", ":q<CR>", { desc = "Close pane", silent = true })
 nmap("<C-q>", function()
+    pcall(vim.cmd.ccl)
     pcall(vim.cmd.DiffviewClose)
     vim.cmd.qall()
 end, { desc = "Exit" })
@@ -94,3 +95,8 @@ end, { desc = "Toggle diff mode for window" })
 -- Lazy
 nmap("<leader>lu", function() require("lazy").update({ show = false }) end, { desc = "Update plugins" })
 nmap("<leader>lc", function() require("lazy").clean({ show = false }) end, { desc = "Clean plugins" })
+
+-- Quickfix
+nmap("<leader>q", ":copen<CR>", { desc = "Open quickfix" })
+nmap("]q", ":cnext<CR>", { desc = "Next item in quickfix" })
+nmap("[q", ":cprev<CR>", { desc = "Prev item in quickfix" })
