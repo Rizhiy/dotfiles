@@ -1,9 +1,8 @@
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    version = "^3.2",
+    version = "^3.4",
     opts = {
-        delay = vim.opt.timeoutlen:get(),
         spec = {
             { "g",          group = "Go" },
             { "z",          group = "Folds" },

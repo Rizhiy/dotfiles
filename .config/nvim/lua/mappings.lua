@@ -95,8 +95,14 @@ nmap("<leader>bd", function()
 end, { desc = "Toggle diff mode for window" })
 
 -- Lazy
-nmap("<leader>lu", function() require("lazy").update({ show = false }) end, { desc = "Update plugins" })
-nmap("<leader>lc", function() require("lazy").clean({ show = false }) end, { desc = "Clean plugins" })
+nmap("<leader>lu", function()
+    vim.notify("Running lazy update")
+    require("lazy").update({ show = false })
+end, { desc = "Update plugins" })
+nmap("<leader>lc", function()
+    require("lazy").clean({ show = false })
+    vim.notify("Running lazy clean")
+end, { desc = "Clean plugins" })
 
 -- Quickfix
 nmap("<leader>q", ":copen<CR>", { desc = "Open quickfix" })

@@ -4,8 +4,8 @@ local _spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇"
 local ProgressBar = {}
 ProgressBar.__index = ProgressBar
 
----@param len number
----@param desc string
+---@param len number | nil
+---@param desc string | nil
 function ProgressBar:init(len, desc)
     local bar = {}
     setmetatable(bar, ProgressBar)
