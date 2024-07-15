@@ -1,6 +1,6 @@
 return {
     "folke/persistence.nvim",
-    version = "^3.1.0",
+    version = "^3.1",
     event = "BufReadPre",
     opts = {},
 }

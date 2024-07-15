@@ -1,24 +1,29 @@
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function()
-        local wk = require("which-key")
-        wk.register({
-            g = { name = "Go" },
-            z = { name = "Folds" },
-        })
-        wk.register({
-            b = { name = "Buffer" },
-            c = { name = "Code" },
-            d = { name = "Debugging" },
-            f = { name = "Find" },
-            h = { name = "Harpoon" },
-            m = { name = "Markdown" },
-            r = { name = "Run" },
-            o = { name = "Other" },
-            s = { name = "ScratchPad" },
-            g = { name = "Git", h = { name = "GitHub" } },
-            x = { name = "Snippets" },
-        }, { prefix = "<leader>" })
-    end,
+    version = "^3.2",
+    opts = {
+        delay = vim.opt.timeoutlen:get(),
+        spec = {
+            { "g",          group = "Go" },
+            { "z",          group = "Folds" },
+            { "<leader>b",  group = "Buffer" },
+            { "<leader>c",  group = "Code" },
+            { "<leader>d",  group = "Debugging" },
+            { "<leader>f",  group = "Find" },
+            { "<leader>g",  group = "Git" },
+            { "<leader>gh", group = "Github" },
+            { "<leader>h",  group = "Harpoon" },
+            { "<leader>l",  group = "Lazy" },
+            { "<leader>m",  group = "Markdown" },
+            { "<leader>o",  group = "Other" },
+            { "<leader>r",  group = "Run" },
+            { "<leader>s",  group = "ScratchPad" },
+            { "<leader>x",  group = "Snippets" },
+        },
+        sort = {
+            "group",
+            "alphanum",
+        },
+    },
 }
