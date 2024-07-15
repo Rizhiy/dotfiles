@@ -2,6 +2,26 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     tag = "v2.0.2",
+    dependencies = {
+        "nvim-telescope/telescope.nvim",
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+        "MunifTanjim/nui.nvim",
+        -- OPTIONAL:
+        --   `nvim-notify` is only needed, if you want to use the notification view.
+        --   If not available, we use `mini` as the fallback
+        {
+            "rcarriga/nvim-notify",
+            opts = {
+                background_colour = "#000000",
+            },
+        },
+    },
+    keys = {
+        { "<leader>fm", ":Noice telescope<CR>", desc = "Find message",           silent = true },
+        { "<leader>ml", ":Noice last<CR>",      desc = "Show last message",      silent = true },
+        { "<leader>me", ":Noice errors<CR>",    desc = "Show errors in a split", silent = true },
+        { "<leader>md", ":Noice dismiss<CR>",   desc = "Hide all messages",      silent = true },
+    },
     opts = {
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treestureitter**
@@ -41,19 +61,6 @@ return {
                     },
                 },
                 opts = { skip = true },
-            },
-        },
-    },
-    dependencies = {
-        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        "MunifTanjim/nui.nvim",
-        -- OPTIONAL:
-        --   `nvim-notify` is only needed, if you want to use the notification view.
-        --   If not available, we use `mini` as the fallback
-        {
-            "rcarriga/nvim-notify",
-            opts = {
-                background_colour = "#000000",
             },
         },
     },

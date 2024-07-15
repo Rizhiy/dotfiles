@@ -57,6 +57,7 @@ return {
         telescope.load_extension("gh")
         telescope.load_extension("import")
         telescope.load_extension("jsonfly")
+        telescope.load_extension("noice")
 
         local builtin = require("telescope.builtin")
         function FuzzyFindFiles()
