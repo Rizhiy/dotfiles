@@ -4,12 +4,12 @@ local _spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇"
 local ProgressBar = {}
 ProgressBar.__index = ProgressBar
 
----@param len number | nil
+---@param total number | nil
 ---@param desc string | nil
-function ProgressBar:init(len, desc)
+function ProgressBar:init(total, desc)
     local bar = {}
     setmetatable(bar, ProgressBar)
-    bar._len = len
+    bar._total = total
     bar._desc = desc
 
     bar._progress = 0
@@ -24,7 +24,7 @@ function ProgressBar:_update()
     local message = self._done and "Done" or _spinner[self._spinner_idx]
     if self._desc then message = message .. " " .. self._desc end
     message = message .. (" %d"):format(self._progress)
-    if self._len then message = message .. ("/%d"):format(self._len) end
+    if self._total then message = message .. ("/%d"):format(self._total) end
 
     self._notif = vim.notify(message, vim.log.levels.INFO, {
         replace = self._notif,
@@ -41,7 +41,7 @@ end
 function ProgressBar:update(step)
     step = step or 1
     self._progress = self._progress + step
-    if self._progress == self._len then self._done = true end
+    if self._progress == self._total then self._done = true end
 end
 
 function ProgressBar:close() self._done = true end
