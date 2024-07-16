@@ -2,10 +2,11 @@ return {
     {
         "voldikss/vim-floaterm",
         keys = {
-            { "<F1>", "<ESC>:FloatermToggle<CR>", mode = { "n", "v", "i" }, desc = "Toggle terminal", silent = true },
-            { "<F2>", "<ESC>:FloatermPrev<CR>", mode = { "n", "v", "i" }, desc = "Prev terminal", silent = true },
-            { "<F3>", "<ESC>:FloatermNext<CR>", mode = { "n", "v", "i" }, desc = "Next terminal", silent = true },
-            { "<F4>", "<ESC>:FloatermNew<CR>", mode = { "n", "v", "i" }, desc = "New terminal", silent = true },
+            { "<F1>",  "<ESC>:FloatermToggle<CR>", mode = { "n", "v", "i" }, desc = "Toggle terminal",           silent = true },
+            { "<F2>",  "<ESC>:FloatermPrev<CR>",   mode = { "n", "v", "i" }, desc = "Prev terminal",             silent = true },
+            { "<F3>",  "<ESC>:FloatermNext<CR>",   mode = { "n", "v", "i" }, desc = "Next terminal",             silent = true },
+            { "<F4>",  "<ESC>:FloatermNew<CR>",    mode = { "n", "v", "i" }, desc = "New terminal",              silent = true },
+            { "<ESC>", "<C-\\><C-N>",              mode = "t",               desc = "Make ESC work in terminal", silent = true },
         },
         init = function()
             vim.cmd("let g:floaterm_keymap_toggle = '<F1>'")
