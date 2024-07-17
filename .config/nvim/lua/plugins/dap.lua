@@ -12,8 +12,8 @@ return {
         event = "VeryLazy",
         dependencies = {
             { "Weissle/persistent-breakpoints.nvim", opts = { load_breakpoints_event = { "BufReadPost" } } },
-            { "rcarriga/nvim-dap-ui",                opts = {} },
-            { "theHamsta/nvim-dap-virtual-text",     opts = {} },
+            { "rcarriga/nvim-dap-ui", opts = {} },
+            { "theHamsta/nvim-dap-virtual-text", opts = {} },
             { "nvim-neotest/nvim-nio" },
         },
         config = function()

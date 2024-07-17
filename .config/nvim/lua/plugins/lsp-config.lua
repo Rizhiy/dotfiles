@@ -18,6 +18,6 @@ return {
             virtual_text = {
                 prefix = "●",
             },
-        })
+        }, vim.api.nvim_create_namespace("neotest"))
     end,
 }
