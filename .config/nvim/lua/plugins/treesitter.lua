@@ -38,7 +38,10 @@ return {
                 "gitignore",
             },
             auto_install = true,
-            highlight = { enable = true },
+            highlight = {
+                enable = true,
+                disable = function(_, buf) return require("rizhiy.utils").is_large_file(buf) end,
+            },
             indent = { enable = true },
         })
         vim.cmd("hi TreesitterContext guibg=None")
