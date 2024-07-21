@@ -22,7 +22,9 @@ return {
                 null_ls.builtins.diagnostics.codespell.with({
                     extra_args = { "--ignore-words", vim.fn.stdpath("data") .. "/spell/words.add" },
                 }),
-                null_ls.builtins.formatting.prettier,
+                null_ls.builtins.formatting.prettier.with({
+                    disabled_filetypes = { "lua", "python", "yaml" },
+                }),
             },
         })
         local nmap = require("rizhiy.keys").nmap

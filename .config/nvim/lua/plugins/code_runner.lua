@@ -15,6 +15,7 @@ return {
             "<leader>rc",
             ":RunClose<CR>",
             desc = "Stop auto-running of file",
+            silent = true,
         },
     },
 
