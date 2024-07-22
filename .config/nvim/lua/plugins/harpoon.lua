@@ -9,7 +9,7 @@ return {
             function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
             desc = "Open harpoon list",
         },
-        { "<leader>ha", function() require("harpoon"):list():append() end,         desc = "Add to harpoon" },
+        { "<leader>ha", function() require("harpoon"):list():add() end,            desc = "Add to harpoon" },
         { "<leader>hr", function() require("harpoon"):list():remove() end,         desc = "Remove from harpoon" },
         { "<leader>hp", function() require("harpoon"):list():prev() end,           desc = "Go to prev harpoon" },
         { "<leader>hn", function() require("harpoon"):list():next() end,           desc = "Go to next harpoon" },
@@ -18,16 +18,15 @@ return {
     config = function()
         local harpoon = require("harpoon")
 
-        local work_dir = vim.loop.cwd()
         local opts = {
-            settings = { save_on_toggle = true, sync_on_ui_close = true, key = function() return work_dir end },
+            settings = { save_on_toggle = true, sync_on_ui_close = true, key = function() return "global" end },
         }
         opts[require("harpoon.config").DEFAULT_LIST] = {
             create_list_item = function(_, item)
                 if item == nil then item = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()) end
 
                 if type(item) == "string" then
-                    local name = require("plenary.path"):new(item):make_relative(work_dir)
+                    local name = require("plenary.path"):new(item):absolute()
                     local bufnr = vim.fn.bufnr(name, false)
 
                     local pos = { 1, 0 }
