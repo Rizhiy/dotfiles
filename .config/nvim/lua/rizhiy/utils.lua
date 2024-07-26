@@ -33,4 +33,34 @@ function M.change_modifiable(buffers, state)
     end
 end
 
+--- @return table
+function M.get_promise()
+    local promise = {
+        updated = false,
+        on_success = nil,
+        on_failure = nil,
+    }
+
+    function promise.next(on_success, on_failure)
+        promise.updated = true
+        promise.on_success = on_success
+        promise.on_failure = on_failure
+    end
+
+    function promise.done(obj)
+        obj = obj or { code = 0 }
+        if promise.updated then
+            if obj.code == 0 then
+                if promise.on_success then promise.on_success(obj) end
+            else
+                if promise.on_failure then promise.on_failure(obj) end
+            end
+        else
+            vim.defer_fn(function() promise.done(obj) end, 10)
+        end
+    end
+
+    return promise
+end
+
 return M
