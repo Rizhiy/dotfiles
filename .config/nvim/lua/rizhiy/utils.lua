@@ -25,4 +25,15 @@ function M.is_large_file(buf)
     return false
 end
 
+--- @param buffers integer[]
+--- @param state boolean
+function M.change_modifiable(buffers, state)
+    for _, buf in ipairs(buffers) do
+        vim.schedule(function()
+            vim.print(buf)
+            vim.bo[buf].modifiable = state
+        end)
+    end
+end
+
 return M
