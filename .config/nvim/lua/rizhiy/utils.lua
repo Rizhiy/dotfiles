@@ -29,10 +29,7 @@ end
 --- @param state boolean
 function M.change_modifiable(buffers, state)
     for _, buf in ipairs(buffers) do
-        vim.schedule(function()
-            vim.print(buf)
-            vim.bo[buf].modifiable = state
-        end)
+        vim.schedule(function() vim.bo[buf].modifiable = state end)
     end
 end
 
