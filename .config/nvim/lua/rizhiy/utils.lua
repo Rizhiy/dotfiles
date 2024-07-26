@@ -34,7 +34,8 @@ function M.change_modifiable(buffers, state)
 end
 
 --- @return table
-function M.get_promise()
+function M.get_promise(poll_time)
+    poll_time = poll_time or 25
     local promise = {
         updated = false,
         on_success = nil,
@@ -56,7 +57,7 @@ function M.get_promise()
                 if promise.on_failure then promise.on_failure(obj) end
             end
         else
-            vim.defer_fn(function() promise.done(obj) end, 10)
+            vim.defer_fn(function() promise.done(obj) end, poll_time)
         end
     end
 
