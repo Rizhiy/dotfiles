@@ -1,14 +1,14 @@
 -- https://github.com/folke/noice.nvim/blob/main/lua/noice/util/spinners.lua
 local _spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
 
-local ProgressBar = {}
-ProgressBar.__index = ProgressBar
+local ProgressCounter = {}
+ProgressCounter.__index = ProgressCounter
 
 ---@param total number | nil
 ---@param desc string | nil
-function ProgressBar:init(total, desc)
+function ProgressCounter:init(total, desc)
     local bar = {}
-    setmetatable(bar, ProgressBar)
+    setmetatable(bar, ProgressCounter)
     bar._total = total
     bar._desc = desc
 
@@ -20,7 +20,7 @@ function ProgressBar:init(total, desc)
     return bar
 end
 
-function ProgressBar:_update()
+function ProgressCounter:_update()
     local message = self._done and "Done" or _spinner[self._spinner_idx]
     if self._desc then message = message .. " " .. self._desc end
     message = message .. (" %d"):format(self._progress)
@@ -38,16 +38,16 @@ function ProgressBar:_update()
 end
 
 ---@param step number
-function ProgressBar:update(step)
+function ProgressCounter:update(step)
     step = step or 1
     self._progress = self._progress + step
     if self._progress == self._total then self._done = true end
 end
 
-function ProgressBar:close() self._done = true end
+function ProgressCounter:close() self._done = true end
 
 local M = {}
 
-M.ProgressBar = ProgressBar
+M.ProgressCounter = ProgressCounter
 
 return M
