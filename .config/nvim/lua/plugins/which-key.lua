@@ -3,6 +3,7 @@ return {
     event = "VeryLazy",
     version = "^3.4",
     opts = {
+        preset = "modern",
         spec = {
             { "g",          group = "Go" },
             { "z",          group = "Folds" },
@@ -21,8 +22,26 @@ return {
             { "<leader>x",  group = "Snippets" },
         },
         sort = {
+            "order",
             "group",
             "alphanum",
+            "mod",
+        },
+        disable = {
+            ft = {
+                "floaterm",
+            },
+        },
+        win = {
+            padding = { 0, 0 },
+        },
+        layout = {
+            width = { min = 0 },
+            spacing = 2,
+        },
+        keys = {
+            scroll_down = "<C-j>",
+            scroll_up = "<C-k>",
         },
         expand = 1,
     },
