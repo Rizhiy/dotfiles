@@ -26,7 +26,7 @@ return {
             )
         end
         local last_session = persistence.last()
-        if sessions:contains(last_session) and last_session ~= current_session then
+        if sessions:contains(last_session) then
             table.insert(
                 top_buttons,
                 startify.button(
