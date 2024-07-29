@@ -28,10 +28,9 @@ end
 --- @param buffers integer[]
 --- @param state boolean
 function M.change_modifiable(buffers, state)
-    for _, buf in ipairs(buffers) do
-        vim.schedule(function()
-            if vim.bo[buf] ~= nil then vim.bo[buf].modifiable = state end
-        end)
+    local filtered_buffers = vim.tbl_filter(function(buf) return vim.fn.buflisted(buf) == 1 end, buffers)
+    for _, buf in ipairs(filtered_buffers) do
+        vim.schedule(function() vim.bo[buf].modifiable = state end)
     end
 end
 
