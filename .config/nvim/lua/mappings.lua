@@ -4,7 +4,6 @@ local map = require("rizhiy.keys").map
 local nmap = require("rizhiy.keys").nmap
 
 map("q:", "<nop>", { desc = "Disable command history" })
-map("<C-c>", "<ESC>", { desc = "Escape" })
 map("<leader>e", ":e!<CR>", { desc = "Force reload current file" })
 
 map("<ESC>", ":noh<CR>", { desc = "Deselect search highlight" })
@@ -58,7 +57,7 @@ map("x", "d", { desc = "Cut" })
 nmap("dd", 'V"_d', { desc = "Delete line" })
 
 nmap("<C-s>", ":w<CR>", { desc = "Save buffer" })
-nmap("<C-d>", ":q<CR>", { desc = "Close pane", silent = true })
+nmap("<C-c>", ":q<CR>", { desc = "Close pane", silent = true })
 nmap("<C-q>", function()
     pcall(vim.cmd.ccl)
     pcall(vim.cmd.DiffviewClose)

@@ -35,7 +35,7 @@ return {
 
             ["<C-t>"] = "actions.select_tab",
             ["<C-p>"] = "actions.preview",
-            ["<C-d>"] = "actions.close",
+            ["<C-c>"] = "actions.close",
             ["<C-r>"] = "actions.refresh",
 
             ["<BS>"] = "actions.parent",
