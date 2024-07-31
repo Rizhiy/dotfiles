@@ -26,6 +26,9 @@ return { -- Autocompletion
 
         -- VIM cmd auto-complete
         "hrsh7th/cmp-cmdline",
+
+        -- neovim development
+        "folke/lazydev.nvim",
     },
     keys = {
         {
@@ -84,6 +87,7 @@ return { -- Autocompletion
                 },
                 { name = "dotenv" },
                 { name = "buffer" },
+                { name = "lazydev", group_index = 0 },
             },
             formatting = {
                 format = lspkind.cmp_format(),

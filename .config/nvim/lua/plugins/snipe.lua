@@ -3,7 +3,7 @@ return {
     keys = {
         {
             "gb",
-            function() require("snipe").create_buffer_menu_toggler()() end,
+            function() require("snipe").open_buffer_menu() end,
             desc = "Snipe a buffer",
         },
     },
