@@ -28,10 +28,12 @@ end
 --- @param buffers integer[]
 --- @param state boolean
 function M.change_modifiable(buffers, state)
-    local filtered_buffers = vim.tbl_filter(function(buf) return vim.fn.buflisted(buf) == 1 end, buffers)
-    for _, buf in ipairs(filtered_buffers) do
-        vim.schedule(function() vim.bo[buf].modifiable = state end)
-    end
+    vim.schedule(function()
+        local filtered_buffers = vim.tbl_filter(function(buf) return vim.fn.buflisted(buf) == 1 end, buffers)
+        for _, buf in ipairs(filtered_buffers) do
+            vim.bo[buf].modifiable = state
+        end
+    end)
 end
 
 --- @return table
