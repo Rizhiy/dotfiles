@@ -3,6 +3,6 @@ return {
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {
         disabled_filetypes = { "lazy", "oil" },
-        max_count = 5,
+        max_count = 12,
     },
 }
