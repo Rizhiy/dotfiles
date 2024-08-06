@@ -11,3 +11,12 @@ nmap("<down>", ':echo "Use j to move!!"<CR>', { desc = "<Disabled>" })
 for idx = 1, 9 do
     nmap("<leader>" .. idx, idx .. "<C-w>w", { desc = "Move to window " .. idx })
 end
+
+-- Extra movement
+local brackets = "[]{}<>()"
+for bracket in brackets:gmatch(".") do
+    nmap("]" .. bracket, ":call search('" .. bracket .. "')<CR>", { desc = "Next " .. bracket })
+    nmap("[" .. bracket, ":call search('" .. bracket .. "', 'b')<CR>", { desc = "Previous " .. bracket })
+end
+nmap("]q", ":cnext<CR>", { desc = "Next item in quickfix" })
+nmap("[q", ":cprev<CR>", { desc = "Previous item in quickfix" })
