@@ -61,7 +61,7 @@ nmap("<C-c>", ":q<CR>", { desc = "Close pane", silent = true })
 nmap("<C-q>", function()
     pcall(vim.cmd.ccl)
     pcall(vim.cmd.DiffviewClose)
-    pcall(require("neotest").summary.close)
+    pcall(function() require("neotest").summary.close() end)
     vim.cmd.qall()
 end, { desc = "Exit" })
 
