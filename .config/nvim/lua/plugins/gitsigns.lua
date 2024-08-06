@@ -16,7 +16,7 @@ return {
 
                 -- Navigation
                 nmap("<leader>gp", gs.prev_hunk, { desc = "Next hunk" })
-                nmap("<leader>gn", gs.next_hunk, { desc = "Prev hunk" })
+                nmap("<leader>gn", gs.next_hunk, { desc = "Previous hunk" })
 
                 -- Actions
                 nmap("<leader>gs", gs.stage_hunk, { desc = "Stage hunk" })

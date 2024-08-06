@@ -16,7 +16,7 @@ local on_attach = function(_, bufnr)
     nmap("<leader>ds", ":Telescope diagnostics<CR>", "Show diagnostics")
     nmap("<leader>dt", ":TroubleToggle<CR>", "Show trouble")
     nmap("]d", vim.diagnostic.goto_next, "Next diagnostic")
-    nmap("[d", vim.diagnostic.goto_prev, "Prev diagnostic")
+    nmap("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }

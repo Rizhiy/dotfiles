@@ -107,4 +107,11 @@ end, { desc = "Clean plugins" })
 -- Quickfix
 nmap("<leader>q", ":copen<CR>", { desc = "Open quickfix" })
 nmap("]q", ":cnext<CR>", { desc = "Next item in quickfix" })
-nmap("[q", ":cprev<CR>", { desc = "Prev item in quickfix" })
+nmap("[q", ":cprev<CR>", { desc = "Previous item in quickfix" })
+
+-- Extra movement
+local brackets = "[]{}<>()"
+for bracket in brackets:gmatch(".") do
+    nmap("]" .. bracket, ":call search('" .. bracket .. "')<CR>", { desc = "Next " .. bracket })
+    nmap("[" .. bracket, ":call search('" .. bracket .. "', 'b')<CR>", { desc = "Previous " .. bracket })
+end
