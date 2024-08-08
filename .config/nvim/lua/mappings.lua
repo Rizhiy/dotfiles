@@ -106,5 +106,3 @@ end, { desc = "Clean plugins" })
 
 -- Quickfix
 nmap("<leader>q", ":copen<CR>", { desc = "Open quickfix" })
-
-nmap("<leader>ot", function() require("rizhiy.progress").run_system_with_sinner({ "sleep", "1" }, "sleeping") end)

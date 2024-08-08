@@ -50,7 +50,7 @@ function ProgressCounter:close() self._done = true end
 
 ---@param command string[]
 ---@param desc string spinner text
-function run_system_with_sinner(command, desc)
+function run_system_with_spinner(command, desc)
     local all_buffers = vim.api.nvim_list_bufs()
     local change_modifiable = require("rizhiy.utils").change_modifiable
 
@@ -69,5 +69,5 @@ end
 
 return {
     ProgressCounter = ProgressCounter,
-    run_system_with_sinner = run_system_with_sinner,
+    run_system_with_spinner = run_system_with_spinner,
 }
