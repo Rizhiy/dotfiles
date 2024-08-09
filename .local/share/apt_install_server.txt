@@ -28,7 +28,6 @@ libevent-dev
 ncurses-dev
 bison
 pkg-config
-nodejs
 bat
 parallel
 onefetch

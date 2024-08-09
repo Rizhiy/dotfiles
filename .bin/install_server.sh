@@ -52,6 +52,24 @@ fi
 xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_server.txt
 sudo apt-get upgrade -y
 
+if ! command -v npm > /dev/null; then
+	# Debian doesn't install npm with node, so need custom logic here
+	os="$(lsb_release -i)"
+	case "$os" in
+		*Ubuntu*)
+			node_package="nodejs"
+			;;
+		*Debian*)
+			node_package="npm"
+			;;
+		*)
+			echo "Unknown os: ${os}"
+			exit 1
+			;;
+	esac
+	sudo apt install "$node_package"
+fi
+
 # Link fd
 if ! command -v fd > /dev/null; then
     ln -s $(which fdfind) ~/.bin/fd
