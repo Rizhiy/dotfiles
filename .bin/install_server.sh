@@ -29,7 +29,16 @@ if ! command -v gh > /dev/null; then
 fi
 
 if [ ! -d "$HOME/miniconda3" ]; then
-	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O "$HOME/miniconda3.sh"
+	architecture="$(dpkg --print-architecture)"
+	if [ "$architecture" = "amd64" ]; then
+		download_link="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+	elif [ "$architecture" = "arm64" ]; then
+		download_link="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh"
+	else
+		echo "Unknown architecture! ${architecture}"
+		exit 1
+	fi
+	wget "$download_link" -O "$HOME/miniconda3.sh"
 	bash "$HOME/miniconda3.sh" -b -p "$HOME/miniconda3"
 	rm "$HOME/miniconda3.sh"
 else
