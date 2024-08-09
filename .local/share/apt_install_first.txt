@@ -2,3 +2,5 @@ git
 wget
 curl
 zsh
+software-properties-common
+python3-launchpadlib
