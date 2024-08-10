@@ -125,7 +125,15 @@ cd -
 
 if ! git lfs &>/dev/null; then
 	cd /tmp
-	wget "https://github.com/git-lfs/git-lfs/releases/download/v2.10.0/git-lfs-linux-amd64-v2.10.0.tar.gz" -O "git-lfs.tar.gz" &&
+	if [ "$architecture" = "amd64" ]; then
+		download_link="https://github.com/git-lfs/git-lfs/releases/download/v3.5.1/git-lfs-linux-amd64-v3.5.1.tar.gz"
+	elif [ "$architecture" = "arm64" ]; then
+		download_link="https://github.com/git-lfs/git-lfs/releases/download/v3.5.1/git-lfs-linux-arm64-v3.5.1.tar.gz"
+	else
+		echo "Unknown architecture! ${architecture}"
+		exit 1
+	fi
+	wget "$download_link" -O "git-lfs.tar.gz" &&
 		tar -xzf git-lfs.tar.gz &&
 		sudo ./install.sh &&
 		git lfs install
@@ -145,16 +153,17 @@ fc-cache -fv
 cd -
 
 
-if ! command -v ytop > /dev/null; then
-	ytop_path="/tmp/ytop.tar.gz"
-	wget "https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz" -O "$ytop_path" &&
-	tar -xzf "$ytop_path" -C "$HOME/.bin"
-	rm -fr "$ytop_path"
-fi
-
 if ! command -v lsd > /dev/null; then
-	lsd_path="/tmp/lsd_18.deb"
-	wget "https://github.com/Peltoche/lsd/releases/download/0.18.0/lsd_0.18.0_amd64.deb" -O "$lsd_path" &&
+	lsd_path="/tmp/lsd.deb"
+	if [ "$architecture" = "amd64" ]; then
+		download_link="https://github.com/lsd-rs/lsd/releases/download/v1.1.2/lsd_1.1.2_amd64.deb"
+	elif [ "$architecture" = "arm64" ]; then
+		download_link="https://github.com/lsd-rs/lsd/releases/download/v1.1.2/lsd_1.1.2_arm64.deb"
+	else
+		echo "Unknown architecture! ${architecture}"
+		exit 1
+	fi
+	wget "$download_link" -O "$lsd_path" &&
 	sudo dpkg -i "$lsd_path"
 	rm -fr "$lsd_path"
 fi
