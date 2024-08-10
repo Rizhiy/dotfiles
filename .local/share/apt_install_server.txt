@@ -30,7 +30,6 @@ bison
 pkg-config
 bat
 parallel
-onefetch
 fd-find
 luarocks
 htop
