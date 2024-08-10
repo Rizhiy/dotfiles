@@ -1,15 +1,14 @@
 #!/bin/bash
 set -e
+architecture="$(dpkg --print-architecture)"
+os="$(lsb_release -i)"
+
 # Download all submodules
 /usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" submodule update --init --recursive
 
 # Install basic stuff first
 xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_first.txt
 
-# Always have latest git version
-sudo add-apt-repository ppa:git-core/ppa -n -y
-# Add onefetch
-sudo add-apt-repository ppa:o2sh/onefetch -n -y
 # Add node ppa
 mkdir -p /etc/apt/keyrings
 if ! command -v node > /dev/null; then
@@ -28,7 +27,6 @@ if ! command -v gh > /dev/null; then
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 fi
 
-architecture="$(dpkg --print-architecture)"
 if [ ! -d "$HOME/miniconda3" ]; then
 	if [ "$architecture" = "amd64" ]; then
 		download_link="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
@@ -41,18 +39,8 @@ if [ ! -d "$HOME/miniconda3" ]; then
 	wget "$download_link" -O "$HOME/miniconda3.sh"
 	bash "$HOME/miniconda3.sh" -b -p "$HOME/miniconda3"
 	rm "$HOME/miniconda3.sh"
-else
-	echo "Miniconda installation found"
 fi
 
-if command -v pip > /dev/null; then
-	pip install -r $HOME/.local/share/pip_install_server.txt
-fi
-
-xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_server.txt
-sudo apt-get upgrade -y
-
-os="$(lsb_release -i)"
 if ! command -v npm > /dev/null; then
 	# Debian doesn't install npm with node, so need custom logic here
 	case "$os" in
@@ -68,6 +56,13 @@ if ! command -v npm > /dev/null; then
 			;;
 	esac
 	sudo apt-get install "$node_package" -y
+fi
+
+xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_server.txt
+sudo apt-get upgrade -y
+
+if command -v pip > /dev/null; then
+	pip install -r $HOME/.local/share/pip_install_server.txt
 fi
 
 # Link fd
