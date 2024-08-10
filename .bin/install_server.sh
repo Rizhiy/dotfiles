@@ -13,23 +13,23 @@ sudo add-apt-repository ppa:o2sh/onefetch -n -y
 # Add node ppa
 mkdir -p /etc/apt/keyrings
 if ! command -v node > /dev/null; then
-    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor | sudo tee /etc/apt/keyrings/nodesource.gpg > /dev/null \
-    && NODE_MAJOR=20 \
-    && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list > /dev/null
+	curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor | sudo tee /etc/apt/keyrings/nodesource.gpg > /dev/null \
+	&& NODE_MAJOR=20 \
+	&& echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list > /dev/null
 fi
 # Install rust
 if ! command -v rustup > /dev/null; then
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 fi
 # Add GitHub CLI ppa
 if ! command -v gh > /dev/null; then
-    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-    && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+	curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+	&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 fi
 
+architecture="$(dpkg --print-architecture)"
 if [ ! -d "$HOME/miniconda3" ]; then
-	architecture="$(dpkg --print-architecture)"
 	if [ "$architecture" = "amd64" ]; then
 		download_link="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
 	elif [ "$architecture" = "arm64" ]; then
@@ -52,9 +52,9 @@ fi
 xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_server.txt
 sudo apt-get upgrade -y
 
+os="$(lsb_release -i)"
 if ! command -v npm > /dev/null; then
 	# Debian doesn't install npm with node, so need custom logic here
-	os="$(lsb_release -i)"
 	case "$os" in
 		*Ubuntu*)
 			node_package="nodejs"
@@ -72,14 +72,36 @@ fi
 
 # Link fd
 if ! command -v fd > /dev/null; then
-    ln -s $(which fdfind) ~/.bin/fd
+	ln -s $(which fdfind) ~/.bin/fd
 fi
 
 if ! command -v nvim > /dev/null; then
-    nvim_path="/opt/neovim/nvim.appimage"
-    sudo mkdir -p $(dirname $nvim_path)
-	sudo wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$nvim_path" && sudo chmod +x "$nvim_path"
-    sudo ln -s /opt/neovim/nvim.appimage /usr/local/bin/nvim
+	# AppImage doesn't work on raspberry pi, so build from source
+	if [ "$architecture" = "amd64" ]; then
+		nvim_path="/opt/neovim/nvim.appimage"
+		sudo mkdir -p $(dirname $nvim_path)
+		sudo wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$nvim_path" && sudo chmod +x "$nvim_path"
+		sudo ln -s /opt/neovim/nvim.appimage /usr/local/bin/nvim
+	elif [ "$architecture" = "arm64" ]; then
+		# Based on https://forums.raspberrypi.com/viewtopic.php?t=367119#p2203414
+		current_dir="$(pwd)"
+		clone_dir="/tmp/neovim-clone"
+		mkdir "$clone_dir"
+		git clone https://github.com/neovim/neovim.git "$clone_dir"
+
+		cd "$clone_dir"
+		sudo cmake --build build/ --target uninstall
+		# NOTE: Update version when required
+		git checkout release-0.10
+		make CMAKE_BUILD_TYPE=Release
+		cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+
+		cd "$current_dir"
+		rm -fr "$clone-dir"
+	else
+		echo "Unknown architecture! ${architecture}"
+		exit 1
+	fi
 fi
 sudo npm install -g neovim
 
@@ -90,7 +112,7 @@ fi
 
 # Install deno - JS runtime
 if ! command -v deno > /dev/null; then
-    curl -fsSL deno.land/x/install/install.sh | sudo DENO_INSTALL=/usr/local sh
+	curl -fsSL deno.land/x/install/install.sh | sudo DENO_INSTALL=/usr/local sh
 fi
 
 # Install Vim plugins
@@ -115,7 +137,7 @@ font_dir="$HOME/.local/share/fonts/NerdFonts"
 mkdir -p "$font_dir"
 cd "$font_dir"
 if [ ! -f "SauceCodeProNerdFont-Regular.ttf" ]; then
-    wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip"
+	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip"
 	unzip -n SourceCodePro.zip
 	rm SourceCodePro.zip
 fi
@@ -184,9 +206,9 @@ if [ ! -f "/usr/local/bin/bat" ]; then
 fi
 
 if ! command -v zoxide > /dev/null; then
-    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+	curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 fi
 
 if ! command -v selene > /dev/null; then
-    cargo install selene
+	cargo install selene
 fi
