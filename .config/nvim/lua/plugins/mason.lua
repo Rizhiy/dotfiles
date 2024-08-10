@@ -77,6 +77,7 @@ return {
             taplo = {},
             yamlls = {},
             jsonls = {},
+            bashls = {},
         }
 
         local mason_lsp_config = require("mason-lspconfig")
