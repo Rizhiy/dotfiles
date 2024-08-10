@@ -223,5 +223,5 @@ if ! command -v selene > /dev/null; then
 fi
 
 if ! command -v onefetch > /dev/null; then
-	cargo install neofetch
+	cargo install onefetch
 fi
