@@ -67,7 +67,7 @@ if ! command -v npm > /dev/null; then
 			exit 1
 			;;
 	esac
-	sudo apt install "$node_package"
+	sudo apt-get install "$node_package" -y
 fi
 
 # Link fd
@@ -84,7 +84,7 @@ if ! command -v nvim > /dev/null; then
 		sudo ln -s /opt/neovim/nvim.appimage /usr/local/bin/nvim
 	elif [ "$architecture" = "arm64" ]; then
 		# Ensure prerequisites are installed
-		sudo apt-get install ninja-build gettext cmake unzip curl build-essential
+		sudo apt-get install ninja-build gettext cmake unzip curl build-essential -y
 		# Based on https://forums.raspberrypi.com/viewtopic.php?t=367119#p2203414
 		current_dir="$(pwd)"
 		clone_dir="/tmp/neovim-clone"
@@ -97,7 +97,7 @@ if ! command -v nvim > /dev/null; then
 		cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
 		cd "$current_dir"
-		rm -fr "$clone-dir"
+		rm -fr "$clone_dir"
 	else
 		echo "Unknown architecture! ${architecture}"
 		exit 1
