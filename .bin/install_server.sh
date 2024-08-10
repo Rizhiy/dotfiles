@@ -83,6 +83,8 @@ if ! command -v nvim > /dev/null; then
 		sudo wget "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -O "$nvim_path" && sudo chmod +x "$nvim_path"
 		sudo ln -s /opt/neovim/nvim.appimage /usr/local/bin/nvim
 	elif [ "$architecture" = "arm64" ]; then
+		# Ensure prerequisites are installed
+		sudo apt-get install ninja-build gettext cmake unzip curl build-essential
 		# Based on https://forums.raspberrypi.com/viewtopic.php?t=367119#p2203414
 		current_dir="$(pwd)"
 		clone_dir="/tmp/neovim-clone"
@@ -90,9 +92,7 @@ if ! command -v nvim > /dev/null; then
 		git clone https://github.com/neovim/neovim.git "$clone_dir"
 
 		cd "$clone_dir"
-		sudo cmake --build build/ --target uninstall
-		# NOTE: Update version when required
-		git checkout release-0.10
+		git checkout stable
 		make CMAKE_BUILD_TYPE=Release
 		cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
