@@ -41,19 +41,6 @@ return {
                 border = require("rizhiy.border").Border(),
             },
         })
-        require("mason-tool-installer").setup({
-            ensure_installed = {
-                "stylua",
-                "luacheck",
-                "yamllint",
-                "actionlint",
-                "yamlfix",
-                "jsonlint",
-                "markdownlint",
-                "codespell",
-                "prettier",
-            },
-        })
 
         local servers = {
             pyright = {
