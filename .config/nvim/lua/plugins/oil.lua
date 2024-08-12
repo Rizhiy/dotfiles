@@ -53,6 +53,7 @@ return {
             "icon",
         },
         skip_confirm_for_simple_edits = true,
+        watch_for_changes = true,
         view_options = {
             is_hidden_file = function(name, _)
                 local ignored_files = get_git_ignored_files_in(require("oil").get_current_dir())
