@@ -14,7 +14,8 @@ return {
                 "codespell",
                 "prettier",
             },
+            debounce_hours = 24,
         })
-        vim.cmd("MasonToolsInstall")
+        require("mason-tool-installer").run_on_start()
     end,
 }
