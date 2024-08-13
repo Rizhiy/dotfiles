@@ -1,6 +1,6 @@
 return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
         require("mason-tool-installer").setup({
             ensure_installed = {
