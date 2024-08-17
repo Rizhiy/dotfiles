@@ -18,12 +18,15 @@ return {
                 null_ls.builtins.formatting.yamlfix,
                 -- markdown
                 null_ls.builtins.diagnostics.markdownlint,
+                -- jinja
+                null_ls.builtins.diagnostics.djlint,
+                null_ls.builtins.formatting.djlint,
                 -- general
                 null_ls.builtins.diagnostics.codespell.with({
                     extra_args = { "--ignore-words", vim.fn.stdpath("data") .. "/spell/words.add" },
                 }),
                 null_ls.builtins.formatting.prettier.with({
-                    disabled_filetypes = { "lua", "python", "yaml" },
+                    disabled_filetypes = { "lua", "python", "yaml", "htmldjango" },
                 }),
             },
         })
