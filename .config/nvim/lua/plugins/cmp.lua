@@ -3,7 +3,7 @@ return { -- Autocompletion
     "hrsh7th/nvim-cmp",
     dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
-        { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+        { "L3MON4D3/LuaSnip",   build = "make install_jsregexp" },
         "saadparwaiz1/cmp_luasnip",
         -- Adds a number of user-friendly snippets
         "rafamadriz/friendly-snippets",
@@ -16,9 +16,9 @@ return { -- Autocompletion
         -- Adds LSP completion capabilities
         "hrsh7th/cmp-nvim-lsp",
         -- Other sources
-        "hrsh7th/cmp-path", -- Paths
-        "SergioRibera/cmp-dotenv", -- environment variables
-        "hrsh7th/cmp-buffer", -- text in buffer
+        "hrsh7th/cmp-path",                                                             -- Paths
+        "SergioRibera/cmp-dotenv",                                                      -- environment variables
+        "hrsh7th/cmp-buffer",                                                           -- text in buffer
         { "petertriho/cmp-git", dependencies = { "petertriho/cmp-git" }, opts = true }, -- git completion
 
         -- Icons
@@ -60,10 +60,10 @@ return { -- Autocompletion
                 ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
                 ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
-                    if luasnip.expand_or_locally_jumpable() then
-                        luasnip.expand_or_jump()
-                    elseif cmp.visible() then
+                    if cmp.visible() then
                         cmp.confirm()
+                    elseif luasnip.expand_or_locally_jumpable() then
+                        luasnip.expand_or_jump()
                     else
                         fallback()
                     end
