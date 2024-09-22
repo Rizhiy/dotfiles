@@ -17,4 +17,15 @@ return {
             desc = "Toggle DiffView",
         },
     },
+    opts = {
+        hooks = {
+            diff_buf_read = function()
+                -- make "diff" buffers non-modifiable
+                local fname = vim.fn.expand('%:h')
+                if fname:match("diffview") then
+                    vim.opt_local.modifiable = false
+                end
+            end
+        }
+    }
 }
