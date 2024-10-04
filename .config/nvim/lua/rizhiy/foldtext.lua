@@ -73,8 +73,12 @@ local function parse_line(linenr)
 end
 
 function HighlightedFoldtext()
-    local result = parse_line(vim.v.foldstart)
-    if not result then return vim.fn.foldtext() end
+    local result = {}
+    local first_line = parse_line(vim.v.foldstart)
+    if not first_line then return vim.fn.foldtext() end
+    for _, item in ipairs(first_line) do
+        table.insert(result, item)
+    end
 
     local folded = {
         { " [+" .. vim.v.foldend - vim.v.foldstart - 1 .. " lines] ", "FoldedText" },
@@ -84,11 +88,11 @@ function HighlightedFoldtext()
         table.insert(result, item)
     end
 
-    local result2 = parse_line(vim.v.foldend)
-    if result2 then
-        local first = result2[1]
-        result2[1] = { vim.trim(first[1]), first[2] }
-        for _, item in ipairs(result2) do
+    local last_line = parse_line(vim.v.foldend)
+    if last_line then
+        local first = last_line[1]
+        last_line[1] = { vim.trim(first[1]), first[2] }
+        for _, item in ipairs(last_line) do
             table.insert(result, item)
         end
     end
