@@ -3,8 +3,8 @@ vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.laststatus = 2
 
-vim.opt.showtabline = 0 -- Never show tabline
-vim.opt.conceallevel = 0 -- Don't hide links and stuff in Markdown
+vim.opt.showtabline = 0                     -- Never show tabline
+vim.opt.conceallevel = 0                    -- Don't hide links and stuff in Markdown
 
 vim.opt.iskeyword = vim.opt.iskeyword + "-" -- treat dash-separated words as whole word objects
 
@@ -20,6 +20,8 @@ vim.opt.fillchars:append({ vert = " " })
 vim.opt.signcolumn = "auto:1-2"
 
 vim.opt.scrolloff = 10
+
+vim.opt.foldtext = require("rizhiy.foldtext")
 
 local autocmd = vim.api.nvim_create_autocmd
 local mild_color = "DimGray"
