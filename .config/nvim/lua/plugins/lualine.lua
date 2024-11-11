@@ -10,6 +10,11 @@ return {
     event = "BufEnter",
     config = function()
         local noice = require("noice")
+        local filename_component = {
+            -- filename relative to cwd
+            "filename",
+            path = 1,
+        }
         require("lualine").setup({
             sections = {
                 lualine_a = {
@@ -17,10 +22,7 @@ return {
                     diff_component,
                 },
                 lualine_c = {
-                    { -- filename relative to cwd
-                        "filename",
-                        path = 1,
-                    },
+                    filename_component,
                     { -- search count
                         noice.api.status.search.get,
                         cond = require("noice").api.status.search.has,
@@ -53,6 +55,9 @@ return {
             inactive_sections = {
                 lualine_a = {
                     diff_component,
+                },
+                lualine_c = {
+                    filename_component,
                 },
                 lualine_y = { window },
             },
