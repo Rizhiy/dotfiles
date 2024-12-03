@@ -53,7 +53,6 @@ nmap("<C-Down>", ":resize -3<CR>", { desc = "Decrease split size" })
 -- Don't overwrite yanked content on delete and change
 map("d", '"_d', { desc = "Delete" })
 map("c", '"_c', { desc = "Change" })
-map("x", "d", { desc = "Cut" })
 nmap("dd", 'V"_d', { desc = "Delete line" })
 
 nmap("<C-s>", ":w<CR>", { desc = "Save buffer" })
