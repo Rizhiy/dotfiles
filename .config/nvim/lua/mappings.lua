@@ -51,7 +51,8 @@ nmap("<C-Up>", ":resize +3<CR>", { desc = "Increase split size" })
 nmap("<C-Down>", ":resize -3<CR>", { desc = "Decrease split size" })
 
 -- Don't overwrite yanked content on delete and change
-map("d", '"_d', { desc = "Delete" })
+map("d", '"_d', { desc = "Delete", mode = { "n", "v" } })
+map("D", '"_D', { desc = "Delete", mode = { "n", "v" } })
 map("c", '"_c', { desc = "Change" })
 nmap("dd", 'V"_d', { desc = "Delete line" })
 
