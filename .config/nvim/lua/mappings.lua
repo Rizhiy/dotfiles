@@ -111,4 +111,14 @@ nmap("<leader>lc", function()
 end, { desc = "Clean plugins" })
 
 -- Quickfix
-nmap("<leader>q", ":copen<CR>", { desc = "Open quickfix" })
+nmap("<leader>q", function()
+    local qf_open = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win["quickfix"] == 1 then qf_open = true end
+    end
+    if qf_open then
+        vim.cmd.cclose()
+    else
+        vim.cmd.copen()
+    end
+end, { desc = "Toggle quickfix window" })
