@@ -75,3 +75,6 @@ if [ -z $PATHSSET ]; then
 	# Variable to track if this was executed, keep at the bottom
 	export PATHSSET=true
 fi
+
+# Import api keys
+set -a; source $HOME/.config/api_keys.env; set +a
