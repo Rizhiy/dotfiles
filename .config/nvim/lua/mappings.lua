@@ -72,7 +72,6 @@ nmap("<C-q>", function()
 end, { desc = "Exit" })
 
 nmap("J", "mzJ`z", { desc = "Append line below to current line" })
-
 map("p", '"_dP', { desc = "Paste over without yanking", mode = "x" })
 
 -- Toggle virtualedit

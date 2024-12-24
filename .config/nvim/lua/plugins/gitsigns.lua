@@ -3,6 +3,7 @@ return {
     event = "VeryLazy",
     config = function()
         require("gitsigns").setup({
+            sign_priority = 100,
             current_line_blame = true,
             signs_staged_enable = true,
             current_line_blame_opts = {

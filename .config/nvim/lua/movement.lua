@@ -12,6 +12,10 @@ for idx = 1, 9 do
     nmap("<leader>" .. idx, idx .. "<C-w>w", { desc = "Move to window " .. idx })
 end
 
+-- jk navigate visible lines
+nmap("j", "gj")
+nmap("k", "gk")
+
 -- Extra movement
 local brackets = "[]{}<>()"
 for bracket in brackets:gmatch(".") do

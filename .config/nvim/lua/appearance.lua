@@ -3,8 +3,8 @@ vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.laststatus = 2
 
-vim.opt.showtabline = 0                     -- Never show tabline
-vim.opt.conceallevel = 0                    -- Don't hide links and stuff in Markdown
+vim.opt.showtabline = 0 -- Never show tabline
+vim.opt.conceallevel = 0 -- Don't hide links and stuff in Markdown
 
 vim.opt.iskeyword = vim.opt.iskeyword + "-" -- treat dash-separated words as whole word objects
 
@@ -17,7 +17,7 @@ vim.opt.list = true
 vim.opt.listchars:append({ tab = "▸ ", trail = "·", nbsp = "␣" }) -- show empty characters tab/eol
 vim.opt.fillchars:append({ vert = " " })
 
-vim.opt.signcolumn = "auto:1-2"
+vim.opt.signcolumn = "yes:1"
 
 vim.opt.scrolloff = 10
 
@@ -55,4 +55,15 @@ autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
     group = vim.api.nvim_create_augroup("rizhiy-highlight-yank", { clear = true }),
     callback = function() vim.highlight.on_yank() end,
+})
+
+autocmd("TermOpen", {
+    group = vim.api.nvim_create_augroup("rizhiy-term-open", { clear = true }),
+    callback = function()
+        vim.opt.number = false
+        vim.opt.relativenumber = false
+        vim.opt.cursorline = false
+        vim.opt.spell = false
+        vim.opt.signcolumn = "no"
+    end,
 })
