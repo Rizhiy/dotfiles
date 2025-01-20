@@ -77,4 +77,7 @@ if [ -z $PATHSSET ]; then
 fi
 
 # Import api keys
-set -a; source $HOME/.config/api_keys.env; set +a
+API_KEYS_PATH="$HOME/.config/api_keys.env"
+if [ -f "$API_KEYS_PATH" ]; then
+	set -a; source $HOME/.config/api_keys.env; set +a
+fi
