@@ -36,6 +36,7 @@ return {
                 "sql",
                 "dockerfile",
                 "gitignore",
+                "rst",
             },
             auto_install = true,
             highlight = {
