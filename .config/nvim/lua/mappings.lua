@@ -121,3 +121,17 @@ nmap("<leader>q", function()
         vim.cmd.copen()
     end
 end, { desc = "Toggle quickfix window" })
+
+-- Add semicolon at the end of the line
+local autocmd = vim.api.nvim_create_autocmd
+autocmd({ "BufEnter" }, {
+    pattern = "*.rs",
+    group = vim.api.nvim_create_augroup("rizhiy-insert_semicolon", { clear = true }),
+    callback = function()
+        nmap(";", function()
+            local cursor = vim.api.nvim_win_get_cursor(0)
+            vim.cmd("norm A;")
+            vim.api.nvim_win_set_cursor(0, cursor)
+        end, { silent = true, desc = "Add semicolon at the end of the line" })
+    end,
+})
