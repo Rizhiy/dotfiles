@@ -9,7 +9,7 @@ return {
     dependencies = { { "nvim-tree/nvim-web-devicons", opt = true }, "folke/noice.nvim" },
     event = "BufEnter",
     config = function()
-        local noice = require("noice")
+        -- local noice = require("noice")
         local filename_component = {
             -- filename relative to cwd
             "filename",
@@ -23,18 +23,18 @@ return {
                 },
                 lualine_c = {
                     filename_component,
-                    { -- search count
-                        noice.api.status.search.get,
-                        cond = require("noice").api.status.search.has,
-                        color = { fg = "#ff9e64" },
-                    },
+                    -- { -- search count
+                    --     noice.api.status.search.get,
+                    --     cond = require("noice").api.status.search.has,
+                    --     color = { fg = "#ff9e64" },
+                    -- },
                 },
                 lualine_x = {
-                    { -- Show when macro is being recorded
-                        noice.api.statusline.mode.get,
-                        cond = noice.api.statusline.mode.has,
-                        color = { fg = "#ff9e64" },
-                    },
+                    -- { -- Show when macro is being recorded
+                    --     noice.api.statusline.mode.get,
+                    --     cond = noice.api.statusline.mode.has,
+                    --     color = { fg = "#ff9e64" },
+                    -- },
                     {
                         "encoding",
                         cond = function()

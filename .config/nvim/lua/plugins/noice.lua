@@ -1,6 +1,7 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
+    enabled = false,
     tag = "v2.0.2",
     dependencies = {
         "nvim-telescope/telescope.nvim",
