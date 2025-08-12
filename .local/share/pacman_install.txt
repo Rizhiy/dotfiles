@@ -1,5 +1,32 @@
+# Utils
+base
+base-devel
+linux-firmware
+networkmanager
+openssh
+zsh
+ttf-sourcecodepro-nerd
+rust
+inetutils
+fwupd
+dmidecode
+git
+mpv
+# Programs
+kitty
+dolphin
+vi
+neovim
+tmux
+# Window Manager
 wayland
 hyprland
-kitty
 hyprlock
-openssh
+greetd
+greetd-tuigreet
+# Sound
+sof-firmware
+pipewire
+pipewire-pulse
+wireplumber
+pavucontrol

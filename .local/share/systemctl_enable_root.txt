@@ -1,0 +1,3 @@
+NetworkManager
+greetd.service
+nordvpn.service
