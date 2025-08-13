@@ -27,19 +27,9 @@ texts[hibernate]="hibernate"
 texts[reboot]="reboot"
 texts[shutdown]="shut down"
 
-declare -A icons
-icons[lockscreen]="\uf023"
-icons[switchuser]="\uf518"
-icons[logout]="\uf842"
-icons[suspend]="\uf9b1"
-icons[hibernate]="\uf7c9"
-icons[reboot]="\ufc07"
-icons[shutdown]="\uf011"
-icons[cancel]="\u00d7"
-
 declare -A actions
 actions[lockscreen]="loginctl lock-session $XDG_SESSION_ID"
-actions[logout]="i3-msg exit"
+actions[logout]="swaymsg exit"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
@@ -169,13 +159,13 @@ declare -A messages
 declare -A confirmationMessages
 for entry in "${all[@]}"
 do
-    messages[$entry]=$(write_message "${icons[$entry]}" "${texts[$entry]^}")
+    messages[$entry]=$(write_message "" "${texts[$entry]^}")
 done
 for entry in "${all[@]}"
 do
-    confirmationMessages[$entry]=$(write_message "${icons[$entry]}" "Yes, ${texts[$entry]}")
+    confirmationMessages[$entry]=$(write_message "" "Yes, ${texts[$entry]}")
 done
-confirmationMessages[cancel]=$(write_message "${icons[cancel]}" "No, cancel")
+confirmationMessages[cancel]=$(write_message "" "No, cancel")
 
 if [ $# -gt 0 ]
 then
@@ -199,7 +189,7 @@ then
     echo -e "\0prompt\x1fPower menu"
     for entry in "${show[@]}"
     do
-        echo -e "${messages[$entry]}\0icon\x1f${icons[$entry]}"
+        echo -e "${messages[$entry]}"
     done
 else
     for entry in "${show[@]}"
@@ -213,8 +203,8 @@ else
                 then
                     # Ask for confirmation
                     echo -e "\0prompt\x1fAre you sure"
-                    echo -e "${confirmationMessages[$entry]}\0icon\x1f${icons[$entry]}"
-                    echo -e "${confirmationMessages[cancel]}\0icon\x1f${icons[cancel]}"
+                    echo -e "${confirmationMessages[$entry]}"
+                    echo -e "${confirmationMessages[cancel]}"
                     exit 0
                 fi
             done

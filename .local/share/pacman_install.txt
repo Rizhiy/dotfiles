@@ -5,28 +5,61 @@ linux-firmware
 networkmanager
 openssh
 zsh
-ttf-sourcecodepro-nerd
 rust
 inetutils
 fwupd
 dmidecode
-git
 mpv
-# Programs
-kitty
-dolphin
+brightnessctl
+cpio
+bluez
+bluez-utils
+python-pillow
+jq
+# Fonts
+ttf-sourcecodepro-nerd
+otf-ipaexfont
+otf-font-awesome
+noto-fonts
+noto-fonts-emoji
+noto-fonts-extra
+noto-fonts-cjk
+ttf-liberation
+ttf-dejavu
+catfish
+gvfs
+# Terminal programs
+git
 vi
 neovim
 tmux
+bluetui
+ranger
+htop
 # Window Manager
 wayland
-hyprland
-hyprlock
 greetd
 greetd-tuigreet
+sway
+swaylock
+swayidle
+swaybg
+waybar
 # Sound
 sof-firmware
 pipewire
 pipewire-pulse
 wireplumber
 pavucontrol
+# GUI Programs
+thunar
+tumbler
+thunar-volman
+thunar-archive-plugin
+thunar-media-tags-plugin
+kitty
+wofi
+steam
+vlc
+vlc-plugins-all
+transmission-gtk

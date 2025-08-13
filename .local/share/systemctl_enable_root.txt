@@ -1,3 +1,4 @@
 NetworkManager
 greetd.service
-nordvpn.service
+nordvpnd
+bluetooth.service

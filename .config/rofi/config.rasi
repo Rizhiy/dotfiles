@@ -1,7 +1,5 @@
 configuration {
-	modi: "window,drun,ssh,combi";
-	font: "SauceCode Pro Nerd Font 13";
-	combi-modi: "window,drun,ssh";
+	font: "SauceCodePro Nerd Font 13";
 	show-icons: true;
 	matching: "fuzzy";
 }

@@ -1,0 +1,35 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+exec_always /home/rizhiy/.bin/set_time_wallpaper_sway.sh
+
+input type:touchpad {
+  natural_scroll enabled
+}
+input type:keyboard {
+  xkb_layout "gb,ru"
+  xkb_options "grp:caps_toggle"
+}
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right mouse button for dragging.
+floating_modifier $mod normal
+
+include $HOME/.config/sway/appearance.conf
+include $HOME/.config/sway/keys.conf
+# Include configuration snippets from drop-in files
+include /etc/sway/config.d/*
+
+# Configure locking
+exec_always swayidle -w \
+    timeout 300 'swaylock --color 111111 -f' \
+    before-sleep 'swaylock --color 111111 -f'
+

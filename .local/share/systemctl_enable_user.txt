@@ -1,3 +1,4 @@
 pipewire.socket
 pipewire-pulse.socket
 wireplumber.service
+set_time_wallpaper.timer

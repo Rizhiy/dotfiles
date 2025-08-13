@@ -28,7 +28,7 @@ cheat() {
     curl cheat.sh/"$1"
 }
 # dotfiles bare repository
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # Alias vim to nvim
 alias vim="nvim"
@@ -46,9 +46,6 @@ attach_to_session() {
 }
 alias a="attach_to_session"
 alias new="tmux new -s main"
-
-# Always use conda ranger
-alias ranger=$HOME/miniconda3/bin/ranger
 
 # Load dotenv
 alias load_dotenv=". dotenv.sh"

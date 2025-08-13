@@ -41,6 +41,3 @@ autocmd({ "BufEnter" }, {
 
 -- Python for general functions
 vim.cmd("let g:python3_host_prog = '" .. os.getenv("HOME") .. "/miniconda3/bin/python'")
-
--- Set filetype to htmldjango for jinja
-vim.filetype.add({ pattern = { [".*.html.jinja"] = "htmldjango" } })

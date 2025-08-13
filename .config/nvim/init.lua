@@ -8,6 +8,7 @@ require("general")
 require("appearance")
 require("mappings")
 require("movement")
+require("filetypes")
 
 require("rizhiy.lazy")
 require("rizhiy.autorooter")

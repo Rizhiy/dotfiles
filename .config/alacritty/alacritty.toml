@@ -23,7 +23,7 @@ background = "#282828"
 foreground = "#ebdbb2"
 
 [font]
-size = 9
+size = 6.5
 
 [font.bold]
 family = "SauceCodePro Nerd Font"
