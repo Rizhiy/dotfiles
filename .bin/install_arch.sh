@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 set -e
-# Make sure we are on the correct branch
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout master
 
 share_dir=$HOME/.local/share/
 
@@ -16,6 +14,14 @@ function read_without_comments {
         echo $line
     done < "$1"
 }
+
+echo_stage "Checking out config files"
+# Make sure we are on the correct branch
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout master
+
+echo_stage "Enabling multilib"
+sudo sed -i -e '/#\[multilib\]/,+1s/^#//' /etc/pacman.conf
+sudo pacman -Sy
 
 echo_stage "Installing with pacman"
 read_without_comments $share_dir/pacman_install.txt | xargs sudo pacman --needed --noconfirm -S
@@ -44,5 +50,5 @@ read_without_comments $share_dir/systemctl_enable_root.txt | xargs sudo systemct
 read_without_comments $share_dir/systemctl_enable_user.txt | xargs systemctl --user enable --now
 
 echo_stage "Setup NordVPN"
-groupadd -r nordvpn
-usermod -aG nordvpn $USER
+sudo groupadd -f nordvpn
+sudo usermod -aG nordvpn $USER

@@ -25,11 +25,14 @@ floating_modifier $mod normal
 
 include $HOME/.config/sway/appearance.conf
 include $HOME/.config/sway/keys.conf
+include $HOME/.config/sway/workplaces.conf
 # Include configuration snippets from drop-in files
 include /etc/sway/config.d/*
 
+set $swaylock_cmd 'swaylock -fli $HOME/.local/share/lock_screen.jpg \
+  --font "SauceCodePro Nerd Font"'
 # Configure locking
 exec_always swayidle -w \
-    timeout 300 'swaylock --color 111111 -f' \
-    before-sleep 'swaylock --color 111111 -f'
+    timeout 300 $swaylock_cmd \
+    before-sleep $swaylock_cmd
 
