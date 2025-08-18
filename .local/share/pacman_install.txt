@@ -63,3 +63,6 @@ steam
 vlc
 vlc-plugins-all
 transmission-gtk
+grim
+slurp
+wl-clipboard

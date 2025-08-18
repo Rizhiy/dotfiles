@@ -22,3 +22,6 @@
 [submodule ".local/share/weather-icons"]
 	path = .local/share/weather-icons
 	url = https://github.com/erikflowers/weather-icons.git
+[submodule ".config/kitty/kitty-themes"]
+	path = .config/kitty/kitty-themes
+	url = https://github.com/dexpota/kitty-themes.git
