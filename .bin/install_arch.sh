@@ -52,3 +52,6 @@ read_without_comments $share_dir/systemctl_enable_user.txt | xargs systemctl --u
 echo_stage "Setup NordVPN"
 sudo groupadd -f nordvpn
 sudo usermod -aG nordvpn $USER
+
+echo_stage "Refreshing applications"
+update-desktop-database ~/.local/share/applications
