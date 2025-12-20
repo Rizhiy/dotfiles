@@ -66,3 +66,5 @@ transmission-gtk
 grim
 slurp
 wl-clipboard
+zip
+ntfs-3g

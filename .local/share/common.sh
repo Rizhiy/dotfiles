@@ -72,6 +72,9 @@ if [ -z $PATHSSET ]; then
 	export PATH="/root/.cargo/bin:$PATH"
 	export PATH="$HOME/.cargo/bin:$PATH"
 
+	# opencode
+	export PATH=/home/rizhiy/.opencode/bin:$PATH
+
 	# Variable to track if this was executed, keep at the bottom
 	export PATHSSET=true
 fi
