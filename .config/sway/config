@@ -8,6 +8,7 @@
 set $mod Mod4
 
 exec_always /home/rizhiy/.bin/set_time_wallpaper_sway.sh
+exec_always /home/rizhiy/.config/sway/setup_displays.sh
 
 input type:touchpad {
   natural_scroll enabled
