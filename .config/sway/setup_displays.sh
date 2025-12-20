@@ -61,8 +61,8 @@ if [ ${#output_array[@]} -ge 2 ]; then
     # Set scale for secondary display
     swaymsg output "$secondary" scale "$scale"
     
-    # Position secondary display to the right of primary
-    # After scaling, the effective width changes, so use primary_width for positioning
+    # Position primary at origin and secondary to the right of primary
+    swaymsg output "$primary" pos 0 0
     swaymsg output "$secondary" pos "$primary_width" 0
     
     # Assign odd workspaces to primary, even to secondary
