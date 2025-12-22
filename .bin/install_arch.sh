@@ -55,3 +55,9 @@ sudo usermod -aG nordvpn $USER
 
 echo_stage "Refreshing applications"
 update-desktop-database ~/.local/share/applications
+
+echo_stage "Setup timezone"
+sudo timedatectl set-ntp true
+target_path="/etc/NetworkManager/dispatcher.d/09-timezone"
+sudo cp $HOME/.local/share/scripts/nw_set_timezone "$target_path"
+sudo chmod +x "$target_path"

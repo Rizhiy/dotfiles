@@ -1,2 +1,3 @@
 google-chrome
 nordvpn-bin
+tzupdate
