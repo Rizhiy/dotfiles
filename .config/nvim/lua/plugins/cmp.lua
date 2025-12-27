@@ -3,7 +3,7 @@ return { -- Autocompletion
     "hrsh7th/nvim-cmp",
     dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
-        { "L3MON4D3/LuaSnip",   build = "make install_jsregexp" },
+        { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
         "saadparwaiz1/cmp_luasnip",
         -- Adds a number of user-friendly snippets
         "rafamadriz/friendly-snippets",
@@ -16,9 +16,9 @@ return { -- Autocompletion
         -- Adds LSP completion capabilities
         "hrsh7th/cmp-nvim-lsp",
         -- Other sources
-        "hrsh7th/cmp-path",                                                             -- Paths
-        "SergioRibera/cmp-dotenv",                                                      -- environment variables
-        "hrsh7th/cmp-buffer",                                                           -- text in buffer
+        "hrsh7th/cmp-path", -- Paths
+        "SergioRibera/cmp-dotenv", -- environment variables
+        "hrsh7th/cmp-buffer", -- text in buffer
         { "petertriho/cmp-git", dependencies = { "petertriho/cmp-git" }, opts = true }, -- git completion
 
         -- Icons
@@ -29,6 +29,13 @@ return { -- Autocompletion
 
         -- neovim development
         "folke/lazydev.nvim",
+
+        -- AI autocomplete
+        {
+            "zbirenbaum/copilot-cmp",
+            dependencies = { "zbirenbaum/copilot.lua" },
+            config = function() require("copilot_cmp").setup() end,
+        },
     },
     keys = {
         {
@@ -85,6 +92,7 @@ return { -- Autocompletion
             },
             sources = {
                 { name = "nvim_lsp" },
+                { name = "copilot" },
                 { name = "luasnip" },
                 {
                     name = "path",
