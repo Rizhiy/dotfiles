@@ -68,3 +68,6 @@ slurp
 wl-clipboard
 zip
 ntfs-3g
+nodejs
+ripgrep
+mako

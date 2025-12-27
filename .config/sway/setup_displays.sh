@@ -5,6 +5,8 @@ outputs_json=$(swaymsg -t get_outputs -r)
 
 # Config file for display order
 display_order_file="$HOME/.config/sway/display_order"
+# Config file for display transforms (rotations)
+display_transforms_file="$HOME/.config/sway/display_transforms"
 
 # Get output names
 if [ -f "$display_order_file" ]; then
@@ -33,37 +35,66 @@ if [ ${#output_array[@]} -eq 0 ]; then
     exit 1
 fi
 
+# Apply transforms to all displays if configured
+if [ -f "$display_transforms_file" ]; then
+    echo "Applying display transforms from $display_transforms_file"
+    for display in "${output_array[@]}"; do
+        transform=$(grep "^$display " "$display_transforms_file" | cut -d' ' -f2)
+        if [ -n "$transform" ]; then
+            echo "Applying transform $transform to $display"
+            swaymsg output "$display" transform "$transform"
+        fi
+    done
+fi
+
 # Get the first output (primary/built-in display)
 primary="${output_array[0]}"
 
 echo "Primary display: $primary"
 
-# If we have a second display, position it to the right of the first
+# If we have multiple displays, configure them
 if [ ${#output_array[@]} -ge 2 ]; then
-    secondary="${output_array[1]}"
-    echo "Secondary display: $secondary"
-    
-    # Get the native width of both displays
+    # Get the primary display native width
     primary_native_width=$(echo "$outputs_json" | jq -r ".[] | select(.name == \"$primary\") | .current_mode.width")
-    secondary_native_width=$(echo "$outputs_json" | jq -r ".[] | select(.name == \"$secondary\") | .current_mode.width")
-    
-    # Get current width for positioning
-    primary_width=$(echo "$outputs_json" | jq -r ".[] | select(.name == \"$primary\") | .rect.width")
-    
     echo "Primary display native width: $primary_native_width"
-    echo "Secondary display native width: $secondary_native_width"
     
-    # Calculate scale for secondary display to match primary
-    # Scale = secondary_native_width / primary_native_width
-    scale=$(awk "BEGIN {printf \"%.2f\", $secondary_native_width / $primary_native_width}")
-    echo "Secondary display scale: $scale"
-    
-    # Set scale for secondary display
-    swaymsg output "$secondary" scale "$scale"
-    
-    # Position primary at origin and secondary to the right of primary
+    # Position primary at origin
     swaymsg output "$primary" pos 0 0
-    swaymsg output "$secondary" pos "$primary_width" 0
+    
+    # Track cumulative width for positioning
+    cumulative_width=$(echo "$outputs_json" | jq -r ".[] | select(.name == \"$primary\") | .rect.width")
+    
+    # Process all non-primary displays
+    for i in "${!output_array[@]}"; do
+        if [ $i -eq 0 ]; then
+            continue  # Skip primary
+        fi
+        
+        display="${output_array[$i]}"
+        echo "Configuring display: $display"
+        
+        # Get the native width of this display
+        display_native_width=$(echo "$outputs_json" | jq -r ".[] | select(.name == \"$display\") | .current_mode.width")
+        echo "Display $display native width: $display_native_width"
+        
+        # Calculate scale to match primary
+        # Scale = display_native_width / primary_native_width
+        scale=$(awk "BEGIN {printf \"%.2f\", $display_native_width / $primary_native_width}")
+        echo "Display $display scale: $scale"
+        
+        # Set scale for this display
+        swaymsg output "$display" scale "$scale"
+        
+        # Position this display to the right of previous displays
+        swaymsg output "$display" pos "$cumulative_width" 0
+        
+        # Update cumulative width for next display
+        display_width=$(echo "$outputs_json" | jq -r ".[] | select(.name == \"$display\") | .rect.width")
+        cumulative_width=$((cumulative_width + display_width))
+    done
+    
+    # Get secondary display (first non-primary) for workspace assignment
+    secondary="${output_array[1]}"
     
     # Assign odd workspaces to primary, even to secondary
     for i in 1 3 5 7 9; do
