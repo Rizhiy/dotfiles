@@ -72,3 +72,4 @@ nodejs
 ripgrep
 mako
 fd
+gimp

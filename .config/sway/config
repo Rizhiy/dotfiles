@@ -8,7 +8,7 @@
 set $mod Mod4
 
 exec_always /home/rizhiy/.bin/set_time_wallpaper_sway.sh
-exec_always /home/rizhiy/.config/sway/setup_displays.sh
+exec_always /home/rizhiy/.config/sway/scripts/setup_displays.sh
 exec mako
 
 input type:touchpad {
@@ -31,7 +31,7 @@ include $HOME/.config/sway/workplaces.conf
 # Include configuration snippets from drop-in files
 include /etc/sway/config.d/*
 
-set $swaylock_cmd '$HOME/.config/sway/lock_with_screen_off.sh'
+set $swaylock_cmd '$HOME/.config/sway/scripts/lock_with_screen_off.sh'
 # Configure locking and screen timeout
 exec swayidle -w \
     timeout 300 $swaylock_cmd \
