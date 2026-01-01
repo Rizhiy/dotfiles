@@ -73,3 +73,4 @@ ripgrep
 mako
 fd
 gimp
+imagemagick
