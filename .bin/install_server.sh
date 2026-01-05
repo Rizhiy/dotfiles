@@ -75,7 +75,7 @@ if ! command -v nvim > /dev/null; then
 	if [ "$architecture" = "amd64" ]; then
 		nvim_path="/opt/neovim/nvim.appimage"
 		sudo mkdir -p $(dirname $nvim_path)
-		sudo wget "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.appimage" -O "$nvim_path" && sudo chmod +x "$nvim_path"
+		sudo wget "https://github.com/neovim/neovim/releases/download/v0.11.5/nvim-linux-x86_64.appimage" -O "$nvim_path" && sudo chmod +x "$nvim_path"
 		sudo chown $(whoami):$(whoami) "$nvim_path"
 		sudo chmod 700 "$nvim_path"
 		sudo ln -s /opt/neovim/nvim.appimage /usr/local/bin/nvim

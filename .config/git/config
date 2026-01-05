@@ -3,6 +3,7 @@
 	s = status
 	c = commit
 	d = diff
+	ds = diff --stat
 	a = add
 	cm = commit -m
     b = blame -w -C -C -C

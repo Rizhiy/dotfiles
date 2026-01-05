@@ -1,8 +1,6 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
-    enabled = false,
-    tag = "v2.0.2",
     dependencies = {
         "nvim-telescope/telescope.nvim",
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
