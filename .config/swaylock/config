@@ -1,0 +1,50 @@
+# Swaylock configuration with failed attempt counter
+
+# Show failed authentication attempts counter
+show-failed-attempts
+
+# Indicator appearance
+indicator-radius=100
+indicator-thickness=10
+indicator-idle-visible
+
+# Show caps lock state
+indicator-caps-lock
+
+# Colors - Normal state (Gruvbox Dark)
+inside-color=282828
+ring-color=458588
+text-color=ebdbb2
+
+# Colors - Verifying
+inside-ver-color=458588
+ring-ver-color=83a598
+text-ver-color=282828
+
+# Colors - Wrong password (red highlight)
+inside-wrong-color=cc241d
+ring-wrong-color=fb4934
+text-wrong-color=ebdbb2
+
+# Colors - Cleared
+inside-clear-color=d79921
+ring-clear-color=fabd2f
+text-clear-color=282828
+
+# Colors - Caps lock
+inside-caps-lock-color=d65d0e
+ring-caps-lock-color=fe8019
+text-caps-lock-color=282828
+
+# Background
+color=1d2021
+
+# Key layout indicator
+show-keyboard-layout
+layout-text-color=ebdbb2
+
+# Grace period (seconds before locking, set to 0 for immediate lock)
+grace=0
+
+# Effects
+fade-in=0.2
