@@ -16,6 +16,9 @@ bluez
 bluez-utils
 python-pillow
 jq
+unzip
+sane
+sane-airscan
 # Fonts
 ttf-sourcecodepro-nerd
 otf-ipaexfont
@@ -74,3 +77,4 @@ mako
 fd
 gimp
 imagemagick
+simple-scan
