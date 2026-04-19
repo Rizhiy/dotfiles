@@ -31,11 +31,12 @@ return { -- Autocompletion
     },
     opts = {
         appearance = {
-            highlight_ns = 0,
+            highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),
         },
         keymap = {
             preset = "none",
-            ["<C-k>"] = { "select_prev", "fallback" },
+            -- Doesn't work, so just unbind for now
+            -- ["<C-k>"] = { "select_prev", "fallback" },
             ["<C-j>"] = { "select_next", "fallback" },
             ["<Tab>"] = { "select_and_accept", "snippet_forward" },
             ["<S-Tab>"] = { "snippet_backward" },

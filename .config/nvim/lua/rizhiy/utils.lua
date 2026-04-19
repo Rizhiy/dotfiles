@@ -72,7 +72,7 @@ function M.on_attach(_, bufnr)
     local nmap = function(keys, func, desc)
         if desc then desc = "LSP: " .. desc end
         -- NOTE: Do we need to pass buffer in here?
-        require("rizhiy.keys").nmap(keys, func, { desc = desc, buffer = bufnr })
+        require("rizhiy.keys").nmap(keys, func, { desc = desc, buf = bufnr })
     end
 
     nmap("rn", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -84,15 +84,20 @@ function M.on_attach(_, bufnr)
     nmap("<leader>d", function() vim.diagnostic.open_float({ scope = "cursor" }) end, "Show diagnostics under cursor")
     nmap("<leader>ds", ":Telescope diagnostics<CR>", "Show diagnostics")
     nmap("<leader>dt", ":TroubleToggle<CR>", "Show trouble")
-    nmap("]d", vim.diagnostic.goto_next, "Next diagnostic")
-    nmap("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
+    nmap("]d", function() vim.diagnostic.jump({ count = 1 }) end, "Next diagnostic")
+    nmap("[d", function() vim.diagnostic.jump({ count = -1 }) end, "Previous diagnostic")
 
     -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-        -- Use VirtualText for transparency
-        vim.fn.sign_define("DiagnosticSign" .. type, { text = icon, texthl = "DiagnosticVirtualText" .. type })
-    end
+    vim.diagnostic.config({
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = " ",
+                [vim.diagnostic.severity.WARN] = " ",
+                [vim.diagnostic.severity.HINT] = "󰠠 ",
+                [vim.diagnostic.severity.INFO] = " ",
+            },
+        },
+    })
 end
 
 return M
