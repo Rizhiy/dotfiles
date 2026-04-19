@@ -63,6 +63,7 @@ return {
             },
             options = {
                 theme = "gruvbox-material",
+                always_show_tabline = false,
                 disabled_filetypes = {
                     statusline = {
                         "alpha",
@@ -77,6 +78,5 @@ return {
                 "trouble",
             },
         })
-        vim.cmd("set showtabline=1")
     end,
 }
