@@ -1,12 +1,35 @@
 return {
-    "terrortylor/nvim-comment",
-    name = "nvim_comment",
+    "numToStr/Comment.nvim",
     keys = {
-        -- Different environments interpret forwardslash differently
-        { "<C-_>", ":CommentToggle<CR>j", desc = "Toggle comment", mode = { "n", "v" }, silent = true },
-        { "<C-/>", ":CommentToggle<CR>j", desc = "Toggle comment", mode = { "n", "v" }, silent = true },
+        {
+            "<C-_>",
+            function() require("Comment.api").toggle.linewise.current() end,
+            desc = "Toggle comment",
+            mode = "n",
+        },
+        {
+            "<C-/>",
+            function() require("Comment.api").toggle.linewise.current() end,
+            desc = "Toggle comment",
+            mode = "n",
+        },
+        {
+            "<C-_>",
+            function() require("Comment.api").toggle.linewise(vim.fn.visualmode()) end,
+            desc = "Toggle comment",
+            mode = "x",
+        },
+        {
+            "<C-/>",
+            function() require("Comment.api").toggle.linewise(vim.fn.visualmode()) end,
+            desc = "Toggle comment",
+            mode = "x",
+        },
     },
     opts = {
-        create_mappings = false,
+        mappings = {
+            basic = false,
+            extra = false,
+        },
     },
 }

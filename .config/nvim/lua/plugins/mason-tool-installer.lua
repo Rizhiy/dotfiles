@@ -5,13 +5,16 @@ return {
         require("mason-tool-installer").setup({
             ensure_installed = {
                 "stylua",
-                "luacheck",
+                "selene",
+                "black",
+                "isort",
                 "yamllint",
                 "actionlint",
                 "yamlfix",
                 "jsonlint",
                 "markdownlint",
                 "codespell",
+                "djlint",
                 "prettier",
             },
             debounce_hours = 24,
