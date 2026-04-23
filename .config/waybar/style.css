@@ -113,6 +113,7 @@ window#waybar {
 #cpu,
 #temperature,
 #battery,
+#custom-battery,
 #language,
 #clock {
     padding: 0 5px;
@@ -202,7 +203,19 @@ window#waybar {
     border-bottom-color: @battery-color;
 }
 
+#custom-battery {
+    color: @battery-color;
+    border-bottom-color: @battery-color;
+}
+
 #battery.charging, #battery.plugged {
+    color: @battery-charging-color;
+    border-bottom-color: @battery-charging-color;
+}
+
+#custom-battery.charging,
+#custom-battery.fully-charged,
+#custom-battery.plugged {
     color: @battery-charging-color;
     border-bottom-color: @battery-charging-color;
 }
@@ -212,7 +225,17 @@ window#waybar {
     border-bottom-color: @battery-warning-color;
 }
 
+#custom-battery.warning {
+    color: @battery-warning-color;
+    border-bottom-color: @battery-warning-color;
+}
+
 #battery.critical:not(.charging) {
+    color: @battery-critical-color;
+    border-bottom-color: @battery-critical-color;
+}
+
+#custom-battery.critical {
     color: @battery-critical-color;
     border-bottom-color: @battery-critical-color;
 }
