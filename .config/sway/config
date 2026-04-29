@@ -40,3 +40,5 @@ exec swayidle -w \
     timeout 300 $swaylock_cmd \
     before-sleep $swaylock_cmd
 
+bindswitch --locked lid:on exec "$HOME/.config/sway/scripts/handle_lid.sh close"
+bindswitch --locked lid:off exec "$HOME/.config/sway/scripts/handle_lid.sh open"
