@@ -78,3 +78,5 @@ fd
 gimp
 imagemagick
 simple-scan
+fwupd
+fprintd
