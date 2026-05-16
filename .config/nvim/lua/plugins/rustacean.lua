@@ -2,7 +2,7 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^6", -- Recommended
     lazy = false, -- This plugin is already lazy
-    build = "rustup component add rust-analyzer",
+    build = "rustup component add rust-analyzer rustfmt",
     config = function()
         vim.g.rustaceanvim = {
             server = {

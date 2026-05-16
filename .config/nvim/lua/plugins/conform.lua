@@ -17,6 +17,7 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             python = { "isort", "black" },
+            rust = { "rustfmt" },
             yaml = { "yamlfix" },
             markdown = { "prettier" },
             htmldjango = { "djlint" },
