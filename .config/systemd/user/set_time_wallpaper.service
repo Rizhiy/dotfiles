@@ -1,0 +1,6 @@
+[Unit]
+Description=Set time wallpaper for sway
+
+[Service]
+Type=oneshot
+ExecStart=/home/rizhiy/.bin/set_time_wallpaper_sway.sh
