@@ -15,6 +15,16 @@ function read_without_comments {
     done < "$1"
 }
 
+function has_nvidia_gpu {
+    for device in /sys/bus/pci/devices/*
+    do
+        [[ -r "$device/vendor" && -r "$device/class" ]] || continue
+        [[ $(<"$device/vendor") = "0x10de" && $(<"$device/class") = 0x03* ]] && return 0
+    done
+
+    return 1
+}
+
 echo_stage "Checking out config files"
 # Make sure we are on the correct branch
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout master
@@ -25,6 +35,12 @@ sudo pacman -Sy
 
 echo_stage "Installing with pacman"
 read_without_comments $share_dir/pacman_install.txt | xargs sudo pacman --needed --noconfirm -S
+
+if has_nvidia_gpu; then
+    echo_stage "Installing NVIDIA driver"
+    sudo pacman --needed --noconfirm -S nvidia-open
+fi
+
 # Install yay for AUR
 if ! command -v yay > /dev/null; then
     git clone https://aur.archlinux.org/yay.git \
