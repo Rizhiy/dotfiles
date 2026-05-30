@@ -19,6 +19,8 @@ jq
 unzip
 sane
 sane-airscan
+fprintd
+lsd
 # Fonts
 ttf-sourcecodepro-nerd
 otf-ipaexfont
@@ -78,5 +80,3 @@ fd
 gimp
 imagemagick
 simple-scan
-fwupd
-fprintd

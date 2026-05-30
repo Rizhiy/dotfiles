@@ -41,6 +41,10 @@ fwupdmgr update -y --no-reboot-check
 echo_stage "Installing with yay"
 read_without_comments $share_dir/yay_install.txt | xargs yay --needed --noconfirm -S
 
+echo_stage "Configuring greetd"
+sudo install -d -m 755 /etc/greetd
+sudo install -m 644 $HOME/.config/greetd/config.toml /etc/greetd/config.toml
+
 echo_stage "Refresh fonts"
 fc-cache -fv
 
