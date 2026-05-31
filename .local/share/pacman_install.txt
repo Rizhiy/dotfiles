@@ -59,6 +59,9 @@ pavucontrol
 # GUI Programs
 thunar
 tumbler
+ffmpegthumbnailer
+gst-libav
+gst-plugins-good
 thunar-volman
 thunar-archive-plugin
 thunar-media-tags-plugin
