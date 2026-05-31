@@ -1,6 +1,6 @@
 #!/bin/sh
 case "$2" in
-    connectivity-change)
-        tzupdate
+    up|connectivity-change)
+        timezone=$(tzupdate --print-only) && timedatectl set-timezone "$timezone"
     ;;
 esac
