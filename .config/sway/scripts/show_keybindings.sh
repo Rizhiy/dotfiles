@@ -116,7 +116,7 @@ process_config() {
 } | sort -u > "$TEMP_FILE"
 
 # Show in wofi with custom styling
-cat "$TEMP_FILE" | wofi \
+wofi \
     --show dmenu \
     --prompt "Keybindings" \
     --width 50% \
@@ -124,7 +124,8 @@ cat "$TEMP_FILE" | wofi \
     --style "$HOME/.config/sway/wofi-keybindings.css" \
     --dmenu-print-line-num false \
     --gtk-dark-theme \
-    --insensitive
+    --insensitive \
+    < "$TEMP_FILE"
 
 # Cleanup
 rm -f "$TEMP_FILE"

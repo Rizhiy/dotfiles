@@ -60,6 +60,9 @@ read_without_comments $share_dir/yay_install.txt | xargs yay --needed --noconfir
 echo_stage "Configuring greetd"
 sudo install -d -m 755 /etc/greetd
 sudo install -m 644 $HOME/.config/greetd/config.toml /etc/greetd/config.toml
+if has_nvidia_gpu; then
+    sudo sed -i 's/--cmd sway/--cmd '"'"'sway --unsupported-gpu'"'"'/' /etc/greetd/config.toml
+fi
 
 echo_stage "Refresh fonts"
 fc-cache -fv

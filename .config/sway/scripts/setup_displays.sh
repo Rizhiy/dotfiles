@@ -21,6 +21,21 @@ if [ -f "$display_order_file" ]; then
             output_array+=("$display_name")
         fi
     done < "$display_order_file"
+
+    # Include active displays that are not listed in the order file.
+    while IFS= read -r display_name; do
+        already_listed=false
+        for output in "${output_array[@]}"; do
+            if [ "$output" = "$display_name" ]; then
+                already_listed=true
+                break
+            fi
+        done
+
+        if [ "$already_listed" = false ]; then
+            output_array+=("$display_name")
+        fi
+    done < <(echo "$outputs_json" | jq -r '.[] | select(.active == true) | .name' | sort)
 else
     echo "No display order file found, using sorted order"
     # Get output names sorted
@@ -39,12 +54,14 @@ fi
 if [ -f "$display_transforms_file" ]; then
     echo "Applying display transforms from $display_transforms_file"
     for display in "${output_array[@]}"; do
-        transform=$(grep "^$display " "$display_transforms_file" | cut -d' ' -f2)
+        transform=$(awk -v display="$display" '$1 == display { print $2; exit }' "$display_transforms_file")
         if [ -n "$transform" ]; then
             echo "Applying transform $transform to $display"
             swaymsg output "$display" transform "$transform"
         fi
     done
+
+    outputs_json=$(swaymsg -t get_outputs -r)
 fi
 
 # Get the first output (primary/built-in display)
