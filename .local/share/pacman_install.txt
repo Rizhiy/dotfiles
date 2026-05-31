@@ -80,3 +80,4 @@ fd
 gimp
 imagemagick
 simple-scan
+anki
