@@ -43,6 +43,7 @@ ranger
 htop
 # Window Manager
 wayland
+xorg-xwayland
 greetd
 greetd-tuigreet
 sway
