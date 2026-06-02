@@ -6,6 +6,7 @@ networkmanager
 openssh
 zsh
 rust
+python
 inetutils
 fwupd
 dmidecode
@@ -78,6 +79,8 @@ wl-clipboard
 zip
 ntfs-3g
 nodejs
+npm
+libvips
 ripgrep
 mako
 fd

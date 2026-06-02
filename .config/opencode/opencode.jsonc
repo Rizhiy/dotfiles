@@ -1,0 +1,5 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["/home/rizhiy/.config/opencode/instructions/memory.md"],
+  "plugin": ["opencode-mem"]
+}
