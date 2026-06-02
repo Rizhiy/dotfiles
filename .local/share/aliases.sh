@@ -27,9 +27,6 @@ alias op='$HOME/.bin/open_project.sh'
 cheat() {
     curl cheat.sh/"$1"
 }
-# dotfiles bare repository
-alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
 # Alias vim to nvim
 alias vim="nvim"
 

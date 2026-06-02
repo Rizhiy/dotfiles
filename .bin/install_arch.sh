@@ -2,6 +2,7 @@
 set -e
 
 share_dir=$HOME/.local/share/
+source "$share_dir/common.sh"
 
 function echo_stage {
     echo "===== $1 ====="
@@ -26,8 +27,7 @@ function has_nvidia_gpu {
 }
 
 echo_stage "Checking out config files"
-# Make sure we are on the correct branch
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout master
+checkout_dotfiles
 
 echo_stage "Enabling multilib"
 sudo sed -i -e '/#\[multilib\]/,+1s/^#//' /etc/pacman.conf

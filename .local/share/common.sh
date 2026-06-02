@@ -4,6 +4,18 @@ source $HOME/.local/share/aliases.sh
 # Set editor
 export EDITOR=nvim
 
+cfg() {
+	/usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+}
+
+checkout_dotfiles() {
+	cfg checkout master
+	cfg config status.showUntrackedFiles no
+	cfg submodule sync --recursive
+	cfg submodule update --init --recursive
+	cfg submodule absorbgitdirs
+}
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

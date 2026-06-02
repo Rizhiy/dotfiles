@@ -2,9 +2,10 @@
 set -e
 architecture="$(dpkg --print-architecture)"
 os="$(lsb_release -i)"
+source "$HOME/.local/share/common.sh"
 
-# Download all submodules
-/usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" submodule update --init --recursive
+# Make sure dotfiles and submodules are checked out
+checkout_dotfiles
 
 # Install basic stuff first
 xargs sudo apt-get install --no-install-recommends -y < $HOME/.local/share/apt_install_first.txt
