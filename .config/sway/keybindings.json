@@ -53,6 +53,7 @@
   "$mod+Control+w": "Network settings",
   "$mod+Control+b": "Bluetooth settings",
   "$mod+Control+f": "File manager",
+  "$mod+Control+Alt+t": "HDMI profile menu",
   
   "XF86AudioRaiseVolume": "Volume up",
   "XF86AudioLowerVolume": "Volume down",

@@ -7,6 +7,8 @@ outputs_json=$(swaymsg -t get_outputs -r)
 display_order_file="$HOME/.config/sway/display_order"
 # Config file for display transforms (rotations)
 display_transforms_file="$HOME/.config/sway/display_transforms"
+# Config file for explicit display scales
+display_scales_file="$HOME/.config/sway/display_scales"
 
 # Get output names
 if [ -f "$display_order_file" ]; then
@@ -94,9 +96,18 @@ if [ ${#output_array[@]} -ge 2 ]; then
         display_native_width=$(echo "$outputs_json" | jq -r ".[] | select(.name == \"$display\") | .current_mode.width")
         echo "Display $display native width: $display_native_width"
         
-        # Calculate scale to match primary
-        # Scale = display_native_width / primary_native_width
-        scale=$(awk "BEGIN {printf \"%.2f\", $display_native_width / $primary_native_width}")
+        configured_scale=""
+        if [ -f "$display_scales_file" ]; then
+            configured_scale=$(awk -v display="$display" '$1 == display { print $2; exit }' "$display_scales_file")
+        fi
+
+        if [ -n "$configured_scale" ]; then
+            scale="$configured_scale"
+        else
+            # Calculate scale to match primary
+            # Scale = display_native_width / primary_native_width
+            scale=$(awk "BEGIN {printf \"%.2f\", $display_native_width / $primary_native_width}")
+        fi
         echo "Display $display scale: $scale"
         
         # Set scale for this display
@@ -104,6 +115,8 @@ if [ ${#output_array[@]} -ge 2 ]; then
         
         # Position this display to the right of previous displays
         swaymsg output "$display" pos "$cumulative_width" 0
+
+        outputs_json=$(swaymsg -t get_outputs -r)
         
         # Update cumulative width for next display
         display_width=$(echo "$outputs_json" | jq -r ".[] | select(.name == \"$display\") | .rect.width")
