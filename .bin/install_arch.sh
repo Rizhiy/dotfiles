@@ -76,6 +76,9 @@ echo_stage "Setup NordVPN"
 sudo groupadd -f nordvpn
 sudo usermod -aG nordvpn $USER
 
+echo_stage "Setup scanner access"
+sudo usermod -aG lp $USER
+
 echo_stage "Refreshing applications"
 update-desktop-database ~/.local/share/applications
 

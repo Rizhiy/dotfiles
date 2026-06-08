@@ -1,3 +1,5 @@
+brother-dcp-l2510d
+brscan4
 google-chrome
 nordvpn-bin
 tzupdate

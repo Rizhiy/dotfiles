@@ -9,6 +9,30 @@ display_order_file="$HOME/.config/sway/display_order"
 display_transforms_file="$HOME/.config/sway/display_transforms"
 # Config file for explicit display scales
 display_scales_file="$HOME/.config/sway/display_scales"
+# Config file for persisted display enabled/disabled state
+display_states_file="$HOME/.config/sway/display_states"
+
+# Apply persisted display states before calculating active output layout.
+if [ -f "$display_states_file" ]; then
+    echo "Applying display states from $display_states_file"
+    while read -r display state; do
+        [[ -z "$display" || "$display" =~ ^[[:space:]]*# ]] && continue
+        if echo "$outputs_json" | jq -e ".[] | select(.name == \"$display\")" > /dev/null; then
+            case "$state" in
+                enabled|enable)
+                    echo "Enabling $display"
+                    swaymsg output "$display" enable
+                    ;;
+                disabled|disable)
+                    echo "Disabling $display"
+                    swaymsg output "$display" disable
+                    ;;
+            esac
+        fi
+    done < "$display_states_file"
+
+    outputs_json=$(swaymsg -t get_outputs -r)
+fi
 
 # Get output names
 if [ -f "$display_order_file" ]; then

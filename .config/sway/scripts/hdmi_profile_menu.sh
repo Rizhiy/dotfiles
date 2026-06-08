@@ -6,10 +6,11 @@ HDMI_OUTPUT="HDMI-A-1"
 HDMI_SINK="alsa_output.pci-0000_09_00.1.hdmi-stereo"
 HEADPHONES_SINK="alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.analog-stereo"
 SETUP_DISPLAYS="$HOME/.config/sway/scripts/setup_displays.sh"
+DISPLAY_STATES_FILE="$HOME/.config/sway/display_states"
 
 notify() {
     if command -v notify-send >/dev/null 2>&1; then
-        notify-send "HDMI profile" "$1"
+        notify-send --expire-time=3000 "HDMI profile" "$1"
     fi
 }
 
@@ -55,7 +56,18 @@ set_audio_sink() {
     done
 }
 
+save_display_state() {
+    local output="$1"
+    local state="$2"
+
+    touch "$DISPLAY_STATES_FILE"
+    awk -v output="$output" '$1 != output' "$DISPLAY_STATES_FILE" > "$DISPLAY_STATES_FILE.tmp" 2>/dev/null || true
+    echo "$output $state" >> "$DISPLAY_STATES_FILE.tmp"
+    mv "$DISPLAY_STATES_FILE.tmp" "$DISPLAY_STATES_FILE"
+}
+
 enable_hdmi() {
+    save_display_state "$HDMI_OUTPUT" enabled
     swaymsg output "$HDMI_OUTPUT" enable mode 3840x2160@60Hz scale 2
     "$SETUP_DISPLAYS"
     set_audio_sink "$HDMI_SINK"
@@ -63,6 +75,7 @@ enable_hdmi() {
 }
 
 disable_hdmi() {
+    save_display_state "$HDMI_OUTPUT" disabled
     swaymsg output "$HDMI_OUTPUT" disable
     "$SETUP_DISPLAYS"
     set_audio_sink "$HEADPHONES_SINK"
