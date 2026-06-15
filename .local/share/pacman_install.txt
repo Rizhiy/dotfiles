@@ -60,6 +60,10 @@ wireplumber
 pavucontrol
 # GUI Programs
 thunar
+mousepad
+ristretto
+evince
+libreoffice-fresh
 tumbler
 ffmpegthumbnailer
 gst-libav

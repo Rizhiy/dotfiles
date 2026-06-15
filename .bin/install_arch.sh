@@ -31,14 +31,14 @@ checkout_dotfiles
 
 echo_stage "Enabling multilib"
 sudo sed -i -e '/#\[multilib\]/,+1s/^#//' /etc/pacman.conf
-sudo pacman -Sy
+sudo pacman -Syu --noconfirm
 
 echo_stage "Installing with pacman"
 read_without_comments $share_dir/pacman_install.txt | xargs sudo pacman --needed --noconfirm -S
 
 if has_nvidia_gpu; then
     echo_stage "Installing NVIDIA driver"
-    sudo pacman --needed --noconfirm -S nvidia-open
+    sudo pacman --needed --noconfirm -Syu nvidia-open
 fi
 
 # Install yay for AUR
