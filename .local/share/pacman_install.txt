@@ -40,7 +40,7 @@ vi
 neovim
 tmux
 bluetui
-ranger
+yazi
 htop
 # Window Manager
 wayland
@@ -71,7 +71,7 @@ gst-plugins-good
 thunar-volman
 thunar-archive-plugin
 thunar-media-tags-plugin
-kitty
+ghostty
 wofi
 steam
 vlc

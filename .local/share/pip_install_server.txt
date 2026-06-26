@@ -3,7 +3,6 @@ pynvim
 black
 isort[requirements]
 rope
-ranger-fm
 pwgen
 git-fame
 pynvim
