@@ -22,6 +22,8 @@ sane
 sane-airscan
 fprintd
 lsd
+rsync
+
 # Fonts
 ttf-sourcecodepro-nerd
 otf-ipaexfont
@@ -34,6 +36,7 @@ ttf-liberation
 ttf-dejavu
 catfish
 gvfs
+
 # Terminal programs
 git
 vi
@@ -42,6 +45,7 @@ tmux
 bluetui
 yazi
 htop
+
 # Window Manager
 wayland
 xorg-xwayland
@@ -52,12 +56,14 @@ swaylock
 swayidle
 swaybg
 waybar
+
 # Sound
 sof-firmware
 pipewire
 pipewire-pulse
 wireplumber
 pavucontrol
+
 # GUI Programs
 thunar
 mousepad
@@ -76,7 +82,7 @@ wofi
 steam
 vlc
 vlc-plugins-all
-transmission-gtk
+deluge-gtk
 grim
 slurp
 wl-clipboard

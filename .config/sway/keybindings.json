@@ -6,6 +6,7 @@
   "$mod+t": "Toggle layout",
   "$mod+Escape": "Lock screen",
   "$mod+s": "Screenshot selection",
+  "$mod+Shift+s": "Screenshot selection to disk",
   "$mod+slash": "Show keybindings",
   
   "$mod+h": "Focus left",
@@ -25,6 +26,7 @@
   "$mod+0": "Switch to workspace 10",
   
   "$mod+Shift+q": "Kill window",
+  "$mod+Control+Shift+q": "Force kill window",
   "$mod+Shift+minus": "Move to scratchpad",
   "$mod+Shift+equal": "Show scratchpad",
   "$mod+Shift+r": "Enter resize mode",
