@@ -23,6 +23,8 @@ sane-airscan
 fprintd
 lsd
 rsync
+ntfs-3g
+ntfsprogs
 
 # Fonts
 ttf-sourcecodepro-nerd
@@ -87,7 +89,6 @@ grim
 slurp
 wl-clipboard
 zip
-ntfs-3g
 nodejs
 npm
 libvips

@@ -3,6 +3,7 @@
 set -euo pipefail
 
 HDMI_OUTPUT="HDMI-A-1"
+MAIN_OUTPUTS=("DP-1" "DP-2")
 HDMI_SINK="alsa_output.pci-0000_09_00.1.hdmi-stereo"
 HEADPHONES_SINK="alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.analog-stereo"
 SETUP_DISPLAYS="$HOME/.config/sway/scripts/setup_displays.sh"
@@ -16,8 +17,9 @@ notify() {
 
 choose_action() {
     printf '%s\n' \
-        'Enable HDMI' \
-        'Disable HDMI' \
+        'Main' \
+        'HDMI only' \
+        'All' \
         | wofi \
             --dmenu \
             --prompt 'HDMI profile' \
@@ -66,20 +68,71 @@ save_display_state() {
     mv "$DISPLAY_STATES_FILE.tmp" "$DISPLAY_STATES_FILE"
 }
 
-enable_hdmi() {
-    save_display_state "$HDMI_OUTPUT" enabled
-    swaymsg output "$HDMI_OUTPUT" enable mode 3840x2160@60Hz scale 2
-    "$SETUP_DISPLAYS"
-    set_audio_sink "$HDMI_SINK"
-    notify "Enabled $HDMI_OUTPUT and selected HDMI audio"
+ensure_display_enabled() {
+    local first_output
+
+    if awk '$1 !~ /^#/ && ($2 == "enabled" || $2 == "enable") { found = 1 } END { exit !found }' "$DISPLAY_STATES_FILE"; then
+        return
+    fi
+
+    first_output=$(awk '$1 !~ /^#/ { print $1; exit }' "$DISPLAY_STATES_FILE")
+    if [ -n "$first_output" ]; then
+        save_display_state "$first_output" enabled
+        swaymsg output "$first_output" enable
+    fi
 }
 
-disable_hdmi() {
+apply_display_setup() {
+    ensure_display_enabled
+    "$SETUP_DISPLAYS"
+}
+
+enable_main_outputs() {
+    for output in "${MAIN_OUTPUTS[@]}"; do
+        save_display_state "$output" enabled
+        swaymsg output "$output" enable
+    done
+}
+
+disable_main_outputs() {
+    for output in "${MAIN_OUTPUTS[@]}"; do
+        save_display_state "$output" disabled
+        swaymsg output "$output" disable
+    done
+}
+
+enable_hdmi_output() {
+    save_display_state "$HDMI_OUTPUT" enabled
+    swaymsg output "$HDMI_OUTPUT" enable mode 3840x2160@60Hz scale 2
+}
+
+disable_hdmi_output() {
     save_display_state "$HDMI_OUTPUT" disabled
     swaymsg output "$HDMI_OUTPUT" disable
-    "$SETUP_DISPLAYS"
+}
+
+main_profile() {
+    enable_main_outputs
+    disable_hdmi_output
+    apply_display_setup
     set_audio_sink "$HEADPHONES_SINK"
-    notify "Disabled $HDMI_OUTPUT and selected headphones"
+    notify "Main: DP-1 and DP-2 enabled, HDMI disabled, headphones selected"
+}
+
+hdmi_only_profile() {
+    disable_main_outputs
+    enable_hdmi_output
+    apply_display_setup
+    set_audio_sink "$HDMI_SINK"
+    notify "HDMI only: DP-1 and DP-2 disabled, HDMI audio selected"
+}
+
+all_profile() {
+    enable_main_outputs
+    enable_hdmi_output
+    apply_display_setup
+    set_audio_sink "$HDMI_SINK"
+    notify "All: all displays enabled, HDMI audio selected"
 }
 
 choice="${1:-}"
@@ -88,10 +141,13 @@ if [ -z "$choice" ]; then
 fi
 
 case "$choice" in
-    "Enable HDMI"|enable)
-        enable_hdmi
+    "Main"|main)
+        main_profile
         ;;
-    "Disable HDMI"|disable)
-        disable_hdmi
+    "HDMI only"|hdmi-only)
+        hdmi_only_profile
+        ;;
+    "All"|all)
+        all_profile
         ;;
 esac

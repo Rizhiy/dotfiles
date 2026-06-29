@@ -109,6 +109,7 @@ window#waybar {
 #backlight,
 #bluetooth,
 #network,
+#custom-network,
 #memory,
 #cpu,
 #temperature,
@@ -245,7 +246,17 @@ window#waybar {
     border-bottom-color: @network-color;
 }
 
+#custom-network {
+    color: @network-color;
+    border-bottom-color: @network-color;
+}
+
 #network.disconnected {
+    color: @network-disconnected-color;
+    border-bottom-color: @network-disconnected-color;
+}
+
+#custom-network.disconnected {
     color: @network-disconnected-color;
     border-bottom-color: @network-disconnected-color;
 }

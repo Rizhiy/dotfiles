@@ -11,7 +11,7 @@
         "pulseaudio",
         "backlight",
         "bluetooth",
-        "network",
+        "custom/network",
         "memory",
         "cpu",
         "temperature",
@@ -95,13 +95,10 @@
         "tooltip": false
     },
 
-    "network": {
+    "custom/network": {
+        "exec": "$HOME/.config/waybar/network.sh",
         "interval": 1,
-        "format-wifi": "󰖩 {essid} ({signalStrength}%)",
-        "format-ethernet": "󰈀 {ifname}",
-        "format-linked": "󰈀 {ifname} (No IP)",
-        "format-disconnected": "󰖪 Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr} U: {bandwidthUpBytes} D: {bandwidthDownBytes}",
+        "return-type": "json",
         "on-click": "kitty nmtui"
     },
 
