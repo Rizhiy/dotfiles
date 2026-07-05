@@ -4,14 +4,30 @@ set -euo pipefail
 
 HDMI_OUTPUT="HDMI-A-1"
 MAIN_OUTPUTS=("DP-1" "DP-2")
-HDMI_SINK="alsa_output.pci-0000_09_00.1.hdmi-stereo"
-HEADPHONES_SINK="alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.analog-stereo"
 SETUP_DISPLAYS="$HOME/.config/sway/scripts/setup_displays.sh"
 DISPLAY_STATES_FILE="$HOME/.config/sway/display_states"
+AUDIO_SINKS_FILE="$HOME/.config/sway/hdmi_audio_sinks"
 
 notify() {
     if command -v notify-send >/dev/null 2>&1; then
         notify-send --expire-time=3000 "HDMI profile" "$1"
+    fi
+}
+
+load_audio_sinks() {
+    if [ ! -f "$AUDIO_SINKS_FILE" ]; then
+        notify "Audio sinks config not found: $AUDIO_SINKS_FILE"
+        echo "Audio sinks config not found: $AUDIO_SINKS_FILE" >&2
+        exit 1
+    fi
+
+    # shellcheck source=/dev/null
+    source "$AUDIO_SINKS_FILE"
+
+    if [ -z "${HDMI_SINK:-}" ] || [ -z "${HEADPHONES_SINK:-}" ]; then
+        notify "Audio sinks config must set HDMI_SINK and HEADPHONES_SINK"
+        echo "Audio sinks config must set HDMI_SINK and HEADPHONES_SINK" >&2
+        exit 1
     fi
 }
 
@@ -136,6 +152,8 @@ all_profile() {
 }
 
 choice="${1:-}"
+load_audio_sinks
+
 if [ -z "$choice" ]; then
     choice=$(choose_action)
 fi

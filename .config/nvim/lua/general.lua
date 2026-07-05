@@ -12,6 +12,7 @@ vim.opt.autowrite = true
 vim.opt.autowriteall = true
 vim.opt.updatetime = 1000
 vim.opt.timeoutlen = 300
+vim.opt.mouse = ""
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
