@@ -36,13 +36,12 @@ alias docker="sudo docker"
 # easier tmux attach
 attach_to_session() {
 	if [ -z "$TMUX" ]; then
-		tmux a
+		tmux new-session -A -s main
 	else
 		echo "ALREADY INSIDE TMUX! unset \$TMUX to force"
 	fi
 }
 alias a="attach_to_session"
-alias new="tmux new -s main"
 
 # Load dotenv
 alias load_dotenv=". dotenv.sh"

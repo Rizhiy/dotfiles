@@ -43,7 +43,7 @@
         "exec": "curl 'https://wttr.in/?format=1'",
         "interval": 3600,
         "format": "{}",
-        "on-click": "kitty --hold curl wttr.in"
+        "on-click": "$HOME/.config/waybar/terminal.sh --hold curl wttr.in"
     },
 
     "idle_inhibitor": {
@@ -71,13 +71,13 @@
         "format": "CPU {usage}%",
         "tooltip": true,
         "interval": 1,
-        "on-click": "kitty htop -s PERCENT_CPU"
+        "on-click": "$HOME/.config/waybar/terminal.sh htop -s PERCENT_CPU"
     },
 
     "memory": {
         "format": "RAM {}%",
         "interval": 1,
-        "on-click": "kitty htop -s PERCENT_MEM"
+        "on-click": "$HOME/.config/waybar/terminal.sh htop -s PERCENT_MEM"
     },
 
     "temperature": {
@@ -99,7 +99,7 @@
         "exec": "$HOME/.config/waybar/network.sh",
         "interval": 1,
         "return-type": "json",
-        "on-click": "kitty nmtui"
+        "on-click": "$HOME/.config/waybar/terminal.sh nmtui"
     },
 
     "pulseaudio": {
@@ -116,8 +116,8 @@
             "car": "󰄋",
             "default": ["󰕿", "󰖀", "󰕾"]
         },
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pavucontrol",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
     },
@@ -141,7 +141,7 @@
         "format": "",
         "format-on": " on",
         "format-connected": " {num_connections}",
-        "on-click": "kitty bluetui",
+        "on-click": "$HOME/.config/waybar/terminal.sh bluetui",
     }
 
 }

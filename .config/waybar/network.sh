@@ -13,7 +13,7 @@ if command -v ip >/dev/null 2>&1; then
 fi
 
 if [[ -z "$iface" || ! -r "/sys/class/net/$iface/statistics/rx_bytes" ]]; then
-  printf '{"text":"󰖪 Disconnected","class":"disconnected"}\n'
+  jq -cn --arg text "󰖪 Disconnected" --arg class "disconnected" '{text: $text, class: $class}'
   exit 0
 fi
 
@@ -37,18 +37,32 @@ if [[ "$prev_iface" != "$iface" || $elapsed -le 0 ]]; then
   up="0.00"
   down="0.00"
 else
-  up=$(awk -v bytes=$((tx - prev_tx)) -v seconds="$elapsed" 'BEGIN { printf "%.2f", bytes / seconds / 1000000 }')
-  down=$(awk -v bytes=$((rx - prev_rx)) -v seconds="$elapsed" 'BEGIN { printf "%.2f", bytes / seconds / 1000000 }')
+  up=$(awk -v bytes=$((tx - prev_tx)) -v seconds="$elapsed" 'BEGIN { printf "%.2f", bytes / seconds / 1048576 }')
+  down=$(awk -v bytes=$((rx - prev_rx)) -v seconds="$elapsed" 'BEGIN { printf "%.2f", bytes / seconds / 1048576 }')
 fi
 
 icon="󰈀"
-label="$iface"
+label=""
 if [[ -d "/sys/class/net/$iface/wireless" ]]; then
   icon="󰖩"
-  if command -v iwgetid >/dev/null 2>&1; then
+  if command -v nmcli >/dev/null 2>&1; then
+    ssid=$(nmcli -t -f ACTIVE,SSID dev wifi 2>/dev/null | awk -F: '$1 == "yes" {print $2; exit}')
+    ssid=${ssid//\\:/:}
+    [[ -n "$ssid" ]] && label="$ssid"
+  elif command -v iwgetid >/dev/null 2>&1; then
     ssid=$(iwgetid -r "$iface" 2>/dev/null || true)
     [[ -n "$ssid" ]] && label="$ssid"
   fi
 fi
 
-printf '{"text":"%s %s ↑%s MB/s ↓%s MB/s","tooltip":"%s: U %s MB/s D %s MB/s"}\n' "$icon" "$label" "$up" "$down" "$iface" "$up" "$down"
+ipv4=$(ip -4 -o addr show dev "$iface" scope global 2>/dev/null | awk '{sub(/\/.*/, "", $4); print $4; exit}')
+ipv6=$(ip -6 -o addr show dev "$iface" scope global 2>/dev/null | awk '{sub(/\/.*/, "", $4); print $4; exit}')
+
+text="$icon"
+[[ -n "$label" ]] && text+=" $label"
+[[ -n "$ipv4" ]] && text+=" $ipv4"
+
+tooltip="$iface: ↑${up} MiB/s ↓${down} MiB/s"
+[[ -n "$ipv6" ]] && tooltip+=$'\n'"IPv6: $ipv6"
+
+jq -cn --arg text "$text" --arg tooltip "$tooltip" '{text: $text, tooltip: $tooltip}'
