@@ -54,6 +54,7 @@
   "$mod+Control+s": "Open Steam",
   "$mod+Control+w": "Network settings",
   "$mod+Control+b": "Bluetooth settings",
+  "$mod+Control+v": "Audio settings",
   "$mod+Control+f": "File manager",
   "$mod+Control+Alt+t": "HDMI profile menu",
   
