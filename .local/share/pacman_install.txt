@@ -25,6 +25,9 @@ lsd
 rsync
 ntfs-3g
 ntfsprogs
+sshfs
+gvfs-mtp
+gvfs-gphoto2
 
 # Fonts
 ttf-sourcecodepro-nerd
@@ -99,3 +102,4 @@ gimp
 imagemagick
 simple-scan
 anki
+file-roller
