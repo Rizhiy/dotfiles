@@ -90,6 +90,20 @@ if [ -f "$display_transforms_file" ]; then
     outputs_json=$(swaymsg -t get_outputs -r)
 fi
 
+# Apply explicit scales to every display, including the primary.
+if [ -f "$display_scales_file" ]; then
+    echo "Applying display scales from $display_scales_file"
+    for display in "${output_array[@]}"; do
+        scale=$(awk -v display="$display" '$1 == display { print $2; exit }' "$display_scales_file")
+        if [ -n "$scale" ]; then
+            echo "Applying scale $scale to $display"
+            swaymsg output "$display" scale "$scale"
+        fi
+    done
+
+    outputs_json=$(swaymsg -t get_outputs -r)
+fi
+
 # Get the first output (primary/built-in display)
 primary="${output_array[0]}"
 
