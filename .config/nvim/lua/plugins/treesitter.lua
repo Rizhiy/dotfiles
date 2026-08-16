@@ -1,50 +1,52 @@
+local has_tree_sitter_cli = vim.fn.executable("tree-sitter") == 1
+
+local languages = {
+    "vim",
+    -- languages
+    "lua",
+    "python",
+    "rust",
+    "bash",
+    -- data
+    "markdown",
+    "markdown_inline",
+    "json",
+    "yaml",
+    "toml",
+    -- other
+    "regex",
+    "sql",
+    "dockerfile",
+    "gitignore",
+    "rst",
+}
+
 return {
     "nvim-treesitter/nvim-treesitter",
-    version = false,
-    build = ":TSUpdate",
+    branch = "main",
+    lazy = false,
+    build = has_tree_sitter_cli and ":TSUpdate" or nil,
     dependencies = {
         "nvim-treesitter/nvim-treesitter-context",
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
     },
-    event = { "BufReadPre", "BufNewFile" },
     config = function()
-        require("nvim-treesitter.configs").setup({
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "<C-Space>",
-                    node_incremental = "<C-Space>",
-                    node_decremental = "<BS>",
-                    scope_incremental = false,
-                },
-            },
-            ensure_installed = {
-                "vim",
-                -- languages
-                "lua",
-                "python",
-                "rust",
-                "bash",
-                -- data
-                "markdown",
-                "markdown_inline",
-                "json",
-                "yaml",
-                "toml",
-                -- other
-                "regex",
-                "sql",
-                "dockerfile",
-                "gitignore",
-                "rst",
-            },
-            auto_install = true,
-            highlight = {
-                enable = true,
-                disable = function(_, buf) return require("rizhiy.utils").is_large_file(buf) end,
-            },
-            indent = { enable = true },
+        local treesitter = require("nvim-treesitter")
+        treesitter.setup()
+        if has_tree_sitter_cli then treesitter.install(languages) end
+
+        vim.api.nvim_create_autocmd("FileType", {
+            callback = function(args)
+                if require("rizhiy.utils").is_large_file(args.buf) then return end
+
+                local language = vim.treesitter.language.get_lang(args.match)
+                if not vim.list_contains(languages, language) then return end
+
+                local parser_available = pcall(vim.treesitter.start, args.buf, language)
+                if parser_available then vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" end
+            end,
         })
+
         vim.cmd("hi TreesitterContext guibg=None")
     end,
 }
