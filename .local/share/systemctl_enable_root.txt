@@ -2,3 +2,4 @@ NetworkManager
 greetd.service
 nordvpnd
 bluetooth.service
+cups.service

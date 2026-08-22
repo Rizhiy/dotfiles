@@ -29,3 +29,8 @@ neofetch
 picom
 ncurses-term
 thunar
+cups
+cups-pk-helper
+system-config-printer
+policykit-1-gnome
+printer-driver-brlaser

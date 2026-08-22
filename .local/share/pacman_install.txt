@@ -28,6 +28,14 @@ ntfsprogs
 sshfs
 gvfs-mtp
 gvfs-gphoto2
+libva-nvidia-driver
+libva-util
+# Printing and desktop authentication
+cups
+ghostscript
+system-config-printer
+cups-pk-helper
+polkit-gnome
 
 # Fonts
 ttf-sourcecodepro-nerd

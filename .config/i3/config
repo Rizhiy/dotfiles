@@ -43,8 +43,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Intialise gnome keyring
+# Initialise session authentication services
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+exec_always --no-startup-id $HOME/.bin/start_polkit_agent.sh
 
 ############### Session operations ###############
 # lock the screen
