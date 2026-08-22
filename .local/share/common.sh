@@ -72,6 +72,9 @@ if [ -z $PATHSSET ]; then
 	# Add .local/bin to PATH
 	export PATH="$HOME/.local/bin:$PATH"
 
+	# Share explicitly managed language servers and Mason tools with Pi and other CLI clients.
+	export PATH="$HOME/.local/share/pi-language-servers/node_modules/.bin:$HOME/.local/share/nvim/mason/bin:$PATH"
+
 	# Add Go to path
 	export PATH="/usr/local/go/bin:$PATH"
 	export GOPATH=$HOME/.go
