@@ -20,7 +20,7 @@ act () {
 alias act-base='de-act; conda activate base'
 alias rm-env='de-act; conda uninstall -n "$(get-env-name)" --all; act-base'
 
-# Open project in tmux window
+# Open or focus a project workspace in Herdr
 alias op='$HOME/.bin/open_project.sh'
 
 # More concise man pages
@@ -33,12 +33,12 @@ alias vim="nvim"
 # Make docker always execute as root
 alias docker="sudo docker"
 
-# easier tmux attach
+# Attach to the persistent Herdr session
 attach_to_session() {
-	if [ -z "$TMUX" ]; then
-		tmux new-session -A -s main
+	if [ "${HERDR_ENV:-0}" = 1 ]; then
+		echo "Already inside Herdr"
 	else
-		echo "ALREADY INSIDE TMUX! unset \$TMUX to force"
+		herdr
 	fi
 }
 alias a="attach_to_session"

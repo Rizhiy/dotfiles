@@ -1,4 +1,5 @@
 brother-dcp-l2510d
+herdr-bin
 brscan4
 google-chrome
 nordvpn-bin
