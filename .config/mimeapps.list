@@ -18,11 +18,21 @@ x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 x-scheme-handler/mailto=google-chrome.desktop
-video/mp4=vlc.desktop
+video/mp4=mpv.desktop
 x-scheme-handler/webcal=google-chrome.desktop
-video/x-matroska=vlc.desktop
-video/x-msvideo=vlc.desktop
-video/quicktime=vlc.desktop
+video/x-matroska=mpv.desktop
+video/x-msvideo=mpv.desktop
+video/quicktime=mpv.desktop
+x-scheme-handler/magnet=transmission-gtk.desktop
+application/x-bittorrent=transmission-gtk.desktop
+application/vnd.bittorrent=transmission-gtk.desktop
+video/webm=mpv.desktop
+video/mpeg=mpv.desktop
+video/x-flv=mpv.desktop
+video/x-ms-wmv=mpv.desktop
+video/ogg=mpv.desktop
+video/3gpp=mpv.desktop
+video/3gpp2=mpv.desktop
 
 [Added Associations]
 text/plain=org.xfce.mousepad.desktop;nvim.desktop;

@@ -95,7 +95,7 @@ wofi
 steam
 vlc
 vlc-plugins-all
-deluge-gtk
+transmission-gtk
 grim
 slurp
 wl-clipboard
