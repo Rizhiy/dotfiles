@@ -28,20 +28,6 @@ if ! command -v gh > /dev/null; then
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 fi
 
-if [ ! -d "$HOME/miniconda3" ]; then
-	if [ "$architecture" = "amd64" ]; then
-		download_link="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
-	elif [ "$architecture" = "arm64" ]; then
-		download_link="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh"
-	else
-		echo "Unknown architecture! ${architecture}"
-		exit 1
-	fi
-	wget "$download_link" -O "$HOME/miniconda3.sh"
-	bash "$HOME/miniconda3.sh" -b -p "$HOME/miniconda3"
-	rm "$HOME/miniconda3.sh"
-fi
-
 if ! command -v npm > /dev/null; then
 	# Debian doesn't install npm with node, so need custom logic here
 	case "$os" in

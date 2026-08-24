@@ -22,7 +22,6 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle tom-doerr/zsh_codex@main
-antigen bundle conda-incubator/conda-zsh-completion
 antigen theme romkatv/powerlevel10k
 antigen apply
 
@@ -81,7 +80,7 @@ unsetopt autocd
 
 # AI Autocomplete
 export ZSH_CUSTOM="$HOME/.local/share/zsh_custom"
-export ZSH_CODEX_PYTHON="$HOME/miniconda3/bin/python"
+export ZSH_CODEX_PYTHON="$(command -v python3)"
 source "$ZSH_CUSTOM/plugins/zsh_codex/zsh_codex.plugin.zsh"
 bindkey ^X create_completion
 # Allow comments in interactive shell

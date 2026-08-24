@@ -16,7 +16,7 @@
         "hooks": [
           {
             "command": "/usr/bin/python3 '/home/rizhiy/.config/herdr/update-agent-session.py'",
-            "timeout": 3,
+            "timeout": 12,
             "type": "command"
           }
         ]

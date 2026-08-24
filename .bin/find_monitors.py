@@ -1,4 +1,7 @@
-#!/home/rizhiy/miniconda3/bin/python
+#!/usr/bin/env -S uv run --script
+# /// script
+# dependencies = ["python-xlib"]
+# ///
 import os
 import sys
 from pathlib import Path
