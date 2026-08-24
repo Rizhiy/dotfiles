@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.84.3",
   "theme": "dark",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
@@ -11,7 +11,7 @@
     "npm:@tintinweb/pi-tasks",
     "npm:pi-compact-transcript",
     "npm:pi-active-memory",
-    "git:github.com/code-yeongyu/pi-lsp-client@1c981dfcacc456fe4ce9f4120a2f0250b54d6844",
-    "npm:@tintinweb/pi-subagents@0.16.1"
+    "git:github.com/code-yeongyu/pi-lsp-client",
+    "npm:@tintinweb/pi-subagents"
   ]
 }
