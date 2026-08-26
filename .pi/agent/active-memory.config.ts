@@ -17,10 +17,7 @@ export default {
     llm: {
       adapter: "pi-model",
       config: {
-        candidates: [
-          "openai-codex/gpt-5.6-luna",
-          "openai-codex/gpt-5.4-mini",
-        ],
+        candidates: ["openai-codex/gpt-5.6-luna", "openai-codex/gpt-5.4-mini"],
         thinking: "off",
         maxTokens: 1200,
       },

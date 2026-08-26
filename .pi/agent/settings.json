@@ -11,7 +11,11 @@
     "npm:@tintinweb/pi-tasks",
     "npm:pi-compact-transcript",
     "npm:pi-active-memory",
-    "git:github.com/code-yeongyu/pi-lsp-client",
-    "npm:@tintinweb/pi-subagents"
+    "npm:@tintinweb/pi-subagents",
+    "npm:pi-mcp-adapter",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-lens",
+    "npm:@dietrichgebert/ponytail",
+    "npm:@narumitw/pi-goal"
   ]
 }
