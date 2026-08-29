@@ -5,3 +5,4 @@ google-chrome
 nordvpn-bin
 opencode-bin
 tzupdate
+wl-gammarelay-rs

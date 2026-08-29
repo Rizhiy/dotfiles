@@ -69,6 +69,11 @@ swaylock
 swayidle
 swaybg
 waybar
+ddcutil
+gtk3
+gtk-layer-shell
+python-gobject
+python-astral
 
 # Sound
 sof-firmware

@@ -103,6 +103,7 @@ window#waybar {
 #mode,
 #window,
 #custom-weather,
+#custom-brightness,
 #disk,
 #custom-uptime,
 #pulseaudio,
@@ -167,6 +168,14 @@ window#waybar {
 #custom-weather {
     color: @weather-color;
     border-bottom-color: @weather-color;
+}
+
+#custom-brightness {
+    min-width: 60px;
+    padding: 0;
+    margin: 0;
+    color: @backlight-color;
+    border-bottom-color: @backlight-color;
 }
 
 #clock.date {

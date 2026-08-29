@@ -1,0 +1,12 @@
+[Unit]
+Description=Wayland gamma control
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/wl-gammarelay-rs run
+Restart=on-failure
+RestartSec=1
+
+[Install]
+WantedBy=default.target

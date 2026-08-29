@@ -19,6 +19,7 @@
         "sway/language",
         "clock#date",
         "clock#time",
+        "custom/brightness",
     ],
     "fixed-center": false,
 
@@ -127,6 +128,15 @@
         "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set +5%",
         "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "custom/brightness": {
+        "exec": "$HOME/.config/waybar/brightness-widget.py --status",
+        "interval": 1,
+        "on-click": "$HOME/.config/waybar/brightness-widget.py --toggle",
+        "on-scroll-up": "$HOME/.config/waybar/brightness-widget.py --gamma-up",
+        "on-scroll-down": "$HOME/.config/waybar/brightness-widget.py --gamma-down",
+        "tooltip": false
     },
 
     "sway/language": {

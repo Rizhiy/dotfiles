@@ -11,6 +11,7 @@ exec_always /home/rizhiy/.bin/set_time_wallpaper_sway.sh
 exec_always /home/rizhiy/.config/sway/scripts/setup_displays.sh
 exec_always $HOME/.bin/start_polkit_agent.sh
 exec mako
+exec $HOME/.config/waybar/brightness-widget.py
 
 input type:touchpad {
   natural_scroll enabled

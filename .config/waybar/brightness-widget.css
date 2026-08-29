@@ -1,0 +1,31 @@
+#brightness-widget {
+    background: #282828;
+    color: #ebdbb2;
+    font-family: "SauceCodePro Nerd Font";
+    font-size: 14px;
+}
+
+#brightness-controls {
+    min-width: 310px;
+    padding: 10px;
+    background: #3c3836;
+}
+
+#brightness-controls scale trough {
+    min-height: 6px;
+    border-radius: 3px;
+    background: #282828;
+}
+
+#brightness-controls scale highlight {
+    min-height: 6px;
+    border-radius: 3px;
+    background: #d79921;
+}
+
+#brightness-controls scale slider {
+    min-width: 14px;
+    min-height: 14px;
+    border-radius: 7px;
+    background: #ebdbb2;
+}
