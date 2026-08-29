@@ -133,7 +133,8 @@
     "custom/brightness": {
         "exec": "$HOME/.config/waybar/brightness-widget.py --status",
         "interval": 1,
-        "on-click": "$HOME/.config/waybar/brightness-widget.py --toggle",
+        "on-click": "$HOME/.config/waybar/brightness-widget.py --click",
+        "on-click-right": "$HOME/.config/waybar/brightness-widget.py --close",
         "on-scroll-up": "$HOME/.config/waybar/brightness-widget.py --gamma-up",
         "on-scroll-down": "$HOME/.config/waybar/brightness-widget.py --gamma-down",
         "tooltip": false

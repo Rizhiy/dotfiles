@@ -37,6 +37,7 @@ CSS = Path(__file__).with_suffix(".css")
 SCHEDULE = Path.home() / ".config/brightness-widget/schedule.conf"
 RUNTIME = Path(os.environ.get("XDG_RUNTIME_DIR", "/tmp"))
 PID = RUNTIME / f"brightness-widget-{os.getuid()}.pid"
+OPEN = RUNTIME / f"brightness-widget-{os.getuid()}.open"
 
 
 def clamp(value, minimum, maximum):
@@ -199,6 +200,15 @@ class Controller:
             if popup is not source:
                 popup.sync()
 
+    def set_popups(self, opened):
+        for popup in self.popups:
+            (popup.open if opened else popup.close)()
+        if opened:
+            OPEN.touch()
+        else:
+            OPEN.unlink(missing_ok=True)
+        return True
+
     def _set_monitor(self, value):
         for bus in self.buses:
             try:
@@ -336,11 +346,14 @@ class Popup:
             self.collapse_timer = None
         return False
 
-    def toggle(self):
-        if self.controls_window.get_visible():
-            self.controls_window.hide()
-        else:
-            self.controls_window.show_all()
+    def open(self):
+        self.controls_window.show_all()
+
+    def close(self):
+        if self.collapse_timer:
+            GLib.source_remove(self.collapse_timer)
+            self.collapse_timer = None
+        self.controls_window.hide()
 
     def _schedule_collapse(self, _widget=None, _event=None):
         if self.collapse_timer:
@@ -349,14 +362,7 @@ class Popup:
         return False
 
     def _collapse(self):
-        pointer = Gdk.Display.get_default().get_default_seat().get_pointer()
-        gdk_window = self.controls_window.get_window()
-        if gdk_window is not None:
-            child, _x, _y, buttons = gdk_window.get_device_position(pointer)
-            if child is not None or buttons & Gdk.ModifierType.BUTTON1_MASK:
-                return True
-        self.controls_window.hide()
-        self.collapse_timer = None
+        self.controller.set_popups(False)
         return False
 
     def _scroll(self, _widget, event):
@@ -413,8 +419,14 @@ def main():
     if "--status" in sys.argv:
         status()
         return
-    if "--toggle" in sys.argv:
+    if "--click" in sys.argv:
+        signal_daemon(signal.SIGWINCH if OPEN.exists() else signal.SIGUSR1)
+        return
+    if "--open" in sys.argv:
         signal_daemon(signal.SIGUSR1)
+        return
+    if "--close" in sys.argv:
+        signal_daemon(signal.SIGWINCH)
         return
     if "--gamma-up" in sys.argv:
         signal_daemon(signal.SIGUSR2)
@@ -440,26 +452,27 @@ def main():
             Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
 
-    PID.write_text(str(os.getpid()))
     controller = Controller()
     controller._save()
+    OPEN.unlink(missing_ok=True)
     display = Gdk.Display.get_default()
     for index in range(display.get_n_monitors()):
         popup = Popup(controller, display.get_monitor(index))
         controller.popups.append(popup)
 
-    def toggle_popups():
-        for popup in controller.popups:
-            popup.toggle()
-        return True
-
     def adjust_gamma(delta):
         controller.set_gamma(controller.gamma + delta)
         return True
 
-    GLibUnix.signal_add(GLib.PRIORITY_DEFAULT, signal.SIGUSR1, toggle_popups)
+    GLibUnix.signal_add(
+        GLib.PRIORITY_DEFAULT, signal.SIGUSR1, controller.set_popups, True
+    )
+    GLibUnix.signal_add(
+        GLib.PRIORITY_DEFAULT, signal.SIGWINCH, controller.set_popups, False
+    )
     GLibUnix.signal_add(GLib.PRIORITY_DEFAULT, signal.SIGUSR2, adjust_gamma, 0.05)
     GLibUnix.signal_add(GLib.PRIORITY_DEFAULT, signal.SIGHUP, adjust_gamma, -0.05)
+    PID.write_text(str(os.getpid()))
     controller._apply_gamma()
     GLib.timeout_add_seconds(2, controller._apply_gamma)
     GLib.timeout_add_seconds(30, controller.schedule_tick)
