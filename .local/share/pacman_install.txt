@@ -116,3 +116,4 @@ imagemagick
 simple-scan
 anki
 file-roller
+fzf

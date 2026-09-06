@@ -7,3 +7,4 @@ opencode-bin
 tzupdate
 wl-gammarelay-rs
 openai-codex-bin
+antigen
