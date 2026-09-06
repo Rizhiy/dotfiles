@@ -16,17 +16,26 @@ notify() {
 
 load_audio_sinks() {
     if [ ! -f "$AUDIO_SINKS_FILE" ]; then
-        notify "Audio sinks config not found: $AUDIO_SINKS_FILE"
-        echo "Audio sinks config not found: $AUDIO_SINKS_FILE" >&2
-        exit 1
+        local sinks default_sink
+        sinks=$(pactl list short sinks) || return 1
+        default_sink=$(pactl get-default-sink) || return 1
+        {
+            echo '# Audio sinks for the HDMI profiles. Fill in the exact sink names below.'
+            echo '# Available sinks at creation:'
+            printf '%s\n' "$sinks" | awk 'NF { print "# " $2 }'
+            printf '# Current default sink: %s\n' "$default_sink"
+            echo "HDMI_SINK=''"
+            echo "HEADPHONES_SINK=''"
+        } > "$AUDIO_SINKS_FILE"
+        echo "Created audio sinks template: $AUDIO_SINKS_FILE"
     fi
 
     # shellcheck source=/dev/null
     source "$AUDIO_SINKS_FILE"
 
     if [ -z "${HDMI_SINK:-}" ] || [ -z "${HEADPHONES_SINK:-}" ]; then
-        notify "Audio sinks config must set HDMI_SINK and HEADPHONES_SINK"
-        echo "Audio sinks config must set HDMI_SINK and HEADPHONES_SINK" >&2
+        notify "Set HDMI_SINK and HEADPHONES_SINK in $AUDIO_SINKS_FILE"
+        echo "Set HDMI_SINK and HEADPHONES_SINK in $AUDIO_SINKS_FILE" >&2
         exit 1
     fi
 }

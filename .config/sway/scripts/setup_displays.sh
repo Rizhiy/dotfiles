@@ -2,6 +2,10 @@
 
 # Get all connected outputs with their info
 outputs_json=$(swaymsg -t get_outputs -r)
+if ! jq -e 'type == "array" and length > 0' <<< "$outputs_json" > /dev/null; then
+    echo "No output information available; leaving display configuration unchanged" >&2
+    exit 1
+fi
 
 # Config file for display order
 display_order_file="$HOME/.config/sway/display_order"
@@ -11,6 +15,30 @@ display_transforms_file="$HOME/.config/sway/display_transforms"
 display_scales_file="$HOME/.config/sway/display_scales"
 # Config file for persisted display enabled/disabled state
 display_states_file="$HOME/.config/sway/display_states"
+
+# Capture current settings before applying any persisted configuration.
+# Existing files remain authoritative, including deliberately empty ones.
+save_missing_display_config() {
+    local file="$1" header="$2" filter="$3" entries
+    [ -f "$file" ] && return 0
+    entries=$(jq -r "$filter" <<< "$outputs_json") || return 1
+    [ -z "$entries" ] && return 0
+    {
+        printf '# %s\n' "$header"
+        printf '%s\n' "$entries"
+    } > "$file" || return 1
+    echo "Saved current display settings to $file"
+}
+
+save_missing_display_config "$display_transforms_file" \
+    'Display rotations: OUTPUT_NAME TRANSFORM (normal, 90, 180, 270, flipped, flipped-90, flipped-180, flipped-270).' \
+    '.[] | select(.active == true and .transform != null) | "\(.name) \(.transform)"' || exit 1
+save_missing_display_config "$display_scales_file" \
+    'Display scales: OUTPUT_NAME SCALE. Explicit values override automatic scaling.' \
+    '.[] | select(.active == true and .scale != null) | "\(.name) \(.scale)"' || exit 1
+save_missing_display_config "$display_states_file" \
+    'Display states: OUTPUT_NAME enabled|disabled.' \
+    '.[] | "\(.name) \(if .active then "enabled" else "disabled" end)"' || exit 1
 
 # Apply persisted display states before calculating active output layout.
 if [ -f "$display_states_file" ]; then
@@ -63,11 +91,16 @@ if [ -f "$display_order_file" ]; then
         fi
     done < <(echo "$outputs_json" | jq -r '.[] | select(.active == true) | .name' | sort)
 else
-    echo "No display order file found, using sorted order"
-    # Get output names sorted
-    outputs=$(echo "$outputs_json" | jq -r '.[] | select(.active == true) | .name' | sort)
-    # Convert to array
-    readarray -t output_array <<< "$outputs"
+    echo "No display order file found, saving current left-to-right order"
+    readarray -t output_array < <(echo "$outputs_json" | jq -r \
+        '[.[] | select(.active == true)] | sort_by(.rect.x, .rect.y, .name) | .[].name')
+    if [ ${#output_array[@]} -gt 0 ]; then
+        {
+            echo "# Display order, left to right. One output name per line."
+            echo "# The first output receives odd workspaces; the second receives even workspaces."
+            printf '%s\n' "${output_array[@]}"
+        } > "$display_order_file"
+    fi
 fi
 
 # Check if we have at least one output

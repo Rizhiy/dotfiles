@@ -6,3 +6,4 @@ nordvpn-bin
 opencode-bin
 tzupdate
 wl-gammarelay-rs
+openai-codex-bin
