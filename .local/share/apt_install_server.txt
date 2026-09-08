@@ -6,7 +6,6 @@ automake
 exuberant-ctags
 highlight
 xsel
-silversearcher-ag
 libncursesw5-dev
 libpam0g-dev
 libcairo2-dev

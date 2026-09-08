@@ -1,0 +1,13 @@
+# Add completions before Oh My Zsh initializes completion support.
+zsh-users/zsh-completions path:src kind:fpath
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/pip
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+
+zsh-users/zsh-autosuggestions
+tom-doerr/zsh_codex branch:main
+romkatv/powerlevel10k
+# Load syntax highlighting after other plugins register their widgets.
+zsh-users/zsh-syntax-highlighting

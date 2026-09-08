@@ -13,17 +13,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Install plugins
-source $HOME/.local/share/antigen/antigen.zsh
-antigen bundle git
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle tom-doerr/zsh_codex@main
-antigen theme romkatv/powerlevel10k
-antigen apply
+# Configure and load plugins with Antidote.
+export ZSH_CUSTOM="$HOME/.local/share/zsh_custom"
+export ZSH_CODEX_PYTHON="$(command -v python3)"
+source /usr/share/zsh-antidote/antidote.zsh
+antidote load "$HOME/.zsh_plugins.txt"
 
 # Enable history
 export HISTFILE=~/.local/.zsh_history
@@ -43,10 +37,10 @@ stty -ixon 2>/dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Search files with fzf
 bindkey '^f' fzf-file-widget
-# Search hidden dirs as well
-export FZF_CTRL_T_COMMAND='ag --hidden --silent --ignore .git -l -g ""'
+# Use fzf's built-in file discovery, including hidden files.
+unset FZF_CTRL_T_COMMAND
 # Preview file content using bat (https://github.com/sharkdp/bat)
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}'"
+export FZF_CTRL_T_OPTS="--walker=file,dir,hidden --walker-skip=.git --preview 'bat -n --color=always {}'"
 # Preview commands to see multiple properly
 export FZF_CTRL_R_OPTS="
   --preview 'echo {}' --preview-window up:3
@@ -79,9 +73,6 @@ complete -C '/usr/local/bin/aws_completer' aws
 unsetopt autocd
 
 # AI Autocomplete
-export ZSH_CUSTOM="$HOME/.local/share/zsh_custom"
-export ZSH_CODEX_PYTHON="$(command -v python3)"
-source "$ZSH_CUSTOM/plugins/zsh_codex/zsh_codex.plugin.zsh"
 bindkey ^X create_completion
 # Allow comments in interactive shell
 setopt interactivecomments
